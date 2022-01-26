@@ -21,6 +21,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    background-color: ${({ theme }) => theme.colors.primaryBG};
   }
   img,
   picture,
@@ -36,11 +37,13 @@ const GlobalStyles = createGlobalStyle`
   select {
     font: inherit;
   }
+  a {
+    text-decoration: none;
+  }
   p {
     overflow-wrap: break-word;
     color: ${({ theme }) => theme.colors.paragraph};
   }
-
   h1,
   h2,
   h3,

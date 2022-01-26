@@ -11,7 +11,7 @@ export const LightTheme = {
 		heading: '#23272f',
 		paragraph: '#404756',
 		paragraphLight: '#99A1B3',
-		border: '#444c56',
+		border: '#E4E5E9',
 		inputBG: '#EBECF0',
 		// misc
 		boxShadow: '',
@@ -28,7 +28,7 @@ export const LightTheme = {
 		width: '1275px'
 	},
 	mobile: {
-		width: '768px'
+		width: '718px'
 	}
 };
 
@@ -42,7 +42,7 @@ export const DarkTheme = {
 		heading: '#f6f7f9',
 		paragraph: '#EBECF0',
 		paragraphLight: '#99A1B3',
-		border: '#f5f5f5',
+		border: '#323844',
 		inputBG: '#343A46',
 		// misc
 		transition: 'ease .2s',
@@ -60,7 +60,7 @@ export const DarkTheme = {
 		width: '1275px'
 	},
 	mobile: {
-		width: '768px'
+		width: '718px'
 	}
 };
 

@@ -1,17 +1,17 @@
+import { Link } from 'react-router-dom';
+import SearchBar from './SearchBar';
 // styles
 import {
 	StyledHeader,
 	StyledNav,
 	StyledLogo,
-	StyledSearchBar,
-	InputSearchIcon,
 	SearchIcon,
 	SunIcon,
 	MoonIcon
 } from './styles/Header.styled';
 import { Container, Flex } from './styles/Utils.styled';
 
-const Header = ({ theme, setTheme }) => {
+const Header = ({ theme, setTheme, spots }) => {
 	const toggleTheme = () => {
 		return theme === 'light' ? setTheme('dark') : setTheme('light');
 	};
@@ -30,15 +30,14 @@ const Header = ({ theme, setTheme }) => {
 				<StyledNav>
 					{/* Logo */}
 					<StyledLogo>
-						<img src="./logo.svg" />
-						<h1>GoSurf</h1>
-						<p>Beta</p>
+						<Link to="/">
+							<img src="../logo.svg" alt="gosurf logo" />
+							<h1>GoSurf</h1>
+							<p>Beta</p>
+						</Link>
 					</StyledLogo>
 					{/* SearchBar */}
-					<StyledSearchBar>
-						<InputSearchIcon />
-						<input type="text" placeholder="Search spot" />
-					</StyledSearchBar>
+					<SearchBar spots={spots} />
 					{/* Widgets */}
 					<Flex>
 						<SearchIcon />

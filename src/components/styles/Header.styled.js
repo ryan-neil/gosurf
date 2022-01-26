@@ -1,11 +1,11 @@
-import styled from 'styled-components';
 // https://fonts.google.com/icons?selected=Material+Icons
+import styled from 'styled-components';
 import { Search, LightMode, DarkMode } from '@styled-icons/material';
 
 // Header
 export const StyledHeader = styled.header`
 	background-color: ${({ theme }) => theme.colors.primaryBG};
-	padding: 20px 0;
+	padding: 0.5rem 0;
 	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 `;
 
@@ -18,9 +18,11 @@ export const StyledNav = styled.nav`
 
 // Logo
 export const StyledLogo = styled.div`
-	display: flex;
-	align-items: center;
-	cursor: pointer;
+	a {
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+	}
 	img {
 		height: 36px;
 		width: 36px;
@@ -42,40 +44,6 @@ export const StyledLogo = styled.div`
 		border-radius: .25rem;
 		text-transform: uppercase;
 	}
-`;
-
-// SearchBar
-export const StyledSearchBar = styled.div`
-	background-color: ${({ theme }) => theme.colors.inputBG};
-	display: flex;
-	align-items: center;
-	height: 2.5rem;
-	padding: 0.25rem 1rem;
-	border-radius: .5rem;
-	box-shadow: ${({ theme }) => theme.colors.boxShadowInset};
-	input {
-		color: ${({ theme }) => theme.colors.paragraph};
-		font-size: .9rem;
-		letter-spacing: .025em;
-		text-align: left;
-		background: transparent;
-		border: none;
-		/* outline: none; */
-		&::placeholder {
-			color: ${({ theme }) => theme.colors.paragraphLight};
-		}
-	}
-
-	/* Responsive Queries */
-	@media (max-width: ${({ theme }) => theme.mobile.width}) {
-		display: none;
-	}
-`;
-// SearchBar Icon
-export const InputSearchIcon = styled(Search)`
-  color: ${({ theme }) => theme.colors.paragraphLight};
-  width: 1rem;
-  margin-right: .5rem;
 `;
 
 // Search Icon

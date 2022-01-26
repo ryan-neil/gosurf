@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
 	width: ${({ theme }) => theme.web.width};
@@ -10,6 +10,9 @@ export const Container = styled.div`
 export const Flex = styled.div`
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
+	${(props) => props.gapSm && css`gap: 0.5rem;`};
+	${(props) => props.gapMd && css`gap: 1rem;`};
 `;
 
 export const FlexCol = styled.div`
