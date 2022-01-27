@@ -72,14 +72,15 @@ const SearchBarIcon = styled(Search)`
 `;
 
 const SearchBar = () => {
-	const { spots } = useContext(SpotsContext);
+	// console.log('SearchBar Component render!');
+	const { spotsData } = useContext(SpotsContext);
 	const [ search, setSearch ] = useState([]);
 
 	const handleSearch = (e) => {
 		// get users' searched word
 		const searchWord = e.target.value;
 		// filter for matching spots
-		const filteredResults = spots.filter((spot) =>
+		const filteredResults = spotsData.filter((spot) =>
 			spot.name.toLowerCase().includes(searchWord.toLowerCase())
 		);
 		// update search state

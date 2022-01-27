@@ -5,8 +5,9 @@ const StyledBanner = styled.section`
 	justify-content: space-between;
 `;
 
-const Banner = ({ weatherData }) => {
-	console.log(weatherData);
+const Banner = ({ data }) => {
+	// console.log('Banner Component render!');
+	console.log(data);
 
 	return (
 		<StyledBanner>
