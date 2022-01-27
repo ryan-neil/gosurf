@@ -6,6 +6,8 @@ const StyledBanner = styled.section`
 `;
 
 const Banner = ({ weatherData }) => {
+	console.log(weatherData);
+
 	return (
 		<StyledBanner>
 			<div>

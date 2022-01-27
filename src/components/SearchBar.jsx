@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import SpotsContext from '../context/SpotsContext';
 
 // styles
 import styled from 'styled-components';
@@ -70,7 +71,8 @@ const SearchBarIcon = styled(Search)`
   margin-right: .5rem;
 `;
 
-const SearchBar = ({ spots }) => {
+const SearchBar = () => {
+	const { spots } = useContext(SpotsContext);
 	const [ search, setSearch ] = useState([]);
 
 	const handleSearch = (e) => {

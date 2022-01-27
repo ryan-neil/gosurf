@@ -10,7 +10,6 @@ export const Container = styled.div`
 export const Flex = styled.div`
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
 	${(props) => props.gapSm && css`gap: 0.5rem;`};
 	${(props) => props.gapMd && css`gap: 1rem;`};
 `;

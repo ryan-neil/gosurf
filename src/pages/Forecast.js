@@ -5,15 +5,18 @@
  * Response = await fetch(urlOpenWeather, { method: 'GET' })
  */
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import Loading from '../components/Loading';
+// context
+import SpotsContext from '../context/SpotsContext';
 // components
 import Banner from '../components/Banner';
+import Loading from '../components/Loading';
 // styles
 import { Container } from '../components/styles/Utils.styled';
 
-const Forecast = ({ isLoading }) => {
+const Forecast = () => {
+	const { isLoading } = useContext(SpotsContext);
 	const [ weatherData, setWeatherData ] = useState([]);
 	const { slug } = useParams();
 	let navigate = useNavigate();
@@ -26,26 +29,31 @@ const Forecast = ({ isLoading }) => {
 
 	// check if url param matches any spots in the database
 	// BUG: Not working...
-	if (!filteredSpot) navigate('/');
+	if (!surfSpot) navigate('/');
 
 	// fetch openweather data
-	useEffect(() => {
-		const fetchWeatherData = async () => {
-			const API_KEY = '3a376daf7ce64b0cc673839620a5e520';
-			const API_URL = `http://api.openweathermap.org/data/2.5/onecall?lat=${surfSpot.lat}&lon=${surfSpot.lon}&exclude=hourly,daily&units=imperial&appid=${API_KEY}`;
+	useEffect(
+		() => {
+			const fetchWeatherData = async () => {
+				const API_KEY = '3a376daf7ce64b0cc673839620a5e520';
+				const API_URL = `http://api.openweathermap.org/data/2.5/onecall?lat=${surfSpot.lat}&lon=${surfSpot.lon}&exclude=hourly,daily&units=imperial&appid=${API_KEY}`;
 
-			try {
-				const res = await fetch(API_URL);
-				const data = await res.json();
-				console.log(data);
+				try {
+					const res = await fetch(API_URL);
+					const data = await res.json();
 
-				setWeatherData(data);
-			} catch (err) {
-				console.log(err);
-			}
-		};
-		fetchWeatherData();
-	}, []);
+					// BUG: on second reload data is not populated (empty array)
+					// work-around is to save to local storage, like with spots
+
+					setWeatherData(data);
+				} catch (err) {
+					console.log(err);
+				}
+			};
+			fetchWeatherData();
+		},
+		[ surfSpot.lat, surfSpot.lon ]
+	);
 
 	return (
 		<main>

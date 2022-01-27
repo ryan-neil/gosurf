@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+// components
 import SearchBar from './SearchBar';
 // styles
 import {
@@ -11,7 +12,7 @@ import {
 } from './styles/Header.styled';
 import { Container, Flex } from './styles/Utils.styled';
 
-const Header = ({ theme, setTheme, spots }) => {
+const Header = ({ theme, setTheme }) => {
 	const toggleTheme = () => {
 		return theme === 'light' ? setTheme('dark') : setTheme('light');
 	};
@@ -37,7 +38,7 @@ const Header = ({ theme, setTheme, spots }) => {
 						</Link>
 					</StyledLogo>
 					{/* SearchBar */}
-					<SearchBar spots={spots} />
+					<SearchBar />
 					{/* Widgets */}
 					<Flex>
 						<SearchIcon />
