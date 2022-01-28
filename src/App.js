@@ -24,7 +24,10 @@ function App() {
 						<Header theme={theme} setTheme={setTheme} />
 						<Routes>
 							<Route path="/" element={<Home />} />
-							<Route path="/forecast/:slug" element={<Forecast />} />
+							<Route
+								path="/forecast/:slug"
+								element={<Forecast />}
+							/>
 							<Route path="*" element={<Missing />} />
 						</Routes>
 					</div>

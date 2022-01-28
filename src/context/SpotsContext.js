@@ -8,6 +8,8 @@ export const SpotsDataProvider = ({ children }) => {
 	const { data: spotsData } = useFetch({
 		url: 'http://localhost:9001/spots'
 	});
+	// add all spots to local storage
+	localStorage.setItem('spotsData', JSON.stringify(spotsData));
 
 	return (
 		<SpotsContext.Provider

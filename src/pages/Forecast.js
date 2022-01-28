@@ -1,4 +1,6 @@
+import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
+import SpotsContext from '../context/SpotsContext';
 // hooks
 import { useFetch } from '../hooks/useFetch';
 // components
@@ -8,13 +10,13 @@ import Loading from '../components/Loading';
 import { Container } from '../components/styles/Utils.styled';
 
 const Forecast = () => {
-	// console.log('Forecast Component render');
+	const { spotsData } = useContext(SpotsContext);
 	const { slug } = useParams();
 
 	// grab the spots data from local storage
 	const localSpotsData = JSON.parse(localStorage.getItem('spotsData')); // BUG: potential bug where user visits Forecast page for the first time and doesn't have locally saved data from the Home page
 	// return the object (spot) that matches the value of the params coming in
-	const filteredSpot = localSpotsData.filter((spot) => spot.slug === slug);
+	const filteredSpot = spotsData.filter((spot) => spot.slug === slug);
 	const surfSpot = filteredSpot[0];
 
 	// fetch weather data
@@ -33,7 +35,7 @@ const Forecast = () => {
 							<h2>{`${surfSpot.name}, ${surfSpot.location
 								.county}, ${surfSpot.location.state}`}</h2>
 						</div>
-						<Banner data={data} />
+						<Banner />
 					</div>
 				) : (
 					<Loading />

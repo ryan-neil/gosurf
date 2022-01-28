@@ -72,7 +72,6 @@ const SearchBarIcon = styled(Search)`
 `;
 
 const SearchBar = () => {
-	// console.log('SearchBar Component render!');
 	const { spotsData } = useContext(SpotsContext);
 	const [ search, setSearch ] = useState([]);
 

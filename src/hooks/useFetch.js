@@ -1,3 +1,5 @@
+// tutorial: https://www.youtube.com/watch?v=dH6i3GurZW8
+
 import { useEffect, useState } from 'react';
 
 export const useFetch = (options) => {
@@ -7,7 +9,6 @@ export const useFetch = (options) => {
 
 	useEffect(
 		() => {
-			// console.log('useFetch useEffect');
 			let isMounted = true;
 
 			const fetchData = async () => {
@@ -30,6 +31,12 @@ export const useFetch = (options) => {
 				}
 			};
 			fetchData();
+
+			const cleanUp = () => {
+				isMounted = false;
+			};
+
+			return cleanUp;
 		},
 		[ options.url ]
 	);
