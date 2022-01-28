@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-export const useFetch = (options) => {
+export const useFetch = (url) => {
 	const [ data, setData ] = useState(null);
 	const [ fetchError, setFetchError ] = useState(null);
 	const [ isLoading, setIsLoading ] = useState(false);
@@ -14,9 +14,9 @@ export const useFetch = (options) => {
 			const fetchData = async () => {
 				setIsLoading(true);
 				try {
-					const res = await fetch(options.url);
+					const res = await fetch(url);
+					const apiData = await res.json();
 					if (isMounted) {
-						const apiData = await res.json();
 						setData(apiData);
 						setFetchError(null);
 					}
@@ -26,7 +26,6 @@ export const useFetch = (options) => {
 						setData(null);
 					}
 				} finally {
-					// isMounted && setTimeout(() => setIsLoading(false), 3000);
 					setIsLoading(false);
 				}
 			};
@@ -38,7 +37,7 @@ export const useFetch = (options) => {
 
 			return cleanUp;
 		},
-		[ options.url ]
+		[ url ]
 	);
 
 	return {

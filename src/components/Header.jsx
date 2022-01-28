@@ -12,7 +12,7 @@ import {
 } from './styles/Header.styled';
 import { Container, Flex } from './styles/Utils.styled';
 
-const Header = ({ theme, setTheme }) => {
+const Header = ({ theme, setTheme, spots }) => {
 	const toggleTheme = () => {
 		return theme === 'light' ? setTheme('dark') : setTheme('light');
 	};
@@ -38,7 +38,7 @@ const Header = ({ theme, setTheme }) => {
 						</Link>
 					</StyledLogo>
 					{/* SearchBar */}
-					<SearchBar />
+					<SearchBar spots={spots} />
 					{/* Widgets */}
 					<Flex>
 						<SearchIcon />

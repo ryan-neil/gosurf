@@ -1,7 +1,5 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import SpotsContext from '../context/SpotsContext';
-
 // styles
 import styled from 'styled-components';
 import { Search } from '@styled-icons/material';
@@ -13,7 +11,7 @@ const StyledSearchBar = styled.div`
 		align-items: center;
 		height: 2.5rem;
 		padding: 0.25rem 1rem;
-		border-radius: .5rem;
+		border-radius: 0.5rem;
 		box-shadow: ${({ theme }) => theme.colors.boxShadowInset};
 		input {
 			color: ${({ theme }) => theme.colors.paragraph};
@@ -71,15 +69,16 @@ const SearchBarIcon = styled(Search)`
   margin-right: .5rem;
 `;
 
-const SearchBar = () => {
-	const { spotsData } = useContext(SpotsContext);
+const SearchBar = ({ spots }) => {
+	// console.log(spots);
+
 	const [ search, setSearch ] = useState([]);
 
 	const handleSearch = (e) => {
 		// get users' searched word
 		const searchWord = e.target.value;
 		// filter for matching spots
-		const filteredResults = spotsData.filter((spot) =>
+		const filteredResults = spots.filter((spot) =>
 			spot.name.toLowerCase().includes(searchWord.toLowerCase())
 		);
 		// update search state
@@ -88,7 +87,7 @@ const SearchBar = () => {
 
 	const handleClick = () => {
 		// 1. set input value to clicked spot
-		// 2. close dropdown
+		// 2. close the dropdown
 		setSearch([]);
 	};
 

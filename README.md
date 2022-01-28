@@ -19,3 +19,6 @@ This is the new repo for GoSurf.io. This is a React rebuild.
   8. Use the returned data to set the forecast heading (spot name, spot county, and spot state)
   9. Pass the returned OpenWeather data to the `Banner` component
   10. Inside the `Banner` component, render elements with the data from OpenWeather
+
+Resource:
+  * https://stackoverflow.com/questions/67014759/why-my-react-component-rendering-multiple-times

@@ -3,6 +3,9 @@ import { Flex } from './styles/Utils.styled';
 const StyledBanner = styled.section`
 	display: flex;
 	justify-content: space-between;
+	background-color: ${({ theme }) => theme.colors.secondaryBG};
+	padding: 1rem;
+	border-radius: 0.5rem;
 `;
 
 const Banner = () => {

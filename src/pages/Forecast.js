@@ -1,6 +1,4 @@
-import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import SpotsContext from '../context/SpotsContext';
 // hooks
 import { useFetch } from '../hooks/useFetch';
 // components
@@ -9,25 +7,22 @@ import Loading from '../components/Loading';
 // styles
 import { Container } from '../components/styles/Utils.styled';
 
-const Forecast = () => {
-	const { spotsData } = useContext(SpotsContext);
+const Forecast = ({ spots }) => {
 	const { slug } = useParams();
 
-	// grab the spots data from local storage
-	const localSpotsData = JSON.parse(localStorage.getItem('spotsData')); // BUG: potential bug where user visits Forecast page for the first time and doesn't have locally saved data from the Home page
-	// return the object (spot) that matches the value of the params coming in
-	const filteredSpot = spotsData.filter((spot) => spot.slug === slug);
+	const filteredSpot = spots.filter((spot) => spot.slug === slug);
 	const surfSpot = filteredSpot[0];
 
 	// fetch weather data
-	const { data, isLoading } = useFetch({
-		url: `http://api.openweathermap.org/data/2.5/onecall?lat=${surfSpot.lat}&lon=${surfSpot.lon}&exclude=hourly,daily&units=imperial&appid=${process
+	const { data, isLoading } = useFetch(
+		`http://api.openweathermap.org/data/2.5/onecall?lat=${surfSpot.lat}&lon=${surfSpot.lon}&exclude=hourly,daily&units=imperial&appid=${process
 			.env.REACT_APP_OW_KEY}`
-	});
+	);
 
 	return (
 		<main>
 			<div className="header-background" />
+			<h2>Forecast Page</h2>
 			<Container>
 				{!isLoading ? (
 					<div>
