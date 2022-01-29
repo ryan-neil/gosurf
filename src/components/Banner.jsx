@@ -1,3 +1,4 @@
+// styles
 import styled from 'styled-components';
 import { Flex } from './styles/Utils.styled';
 const StyledBanner = styled.section`
@@ -8,7 +9,13 @@ const StyledBanner = styled.section`
 	border-radius: 0.5rem;
 `;
 
-const Banner = () => {
+const Banner = ({ data }) => {
+	// check if data is null before using it...
+	console.log(data);
+
+	// const temp = spot.current.temp;
+	// console.log(temp);
+
 	return (
 		<StyledBanner>
 			<div>

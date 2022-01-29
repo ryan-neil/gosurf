@@ -1,4 +1,6 @@
+import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
+import SpotsContext from '../context/SpotsContext';
 // hooks
 import { useFetch } from '../hooks/useFetch';
 // components
@@ -7,7 +9,8 @@ import Loading from '../components/Loading';
 // styles
 import { Container } from '../components/styles/Utils.styled';
 
-const Forecast = ({ spots }) => {
+const Forecast = () => {
+	const { spots } = useContext(SpotsContext);
 	const { slug } = useParams();
 
 	const filteredSpot = spots.filter((spot) => spot.slug === slug);
@@ -29,7 +32,7 @@ const Forecast = ({ spots }) => {
 							<h2>{`${surfSpot.name}, ${surfSpot.location
 								.county}, ${surfSpot.location.state}`}</h2>
 						</div>
-						<Banner />
+						<Banner data={data} />
 					</div>
 				) : (
 					<Loading />
