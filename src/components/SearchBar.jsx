@@ -70,8 +70,6 @@ const SearchBarIcon = styled(Search)`
 `;
 
 const SearchBar = ({ spots }) => {
-	// console.log(spots);
-
 	const [ search, setSearch ] = useState([]);
 
 	const handleSearch = (e) => {

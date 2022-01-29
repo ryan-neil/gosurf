@@ -22,7 +22,6 @@ const Forecast = ({ spots }) => {
 	return (
 		<main>
 			<div className="header-background" />
-			<h2>Forecast Page</h2>
 			<Container>
 				{!isLoading ? (
 					<div>

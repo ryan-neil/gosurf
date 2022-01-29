@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useFetch } from './hooks/useFetch';
 import { useLocalStorage } from './hooks/useLocalStorage';
 // Global Styles
@@ -14,17 +14,19 @@ import Forecast from './pages/Forecast';
 import Missing from './pages/Missing';
 
 function App() {
-	console.log('App render!');
-
 	const [ theme, setTheme ] = useState('dark');
 	const { data } = useFetch('http://localhost:9001/spots');
 	const [ spots, setSpots ] = useLocalStorage('spots', data);
-	const [ name, setName ] = useLocalStorage('name', 'Ryan');
-	console.log(spots);
 
-	// window.localStorage.setItem('spots', JSON.stringify(data)); // set ls
-	// const localSpotsData = window.localStorage.getItem('spots'); // get ls
-	// console.log(localSpotsData);
+	// check if local spots data exists before setting spots state
+	useEffect(
+		() => {
+			if (data) {
+				setSpots(data);
+			}
+		},
+		[ data ]
+	);
 
 	return (
 		<ThemeProvider theme={mode[theme]}>
@@ -34,7 +36,10 @@ function App() {
 					<Header theme={theme} setTheme={setTheme} spots={spots} />
 					<Routes>
 						<Route path="/" element={<Home />} />
-						<Route path="/forecast/:slug" element={<Forecast />} />
+						<Route
+							path="/forecast/:slug"
+							element={<Forecast spots={spots} />}
+						/>
 						<Route path="*" element={<Missing />} />
 					</Routes>
 				</div>

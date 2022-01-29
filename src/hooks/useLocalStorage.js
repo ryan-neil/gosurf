@@ -1,65 +1,32 @@
 // https://usehooks.com/useLocalStorage/
 // https://designcode.io/react-hooks-handbook-uselocalstorage-hook
+// Kent C. Dodds: https://www.youtube.com/watch?v=yu3dnHrnps4
+// useLocalStorage with API fetch: https://www.youtube.com/watch?v=vbiQFJw12GY
 
 import { useState, useEffect } from 'react';
 
-export const useLocalStorage = (key, initialValue) => {
-	// State to store our value
-	// Pass initial state function to useState so logic is only executed once
-	const [ storedValue, setStoredValue ] = useState(() => {
+// need to check if local data is null before parsing and setting the data
+export const useLocalStorage = (key, defaultValue) => {
+	const [ value, setValue ] = useState(() => {
+		let value;
+
 		try {
-			// Get from local storage by key
-			const item = window.localStorage.getItem(key);
-			// Parse stored json or if none return initialValue
-			return item ? JSON.parse(item) : initialValue;
+			value = JSON.parse(
+				window.localStorage.getItem(key) || String(defaultValue)
+			);
 		} catch (error) {
-			// If error also return initialValue
-			console.log(error);
-			return initialValue;
+			value = defaultValue;
 		}
+
+		return value;
 	});
 
-	// Return a wrapped version of useState's setter function that ...
-	// ... persists the new value to localStorage.
-	const setValue = (value) => {
-		try {
-			// Allow value to be a function so we have same API as useState
-			const valueToStore =
-				value instanceof Function ? value(storedValue) : value;
-			// Save state
-			setStoredValue(valueToStore);
-			// Save to local storage
-			window.localStorage.setItem(key, JSON.stringify(valueToStore));
-		} catch (error) {
-			// A more advanced implementation would handle the error case
-			console.log(error);
-		}
-	};
+	useEffect(
+		() => {
+			window.localStorage.setItem(key, JSON.stringify(value));
+		},
+		[ key, value ]
+	);
 
-	return [ storedValue, setValue ];
+	return [ value, setValue ];
 };
-
-// export const useLocalStorage = (key, defaultValue) => {
-// 	const [ value, setValue ] = useState(() => {
-// 		let currentValue;
-
-// 		try {
-// 			currentValue = JSON.parse(
-// 				localStorage.getItem(key) || String(defaultValue)
-// 			);
-// 		} catch (error) {
-// 			currentValue = defaultValue;
-// 		}
-
-// 		return currentValue;
-// 	});
-
-// 	useEffect(
-// 		() => {
-// 			localStorage.setItem(key, JSON.stringify(value));
-// 		},
-// 		[ value, key ]
-// 	);
-
-// 	return [ value, setValue ];
-// };
