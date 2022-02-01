@@ -1,26 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import { useTimeout } from './useTimeout';
 
-export const useDebounce = (value, timeout, callback) => {
-	// set state
-	const [ timer, setTimer ] = useState(null);
-
-	// clear timer
-	const clearTimer = () => {
-		// clear timeout only if timer is active
-		if (timer) clearTimeout(timer);
-	};
-
-	useEffect(
-		() => {
-			// clear the timer
-			clearTimer();
-
-			if (value && callback) {
-				const newTimer = setTimeout(callback, timeout);
-				// set the timer to the new timer
-				setTimer(newTimer);
-			}
-		},
-		[ value ]
-	);
+export const useDebounce = (callback, delay, dependencies) => {
+	const { reset, clear } = useTimeout(callback, delay);
+	useEffect(reset, [ ...dependencies, reset ]);
+	useEffect(clear, []);
 };

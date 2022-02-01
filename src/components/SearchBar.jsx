@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import SpotsContext from '../context/SpotsContext';
+// import { useDebounce } from '../hooks/useDebounce';
 // styles
 import styled from 'styled-components';
 import { Search } from '@styled-icons/material';
@@ -12,7 +13,7 @@ const StyledSearchBar = styled.div`
 		align-items: center;
 		height: 2.5rem;
 		padding: 0.25rem 1rem;
-		border-radius: 0.5rem;
+		border-radius: ${({ theme }) => theme.styles.borderRadiusMd};
 		box-shadow: ${({ theme }) => theme.colors.boxShadowInset};
 		input {
 			color: ${({ theme }) => theme.colors.paragraph};
@@ -37,7 +38,7 @@ const StyledSearchBar = styled.div`
 		font-size: 0.9rem;
 		background-color: ${({ theme }) => theme.colors.primaryBG};
 		border: 1px solid ${({ theme }) => theme.colors.border};
-		border-radius: .35rem;
+		border-radius: ${({ theme }) => theme.styles.borderRadiusMd};
 		overflow: hidden;
 		overflow-y: auto;
 		/* Hide scrollbar */
@@ -72,32 +73,39 @@ const SearchBarIcon = styled(Search)`
 
 const SearchBar = () => {
 	const { spots } = useContext(SpotsContext);
-	const [ search, setSearch ] = useState([]);
+	const [ inputValue, setInputValue ] = useState('');
+	const [ searchText, setSearchText ] = useState('');
+	const [ searchResults, setSearchResults ] = useState([]);
 
 	const handleSearch = (e) => {
+		// set the input value to users input
+		setInputValue(e.target.value);
 		// get users' searched word
-		const searchWord = e.target.value;
+		setSearchText(e.target.value);
 		// filter for matching spots
 		const filteredResults = spots.filter((spot) =>
-			spot.name.toLowerCase().includes(searchWord.toLowerCase())
+			spot.name.toLowerCase().includes(searchText.toLowerCase())
 		);
 		// update search state
-		searchWord === '' ? setSearch([]) : setSearch(filteredResults);
+		searchText === ''
+			? setSearchResults([])
+			: setSearchResults(filteredResults);
 	};
 
-	const handleClick = () => {
-		// 1. set input value to clicked spot
-		// 2. close the dropdown
-		setSearch([]);
+	const handleClick = (spot) => {
+		// set input value to clicked spot
+		setInputValue(`${spot.name}, ${spot.location.state}`);
+		// close the dropdown
+		setSearchResults([]);
 	};
 
 	// loop through search results and render the element
-	const results = search.map((spot) => (
+	const results = searchResults.map((spot) => (
 		<Link
 			key={spot.id}
 			className="results-item"
 			to={`/forecast/${spot.slug}`}
-			onClick={handleClick}
+			onClick={() => handleClick(spot)}
 		>
 			<p>{`${spot.name}, ${spot.location.state}`}</p>
 		</Link>
@@ -110,10 +118,11 @@ const SearchBar = () => {
 				<input
 					type="text"
 					placeholder="Search spot"
+					value={inputValue}
 					onChange={handleSearch}
 				/>
 			</div>
-			{search.length !== 0 && (
+			{searchResults.length !== 0 && (
 				<div className="results-container">{results}</div>
 			)}
 		</StyledSearchBar>

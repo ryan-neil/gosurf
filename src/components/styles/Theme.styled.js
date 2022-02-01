@@ -14,15 +14,23 @@ export const LightTheme = {
 		border: '#E4E5E9',
 		inputBG: '#EBECF0',
 		// misc
-		boxShadow: '',
-		boxShadowInset: 'inset 0 1px 4px 0 rgba(0,0,0,0.05);',
 		tertiary: '#FFAD42',
+		danger: '#da3633',
+		dangerBG: 'rgba(218, 54, 51, 0.2)',
+		success: '#45fa39',
 		green: '#45fa39',
 		orange: '#f0883e',
 		red: '#da3633',
 		pink: '#d961a1',
 		violet: '#8957e5',
 		blue: '#378afc'
+	},
+	styles: {
+		transition: 'ease .2s',
+		borderRadiusSm: '0.25rem',
+		borderRadiusMd: '0.35rem',
+		boxShadow: '0 1px 4px 0 rgba(0, 0, 0, .05)',
+		boxShadowInset: 'inset 0 1px 4px 0 rgba(0,0,0,0.05);'
 	},
 	web: {
 		width: '1275px'
@@ -45,16 +53,23 @@ export const DarkTheme = {
 		border: '#323844',
 		inputBG: '#343A46',
 		// misc
-		transition: 'ease .2s',
-		boxShadow: '0 1px 4px 0 rgba(0, 0, 0, .05)',
-		boxShadowInset: 'inset 0 1px 4px 0 rgba(0, 0, 0, .05)',
 		tertiary: '#FFAD42',
+		danger: '#da3633',
+		dangerBG: 'rgba(218, 54, 51, 0.2)',
+		success: '#45fa39',
 		green: '#45fa39',
 		orange: '#f0883e',
 		red: '#da3633',
 		pink: '#d961a1',
 		violet: '#8957e5',
 		blue: '#378afc'
+	},
+	styles: {
+		transition: 'ease .2s',
+		borderRadiusSm: '0.25rem',
+		borderRadiusMd: '0.35rem',
+		boxShadow: '0 1px 4px 0 rgba(0, 0, 0, .05)',
+		boxShadowInset: 'inset 0 1px 4px 0 rgba(0,0,0,0.05);'
 	},
 	web: {
 		width: '1275px'

@@ -4,8 +4,10 @@ import SpotsContext from '../context/SpotsContext';
 // hooks
 import { useFetch } from '../hooks/useFetch';
 // components
+import ForecastHeader from '../components/ForecastHeader';
 import Banner from '../components/Banner';
 import Loading from '../components/Loading';
+import FetchError from '../components/FetchError';
 // styles
 import { Container } from '../components/styles/Utils.styled';
 
@@ -17,7 +19,7 @@ const Forecast = () => {
 	const surfSpot = filteredSpot[0];
 
 	// fetch weather data
-	const { data, isLoading } = useFetch(
+	const { data, isLoading, fetchError } = useFetch(
 		`http://api.openweathermap.org/data/2.5/onecall?lat=${surfSpot.lat}&lon=${surfSpot.lon}&exclude=hourly,daily&units=imperial&appid=${process
 			.env.REACT_APP_OW_KEY}`
 	);
@@ -26,17 +28,16 @@ const Forecast = () => {
 		<main>
 			<div className="header-background" />
 			<Container>
-				{!isLoading ? (
+				{isLoading && <Loading />}
+				{!isLoading &&
+				!fetchError && (
 					<div>
-						<div className="forecast-header">
-							<h2>{`${surfSpot.name}, ${surfSpot.location
-								.county}, ${surfSpot.location.state}`}</h2>
-						</div>
-						<Banner data={data} />
+						<ForecastHeader surfSpot={surfSpot} />
+						<Banner data={data} fetchError={fetchError} />
 					</div>
-				) : (
-					<Loading />
 				)}
+				{!isLoading &&
+				fetchError && <FetchError fetchError={fetchError} />}
 			</Container>
 		</main>
 	);

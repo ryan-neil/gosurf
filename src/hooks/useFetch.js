@@ -15,6 +15,7 @@ export const useFetch = (url) => {
 				setIsLoading(true);
 				try {
 					const res = await fetch(url);
+					if (!res.ok) throw new Error(`HTTP Error: ${res.status}`);
 					const apiData = await res.json();
 					if (isMounted) {
 						setData(apiData);

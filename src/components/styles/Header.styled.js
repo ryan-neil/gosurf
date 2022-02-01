@@ -41,7 +41,7 @@ export const StyledLogo = styled.div`
 		font-size: 0.7rem;
 		padding: 0 .25rem;
 		letter-spacing: .025em;
-		border-radius: .25rem;
+		border-radius: ${({ theme }) => theme.styles.borderRadiusSm};
 		text-transform: uppercase;
 	}
 `;
@@ -55,7 +55,7 @@ export const SearchIcon = styled(Search)`
   margin-right: .5rem;
   padding-left: .25rem;
   padding-right: .25rem;
-  border-radius: .25rem;
+  border-radius: ${({ theme }) => theme.styles.borderRadiusSm};
   cursor: pointer;
   &:hover {
     background-color: ${({ theme }) => theme.colors.secondaryBG};
@@ -72,7 +72,7 @@ export const SunIcon = styled(LightMode)`
 	height: 1.8rem;
   padding-left: .25rem;
   padding-right: .25rem;
-  border-radius: .25rem;
+  border-radius: ${({ theme }) => theme.styles.borderRadiusSm};
   cursor: pointer;
   transition: ${({ theme }) => theme.colors.transition};
   &:hover {
@@ -86,7 +86,7 @@ export const MoonIcon = styled(DarkMode)`
 	height: 1.8rem;
   padding-left: .25rem;
   padding-right: .25rem;
-  border-radius: .25rem;
+  border-radius: ${({ theme }) => theme.styles.borderRadiusSm};
   cursor: pointer;
   &:hover {
     background-color: ${({ theme }) => theme.colors.secondaryBG};
