@@ -5,10 +5,11 @@ const StyledError = styled.div`
 	}
 `;
 
-const FetchError = ({ fetchError }) => {
+const FetchError = ({ error }) => {
 	return (
 		<StyledError>
-			<p>{fetchError}</p>
+			<p>Error fetching data.</p>
+			{/* <p>Error fetching data. ({error})</p> */}
 		</StyledError>
 	);
 };

@@ -1,7 +1,6 @@
 import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import SpotsContext from '../context/SpotsContext';
-// import { useDebounce } from '../hooks/useDebounce';
 // styles
 import styled from 'styled-components';
 import { Search } from '@styled-icons/material';
@@ -12,10 +11,11 @@ const StyledSearchBar = styled.div`
 		display: flex;
 		align-items: center;
 		height: 2.5rem;
-		padding: 0.25rem 1rem;
+		padding-right: 0.5rem;
 		border-radius: ${({ theme }) => theme.styles.borderRadiusMd};
 		box-shadow: ${({ theme }) => theme.colors.boxShadowInset};
 		input {
+			padding: 0.25rem 0;
 			color: ${({ theme }) => theme.colors.paragraph};
 			font-size: .9rem;
 			letter-spacing: .025em;
@@ -66,9 +66,9 @@ const StyledSearchBar = styled.div`
 `;
 // SearchBar Icon
 const SearchBarIcon = styled(Search)`
-  color: ${({ theme }) => theme.colors.paragraphLight};
+  color: ${({ theme }) => theme.colors.heading};
   width: 1rem;
-  margin-right: .5rem;
+  margin: 0 .5rem;
 `;
 
 const SearchBar = () => {
@@ -117,7 +117,7 @@ const SearchBar = () => {
 				<SearchBarIcon />
 				<input
 					type="text"
-					placeholder="Search spot"
+					placeholder="Search spot..."
 					value={inputValue}
 					onChange={handleSearch}
 				/>

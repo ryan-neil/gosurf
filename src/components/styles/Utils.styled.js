@@ -12,6 +12,7 @@ export const Flex = styled.div`
 	align-items: center;
 	${(props) => props.gapSm && css`gap: 0.5rem;`};
 	${(props) => props.gapMd && css`gap: 1rem;`};
+	${(props) => props.spaceBetween && css`justify-content: space-between;`};
 `;
 
 export const FlexCol = styled.div`

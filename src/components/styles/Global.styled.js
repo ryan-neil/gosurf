@@ -16,7 +16,7 @@ const GlobalStyles = createGlobalStyle`
   html,
   body {
     height: 100%;
-    font-family: Ubuntu, -apple-system;
+    font-family: 'Ubuntu', -apple-system, sans-serif;
   }
   body {
     line-height: 1.5;
@@ -41,6 +41,7 @@ const GlobalStyles = createGlobalStyle`
     text-decoration: none;
   }
   p {
+    font-weight: 400;
     overflow-wrap: break-word;
     color: ${({ theme }) => theme.colors.paragraph};
   }
@@ -50,6 +51,7 @@ const GlobalStyles = createGlobalStyle`
   h4,
   h5,
   h6 {
+    font-weight: 400;
     overflow-wrap: break-word;
     color: ${({ theme }) => theme.colors.heading};
   }

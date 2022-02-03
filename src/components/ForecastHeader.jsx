@@ -1,9 +1,15 @@
-const ForecastHeader = ({ surfSpot }) => {
+import styled from 'styled-components';
+const StyledForecastHeader = styled.div`
+	margin-top: 1rem;
+	/*  */
+`;
+
+const ForecastHeader = ({ spot }) => {
 	return (
-		<div className="forecast-header">
-			<h2>{`${surfSpot.name}, ${surfSpot.location.county}, ${surfSpot
-				.location.state}`}</h2>
-		</div>
+		<StyledForecastHeader>
+			<h2>{`${spot.name}, ${spot.location.county}, ${spot.location
+				.state}`}</h2>
+		</StyledForecastHeader>
 	);
 };
 

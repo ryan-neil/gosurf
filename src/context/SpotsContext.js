@@ -1,6 +1,6 @@
 import { createContext, useEffect } from 'react';
 import { useFetch } from '../hooks/useFetch';
-import { useLocalStorage } from '../hooks/useLocalStorage';
+import { useLocalStorage } from '../hooks/useStorage';
 
 const SpotsContext = createContext({});
 

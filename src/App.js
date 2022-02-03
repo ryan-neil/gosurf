@@ -1,7 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { useFetch } from './hooks/useFetch';
-import { useLocalStorage } from './hooks/useLocalStorage';
+import { useState } from 'react';
 import { SpotsDataProvider } from './context/SpotsContext';
 // Global Styles
 import { ThemeProvider } from 'styled-components';
@@ -26,10 +24,7 @@ function App() {
 						<Header theme={theme} setTheme={setTheme} />
 						<Routes>
 							<Route path="/" element={<Home />} />
-							<Route
-								path="/forecast/:slug"
-								element={<Forecast />}
-							/>
+							<Route path="/forecast/:slug" element={<Forecast />} />
 							<Route path="*" element={<Missing />} />
 						</Routes>
 					</div>
