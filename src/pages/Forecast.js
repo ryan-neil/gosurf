@@ -4,7 +4,7 @@ import SpotsContext from '../context/SpotsContext';
 // components
 import ForecastHeader from '../components/ForecastHeader';
 import Banner from '../components/Banner';
-import Tide from '../components/Tide';
+import Tides from '../components/Tides';
 import Wind from '../components/Wind';
 // styles
 import { StyledForecast } from '../components/styles/Forecast.styled';
@@ -24,7 +24,7 @@ const Forecast = () => {
 				<ForecastHeader spot={spot} />
 				<Banner spot={spot} />
 				<div className="grid-container">
-					<Tide spot={spot} />
+					<Tides spot={spot} />
 					<Wind spot={spot} />
 				</div>
 			</Container>

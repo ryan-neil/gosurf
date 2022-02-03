@@ -41,6 +41,7 @@ const Wind = ({ spot }) => {
             '{windData.data[0].dr}' ({roundNumber(windData.data[0].d, 1)}°)
           </p>
         </div>
+        <div className="grid-item__chart"></div>
       </div>
     )}
     </>

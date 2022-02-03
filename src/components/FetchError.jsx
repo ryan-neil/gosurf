@@ -8,8 +8,7 @@ const StyledError = styled.div`
 const FetchError = ({ error }) => {
 	return (
 		<StyledError>
-			<p>Error fetching data.</p>
-			{/* <p>Error fetching data. ({error})</p> */}
+			<p>Oops: {error}</p>
 		</StyledError>
 	);
 };

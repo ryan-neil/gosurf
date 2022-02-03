@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 const StyledForecastHeader = styled.div`
 	margin-top: 1rem;
-	/*  */
+	h2 {
+		font-weight: 500;
+	}
 `;
 
 const ForecastHeader = ({ spot }) => {

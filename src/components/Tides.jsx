@@ -4,7 +4,7 @@ import { getTodaysDate, roundNumber } from '../helpers/helpers';
 import tidesIcon from '../assets/tides.svg';
 import { Flex } from './styles/Utils.styled';
 
-const Tide = ({ spot }) => {
+const Tides = ({ spot }) => {
 	// Resource: https://api.tidesandcurrents.noaa.gov/api/prod/
 
 	// fetch tide data
@@ -39,10 +39,11 @@ const Tide = ({ spot }) => {
             </Flex>
           ))}
         </div>
+        <div className="grid-item__chart"></div>
       </div>
     )}
 		</>
 	);
 };
 
-export default Tide;
+export default Tides;

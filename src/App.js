@@ -1,5 +1,5 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { SpotsDataProvider } from './context/SpotsContext';
 // Global Styles
 import { ThemeProvider } from 'styled-components';

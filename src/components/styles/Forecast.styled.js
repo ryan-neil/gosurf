@@ -12,27 +12,36 @@ export const StyledForecast = styled.main`
 		@media (max-width: ${({ theme }) => theme.mobile.width}) {
 			grid-template-columns: repeat(1, 1fr);
 		}
-	}
-	.grid-item {
-		background: ${({ theme }) => theme.colors.secondaryBG};
-		min-height: 300px;
-		height: auto;
-		padding: 1rem;
-		border-radius: ${({ theme }) => theme.styles.borderRadiusMd};
-		h3 {
-			font-size: 22px;
-		}
-		img {
-			width: 2rem;
-		}
-		.grid-item__body {
-			margin-top: 1rem;
+		.grid-item {
 			display: flex;
 			flex-direction: column;
-			gap: 0.5rem;
-			.wind-speed {
-				color: ${({ theme }) => theme.colors.heading};
-				font-size: 26px;
+			justify-content: space-between;
+			background: ${({ theme }) => theme.colors.secondaryBG};
+			min-height: 300px;
+			height: auto;
+			padding: 1rem;
+			border-radius: ${({ theme }) => theme.styles.borderRadiusMd};
+			h3 {
+				font-size: 22px;
+			}
+			img {
+				width: 2rem;
+			}
+			.grid-item__body {
+				margin: 1rem 0;
+				display: flex;
+				flex-direction: column;
+				gap: 0.5rem;
+				.wind-speed {
+					color: ${({ theme }) => theme.colors.heading};
+					font-size: 26px;
+				}
+			}
+			.grid-item__chart {
+				width: 100%;
+				min-height: 200px;
+				background-color: ${({ theme }) => theme.colors.primaryBG};
+				border-radius: ${({ theme }) => theme.styles.borderRadiusMd};
 			}
 		}
 	}
