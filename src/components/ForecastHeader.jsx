@@ -2,6 +2,7 @@ import styled from 'styled-components';
 const StyledForecastHeader = styled.div`
 	margin-top: 1rem;
 	h2 {
+		font-size: ${({ theme }) => theme.styles.textLg};
 		font-weight: 500;
 	}
 `;

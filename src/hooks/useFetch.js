@@ -2,10 +2,12 @@
 
 import { useEffect, useState } from 'react';
 
-export const useFetch = (url, dependencies = []) => {
+export const useFetch = (url, options = {}, dependencies = []) => {
 	const [ data, setData ] = useState(null);
 	const [ error, setError ] = useState(null);
 	const [ loading, setLoading ] = useState(false);
+
+	// console.log(options);
 
 	useEffect(() => {
 		let isMounted = true;
@@ -13,7 +15,7 @@ export const useFetch = (url, dependencies = []) => {
 		const fetchData = async () => {
 			setLoading(true);
 			try {
-				const res = await fetch(url);
+				const res = await fetch(url, options);
 				if (!res.ok) throw new Error(`HTTP Error: ${res.status}`);
 				const apiData = await res.json();
 				if (isMounted) {

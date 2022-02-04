@@ -1,21 +1,32 @@
 import { useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import SpotsContext from '../context/SpotsContext';
-// components
+// Components
 import ForecastHeader from '../components/ForecastHeader';
 import Banner from '../components/Banner';
+import WaveHeight from '../components/WaveHeight';
 import Tides from '../components/Tides';
 import Wind from '../components/Wind';
-// styles
-import { StyledForecast } from '../components/styles/Forecast.styled';
+import Swell from '../components/Swell';
+// Styles
+import {
+	StyledForecast,
+	StyledGridContainer
+} from '../components/styles/Forecast.styled';
 import { Container } from '../components/styles/Utils.styled';
 
 const Forecast = () => {
 	const { spots } = useContext(SpotsContext);
 	const { slug } = useParams();
+	const navigate = useNavigate();
 
 	const filteredSpot = spots.filter((spot) => spot.slug === slug);
 	const spot = filteredSpot[0];
+
+	// not working...slowly giving up
+	if (spot === undefined) {
+		navigate('*'); // 404
+	}
 
 	return (
 		<StyledForecast>
@@ -23,10 +34,12 @@ const Forecast = () => {
 			<Container>
 				<ForecastHeader spot={spot} />
 				<Banner spot={spot} />
-				<div className="grid-container">
+				<StyledGridContainer>
+					<WaveHeight spot={spot} />
 					<Tides spot={spot} />
 					<Wind spot={spot} />
-				</div>
+					<Swell spot={spot} />
+				</StyledGridContainer>
 			</Container>
 		</StyledForecast>
 	);

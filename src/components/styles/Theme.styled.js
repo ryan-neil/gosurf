@@ -25,6 +25,11 @@ export const LightTheme = {
 		blue: '#378afc'
 	},
 	styles: {
+		textXs: '11px',
+		textReg: '14px',
+		textMd: '22px',
+		textLg: '26px',
+		textXl: '32px',
 		transition: 'ease .2s',
 		borderRadiusSm: '0.25rem',
 		borderRadiusMd: '0.35rem',
@@ -63,6 +68,11 @@ export const DarkTheme = {
 		blue: '#378afc'
 	},
 	styles: {
+		textXs: '11px',
+		textReg: '14px',
+		textMd: '22px',
+		textLg: '26px',
+		textXl: '32px',
 		transition: 'ease .2s',
 		borderRadiusSm: '0.25rem',
 		borderRadiusMd: '0.35rem',

@@ -1,4 +1,4 @@
-// styles
+// Styles
 import { Container } from '../components/styles/Utils.styled';
 
 const Missing = () => {

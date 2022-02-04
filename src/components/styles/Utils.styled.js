@@ -9,6 +9,7 @@ export const Container = styled.div`
 
 export const Flex = styled.div`
 	display: flex;
+	flex-direction: row;
 	align-items: center;
 	${(props) => props.gapSm && css`gap: 0.5rem;`};
 	${(props) => props.gapMd && css`gap: 1rem;`};
@@ -19,4 +20,7 @@ export const FlexCol = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	${(props) => props.gapSm && css`gap: 0.5rem;`};
+	${(props) => props.gapMd && css`gap: 1rem;`};
+	${(props) => props.spaceBetween && css`justify-content: space-between;`};
 `;

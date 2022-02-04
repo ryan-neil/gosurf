@@ -3,43 +3,22 @@ import { useFetch } from '../hooks/useFetch';
 import Loading from './Loading'
 import FetchError from './FetchError'
 // Styles
-import styled from 'styled-components';
+import { StyledBanner } from './styles/Banner.styled';
+import { Flex } from './styles/Utils.styled';
 import waterIcon from '../assets/water.svg'
 import airIcon from '../assets/air.svg'
-import { Flex } from './styles/Utils.styled';
-const StyledBanner = styled.section`
-	.banner-container {
-		margin-top: 1rem;
-		display: flex;
-		justify-content: space-between;
-		gap: 1.4rem;
-		min-width: 100%;
-		height: auto;
-		background-color: ${({ theme }) => theme.colors.secondaryBG};
-		padding: 1rem;
-		border-radius: ${({ theme }) => theme.styles.borderRadiusMd};
-		overflow-x: scroll;
-	}
-	.banner-item {
-		height: auto;
-		min-width: 200px;
-    h4 {
-      margin-bottom: 0.5rem;
-    }
-    img {
-			width: 1.6rem;
-		}
-	}
-`;
+
 
 const Banner = ({ spot }) => {
+  // Alternative hourly forecast endpoint: `https://api.weather.gov/points/${lat},${lon}` 
+
   // fetch air temperature data
 	const airTempEndpoint = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?=&product=air_temperature&station=${spot.noaa_station_id}&date=latest&units=english&datum=MLLW&time_zone=lst_ldt&format=json&application=NOS.COOPS.TAC.TidePred&interval=hilo`;
-	const { data: airData, loading, error } = useFetch(airTempEndpoint, [ spot.noaa_station_id ]);
+	const { data: airData, loading, error } = useFetch(airTempEndpoint, {}, [ spot.noaa_station_id ]);
   
   // fetch water temperature data
 	const waterTempEndpoint = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?=&product=water_temperature&station=${spot.noaa_station_id}&date=latest&units=english&datum=MLLW&time_zone=lst_ldt&format=json&application=NOS.COOPS.TAC.TidePred&interval=hilo`;
-	const { data: waterData } = useFetch(waterTempEndpoint, [ spot.noaa_station_id ]);
+	const { data: waterData } = useFetch(waterTempEndpoint, {}, [ spot.noaa_station_id ]);
 
   if (airData && waterData) {
 		// console.log(airData);

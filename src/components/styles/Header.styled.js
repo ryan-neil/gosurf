@@ -4,16 +4,17 @@ import { Search, LightMode, DarkMode } from '@styled-icons/material';
 
 // Header
 export const StyledHeader = styled.header`
-	padding: 0.5rem 0;
 	/* box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); */
 	/* background-color: ${({ theme }) => theme.colors.primaryBG}; */
-`;
+  `;
 
 // Navbar
 export const StyledNav = styled.nav`
+	padding: 0.5rem 0;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	border-bottom: 1px solid ${({ theme }) => theme.colors.border};
 `;
 
 // Logo
@@ -29,7 +30,7 @@ export const StyledLogo = styled.div`
 		margin-right: .5rem;
 	}
 	h1 {
-		font-size: 1.6rem;
+		font-size: ${({ theme }) => theme.styles.textLg};
 		font-weight: 500;
 		margin-right: .5rem;
 		letter-spacing: .025em;
@@ -37,8 +38,7 @@ export const StyledLogo = styled.div`
 	p {
 		color: ${({ theme }) => theme.colors.primary};
 		background-color: ${({ theme }) => theme.colors.primaryLight};
-
-		font-size: 0.7rem;
+		font-size: ${({ theme }) => theme.styles.textXs};
 		padding: 0 .25rem;
 		letter-spacing: .025em;
 		border-radius: ${({ theme }) => theme.styles.borderRadiusSm};

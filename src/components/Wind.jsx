@@ -1,6 +1,7 @@
 import { useFetch } from '../hooks/useFetch';
 import { getTodaysDate, roundNumber } from '../helpers/helpers';
-// styles
+// Styles
+import { StyledGridItem } from './styles/Forecast.styled';
 import { Flex } from './styles/Utils.styled';
 import windIcon from '../assets/wind.svg';
 
@@ -9,13 +10,13 @@ const Wind = ({ spot }) => {
 
 	// fetch wind data
 	const windEndpoint = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?=&product=wind&station=${spot.noaa_station_id}&date=latest&units=english&datum=MLLW&time_zone=lst_ldt&format=json&application=NOS.COOPS.TAC.TidePred&interval=hilo`;
-	const { data: windData } = useFetch(windEndpoint, [
+	const { data: windData } = useFetch(windEndpoint, {}, [
 		spot.noaa_station_id
 	]);
 
 	// fetch hourly wind data
 	const hourlyWindEndpoint = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?=&product=wind&station=${spot.noaa_station_id}&begin_date=${getTodaysDate()}&range=24&units=english&datum=MLLW&time_zone=lst_ldt&format=json&application=NOS.COOPS.TAC.TidePred&interval=h`;
-	const { data: hourlyWindData } = useFetch(hourlyWindEndpoint, [
+	const { data: hourlyWindData } = useFetch(hourlyWindEndpoint, {}, [
 		spot.noaa_station_id
 	]);
 
@@ -27,7 +28,7 @@ const Wind = ({ spot }) => {
 	return (
     <>
     {windData && (
-      <div className="grid-item">
+      <StyledGridItem>
         <Flex gapSm>
           <img src={windIcon} alt="Wind Icon" />
           <h3>Wind</h3>
@@ -42,7 +43,7 @@ const Wind = ({ spot }) => {
           </p>
         </div>
         <div className="grid-item__chart"></div>
-      </div>
+      </StyledGridItem>
     )}
     </>
 	);
