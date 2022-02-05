@@ -3,7 +3,7 @@ import { StyledGridItem } from './styles/Forecast.styled';
 import { Flex } from './styles/Utils.styled';
 import swellIcon from '../assets/swell.svg';
 
-const Swell = ({ spot }) => {
+const Swell = () => {
 	return (
 		<StyledGridItem>
 			<Flex gapSm>

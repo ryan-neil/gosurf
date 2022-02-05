@@ -26,26 +26,26 @@ const Wind = ({ spot }) => {
 	}
 
 	return (
-    <>
-    {windData && (
-      <StyledGridItem>
-        <Flex gapSm>
-          <img src={windIcon} alt="Wind Icon" />
-          <h3>Wind</h3>
-        </Flex>
-        <div className="grid-item__body">
-          <p>Current speed:</p>
-          <p className="wind-speed">
-            {roundNumber(windData.data[0].s, 1)} kts
-          </p>
-          <p>
-            '{windData.data[0].dr}' ({roundNumber(windData.data[0].d, 1)}°)
-          </p>
-        </div>
-        <div className="grid-item__chart"></div>
-      </StyledGridItem>
-    )}
-    </>
+		<>
+			{windData && (
+				<StyledGridItem>
+					<Flex gapSm>
+						<img src={windIcon} alt="Wind Icon" />
+						<h3>Wind</h3>
+					</Flex>
+					<div className="grid-item__body">
+						<p>Current speed:</p>
+						<p className="wind-speed">
+							{roundNumber(windData.data[0].s, 1)} kts
+						</p>
+						<p>
+							{`'${windData.data[0].dr}' (${roundNumber(windData.data[0].d, 1)}°)`}
+						</p>
+					</div>
+					<div className="grid-item__chart" />
+				</StyledGridItem>
+			)}
+		</>
 	);
 };
 

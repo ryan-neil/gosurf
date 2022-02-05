@@ -21,4 +21,4 @@ This is the new repo for GoSurf.io. This is a React rebuild.
   10. Inside the `Banner` component, render elements with the data from OpenWeather
 
 Resource:
-  * https://stackoverflow.com/questions/67014759/why-my-react-component-rendering-multiple-times
+  * [update on unmounted component](https://www.youtube.com/watch?v=W6AJ-gRupCs)

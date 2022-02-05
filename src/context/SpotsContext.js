@@ -5,26 +5,23 @@ import { useLocalStorage } from '../hooks/useStorage';
 const SpotsContext = createContext({});
 
 export const SpotsDataProvider = ({ children }) => {
-	const { data } = useFetch('http://localhost:9001/spots');
-	const [ spots, setSpots ] = useLocalStorage('spots', data);
+  const { data } = useFetch('http://localhost:9001/spots');
+  const [spots, setSpots] = useLocalStorage('spots', data);
 
-	// check if local spots data exists before setting spots state
-	useEffect(
-		() => {
-			if (data) setSpots(data);
-		},
-		[ data ]
-	);
+  // check if local spots data exists before setting spots state
+  useEffect(() => {
+    if (data) setSpots(data);
+  }, [data]);
 
-	return (
-		<SpotsContext.Provider
-			value={{
-				spots
-			}}
-		>
-			{children}
-		</SpotsContext.Provider>
-	);
+  return (
+    <SpotsContext.Provider
+      value={{
+        spots,
+      }}
+    >
+      {children}
+    </SpotsContext.Provider>
+  );
 };
 
 export default SpotsContext;

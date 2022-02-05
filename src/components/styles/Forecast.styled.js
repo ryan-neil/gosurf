@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const StyledForecast = styled.main`
 	width: 100%;
 	height: auto;
+	padding-bottom: 1rem;
 `;
 
 export const StyledGridContainer = styled.div`

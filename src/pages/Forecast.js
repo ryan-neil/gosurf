@@ -9,10 +9,7 @@ import Tides from '../components/Tides';
 import Wind from '../components/Wind';
 import Swell from '../components/Swell';
 // Styles
-import {
-	StyledForecast,
-	StyledGridContainer
-} from '../components/styles/Forecast.styled';
+import { StyledForecast, StyledGridContainer } from '../components/styles/Forecast.styled';
 import { Container } from '../components/styles/Utils.styled';
 
 const Forecast = () => {
@@ -23,7 +20,7 @@ const Forecast = () => {
 	const filteredSpot = spots.filter((spot) => spot.slug === slug);
 	const spot = filteredSpot[0];
 
-	// not working...slowly giving up
+	// not working...slowly giving up hope....
 	if (spot === undefined) {
 		navigate('*'); // 404
 	}
