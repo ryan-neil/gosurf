@@ -4,6 +4,15 @@ import { Flex } from './styles/Utils.styled';
 import swellIcon from '../assets/swell.svg';
 
 const Swell = () => {
+	const reqParams = [
+		'swellHeight',
+		'swellDirection',
+		'swellPeriod',
+		'secondarySwellHeight',
+		'secondarySwellDirection',
+		'secondarySwellPeriod'
+	];
+
 	return (
 		<StyledGridItem>
 			<Flex gapSm>

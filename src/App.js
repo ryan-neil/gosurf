@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { SpotsDataProvider } from './context/SpotsContext';
 // Global Styles
 import { ThemeProvider } from 'styled-components';
 import GlobalStyles from './components/styles/Global.styled';
 import { mode } from './components/styles/Theme.styled';
+import { SpotsDataProvider } from './context/SpotsContext';
 // Components
 import Header from './components/Header';
 // Pages
@@ -12,8 +12,8 @@ import Home from './pages/Home';
 import Forecast from './pages/Forecast';
 import Missing from './pages/Missing';
 
-function App() {
-	const [ theme, setTheme ] = useState('dark');
+const App = () => {
+	const [theme, setTheme] = useState('dark');
 
 	return (
 		<ThemeProvider theme={mode[theme]}>
@@ -32,6 +32,6 @@ function App() {
 			</SpotsDataProvider>
 		</ThemeProvider>
 	);
-}
+};
 
 export default App;

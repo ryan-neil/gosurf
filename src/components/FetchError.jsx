@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 const StyledError = styled.div`
 	p {
 		color: ${({ theme }) => theme.colors.danger};

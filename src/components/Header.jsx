@@ -19,11 +19,7 @@ const Header = ({ theme, setTheme, spots }) => {
 
 	// set theme icon
 	const themeIcon =
-		theme === 'light' ? (
-			<MoonIcon onClick={toggleTheme} />
-		) : (
-			<SunIcon onClick={toggleTheme} />
-		);
+		theme === 'light' ? <MoonIcon onClick={toggleTheme} /> : <SunIcon onClick={toggleTheme} />;
 
 	return (
 		<StyledHeader>

@@ -1,50 +1,55 @@
-// import React from 'react';
 import { useFetch } from '../hooks/useFetch';
+import { getTodaysDate, remainingRequests } from '../helpers/helpers';
+// Components
+import Loading from './Loading';
 // Styles
 import { StyledGridItem } from './styles/Forecast.styled';
 import { Flex } from './styles/Utils.styled';
 import heightIcon from '../assets/height.svg';
 
 const WaveHeight = ({ spot }) => {
-	// NWS - Web Service: https://www.ncdc.noaa.gov/cdo-web/webservices/v2
-	// NWS - noaa token: URsWQYxfQLMcEfTEtwvWTHlYlMYQUwTx
+	const today = '2022-02-05';
+	const buoyId = 51206;
+	// ndbc endpoint:`https://www.ndbc.noaa.gov/data/realtime2/${buoyId}.txt`;
 
-	// National Data Buoy Center - Sensor Observation Service (SOS): https://sdf.ndbc.noaa.gov/sos/
+	// https://create-react-app.dev/docs/adding-custom-environment-variables/
+	// process.env.REACT_APP_SG_KEY
 
-	// EMC Operational Wave Models: https://polar.ncep.noaa.gov/waves/index.php
-	// Global Forecast System - Wave: https://polar.ncep.noaa.gov/waves/viewer.shtml?-gfswave-
-	// Nearshore Wave Prediction System: https://polar.ncep.noaa.gov/nwps/
+	const SG_API_KEY = 'f910740c-fa51-11eb-9f40-0242ac130002-f910747a-fa51-11eb-9f40-0242ac130002';
+	const reqParams = ['waveHeight', 'wavePeriod'];
+	const waveEndpoint = `https://api.stormglass.io/v2/weather/point?lat=${spot.lat}&lng=${
+		spot.lon
+	}&params=${reqParams}&start=${getTodaysDate().long}&end=${getTodaysDate().long}T23:00`;
+	const { data: waveData, loading } = useFetch(
+		waveEndpoint,
+		{
+			headers: {
+				// Authorization: process.env.REACT_APP_SG_KEY,
+				method: 'GET'
+			}
+		},
+		[]
+	);
 
-	// Surfline endpoints:
-	// 'http://api.surfline.com/v1/forecasts/4991?resources=surf&days=1&getAllSpots=false&units=e&interpolate=true&showOptimal=false';
-	// 'https://services.surfline.com/kbyg/spots/forecasts/wave?spotId=5842041f4e65fad6a7708dec&days=16&intervalHours=1&maxHeights=true';
-
-	// TODO:
-	// Info about all of noaa data can be found at: http://www.ndbc.noaa.gov/docs/ndbc_web_data_guide.pdf
-	// 1. Pull data from .txt (https://www.ndbc.noaa.gov/data/realtime2/51206.txt) (https://www.ndbc.noaa.gov/data/realtime2/51206.spec)
-	// 2. Clean data
-	// 3. Display clean data
-
-	// const url = `https://www.ndbc.noaa.gov/data/realtime2/${buoy_id}.txt`;
-
-	const heightEndpoint = '';
-	const { data: heightData } = useFetch(heightEndpoint, {}, [ spot.noaa_station_id ]);
-
-	if (heightData) {
-		console.log(heightData);
+	if (waveData) {
+		console.log(waveData.hours);
+		remainingRequests(waveData);
 	}
 
 	return (
-		<StyledGridItem>
-			<Flex gapSm>
-				<img src={heightIcon} alt="Wave Height Icon" />
-				<h3>Wave Height</h3>
-			</Flex>
-			<div className="grid-item__body">
-				<p>N/A</p>
-			</div>
-			<div className="grid-item__chart" />
-		</StyledGridItem>
+		<>
+			{loading && <Loading />}
+			<StyledGridItem>
+				<Flex gapSm>
+					<img src={heightIcon} alt="Wave Height Icon" />
+					<h3>Wave Height</h3>
+				</Flex>
+				<div className="grid-item__body">
+					<p>N/A</p>
+				</div>
+				<div className="grid-item__chart" />
+			</StyledGridItem>
+		</>
 	);
 };
 

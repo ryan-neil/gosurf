@@ -18,7 +18,7 @@ export const StyledSearchBar = styled.div`
 			padding: 0.25rem 0;
 			color: ${({ theme }) => theme.colors.paragraph};
 			font-size: ${({ theme }) => theme.styles.textReg}; /* 14px */
-			letter-spacing: .025em;
+			letter-spacing: 0.025em;
 			text-align: left;
 			background: transparent;
 			border: none;
@@ -62,7 +62,7 @@ export const StyledSearchBar = styled.div`
 `;
 
 export const SearchBarIcon = styled(Search)`
-  color: ${({ theme }) => theme.colors.paragraph};
-  width: 1rem;
-  margin: 0 .5rem;
+	color: ${({ theme }) => theme.colors.paragraph};
+	width: 1rem;
+	margin: 0 0.5rem;
 `;

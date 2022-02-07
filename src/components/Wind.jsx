@@ -1,5 +1,7 @@
 import { useFetch } from '../hooks/useFetch';
 import { getTodaysDate, roundNumber } from '../helpers/helpers';
+// Components
+import Loading from './Loading';
 // Styles
 import { StyledGridItem } from './styles/Forecast.styled';
 import { Flex } from './styles/Utils.styled';
@@ -10,15 +12,13 @@ const Wind = ({ spot }) => {
 
 	// fetch wind data
 	const windEndpoint = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?=&product=wind&station=${spot.noaa_station_id}&date=latest&units=english&datum=MLLW&time_zone=lst_ldt&format=json&application=NOS.COOPS.TAC.TidePred&interval=hilo`;
-	const { data: windData } = useFetch(windEndpoint, {}, [
-		spot.noaa_station_id
-	]);
+	const { data: windData, loading } = useFetch(windEndpoint, {}, [spot.noaa_station_id]);
 
 	// fetch hourly wind data
-	const hourlyWindEndpoint = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?=&product=wind&station=${spot.noaa_station_id}&begin_date=${getTodaysDate()}&range=24&units=english&datum=MLLW&time_zone=lst_ldt&format=json&application=NOS.COOPS.TAC.TidePred&interval=h`;
-	const { data: hourlyWindData } = useFetch(hourlyWindEndpoint, {}, [
+	const hourlyWindEndpoint = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?=&product=wind&station=${
 		spot.noaa_station_id
-	]);
+	}&begin_date=${getTodaysDate()}&range=24&units=english&datum=MLLW&time_zone=lst_ldt&format=json&application=NOS.COOPS.TAC.TidePred&interval=h`;
+	const { data: hourlyWindData } = useFetch(hourlyWindEndpoint, {}, [spot.noaa_station_id]);
 
 	if (windData && hourlyWindData) {
 		// console.log(windData.data);
@@ -27,6 +27,7 @@ const Wind = ({ spot }) => {
 
 	return (
 		<>
+			{loading && <Loading />}
 			{windData && (
 				<StyledGridItem>
 					<Flex gapSm>
@@ -35,12 +36,8 @@ const Wind = ({ spot }) => {
 					</Flex>
 					<div className="grid-item__body">
 						<p>Current speed:</p>
-						<p className="wind-speed">
-							{roundNumber(windData.data[0].s, 1)} kts
-						</p>
-						<p>
-							{`'${windData.data[0].dr}' (${roundNumber(windData.data[0].d, 1)}°)`}
-						</p>
+						<p className="wind-speed">{roundNumber(windData.data[0].s, 1)} kts</p>
+						<p>{`'${windData.data[0].dr}' (${roundNumber(windData.data[0].d, 1)}°)`}</p>
 					</div>
 					<div className="grid-item__chart" />
 				</StyledGridItem>

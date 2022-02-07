@@ -6,9 +6,9 @@ import { StyledSearchBar, SearchBarIcon } from './styles/SearchBar.styled';
 
 const SearchBar = () => {
 	const { spots } = useContext(SpotsContext);
-	const [ inputValue, setInputValue ] = useState('');
-	const [ searchText, setSearchText ] = useState('');
-	const [ searchResults, setSearchResults ] = useState([]);
+	const [inputValue, setInputValue] = useState('');
+	const [searchText, setSearchText] = useState('');
+	const [searchResults, setSearchResults] = useState([]);
 
 	const handleSearch = (e) => {
 		// set the input value to users input
@@ -20,9 +20,7 @@ const SearchBar = () => {
 			spot.name.toLowerCase().includes(searchText.toLowerCase())
 		);
 		// update search state
-		searchText === ''
-			? setSearchResults([])
-			: setSearchResults(filteredResults);
+		searchText === '' ? setSearchResults([]) : setSearchResults(filteredResults);
 	};
 
 	const handleClick = (spot) => {
@@ -55,9 +53,7 @@ const SearchBar = () => {
 					onChange={handleSearch}
 				/>
 			</div>
-			{searchResults.length !== 0 && (
-				<div className="results-container">{results}</div>
-			)}
+			{searchResults.length !== 0 && <div className="results-container">{results}</div>}
 		</StyledSearchBar>
 	);
 };

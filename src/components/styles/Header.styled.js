@@ -6,7 +6,7 @@ import { Search, LightMode, DarkMode } from '@styled-icons/material';
 export const StyledHeader = styled.header`
 	/* box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); */
 	/* background-color: ${({ theme }) => theme.colors.primaryBG}; */
-  `;
+`;
 
 // Navbar
 export const StyledNav = styled.nav`
@@ -27,20 +27,20 @@ export const StyledLogo = styled.div`
 	img {
 		height: 36px;
 		width: 36px;
-		margin-right: .5rem;
+		margin-right: 0.5rem;
 	}
 	h1 {
 		font-size: ${({ theme }) => theme.styles.textLg};
 		font-weight: 500;
-		margin-right: .5rem;
-		letter-spacing: .025em;
+		margin-right: 0.5rem;
+		letter-spacing: 0.025em;
 	}
 	p {
 		color: ${({ theme }) => theme.colors.primary};
 		background-color: ${({ theme }) => theme.colors.primaryLight};
 		font-size: ${({ theme }) => theme.styles.textXs};
-		padding: 0 .25rem;
-		letter-spacing: .025em;
+		padding: 0 0.25rem;
+		letter-spacing: 0.025em;
 		border-radius: ${({ theme }) => theme.styles.borderRadiusSm};
 		text-transform: uppercase;
 	}
@@ -48,47 +48,47 @@ export const StyledLogo = styled.div`
 
 // Search Icon
 export const SearchIcon = styled(Search)`
-  display: none;
-  color: ${({ theme }) => theme.colors.heading};
-  width: 1.8rem;
-  height: 1.8rem;
-  margin-right: .5rem;
-  padding-left: .25rem;
-  padding-right: .25rem;
-  border-radius: ${({ theme }) => theme.styles.borderRadiusSm};
-  cursor: pointer;
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.secondaryBG};
-  }
-  /* Responsive Queries */
+	display: none;
+	color: ${({ theme }) => theme.colors.heading};
+	width: 1.8rem;
+	height: 1.8rem;
+	margin-right: 0.5rem;
+	padding-left: 0.25rem;
+	padding-right: 0.25rem;
+	border-radius: ${({ theme }) => theme.styles.borderRadiusSm};
+	cursor: pointer;
+	&:hover {
+		background-color: ${({ theme }) => theme.colors.secondaryBG};
+	}
+	/* Responsive Queries */
 	@media (max-width: ${({ theme }) => theme.mobile.width}) {
 		display: block;
 	}
 `;
 // Sun Icon
 export const SunIcon = styled(LightMode)`
-  color: ${({ theme }) => theme.colors.heading};
-  width: 1.8rem;
+	color: ${({ theme }) => theme.colors.heading};
+	width: 1.8rem;
 	height: 1.8rem;
-  padding-left: .25rem;
-  padding-right: .25rem;
-  border-radius: ${({ theme }) => theme.styles.borderRadiusSm};
-  cursor: pointer;
-  transition: ${({ theme }) => theme.colors.transition};
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.secondaryBG};
-  }
+	padding-left: 0.25rem;
+	padding-right: 0.25rem;
+	border-radius: ${({ theme }) => theme.styles.borderRadiusSm};
+	cursor: pointer;
+	transition: ${({ theme }) => theme.colors.transition};
+	&:hover {
+		background-color: ${({ theme }) => theme.colors.secondaryBG};
+	}
 `;
 // Moon Icon
 export const MoonIcon = styled(DarkMode)`
-  color: ${({ theme }) => theme.colors.heading};
-  width: 1.8rem;
+	color: ${({ theme }) => theme.colors.heading};
+	width: 1.8rem;
 	height: 1.8rem;
-  padding-left: .25rem;
-  padding-right: .25rem;
-  border-radius: ${({ theme }) => theme.styles.borderRadiusSm};
-  cursor: pointer;
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.secondaryBG};
-  }
+	padding-left: 0.25rem;
+	padding-right: 0.25rem;
+	border-radius: ${({ theme }) => theme.styles.borderRadiusSm};
+	cursor: pointer;
+	&:hover {
+		background-color: ${({ theme }) => theme.colors.secondaryBG};
+	}
 `;
