@@ -4,7 +4,7 @@ import SpotsContext from '../context/SpotsContext';
 // Components
 import ForecastHeader from '../components/ForecastHeader';
 import Banner from '../components/Banner';
-import WaveHeight from '../components/WaveHeight';
+import Wave from '../components/Wave';
 import Tides from '../components/Tides';
 import Wind from '../components/Wind';
 import Swell from '../components/Swell';
@@ -32,7 +32,7 @@ const Forecast = () => {
 				<ForecastHeader spot={spot} />
 				<Banner spot={spot} />
 				<StyledGridContainer>
-					<WaveHeight spot={spot} />
+					<Wave spot={spot} />
 					<Tides spot={spot} />
 					<Wind spot={spot} />
 					<Swell spot={spot} />
