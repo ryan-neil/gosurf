@@ -10,13 +10,15 @@ export const SpotsDataProvider = ({ children }) => {
 
 	// check if local spots data exists before setting spots state
 	useEffect(() => {
-		if (data) setSpots(data);
+		if (data) {
+			setSpots(data);
+		}
 	}, [data]);
 
 	return (
 		<SpotsContext.Provider
 			value={{
-				spots
+				spots,
 			}}
 		>
 			{children}

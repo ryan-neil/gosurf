@@ -23,6 +23,7 @@ export const StyledGridItem = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	gap: 1rem;
 	background: ${({ theme }) => theme.colors.secondaryBG};
 	min-height: 300px;
 	height: auto;
@@ -38,11 +39,14 @@ export const StyledGridItem = styled.div`
 		margin: 1rem 0;
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
-		.wind-speed {
+		gap: 0;
+		.primary-data {
 			color: ${({ theme }) => theme.colors.heading};
-			font-size: ${({ theme }) => theme.styles.textLg};
+			font-size: ${({ theme }) => theme.styles.textXl};
 		}
+	}
+	.grid-item__body.tide {
+		gap: 0.5rem;
 	}
 	.grid-item__chart {
 		width: 100%;

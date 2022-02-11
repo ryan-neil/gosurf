@@ -6,6 +6,15 @@ This is the new repo for GoSurf.io. This is a React rebuild.
 
 - [Learn the MERN Stack](https://www.youtube.com/watch?v=-0exw-9YJBo): Traversy Media
 
+### TODO
+
+- [x] Refactor `useLocalStorage` custom hook
+- [ ] Incorporate new `useLocalStorage` hook into project (Inside app Context)
+- [x] Refactor `useFetch` custom hook
+- [ ] Refactor data fetching architecture into `Forecast` component
+- [ ] Cross check data from NOAA and StormGlass for water temp, air temp, and wind consistency
+- [ ] Convert mock JSON API to Express API
+
 ## Buoys
 
 ### Buoy Wave Height Trend Calculations
@@ -23,15 +32,10 @@ Not all NOAA endpoints have CORS support. Specifically, the Buoys and the SurfSt
 
 Example `netlify.toml` file for the proxies:
 
-```json
+```
 [[redirects]]
   from = "/api/*"
   to = "https://www.ndbc.noaa.gov/data/realtime2/:splat"
-  status = 200
-
-[[redirects]]
-  from = "/noaa_xml/*"
-  to = "https://www.weather.gov/source/hfo/xml/:splat"
   status = 200
 
 [[redirects]]

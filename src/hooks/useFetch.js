@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 export const useFetch = (url, options = {}, dependencies = []) => {
-	const [data, setData] = useState(null);
+	const [response, setResponse] = useState(null);
 	const [error, setError] = useState(null);
 	const [loading, setLoading] = useState(false);
 
@@ -17,13 +17,13 @@ export const useFetch = (url, options = {}, dependencies = []) => {
 				if (!res.ok) throw new Error(`HTTP Error: ${res.status}`);
 				const apiData = await res.json();
 				if (isMounted) {
-					setData(apiData);
+					setResponse(apiData);
 					setError(null);
 				}
 			} catch (err) {
 				if (isMounted) {
 					setError(err.message);
-					setData(null);
+					setResponse(null);
 				}
 			} finally {
 				setLoading(false);
@@ -39,9 +39,9 @@ export const useFetch = (url, options = {}, dependencies = []) => {
 	}, dependencies);
 
 	return {
-		data,
+		response,
 		error,
-		loading
+		loading,
 	};
 };
 
@@ -85,6 +85,6 @@ export const useFetchText = (url, options = {}, dependencies = []) => {
 	return {
 		data,
 		error,
-		loading
+		loading,
 	};
 };

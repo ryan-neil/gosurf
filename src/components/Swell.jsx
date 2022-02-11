@@ -1,3 +1,6 @@
+// Components
+import Loading from './Loading';
+import FetchError from './FetchError';
 // Styles
 import { StyledGridItem } from './styles/Forecast.styled';
 import { Flex } from './styles/Utils.styled';
@@ -10,8 +13,12 @@ const Swell = () => {
 		'swellPeriod',
 		'secondarySwellHeight',
 		'secondarySwellDirection',
-		'secondarySwellPeriod'
+		'secondarySwellPeriod',
 	];
+
+	const swellData = true;
+	const loading = false;
+	const error = 'Fetch error';
 
 	return (
 		<StyledGridItem>
@@ -19,10 +26,17 @@ const Swell = () => {
 				<img src={swellIcon} alt="Swell Icon" />
 				<h3>Swell</h3>
 			</Flex>
-			<div className="grid-item__body">
-				<p>N/A</p>
-			</div>
-			<div className="grid-item__chart" />
+			{loading && <Loading />}
+			{swellData && !loading ? (
+				<>
+					<div className="grid-item__body">
+						<p>N/A</p>
+					</div>
+					<div className="grid-item__chart" />
+				</>
+			) : (
+				!loading && <FetchError name="Swell" error={error} />
+			)}
 		</StyledGridItem>
 	);
 };

@@ -1,32 +1,36 @@
 import { useFetch } from '../hooks/useFetch';
-import { getTodaysDate, remainingRequests } from '../helpers/helpers';
+import {
+	getTodaysDate,
+	convertMetersToFeet,
+	roundNumber,
+	setBodySize,
+	remainingRequests,
+} from '../helpers/helpers';
 // Components
 import Loading from './Loading';
+import FetchError from './FetchError';
 // Styles
 import { StyledGridItem } from './styles/Forecast.styled';
 import { Flex } from './styles/Utils.styled';
 import heightIcon from '../assets/height.svg';
 
 const WaveHeight = ({ spot }) => {
-	const today = '2022-02-05';
-	const buoyId = 51206;
-	// ndbc endpoint:`https://www.ndbc.noaa.gov/data/realtime2/${buoyId}.txt`;
-
-	// https://create-react-app.dev/docs/adding-custom-environment-variables/
-	// process.env.REACT_APP_SG_KEY
+	const reqParams = ['waveHeight', 'wavePeriod'];
+	const { fullDateHyphen } = getTodaysDate();
 
 	const SG_API_KEY = 'f910740c-fa51-11eb-9f40-0242ac130002-f910747a-fa51-11eb-9f40-0242ac130002';
-	const reqParams = ['waveHeight', 'wavePeriod'];
-	const waveEndpoint = `https://api.stormglass.io/v2/weather/point?lat=${spot.lat}&lng=${
-		spot.lon
-	}&params=${reqParams}&start=${getTodaysDate().long}&end=${getTodaysDate().long}T23:00`;
-	const { data: waveData, loading } = useFetch(
+	const waveEndpoint = `https://api.stormglass.io/v2/weather/point?lat=${spot.lat}&lng=${spot.lon}&params=${reqParams}&start=${fullDateHyphen}&end=${fullDateHyphen}T23:00`;
+	const {
+		response: waveData,
+		loading,
+		error,
+	} = useFetch(
 		waveEndpoint,
 		{
 			headers: {
-				// Authorization: process.env.REACT_APP_SG_KEY,
-				method: 'GET'
-			}
+				// Authorization: SG_API_KEY,
+				method: 'GET',
+			},
 		},
 		[]
 	);
@@ -36,20 +40,32 @@ const WaveHeight = ({ spot }) => {
 		remainingRequests(waveData);
 	}
 
+	const waves = true;
+	const minWaveHeight = 2;
+	const maxWaveHeight = 3;
+
 	return (
-		<>
+		<StyledGridItem>
+			<Flex gapSm>
+				<img src={heightIcon} alt="Wave Height Icon" />
+				<h3>Wave Height</h3>
+			</Flex>
 			{loading && <Loading />}
-			<StyledGridItem>
-				<Flex gapSm>
-					<img src={heightIcon} alt="Wave Height Icon" />
-					<h3>Wave Height</h3>
-				</Flex>
-				<div className="grid-item__body">
-					<p>N/A</p>
-				</div>
-				<div className="grid-item__chart" />
-			</StyledGridItem>
-		</>
+			{waves && !loading ? (
+				<>
+					<div className="grid-item__body">
+						<p>Todays range:</p>
+						<p className="primary-data">
+							{minWaveHeight}-{maxWaveHeight} ft
+						</p>
+						<p>{setBodySize(minWaveHeight, maxWaveHeight)}</p>
+					</div>
+					<div className="grid-item__chart" />
+				</>
+			) : (
+				error && !loading && <FetchError name="Wave" error={error} />
+			)}
+		</StyledGridItem>
 	);
 };
 
