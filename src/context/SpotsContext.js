@@ -5,7 +5,7 @@ import { useLocalStorage } from '../hooks/useLocalStorage';
 const SpotsContext = createContext({});
 
 export const SpotsDataProvider = ({ children }) => {
-	const { response, loading, error } = useFetch('http://localhost:9001/spots'); // mock backend api
+	const { response } = useFetch('http://localhost:9001/spots'); // mock backend api
 	const [spots, setSpots] = useLocalStorage('spots', response);
 
 	// check if local spots data exists before setting spots state

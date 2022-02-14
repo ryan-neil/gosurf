@@ -15,11 +15,11 @@ const Banner = ({ spot }) => {
 
 	// fetch air temperature data
 	const airTempEndpoint = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?=&product=air_temperature&station=${spot.noaa_station_id}&date=latest&units=english&datum=MLLW&time_zone=lst_ldt&format=json&application=NOS.COOPS.TAC.TidePred&interval=hilo`;
-	let { response: airData, loading, error } = useFetch(airTempEndpoint, {}, [spot.noaa_station_id]);
+	let { response: airData, loading, error } = useFetch(airTempEndpoint);
 
 	// fetch water temperature data
 	const waterTempEndpoint = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?=&product=water_temperature&station=${spot.noaa_station_id}&date=latest&units=english&datum=MLLW&time_zone=lst_ldt&format=json&application=NOS.COOPS.TAC.TidePred&interval=hilo`;
-	let { response: waterData } = useFetch(waterTempEndpoint, {}, [spot.noaa_station_id]);
+	let { response: waterData } = useFetch(waterTempEndpoint);
 
 	return (
 		<StyledBanner>

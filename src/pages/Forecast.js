@@ -20,7 +20,7 @@ const Forecast = () => {
 	const filteredSpot = spots.filter((spot) => spot.slug === slug);
 	const spot = filteredSpot[0];
 
-	// not working...slowly giving up hope....
+	// error check: not working...
 	if (spot === undefined) {
 		navigate('*'); // 404
 	}

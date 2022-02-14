@@ -1,6 +1,7 @@
 import { useFetch } from '../hooks/useFetch';
 import { getTodaysDate, roundNumber } from '../helpers/utils';
 // Components
+import Chart from './Chart';
 import Loading from './Loading';
 import FetchError from './FetchError';
 // Styles
@@ -14,15 +15,11 @@ const Wind = ({ spot }) => {
 
 	// fetch current wind data
 	const currWindEndpoint = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?=&product=wind&station=${spot.noaa_station_id}&date=latest&units=english&datum=MLLW&time_zone=lst_ldt&format=json&application=NOS.COOPS.TAC.TidePred&interval=hilo`;
-	const {
-		response: currWindData,
-		loading,
-		error,
-	} = useFetch(currWindEndpoint, {}, [spot.noaa_station_id]);
+	const { response: currWindData, loading, error } = useFetch(currWindEndpoint);
 
 	// fetch hourly wind data
 	const hourlyWindEndpoint = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?=&product=wind&station=${spot.noaa_station_id}&begin_date=${fullDate}&range=24&units=english&datum=MLLW&time_zone=lst_ldt&format=json&application=NOS.COOPS.TAC.TidePred&interval=h`;
-	const { data: hourlyWindData } = useFetch(hourlyWindEndpoint, {}, [spot.noaa_station_id]);
+	const { response: hourlyWindData } = useFetch(hourlyWindEndpoint);
 
 	return (
 		<StyledGridItem>
@@ -38,7 +35,7 @@ const Wind = ({ spot }) => {
 						<p className="primary-data">{roundNumber(currWindData.data[0].s, 1)} kts</p>
 						<p>{`'${currWindData.data[0].dr}' (${roundNumber(currWindData.data[0].d, 1)}°)`}</p>
 					</div>
-					<div className="grid-item__chart" />
+					<Chart />
 				</>
 			) : (
 				!loading && <FetchError name="Wind" error={error} />

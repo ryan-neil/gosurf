@@ -8,14 +8,16 @@ This is the new repo for GoSurf.io. This is a React rebuild.
 
 ### TODO
 
+- [ ] Build out `Swell` component
+- [ ] Fetch and render Swell component data from API
+- [ ] Look into adding `GridItemHeader` component
+- [ ] Look into adding `GridItemBody` component (this varies from component to component)
 - [x] Refactor `useLocalStorage` custom hook
 - [x] Incorporate new `useLocalStorage` hook into project (Inside app Context)
 - [x] Refactor `useFetch` custom hook
-- [ ] Refactor data fetching architecture into `Forecast` component
+- [x] Refactor data fetching architecture into `Forecast` component
 - [ ] Cross check data from NOAA and StormGlass for water temp, air temp, and wind consistency
 - [ ] Convert mock JSON API to Express API
-
-`SearchBar` and `Forecast` components need access to `spots` data
 
 ## Buoys
 

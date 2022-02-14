@@ -1,6 +1,7 @@
 import { useFetch } from '../hooks/useFetch';
 import { getTodaysDate, roundNumber } from '../helpers/utils';
 // Components
+import Chart from './Chart';
 import Loading from './Loading';
 import FetchError from './FetchError';
 // Styles
@@ -13,15 +14,11 @@ const Tides = ({ spot }) => {
 
 	// fetch tide data
 	const currTideEndpoint = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?=&product=predictions&station=${spot.noaa_station_id}&begin_date=${fullDate}&range=24&units=english&datum=MLLW&time_zone=lst_ldt&format=json&application=NOS.COOPS.TAC.TidePred&interval=hilo`;
-	const {
-		response: currTideData,
-		loading,
-		error,
-	} = useFetch(currTideEndpoint, {}, [spot.noaa_station_id]);
+	const { response: currTideData, loading, error } = useFetch(currTideEndpoint);
 
 	// fetch hourly tide data
 	const hourlyTideEndpoint = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?=&product=predictions&station=${spot.noaa_station_id}&begin_date=${fullDate}&range=24&units=english&datum=MLLW&time_zone=lst_ldt&format=json&application=NOS.COOPS.TAC.TidePred&interval=h`;
-	const { response: hourlyTideData } = useFetch(hourlyTideEndpoint, {}, [spot.noaa_station_id]);
+	const { response: hourlyTideData } = useFetch(hourlyTideEndpoint);
 
 	return (
 		<StyledGridItem>
@@ -41,7 +38,7 @@ const Tides = ({ spot }) => {
 							</Flex>
 						))}
 					</div>
-					<div className="grid-item__chart" />
+					<Chart />
 				</>
 			) : (
 				!loading && <FetchError name="Tide" error={error} />

@@ -18,6 +18,7 @@ export const LightTheme = {
 		// misc
 		tertiary: '#ffad42',
 		danger: '#fa3945',
+		dangerLight: 'rgba(250, 57, 69, 0.1)',
 		success: '#45fa39',
 		green: '#3fb950',
 		orange: '#f0883e',
@@ -63,6 +64,7 @@ export const DarkTheme = {
 		// misc
 		tertiary: '#ffad42',
 		danger: '#fa3945',
+		dangerLight: 'rgba(250, 57, 69, 0.1)',
 		success: '#45fa39',
 		green: '#3fb950',
 		orange: '#f0883e',

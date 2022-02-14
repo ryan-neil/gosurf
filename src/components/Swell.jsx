@@ -1,4 +1,5 @@
 // Components
+import Chart from './Chart';
 import Loading from './Loading';
 import FetchError from './FetchError';
 // Styles
@@ -32,7 +33,7 @@ const Swell = () => {
 					<div className="grid-item__body">
 						<p>N/A</p>
 					</div>
-					<div className="grid-item__chart" />
+					<Chart />
 				</>
 			) : (
 				!loading && <FetchError name="Swell" error={error} />

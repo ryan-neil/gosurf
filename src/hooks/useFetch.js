@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react';
 
-export const useFetch = (url, options = {}, dependencies = []) => {
+export const useFetch = (url, options) => {
 	const [response, setResponse] = useState(null);
 	const [error, setError] = useState(null);
-	const [loading, setLoading] = useState(false);
-
-	// console.log(options);
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		let isMounted = true;
@@ -15,9 +13,9 @@ export const useFetch = (url, options = {}, dependencies = []) => {
 			try {
 				const res = await fetch(url, options);
 				if (!res.ok) throw new Error(`HTTP Error: ${res.status}`);
-				const apiData = await res.json();
 				if (isMounted) {
-					setResponse(apiData);
+					const data = await res.json();
+					setResponse(data);
 					setError(null);
 				}
 			} catch (err) {
@@ -31,12 +29,11 @@ export const useFetch = (url, options = {}, dependencies = []) => {
 		};
 		fetchData();
 
-		const cleanUp = () => {
+		// clean up function
+		return () => {
 			isMounted = false;
 		};
-
-		return cleanUp;
-	}, dependencies);
+	}, [url]);
 
 	return {
 		response,
