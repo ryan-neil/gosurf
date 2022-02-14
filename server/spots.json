@@ -20,7 +20,7 @@
 				"swell_direction": "SE",
 				"wind": "NW",
 				"surf_height": "N/A",
-				"tide": "Low to medium"
+				"tide": "Low to med"
 			}
 		},
 		{
@@ -42,8 +42,8 @@
 			"ideal_conditions": {
 				"swell_direction": "S",
 				"wind": "N",
-				"surf_height": "4ft to 8ft",
-				"tide": "Low to medium"
+				"surf_height": "4' to 8'",
+				"tide": "Low to med"
 			}
 		},
 		{
@@ -65,8 +65,8 @@
 			"ideal_conditions": {
 				"swell_direction": "NW",
 				"wind": "SE",
-				"surf_height": "3ft to 6ft",
-				"tide": "Low to medium to high"
+				"surf_height": "3' to 6'",
+				"tide": "Low to med to high"
 			}
 		},
 		{
@@ -88,8 +88,8 @@
 			"ideal_conditions": {
 				"swell_direction": "S to NW",
 				"wind": "E",
-				"surf_height": "6ft to 8ft+",
-				"tide": "Medium to high"
+				"surf_height": "6' to 8'+",
+				"tide": "Med to high"
 			}
 		},
 		{
@@ -111,8 +111,8 @@
 			"ideal_conditions": {
 				"swell_direction": "SW",
 				"wind": "NE",
-				"surf_height": "3ft to 6ft",
-				"tide": "Medium to high"
+				"surf_height": "3' to 6'",
+				"tide": "Med to high"
 			}
 		},
 		{
@@ -134,8 +134,8 @@
 			"ideal_conditions": {
 				"swell_direction": "S to NW",
 				"wind": "E",
-				"surf_height": "3ft to 6ft+",
-				"tide": "Medium"
+				"surf_height": "3' to 6'+",
+				"tide": "Med"
 			}
 		},
 		{
@@ -157,8 +157,8 @@
 			"ideal_conditions": {
 				"swell_direction": "S to NW",
 				"wind": "E",
-				"surf_height": "3ft to 6ft",
-				"tide": "Medium to high"
+				"surf_height": "3' to 6'",
+				"tide": "Med to high"
 			}
 		},
 		{
@@ -180,7 +180,7 @@
 			"ideal_conditions": {
 				"swell_direction": "S to NW",
 				"wind": "E",
-				"surf_height": "4ft to 8ft",
+				"surf_height": "4' to 8'",
 				"tide": "All tides"
 			}
 		},
@@ -203,8 +203,8 @@
 			"ideal_conditions": {
 				"swell_direction": "NW",
 				"wind": "SE",
-				"surf_height": "3ft to 6ft",
-				"tide": "Medium"
+				"surf_height": "3' to 6'",
+				"tide": "Med"
 			}
 		},
 		{
@@ -226,8 +226,8 @@
 			"ideal_conditions": {
 				"swell_direction": "S to NW",
 				"wind": "E",
-				"surf_height": "4ft to 7ft",
-				"tide": "Medium"
+				"surf_height": "4' to 7'",
+				"tide": "Med"
 			}
 		},
 		{
@@ -249,8 +249,8 @@
 			"ideal_conditions": {
 				"swell_direction": "E",
 				"wind": "NW",
-				"surf_height": "4ft to 8ft",
-				"tide": "Medium"
+				"surf_height": "4' to 8'",
+				"tide": "Med"
 			}
 		},
 		{
@@ -272,8 +272,8 @@
 			"ideal_conditions": {
 				"swell_direction": "N to SE",
 				"wind": "W",
-				"surf_height": "6ft to 8ft",
-				"tide": "Medium"
+				"surf_height": "6' to 8'",
+				"tide": "Med"
 			}
 		},
 		{
@@ -295,7 +295,7 @@
 			"ideal_conditions": {
 				"swell_direction": "W",
 				"wind": "E",
-				"surf_height": "6ft to 8ft",
+				"surf_height": "6' to 8'",
 				"tide": "All tides"
 			}
 		},
@@ -318,8 +318,8 @@
 			"ideal_conditions": {
 				"swell_direction": "W",
 				"wind": "E",
-				"surf_height": "4ft to 8ft",
-				"tide": "Medium"
+				"surf_height": "4' to 8'",
+				"tide": "Med"
 			}
 		},
 		{
@@ -341,8 +341,8 @@
 			"ideal_conditions": {
 				"swell_direction": "N to SE",
 				"wind": "W",
-				"surf_height": "3ft to 8ft",
-				"tide": "Low to medium"
+				"surf_height": "3' to 8'",
+				"tide": "Low to med"
 			}
 		},
 		{
@@ -364,8 +364,8 @@
 			"ideal_conditions": {
 				"swell_direction": "N to SE",
 				"wind": "W",
-				"surf_height": "6ft to 10ft",
-				"tide": "Low to medium"
+				"surf_height": "6' to 10'",
+				"tide": "Low to med"
 			}
 		},
 		{
@@ -411,7 +411,7 @@
 				"swell_direction": "E",
 				"wind": "W",
 				"surf_height": "4' to 8'",
-				"tide": "Medium to high"
+				"tide": "Med to high"
 			}
 		},
 		{
@@ -434,7 +434,7 @@
 				"swell_direction": "N",
 				"wind": "SE",
 				"surf_height": "3' to 8'",
-				"tide": "Medium"
+				"tide": "Med"
 			}
 		},
 		{
@@ -480,7 +480,7 @@
 				"swell_direction": "NW",
 				"wind": "SE",
 				"surf_height": "3' to 6'",
-				"tide": "Medium to high"
+				"tide": "Med to high"
 			}
 		},
 		{
@@ -503,7 +503,7 @@
 				"swell_direction": "S",
 				"wind": "NW",
 				"surf_height": "3' to 6'",
-				"tide": "Medium to high"
+				"tide": "Med to high"
 			}
 		},
 		{
@@ -526,7 +526,7 @@
 				"swell_direction": "S",
 				"wind": "NE",
 				"surf_height": "3' to 6'",
-				"tide": "Medium"
+				"tide": "Med"
 			}
 		},
 		{
@@ -549,7 +549,7 @@
 				"swell_direction": "S",
 				"wind": "NE",
 				"surf_height": "3' to 6'",
-				"tide": "Medium"
+				"tide": "Med"
 			}
 		},
 		{
@@ -572,7 +572,7 @@
 				"swell_direction": "S",
 				"wind": "NE",
 				"surf_height": "3' to 6'",
-				"tide": "Medium"
+				"tide": "Med"
 			}
 		},
 		{
@@ -595,7 +595,7 @@
 				"swell_direction": "N",
 				"wind": "S",
 				"surf_height": "6' to 8'",
-				"tide": "Medium"
+				"tide": "Med"
 			}
 		},
 		{
@@ -618,7 +618,7 @@
 				"swell_direction": "E",
 				"wind": "W",
 				"surf_height": "6' to 12'",
-				"tide": "Medium"
+				"tide": "Med"
 			}
 		},
 		{
@@ -641,7 +641,7 @@
 				"swell_direction": "N",
 				"wind": "S",
 				"surf_height": "6' to 12'",
-				"tide": "Medium"
+				"tide": "Med"
 			}
 		},
 		{
@@ -664,7 +664,7 @@
 				"swell_direction": "N",
 				"wind": "S",
 				"surf_height": "3' to 6'",
-				"tide": "Medium"
+				"tide": "Med"
 			}
 		},
 		{
@@ -687,7 +687,7 @@
 				"swell_direction": "SW",
 				"wind": "NE",
 				"surf_height": "3' to 6'",
-				"tide": "Medium to high"
+				"tide": "Med to high"
 			}
 		},
 		{
@@ -710,7 +710,7 @@
 				"swell_direction": "W",
 				"wind": "E",
 				"surf_height": "6' to 12'",
-				"tide": "Low to medium"
+				"tide": "Low to med"
 			}
 		},
 		{
@@ -733,7 +733,7 @@
 				"swell_direction": "NE",
 				"wind": "SW",
 				"surf_height": "6' to 8'",
-				"tide": "Medium"
+				"tide": "Med"
 			}
 		},
 		{
@@ -756,7 +756,7 @@
 				"swell_direction": "N",
 				"wind": "S",
 				"surf_height": "6' to 8'",
-				"tide": "Medium to high"
+				"tide": "Med to high"
 			}
 		},
 		{
@@ -778,8 +778,8 @@
 			"ideal_conditions": {
 				"swell_direction": "NE",
 				"wind": "S",
-				"surf_height": "4ft to 8ft",
-				"tide": "Medium"
+				"surf_height": "4' to 8'",
+				"tide": "Med"
 			}
 		},
 		{
@@ -801,8 +801,8 @@
 			"ideal_conditions": {
 				"swell_direction": "SE",
 				"wind": "W",
-				"surf_height": "4ft to 8ft",
-				"tide": "Medium"
+				"surf_height": "4' to 8'",
+				"tide": "Med"
 			}
 		},
 		{
@@ -824,8 +824,8 @@
 			"ideal_conditions": {
 				"swell_direction": "S",
 				"wind": "N to E",
-				"surf_height": "6ft to 10ft",
-				"tide": "Medium"
+				"surf_height": "6' to 10'",
+				"tide": "Med"
 			}
 		},
 		{
@@ -847,8 +847,8 @@
 			"ideal_conditions": {
 				"swell_direction": "N",
 				"wind": "S",
-				"surf_height": "6ft to 10ft",
-				"tide": "Medium"
+				"surf_height": "6' to 10'",
+				"tide": "Med"
 			}
 		},
 		{

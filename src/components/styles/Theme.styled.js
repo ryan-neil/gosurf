@@ -3,6 +3,8 @@
 
 export const LightTheme = {
 	colors: {
+		white: '#ffffff',
+		black: '#000000',
 		primary: '#19A0F6',
 		primaryLight: 'rgba(25, 160, 246, 0.1)',
 		secondary: '#1a2634',
@@ -11,7 +13,7 @@ export const LightTheme = {
 		heading: '#1b2635',
 		paragraph: 'rgba(27, 38, 53, 0.7)',
 		paragraphLight: 'rgba(27, 38, 53, 0.6)',
-		border: '#E4E5E9',
+		border: 'rgba(0, 0, 0, 0.1)',
 		inputBG: 'hsl(217, 45%, 97%)',
 		// misc
 		tertiary: '#ffad42',
@@ -22,7 +24,7 @@ export const LightTheme = {
 		red: '#da3633',
 		pink: '#d961a1',
 		violet: '#8957e5',
-		blue: '#378afc'
+		blue: '#378afc',
 	},
 	styles: {
 		textXs: '11px',
@@ -34,18 +36,20 @@ export const LightTheme = {
 		borderRadiusSm: '0.25rem',
 		borderRadiusMd: '0.35rem',
 		boxShadow: '0 1px 4px 0 rgba(0, 0, 0, .05)',
-		boxShadowInset: 'inset 0 1px 4px 0 rgba(0,0,0,0.05);'
+		boxShadowInset: 'inset 0 1px 4px 0 rgba(0,0,0,0.05);',
 	},
 	web: {
-		width: '1275px'
+		width: '1275px',
 	},
 	mobile: {
-		width: '718px'
-	}
+		width: '718px',
+	},
 };
 
 export const DarkTheme = {
 	colors: {
+		white: '#ffffff',
+		black: '#000000',
 		primary: '#19A0F6',
 		primaryLight: 'rgba(25, 160, 246, 0.1)',
 		secondary: '#1a2634',
@@ -54,7 +58,7 @@ export const DarkTheme = {
 		heading: '#ffffff',
 		paragraph: 'rgba(255, 255, 255, 0.7);',
 		paragraphLight: 'rgba(255, 255, 255, 0.6);',
-		border: '#323844',
+		border: 'rgba(255, 255, 255, 0.1)',
 		inputBG: '#233044',
 		// misc
 		tertiary: '#ffad42',
@@ -65,7 +69,7 @@ export const DarkTheme = {
 		red: '#da3633',
 		pink: '#d961a1',
 		violet: '#8957e5',
-		blue: '#378afc'
+		blue: '#378afc',
 	},
 	styles: {
 		textXs: '11px',
@@ -77,17 +81,17 @@ export const DarkTheme = {
 		borderRadiusSm: '0.25rem',
 		borderRadiusMd: '0.35rem',
 		boxShadow: '0 1px 4px 0 rgba(0, 0, 0, .05)',
-		boxShadowInset: 'inset 0 1px 4px 0 rgba(0,0,0,0.05);'
+		boxShadowInset: 'inset 0 1px 4px 0 rgba(0,0,0,0.05);',
 	},
 	web: {
-		width: '1275px'
+		width: '1275px',
 	},
 	mobile: {
-		width: '718px'
-	}
+		width: '718px',
+	},
 };
 
 export const mode = {
 	light: LightTheme,
-	dark: DarkTheme
+	dark: DarkTheme,
 };

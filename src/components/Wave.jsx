@@ -3,9 +3,9 @@ import {
 	getTodaysDate,
 	convertMetersToFeet,
 	roundNumber,
-	setBodySize,
 	remainingRequests,
-} from '../helpers/helpers';
+} from '../helpers/utils';
+import { calcBodySize } from '../helpers/calcBodySize';
 // Components
 import Loading from './Loading';
 import FetchError from './FetchError';
@@ -14,7 +14,7 @@ import { StyledGridItem } from './styles/Forecast.styled';
 import { Flex } from './styles/Utils.styled';
 import heightIcon from '../assets/height.svg';
 
-const WaveHeight = ({ spot }) => {
+const Wave = ({ spot }) => {
 	const reqParams = ['waveHeight', 'wavePeriod'];
 	const { fullDateHyphen } = getTodaysDate();
 
@@ -28,7 +28,7 @@ const WaveHeight = ({ spot }) => {
 		waveEndpoint,
 		{
 			headers: {
-				// Authorization: SG_API_KEY,
+				Authorization: SG_API_KEY,
 				method: 'GET',
 			},
 		},
@@ -39,6 +39,51 @@ const WaveHeight = ({ spot }) => {
 		console.log(waveData.hours);
 		remainingRequests(waveData);
 	}
+
+	// get wave heights
+	const getWaveHeights = () => {
+		const hourlyData = waveData.hours; // data no defined
+		let waveHeightsArr = [];
+
+		for (let hour of hourlyData) {
+			const waveHeights = hour.waveHeight.noaa;
+			const waveHeightsToFeet = convertMetersToFeet(waveHeights);
+			const waveHeightsRounded = roundNumber(waveHeightsToFeet, 0);
+			waveHeightsArr.push(waveHeightsRounded);
+		}
+
+		const minWaveHeight = Math.min(...waveHeightsArr);
+		const maxWaveHeight = Math.max(...waveHeightsArr);
+
+		return {
+			waveHeightsArr,
+			minWaveHeight,
+			maxWaveHeight,
+		};
+	};
+	// const { waveHeightsArr, minWaveHeight, maxWaveHeight } = getWaveHeights();
+
+	// get wave height times
+	const getWaveTimes = () => {
+		const hourlyData = waveData.hours;
+		let waveTimesArr = [];
+
+		for (let hour of hourlyData) {
+			const waveHeightTimes = hour.time;
+
+			const dateOptions = {
+				hour: 'numeric',
+				minute: '2-digit',
+				hour12: true,
+			};
+
+			const times = new Date(waveHeightTimes).toLocaleString('en-US', dateOptions);
+			waveTimesArr.push(times);
+		}
+
+		return { waveTimesArr };
+	};
+	// const { waveTimesArr } = getWaveTimes();
 
 	const waves = true;
 	const minWaveHeight = 2;
@@ -58,7 +103,7 @@ const WaveHeight = ({ spot }) => {
 						<p className="primary-data">
 							{minWaveHeight}-{maxWaveHeight} ft
 						</p>
-						<p>{setBodySize(minWaveHeight, maxWaveHeight)}</p>
+						<p>{calcBodySize(minWaveHeight, maxWaveHeight)}</p>
 					</div>
 					<div className="grid-item__chart" />
 				</>
@@ -69,4 +114,4 @@ const WaveHeight = ({ spot }) => {
 	);
 };
 
-export default WaveHeight;
+export default Wave;

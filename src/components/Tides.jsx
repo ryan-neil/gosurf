@@ -1,5 +1,5 @@
 import { useFetch } from '../hooks/useFetch';
-import { getTodaysDate, roundNumber } from '../helpers/helpers';
+import { getTodaysDate, roundNumber } from '../helpers/utils';
 // Components
 import Loading from './Loading';
 import FetchError from './FetchError';
@@ -12,17 +12,16 @@ const Tides = ({ spot }) => {
 	const { fullDate } = getTodaysDate();
 
 	// fetch tide data
-	const tideEndpoint = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?=&product=predictions&station=${spot.noaa_station_id}&begin_date=${fullDate}&range=24&units=english&datum=MLLW&time_zone=lst_ldt&format=json&application=NOS.COOPS.TAC.TidePred&interval=hilo`;
-	const { response: tideData, loading, error } = useFetch(tideEndpoint, {}, [spot.noaa_station_id]);
+	const currTideEndpoint = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?=&product=predictions&station=${spot.noaa_station_id}&begin_date=${fullDate}&range=24&units=english&datum=MLLW&time_zone=lst_ldt&format=json&application=NOS.COOPS.TAC.TidePred&interval=hilo`;
+	const {
+		response: currTideData,
+		loading,
+		error,
+	} = useFetch(currTideEndpoint, {}, [spot.noaa_station_id]);
 
 	// fetch hourly tide data
 	const hourlyTideEndpoint = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?=&product=predictions&station=${spot.noaa_station_id}&begin_date=${fullDate}&range=24&units=english&datum=MLLW&time_zone=lst_ldt&format=json&application=NOS.COOPS.TAC.TidePred&interval=h`;
 	const { response: hourlyTideData } = useFetch(hourlyTideEndpoint, {}, [spot.noaa_station_id]);
-
-	if (tideData && hourlyTideData) {
-		// console.log(tideData.predictions);
-		// console.log(hourlyTideData.predictions);
-	}
 
 	return (
 		<StyledGridItem>
@@ -31,10 +30,10 @@ const Tides = ({ spot }) => {
 				<h3>Tides</h3>
 			</Flex>
 			{loading && <Loading />}
-			{tideData && !loading ? (
+			{currTideData && !loading ? (
 				<>
 					<div className="grid-item__body tide">
-						{tideData.predictions.map((tide, idx) => (
+						{currTideData.predictions.map((tide, idx) => (
 							<Flex gapMd spaceBetween key={idx}>
 								{tide.type === 'H' ? <p>High:</p> : <p>Low:</p>}
 								<p>{tide.t}</p>

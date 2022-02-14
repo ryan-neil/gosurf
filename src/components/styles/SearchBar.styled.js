@@ -11,7 +11,7 @@ export const StyledSearchBar = styled.div`
 		display: flex;
 		align-items: center;
 		height: 2.5rem;
-		padding-right: 0.5rem;
+		padding: 0 0.25rem;
 		border-radius: ${({ theme }) => theme.styles.borderRadiusMd};
 		box-shadow: ${({ theme }) => theme.colors.boxShadowInset};
 		input {
