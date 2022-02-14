@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import SpotsContext from '../context/SpotsContext';
 // Components
-import ForecastHeader from '../components/ForecastHeader';
+import ForecastHeading from '../components/ForecastHeading';
 import Banner from '../components/Banner';
 import Wave from '../components/Wave';
 import Tides from '../components/Tides';
@@ -29,7 +29,7 @@ const Forecast = () => {
 		<StyledForecast>
 			<div className="header-background" />
 			<Container>
-				<ForecastHeader spot={spot} />
+				<ForecastHeading spot={spot} />
 				<Banner spot={spot} />
 				<StyledGridContainer>
 					<Wave spot={spot} />

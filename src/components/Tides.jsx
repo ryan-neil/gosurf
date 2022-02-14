@@ -5,7 +5,7 @@ import Chart from './Chart';
 import Loading from './Loading';
 import FetchError from './FetchError';
 // Styles
-import { StyledGridItem } from './styles/Forecast.styled';
+import { StyledGridItem, StyledGridItemBody } from './styles/Forecast.styled';
 import { Flex } from './styles/Utils.styled';
 import tidesIcon from '../assets/tides.svg';
 
@@ -29,7 +29,7 @@ const Tides = ({ spot }) => {
 			{loading && <Loading />}
 			{currTideData && !loading ? (
 				<>
-					<div className="grid-item__body tide">
+					<StyledGridItemBody tide>
 						{currTideData.predictions.map((tide, idx) => (
 							<Flex gapMd spaceBetween key={idx}>
 								{tide.type === 'H' ? <p>High:</p> : <p>Low:</p>}
@@ -37,8 +37,8 @@ const Tides = ({ spot }) => {
 								<p>{roundNumber(tide.v, 2)} ft</p>
 							</Flex>
 						))}
-					</div>
-					<Chart />
+					</StyledGridItemBody>
+					<Chart heading="Tides" />
 				</>
 			) : (
 				!loading && <FetchError name="Tide" error={error} />

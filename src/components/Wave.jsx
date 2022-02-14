@@ -16,9 +16,9 @@ const Wave = ({ spot }) => {
 	const { fullDateHyphen } = getTodaysDate();
 	const reqParams = ['waveHeight', 'wavePeriod'];
 	const endpoint = `https://api.stormglass.io/v2/weather/point?lat=${spot.lat}&lng=${spot.lon}&params=${reqParams}&start=${fullDateHyphen}&end=${fullDateHyphen}T23:00`;
-	let { response, loading, error } = useFetch(endpoint, {
+	const { response, loading, error } = useFetch(endpoint, {
 		headers: {
-			// Authorization: process.env.REACT_APP_SG_KEY,
+			Authorization: process.env.REACT_APP_SG_KEY,
 		},
 	});
 

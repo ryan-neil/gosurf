@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledForecastHeader = styled.div`
+const StyledForecastHeading = styled.div`
 	margin-top: 1rem;
 	h2 {
 		font-size: ${({ theme }) => theme.styles.textLg};
@@ -8,12 +8,12 @@ const StyledForecastHeader = styled.div`
 	}
 `;
 
-const ForecastHeader = ({ spot }) => {
+const ForecastHeading = ({ spot }) => {
 	return (
-		<StyledForecastHeader>
+		<StyledForecastHeading>
 			<h2>{`${spot.name}, ${spot.location.county}, ${spot.location.state}`}</h2>
-		</StyledForecastHeader>
+		</StyledForecastHeading>
 	);
 };
 
-export default ForecastHeader;
+export default ForecastHeading;

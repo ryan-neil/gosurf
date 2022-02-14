@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const StyledForecast = styled.main`
 	width: 100%;
@@ -35,23 +35,50 @@ export const StyledGridItem = styled.div`
 	img {
 		width: 2rem;
 	}
-	.grid-item__body {
-		margin: 1rem 0;
-		display: flex;
-		flex-direction: column;
-		gap: 0;
-		.primary-data {
-			color: ${({ theme }) => theme.colors.heading};
-			font-size: ${({ theme }) => theme.styles.textXl};
-		}
+`;
+
+export const StyledGridItemBody = styled.div`
+	margin: 1rem 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+	.primary-data {
+		color: ${({ theme }) => theme.colors.heading};
+		font-size: ${({ theme }) => theme.styles.textXl};
 	}
-	.grid-item__body.tide {
-		gap: 0.5rem;
-	}
-	.grid-item__chart {
-		width: 100%;
-		min-height: 200px;
-		background-color: ${({ theme }) => theme.colors.primaryBG};
-		border-radius: ${({ theme }) => theme.styles.borderRadiusMd};
-	}
+	${(props) =>
+		props.tide &&
+		css`
+			gap: 0.5rem;
+		`};
+	${(props) =>
+		props.swell &&
+		css`
+			flex-direction: row;
+			justify-content: space-between;
+		`};
+`;
+
+export const StyledGridItemChart = styled.div`
+	width: 100%;
+	min-height: 200px;
+	background-color: ${({ theme }) => theme.colors.primaryBG};
+	border-radius: ${({ theme }) => theme.styles.borderRadiusMd};
+`;
+
+export const StyledSwellTag = styled.span`
+	width: 1rem;
+	height: 1rem;
+	border-radius: ${({ theme }) => theme.styles.borderRadiusSm};
+	margin-top: 0.25rem;
+	${(props) =>
+		props.primary &&
+		css`
+			background-color: ${({ theme }) => theme.colors.green};
+		`};
+	${(props) =>
+		props.secondary &&
+		css`
+			background-color: ${({ theme }) => theme.colors.tertiary};
+		`};
 `;

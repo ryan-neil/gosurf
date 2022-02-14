@@ -1,5 +1,7 @@
+import { getTodaysDate } from '../helpers/utils';
+import { useFetch } from '../hooks/useFetch';
 // Components
-import Chart from './Chart';
+import SwellBody from './SwellBody';
 import Loading from './Loading';
 import FetchError from './FetchError';
 // Styles
@@ -7,7 +9,8 @@ import { StyledGridItem } from './styles/Forecast.styled';
 import { Flex } from './styles/Utils.styled';
 import swellIcon from '../assets/swell.svg';
 
-const Swell = () => {
+const Swell = ({ spot }) => {
+	const { fullDateHyphen } = getTodaysDate();
 	const reqParams = [
 		'swellHeight',
 		'swellDirection',
@@ -16,10 +19,12 @@ const Swell = () => {
 		'secondarySwellDirection',
 		'secondarySwellPeriod',
 	];
-
-	const swellData = true;
-	const loading = false;
-	const error = 'Fetch error';
+	const endpoint = `https://api.stormglass.io/v2/weather/point?lat=${spot.lat}&lng=${spot.lon}&params=${reqParams}&start=${fullDateHyphen}&end=${fullDateHyphen}T23:00`;
+	const { response, loading, error } = useFetch(endpoint, {
+		headers: {
+			// Authorization: process.env.REACT_APP_SG_KEY,
+		},
+	});
 
 	return (
 		<StyledGridItem>
@@ -28,15 +33,10 @@ const Swell = () => {
 				<h3>Swell</h3>
 			</Flex>
 			{loading && <Loading />}
-			{swellData && !loading ? (
-				<>
-					<div className="grid-item__body">
-						<p>N/A</p>
-					</div>
-					<Chart />
-				</>
+			{response && !loading ? (
+				<SwellBody data={response} />
 			) : (
-				!loading && <FetchError name="Swell" error={error} />
+				error && !loading && <FetchError name="Swell" error={error} />
 			)}
 		</StyledGridItem>
 	);

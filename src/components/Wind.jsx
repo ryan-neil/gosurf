@@ -5,7 +5,7 @@ import Chart from './Chart';
 import Loading from './Loading';
 import FetchError from './FetchError';
 // Styles
-import { StyledGridItem } from './styles/Forecast.styled';
+import { StyledGridItem, StyledGridItemBody } from './styles/Forecast.styled';
 import { Flex } from './styles/Utils.styled';
 import windIcon from '../assets/wind.svg';
 
@@ -30,12 +30,12 @@ const Wind = ({ spot }) => {
 			{loading && !error && <Loading />}
 			{currWindData && !loading ? (
 				<>
-					<div className="grid-item__body">
+					<StyledGridItemBody>
 						<p>Current speed:</p>
 						<p className="primary-data">{roundNumber(currWindData.data[0].s, 1)} kts</p>
 						<p>{`'${currWindData.data[0].dr}' (${roundNumber(currWindData.data[0].d, 1)}°)`}</p>
-					</div>
-					<Chart />
+					</StyledGridItemBody>
+					<Chart heading="Wind" />
 				</>
 			) : (
 				!loading && <FetchError name="Wind" error={error} />

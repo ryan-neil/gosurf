@@ -1,7 +1,9 @@
-import { convertMetersToFeet, roundNumber, remainingRequests } from '../helpers/utils';
+import { convertMetersToFeet, roundNumber } from '../helpers/utils';
 import { calcBodySize } from '../helpers/calcBodySize';
 // Components
 import Chart from './Chart';
+// Styles
+import { StyledGridItemBody } from './styles/Forecast.styled';
 
 const WaveBody = ({ data }) => {
 	// get wave heights
@@ -51,14 +53,14 @@ const WaveBody = ({ data }) => {
 
 	return (
 		<>
-			<div className="grid-item__body">
+			<StyledGridItemBody>
 				<p>Todays range:</p>
 				<p className="primary-data">
 					{minWaveHeight}-{maxWaveHeight} ft
 				</p>
 				{calcBodySize(minWaveHeight, maxWaveHeight)}
-			</div>
-			<Chart xAxis={waveHeightsArr} yAxis={waveTimesArr} />
+			</StyledGridItemBody>
+			<Chart heading="Wave Height" xAxis={waveTimesArr} yAxis={waveHeightsArr} />
 		</>
 	);
 };
