@@ -13,7 +13,6 @@ import { Flex, FlexCol } from './styles/Utils.styled';
 
 const SwellBody = ({ data }) => {
 	const hourlySwellData = data.hours;
-	// console.log(hourlySwellData);
 
 	remainingRequests(data);
 
@@ -116,6 +115,7 @@ const SwellBody = ({ data }) => {
 	return (
 		<>
 			<StyledGridItemBody swell>
+				{/* Primary */}
 				<Flex gapSm>
 					<StyledSwellTag primary />
 					<FlexCol>
@@ -127,7 +127,7 @@ const SwellBody = ({ data }) => {
 						<p>Period: {swellPeriod}s</p>
 					</FlexCol>
 				</Flex>
-				{}
+				{/* Secondary */}
 				<Flex gapSm>
 					<StyledSwellTag secondary />
 					<FlexCol>
@@ -144,7 +144,7 @@ const SwellBody = ({ data }) => {
 				heading="Swell"
 				xAxis={swellTimesArr}
 				yAxis={swellHeightsArr}
-				yAxisSecondary={secSwellHeightsArr}
+				yAxisSec={secSwellHeightsArr}
 			/>
 		</>
 	);

@@ -1,12 +1,13 @@
 import { useFetch } from '../hooks/useFetch';
-import { getTodaysDate, roundNumber } from '../helpers/utils';
+import { getTodaysDate } from '../helpers/utils';
+
 // Components
-import Chart from './Chart';
+import GridItemHeading from './GridItemHeading';
+import WindBody from './WindBody';
 import Loading from './Loading';
 import FetchError from './FetchError';
 // Styles
-import { StyledGridItem, StyledGridItemBody } from './styles/Forecast.styled';
-import { Flex } from './styles/Utils.styled';
+import { StyledGridItem } from './styles/Forecast.styled';
 import windIcon from '../assets/wind.svg';
 
 const Wind = ({ spot }) => {
@@ -23,20 +24,10 @@ const Wind = ({ spot }) => {
 
 	return (
 		<StyledGridItem>
-			<Flex gapSm>
-				<img src={windIcon} alt="Wind Icon" />
-				<h3>Wind</h3>
-			</Flex>
+			<GridItemHeading icon={windIcon} title="Wind" />
 			{loading && !error && <Loading />}
-			{currWindData && !loading ? (
-				<>
-					<StyledGridItemBody>
-						<p>Current speed:</p>
-						<p className="primary-data">{roundNumber(currWindData.data[0].s, 1)} kts</p>
-						<p>{`'${currWindData.data[0].dr}' (${roundNumber(currWindData.data[0].d, 1)}°)`}</p>
-					</StyledGridItemBody>
-					<Chart heading="Wind" />
-				</>
+			{currWindData && hourlyWindData && !loading ? (
+				<WindBody currWindData={currWindData} hourlyWindData={hourlyWindData} />
 			) : (
 				!loading && <FetchError name="Wind" error={error} />
 			)}

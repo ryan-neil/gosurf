@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 export const StyledChartContainer = styled.div`
-	/*  */
+	/* some styles... */
 `;
 export const StyledChartHeading = styled.p`
-	/*  */
+	font-size: ${({ theme }) => theme.styles.textXs};
 `;
 export const StyledChart = styled.div`
 	width: 100%;

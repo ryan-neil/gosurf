@@ -1,12 +1,12 @@
 import { getTodaysDate } from '../helpers/utils';
 import { useFetch } from '../hooks/useFetch';
 // Components
+import GridItemHeading from './GridItemHeading';
 import SwellBody from './SwellBody';
 import Loading from './Loading';
 import FetchError from './FetchError';
 // Styles
 import { StyledGridItem } from './styles/Forecast.styled';
-import { Flex } from './styles/Utils.styled';
 import swellIcon from '../assets/swell.svg';
 
 const Swell = ({ spot }) => {
@@ -28,10 +28,7 @@ const Swell = ({ spot }) => {
 
 	return (
 		<StyledGridItem>
-			<Flex gapSm>
-				<img src={swellIcon} alt="Swell Icon" />
-				<h3>Swell</h3>
-			</Flex>
+			<GridItemHeading icon={swellIcon} title="Swell" />
 			{loading && <Loading />}
 			{response && !loading ? (
 				<SwellBody data={response} />

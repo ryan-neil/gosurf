@@ -40,8 +40,8 @@ export const StyledGridItem = styled.div`
 export const StyledGridItemBody = styled.div`
 	margin: 1rem 0;
 	display: flex;
+	justify-content: space-between;
 	flex-direction: column;
-	gap: 0;
 	.primary-data {
 		color: ${({ theme }) => theme.colors.heading};
 		font-size: ${({ theme }) => theme.styles.textXl};
@@ -49,13 +49,19 @@ export const StyledGridItemBody = styled.div`
 	${(props) =>
 		props.tide &&
 		css`
-			gap: 0.5rem;
+			/* gap: 0.5rem; */
+			div {
+				padding: 0.35rem 0;
+				border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+				&:last-of-type {
+					border-bottom: none;
+				}
+			}
 		`};
 	${(props) =>
 		props.swell &&
 		css`
 			flex-direction: row;
-			justify-content: space-between;
 		`};
 `;
 
