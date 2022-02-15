@@ -8,18 +8,21 @@ This is the new repo for GoSurf.io. This is a React rebuild.
 
 ### TODO
 
-- [ ] Consolidate StormGlass API calls (`Wave`, `Swell`) into `Forecast` component
-- [ ] Cross check data from NOAA and StormGlass for water temp, air temp, and wind consistency
-- [ ] Convert mock JSON API to Express API
-- [x] Gather Chart axis' data from Tide and Wind component (values array and times array)
-- [x] Add individual card body components to Wave, Tides, Wind, and Swell components (i.e. `WaveBody`, `TidesBody`)
-- [x] Add `GridItemHeader` component
-- [x] Build out `Swell` component
-- [x] Fetch and render Swell component data from API
-- [x] Refactor `useLocalStorage` custom hook
-- [x] Incorporate new `useLocalStorage` hook into project (Inside app Context)
-- [x] Refactor `useFetch` custom hook
-- [x] Refactor data fetching architecture into `Forecast` component
+- [ ] Refactor: consolidate StormGlass API calls (`Wave`, `Swell`) into `Forecast` component for fewer API calls
+- [ ] Refactor: consolidate StormGlass API calls (`Wave`, `Swell`) into `Forecast` component for fewer API calls
+- [ ] Refactor: convert mock JSON API to Express API
+- [ ] Check: cross check data from NOAA and StormGlass for water temp, air temp, and wind consistency
+- [ ] Feat: "Favorites" feature
+- [x] Refactor: Check in `Forecast` component if `spot` is true and only then render `Container` component, else render `FetchError` component
+- [x] Add: gather Chart x and y axis data from `Wave`, `Tides`, `Wind` and `Swell` component (values array and times array)
+- [x] Add: individual card body components to `Wave`, `Tides`, `Wind`, and `Swell` components (i.e. `WaveBody`, `TidesBody`)
+- [x] Add: `GridItemHeader` component
+- [x] Build: out `Swell` component
+- [x] Add: fetch and render Swell component data from API
+- [x] Refactor: `useLocalStorage` custom hook
+- [x] Add: refactored `useLocalStorage` hook into project (Inside app Context)
+- [x] Refactor: `useFetch` custom hook
+- [x] Refactor: data fetching architecture into `Forecast` component
 
 ## Buoys
 
