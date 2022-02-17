@@ -1,119 +1,45 @@
-# GoSurf
+<p align="center">
+  <a href="https://github.com/gosurf">
+    <img src="assets/header.svg" width="550">
+  </a>
+</p>
 
-This is the new repo for GoSurf.io. This is a React rebuild.
+<h1 align="center">Simplify checking the surf forecast</h1>
 
-### Tutorials
+GoSurf is a modern web application that aims to simplify checking the surf forecast for your local surf spot in a clean but simplistic UI/UX.
 
-- [Learn the MERN Stack](https://www.youtube.com/watch?v=-0exw-9YJBo): Traversy Media
+The concept for GoSurf is based on the fact that modern day surf tracking sites and applications are extremely noisy, and difficult to understand.
 
-### TODO
+<br>
 
-- [ ] Refactor: consolidate StormGlass API calls (`Wave`, `Swell`) into `Forecast` component for fewer API calls
-- [ ] Refactor: consolidate StormGlass API calls (`Wave`, `Swell`) into `Forecast` component for fewer API calls
-- [ ] Refactor: convert mock JSON API to Express API
-- [ ] Check: cross check data from NOAA and StormGlass for water temp, air temp, and wind consistency
-- [ ] Feat: "Favorites" feature
-- [x] Refactor: Check in `Forecast` component if `spot` is true and only then render `Container` component, else render `FetchError` component
-- [x] Add: gather Chart x and y axis data from `Wave`, `Tides`, `Wind` and `Swell` component (values array and times array)
-- [x] Add: individual card body components to `Wave`, `Tides`, `Wind`, and `Swell` components (i.e. `WaveBody`, `TidesBody`)
-- [x] Add: `GridItemHeader` component
-- [x] Build: out `Swell` component
-- [x] Add: fetch and render Swell component data from API
-- [x] Refactor: `useLocalStorage` custom hook
-- [x] Add: refactored `useLocalStorage` hook into project (Inside app Context)
-- [x] Refactor: `useFetch` custom hook
-- [x] Refactor: data fetching architecture into `Forecast` component
+# 🚀 Features
 
-## Buoys
+- 🤙🏻 **Ease of use**: GoSurf is for the casual shredder who doesn't care about the extra "noise" of modern surf forecasting sites
+- ⏰ **When to surf**: Ideal times to surf that day based on specific spot conditions
+- 🌊 **Wave heights**: Hour by hour wave heights and periods as well as the days range
+- 💧 **Tides**: Tide data on the extremes (high's and low's) for the day
+- 💨 **Wind**: Hour by hour wind speed and direction for the day
+- 🏄🏼‍♂️ **Swell**: Primary and secondary swell data
+- 🌜 **Dark mode**: GoSurf offers a clean, modern dark theme for those early mornings or late night surf checks
 
-### Buoy Wave Height Trend Calculations
+<br>
 
-Calculation of the significant wave height trend for each buoy is based on performing a simple linear regression to identify whether or not it seems like the data is trending upward or downward. The arbitrary values for determining this are based on looking at the past 24 hours worth of data, if it looks like it is trending upward or downward by a foot.
+# 🧑🏽‍💻 For Developers
 
-Logic for the simple linear regression can be found at [simple_linear_regression.js](src/services/simple_linear_regression.js)
+Interested in the application? Checkout our [App Configuration](https://github.com/ryan-neil/gosurf/tree/master/src/config) section and have a look under the hood. If we missed your favorite spot let us know! We're always looking to expand our forecasting reach.
 
-### Understanding CORS
+GoSurf is and always will be [Open Source](https://opensource.com/resources/what-open-source) and for the surfing community.
 
-Not all NOAA endpoints have CORS support. Specifically, the Buoys and the SurfState do not support this functionality and therefore directly calling the APIs through the browser is not supported. This therefore requires a proxy such as described in the links below:
+<br>
 
-- https://cors-anywhere.herokuapp.com/
-- https://stackoverflow.com/a/43881141
+# Contributing
 
-Example `netlify.toml` file for the proxies:
+Contributions are always welcome! Review the [App Configuration](https://github.com/ryan-neil/gosurf/tree/master/src/config) section of the repo on how to contribute to the project!
 
-```
-[[redirects]]
-  from = "/api/*"
-  to = "https://www.ndbc.noaa.gov/data/realtime2/:splat"
-  status = 200
+<br>
 
-[[redirects]]
-  from = "/*"
-  to = "/"
-  status = 200
-```
+---
 
-### Data Sources
+### License
 
-- [NDBC - Web Data Guide](http://www.ndbc.noaa.gov/docs/ndbc_web_data_guide.pdf)
-- [NDBC - Measurement Descriptions and Units](https://www.ndbc.noaa.gov/measdes.shtml)
-- [NDBC - Sensor Observation Service (SOS)](https://sdf.ndbc.noaa.gov/sos/)
-
-Some potential sources of data:
-
-- NDBC Station Selection: https://www.ndbc.noaa.gov/
-- Hilo Buoy: https://www.ndbc.noaa.gov/station_page.php?station=51206
-- Hilo realtime2 Data (.txt): https://www.ndbc.noaa.gov/data/realtime2/51206.txt
-- Hilo realtime2 Data (.spec): https://www.ndbc.noaa.gov/data/realtime2/51206.spec
-
-### Buoys
-
-The following buoys have wave height data:
-
-- 51206 - Hilo
-- 51211 - Pearl Harbor
-- 51212 - Barbers Point
-- 51210 - Kaneohe Bay
-- 51201 - Waimea Bay
-
-### Wave Heights
-
-Some potential resources:
-
-- [EMC Operational Wave Models](https://polar.ncep.noaa.gov/waves/index.php): Polar
-- [Global Forecast System - Wave](https://polar.ncep.noaa.gov/waves/viewer.shtml?-gfswave-): Polar
-- [Nearshore Wave Prediction System](https://polar.ncep.noaa.gov/nwps/): Polar
-
-## Tides
-
-### Current Tide Calculations
-
-The NOAA provides the predictions for significant tide heights (i.e. lowest and highest values) it does not provide a means to determine the "current" tide (that I know of).
-
-### Data Sources
-
-Some potential sources of information:
-
-- CO-OPS API Reference: https://api.tidesandcurrents.noaa.gov/api/prod/
-- Predictions: https://tidesandcurrents.noaa.gov/tide_predictions.html?gid=1399#listing
-- Hilo Tides: https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=1617760
-
-## Sunrise/Sunset Calculations
-
-- NOAA Calculations: https://www.esrl.noaa.gov/gmd/grad/solcalc/
-- NOAA Old Calculator: https://www.esrl.noaa.gov/gmd/grad/solcalc/sunrise.html
-- Javascript Library: https://github.com/mourner/suncalc
-
-## Known NOAA APIs
-
-- https://www.ncdc.noaa.gov/cdo-web/webservices/v2
-- https://www.weather.gov/documentation/services-web-api
-
-## Other Resources
-
-- Oahu Surf Report: https://github.com/aaronfuj/oahu-surf-report - Extremely helpful for decrypting NOAA buoy data.
-- Buoy Kit: https://github.com/derekdowling/buoy-kit - This is a typescript API for the tides which seems really useful. Unfortunately I found out about this after I had mostly finished my own services to do this.
-- Meta Surf Report: https://github.com/swrobel/meta-surf-forecast / https://metasurfforecast.com/ - These guys do a good job on consolidating different surf information from different web sites and providing some nice charts on top of them.
-- Surfline Example Endpoints:
-  - `http://api.surfline.com/v1/forecasts/4991?resources=surf&days=1&getAllSpots=false&units=e&interpolate=true&showOptimal=false`
-  - `https://services.surfline.com/kbyg/spots/forecasts/wave?spotId=5842041f4e65fad6a7708dec&days=16&intervalHours=1&maxHeights=true`
+[MIT](https://github.com/ryan-neil/gosurf/blob/master/LICENSE) © [Ryan Neil](https://github.com/ryan-neil)
