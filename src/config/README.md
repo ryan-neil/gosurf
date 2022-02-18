@@ -12,22 +12,30 @@
 
 ### Todos
 
-- [ ] Build: out Chart component for use in `Wave`, `Tides`, `Wind`, and `Swell` components
+- [ ] Rework: `windBody` and `swellBody` components with `.map()` looping logic
+- [ ] Rework: charts x-axis times shortened (6 AM)
+- [ ] Style: charts theme colors for styling (use styled-components?)
+- [ ] Build: out Chart component for:
+  - [x] `Wave` component
+  - [ ] `Tides` component
+  - [ ] `Wind` component
+  - [ ] `Swell` component
 - [ ] Style: add Forecast component background header (absolute positioning)
-- [ ] Refactor: consolidate StormGlass API calls (`Wave`, `Swell`) into `Forecast` component for fewer API calls
-- [ ] Refactor: convert mock JSON API to Express API
+- [ ] Rework: consolidate StormGlass API calls (`Wave`, `Swell`) into `Forecast` component for fewer API calls
+- [ ] Rework: convert mock JSON API to Express API
 - [ ] Check: cross check data from NOAA and StormGlass for water temp, air temp, and wind consistency
+- [ ] Add: Favorites star icon to `ForecastHeading` component
 - [ ] Feat: "Favorites" feature
-- [x] Refactor: Check in `Forecast` component if `spot` is true and only then render `Container` component, else render `FetchError` component
+- [x] Rework: Check in `Forecast` component if `spot` is true and only then render `Container` component, else render `FetchError` component
 - [x] Add: gather Chart x and y axis data from `Wave`, `Tides`, `Wind` and `Swell` component (values array and times array)
 - [x] Add: individual card body components to `Wave`, `Tides`, `Wind`, and `Swell` components (i.e. `WaveBody`, `TidesBody`)
 - [x] Add: `GridItemHeader` component
 - [x] Build: out `Swell` component
 - [x] Add: fetch and render Swell component data from API
-- [x] Refactor: `useLocalStorage` custom hook
-- [x] Add: refactored `useLocalStorage` hook into project (Inside app Context)
-- [x] Refactor: `useFetch` custom hook
-- [x] Refactor: data fetching architecture into `Forecast` component
+- [x] Rework: `useLocalStorage` custom hook
+- [x] Add: `useLocalStorage` hook into project (Inside app Context)
+- [x] Rework: `useFetch` custom hook
+- [x] Rework: data fetching architecture into `Forecast` component
 
 <br>
 

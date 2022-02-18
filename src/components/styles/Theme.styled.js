@@ -26,6 +26,11 @@ export const LightTheme = {
 		pink: '#d961a1',
 		violet: '#8957e5',
 		blue: '#378afc',
+		// charts
+		chartBar: 'rgba(25, 160, 246, 0.6)',
+		chartBarBorder: 'rgba(25, 160, 246, 1)',
+		chartBorder: 'rgba(255, 255, 255, 0.2)',
+		chartTicks: 'rgba(255, 255, 255, 0.2)',
 	},
 	styles: {
 		textXs: '11px',
@@ -57,8 +62,8 @@ export const DarkTheme = {
 		primaryBG: '#1b2635',
 		secondaryBG: '#233044',
 		heading: '#ffffff',
-		paragraph: 'rgba(255, 255, 255, 0.7);',
-		paragraphLight: 'rgba(255, 255, 255, 0.6);',
+		paragraph: 'rgba(255, 255, 255, 0.7)',
+		paragraphLight: 'rgba(255, 255, 255, 0.6)',
 		border: 'rgba(255, 255, 255, 0.1)',
 		inputBG: '#233044',
 		// misc
@@ -72,6 +77,11 @@ export const DarkTheme = {
 		pink: '#d961a1',
 		violet: '#8957e5',
 		blue: '#378afc',
+		// charts
+		chartBar: 'rgba(25, 160, 246, 0.6)',
+		chartBarBorder: 'rgba(25, 160, 246, 1)',
+		chartBorder: 'rgba(255, 255, 255, 0.2)',
+		chartTicks: 'rgba(255, 255, 255, 0.2)',
 	},
 	styles: {
 		textXs: '11px',

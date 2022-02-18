@@ -29,9 +29,12 @@ const WindBody = ({ currWindData, hourlyWindData }) => {
 			<StyledGridItemBody>
 				<p>Current speed:</p>
 				<p className="primary-data">{roundNumber(currWindData.data[0].s, 1)} kts</p>
-				<p>{`'${currWindData.data[0].dr}' (${roundNumber(currWindData.data[0].d, 1)}°)`}</p>
+				<p>{`'${currWindData.data[0].dr}' (${roundNumber(
+					currWindData.data[0].d,
+					1
+				)}°)`}</p>
 			</StyledGridItemBody>
-			<Chart heading="Wind" xAxis={windTimesArr} yAxis={windSpeedsArr} />
+			<Chart heading="Wind" />
 		</>
 	);
 };

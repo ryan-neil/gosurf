@@ -12,9 +12,13 @@ import { StyledGridItemBody, StyledSwellTag } from './styles/Forecast.styled';
 import { Flex, FlexCol } from './styles/Utils.styled';
 
 const SwellBody = ({ data }) => {
-	const hourlySwellData = data.hours;
-
 	remainingRequests(data);
+	// NEW: refactor looping code with this logic...
+	// const swellHeights = data.hours.map((hour) => hour.swellHeight.noaa);
+	// const swellDirections = data.hours.map((hour) => hour.swellDirection.noaa);
+	// const swellPeriods = data.hours.map((hour) => hour.swellPeriod.noaa);
+
+	const hourlySwellData = data.hours;
 
 	// get primary swell data
 	const getPrimarySwellData = () => {
@@ -51,7 +55,8 @@ const SwellBody = ({ data }) => {
 			swellPeriod,
 		};
 	};
-	const { swellHeightsArr, swellHeight, swellDirection, swellPeriod } = getPrimarySwellData();
+	const { swellHeightsArr, swellHeight, swellDirection, swellPeriod } =
+		getPrimarySwellData();
 
 	// get secondary swell data
 	const getSecondarySwellData = () => {
@@ -140,12 +145,7 @@ const SwellBody = ({ data }) => {
 					</FlexCol>
 				</Flex>
 			</StyledGridItemBody>
-			<Chart
-				heading="Swell"
-				xAxis={swellTimesArr}
-				yAxis={swellHeightsArr}
-				yAxisSec={secSwellHeightsArr}
-			/>
+			<Chart heading="Swell" />
 		</>
 	);
 };

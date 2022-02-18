@@ -1,4 +1,8 @@
-import { convertMetersToFeet, roundNumber } from '../helpers/utils';
+import {
+	convertMetersToFeet,
+	roundNumber,
+	convertTimeString,
+} from '../helpers/utils';
 import { calcBodySize } from '../helpers/calcBodySize';
 // Components
 import Chart from './Chart';
@@ -7,49 +11,18 @@ import { StyledGridItemBody } from './styles/Forecast.styled';
 
 const WaveBody = ({ data }) => {
 	// get wave heights
-	const getWaveHeights = () => {
-		const hourlyData = data.hours; // data no defined
-		let waveHeightsArr = [];
+	const waveHeights = data.hours.map((wave) =>
+		roundNumber(convertMetersToFeet(wave.waveHeight.noaa))
+	);
+	// get minimum wave height
+	const minWaveHeight = roundNumber(Math.min(...waveHeights));
+	// get maximum wave height
+	const maxWaveHeight = roundNumber(Math.max(...waveHeights));
 
-		for (let hour of hourlyData) {
-			const waveHeights = hour.waveHeight.noaa;
-			const waveHeightsToFeet = convertMetersToFeet(waveHeights);
-			const waveHeightsRounded = roundNumber(waveHeightsToFeet, 0);
-			waveHeightsArr.push(waveHeightsRounded);
-		}
-
-		const minWaveHeight = Math.min(...waveHeightsArr);
-		const maxWaveHeight = Math.max(...waveHeightsArr);
-
-		return {
-			waveHeightsArr,
-			minWaveHeight,
-			maxWaveHeight,
-		};
-	};
-	const { waveHeightsArr, minWaveHeight, maxWaveHeight } = getWaveHeights();
-
-	// get wave height times
-	const getWaveTimes = () => {
-		const hourlyData = data.hours;
-		let waveTimesArr = [];
-
-		for (let hour of hourlyData) {
-			const waveHeightTimes = hour.time;
-
-			const dateOptions = {
-				hour: 'numeric',
-				minute: '2-digit',
-				hour12: true,
-			};
-
-			const times = new Date(waveHeightTimes).toLocaleString('en-US', dateOptions);
-			waveTimesArr.push(times);
-		}
-
-		return { waveTimesArr };
-	};
-	const { waveTimesArr } = getWaveTimes();
+	// get wave times
+	const waveTimes = data.hours.map(
+		(wave) => convertTimeString(wave.time.slice(0, 19)) // remove last 6 indexes of api time string (remove's: +00:00)
+	);
 
 	return (
 		<>
@@ -60,7 +33,11 @@ const WaveBody = ({ data }) => {
 				</p>
 				{calcBodySize(minWaveHeight, maxWaveHeight)}
 			</StyledGridItemBody>
-			<Chart heading="Wave Height" xAxis={waveTimesArr} yAxis={waveHeightsArr} />
+			<Chart
+				heading="Wave Height"
+				xAxis={waveTimes.slice(5, 21)}
+				yAxis={waveHeights.slice(5, 21)}
+			/>
 		</>
 	);
 };

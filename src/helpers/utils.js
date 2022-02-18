@@ -11,20 +11,10 @@ export const getTodaysDate = () => {
 	return { fullDate, fullDateHyphen };
 };
 
-// convert ms time to hours short (6:30 AM): MEDIUM
-export const convertUnixTimeMedium = (time) => {
-	// let unix_timestamp = time + utcOffset;
-	const unixTimestamp = time;
-	const date = new Date(unixTimestamp);
-	const dateOptions = {
-		hour: 'numeric',
-		minute: '2-digit',
-		hour12: true,
-	};
-
-	const timeString = date.toLocaleString('en-US', dateOptions);
-
-	return timeString;
+// convert time to human
+export const convertTimeString = (time) => {
+	const date = new Date(time);
+	return date.toLocaleString('en-US', { timeStyle: 'short' }); // 6:00 AM
 };
 
 // round numbers with a precision point
@@ -100,5 +90,7 @@ export const convertDegToWindDir = (degrees) => {
 export const remainingRequests = (data) => {
 	const dailyRequests = data.meta.dailyQuota;
 	const usedRequests = data.meta.requestCount;
-	console.log(`Remaining Storm Glass API requests today: ${dailyRequests - usedRequests}`);
+	console.log(
+		`Remaining Storm Glass API requests today: ${dailyRequests - usedRequests}`
+	);
 };
