@@ -1,4 +1,9 @@
-import { StyledChartContainer, StyledChartHeading, StyledChart } from './styles/Chart.styled';
+// Styles
+import {
+	StyledChartContainer,
+	StyledChartHeading,
+	StyledChart,
+} from './styles/Chart.styled';
 
 const Chart = ({ heading, xAxis, yAxis, yAxisSec }) => {
 	// console.log(heading);
@@ -8,7 +13,9 @@ const Chart = ({ heading, xAxis, yAxis, yAxisSec }) => {
 	return (
 		<StyledChartContainer>
 			<StyledChartHeading>{heading} Chart</StyledChartHeading>
-			<StyledChart />
+			<StyledChart>
+				<p>I'm a chart</p>
+			</StyledChart>
 		</StyledChartContainer>
 	);
 };

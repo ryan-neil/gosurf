@@ -13,6 +13,7 @@
 ### Todos
 
 - [ ] Build: out Chart component for use in `Wave`, `Tides`, `Wind`, and `Swell` components
+- [ ] Style: add Forecast component background header (absolute positioning)
 - [ ] Refactor: consolidate StormGlass API calls (`Wave`, `Swell`) into `Forecast` component for fewer API calls
 - [ ] Refactor: convert mock JSON API to Express API
 - [ ] Check: cross check data from NOAA and StormGlass for water temp, air temp, and wind consistency
@@ -135,6 +136,8 @@ A quick look at the files and directories you'll see in the repo.
 
 # 🗂️ Repo Folder Breakdown
 
+_Out of date..._
+
 /`src`/`config`: This **folder** contains information regarding all API's and how to accessing them. As well as all other developer specific application configuration. This folder doesn't contain any logic.
 
 /`src`/`public`: This **folder** contains all the client facing code (images, style sheets, frontend javascript, etc.).
@@ -149,7 +152,7 @@ A quick look at the files and directories you'll see in the repo.
 
 # 🌱 API Configuration
 
-### Buoys
+## Buoys
 
 #### Buoy Wave Height Trend Calculations
 
@@ -201,7 +204,7 @@ The following buoys have wave height data:
 - 51210 - Kaneohe Bay
 - 51201 - Waimea Bay
 
-### Wave Heights
+## Wave Heights
 
 Some potential resources:
 
@@ -209,7 +212,7 @@ Some potential resources:
 - [Global Forecast System - Wave](https://polar.ncep.noaa.gov/waves/viewer.shtml?-gfswave-): Polar
 - [Nearshore Wave Prediction System](https://polar.ncep.noaa.gov/nwps/): Polar
 
-### Tides
+## Tides
 
 #### Current Tide Calculations
 
@@ -223,18 +226,18 @@ Some potential sources of information:
 - Predictions: https://tidesandcurrents.noaa.gov/tide_predictions.html?gid=1399#listing
 - Hilo Tides: https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=1617760
 
-### Sunrise/Sunset Calculations
+## Sunrise/Sunset Calculations
 
 - NOAA Calculations: https://www.esrl.noaa.gov/gmd/grad/solcalc/
 - NOAA Old Calculator: https://www.esrl.noaa.gov/gmd/grad/solcalc/sunrise.html
 - Javascript Library: https://github.com/mourner/suncalc
 
-### Known NOAA APIs
+## Known NOAA APIs
 
 - https://www.ncdc.noaa.gov/cdo-web/webservices/v2
 - https://www.weather.gov/documentation/services-web-api
 
-### Other Resources
+## Other Resources
 
 - Oahu Surf Report: https://github.com/aaronfuj/oahu-surf-report - Extremely helpful for decrypting NOAA buoy data.
 - Buoy Kit: https://github.com/derekdowling/buoy-kit - This is a typescript API for the tides which seems really useful. Unfortunately I found out about this after I had mostly finished my own services to do this.
