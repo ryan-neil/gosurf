@@ -10,21 +10,29 @@ import waterIcon from '../assets/water.svg';
 import airIcon from '../assets/air.svg';
 
 const Banner = ({ spot }) => {
-	// get sunrise and sunset for spot
+	// get sunrise and sunset
 	const { sunrise, sunset } = calcSunTimes(spot.lat, spot.lon);
 
 	// fetch air temperature data
 	const airTempEndpoint = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?=&product=air_temperature&station=${spot.noaa_station_id}&date=latest&units=english&datum=MLLW&time_zone=lst_ldt&format=json&application=NOS.COOPS.TAC.TidePred&interval=hilo`;
-	let { response: airData, loading, error } = useFetch(airTempEndpoint);
+	let {
+		response: airData,
+		loading: airLoading,
+		error: airError,
+	} = useFetch(airTempEndpoint);
 
 	// fetch water temperature data
 	const waterTempEndpoint = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?=&product=water_temperature&station=${spot.noaa_station_id}&date=latest&units=english&datum=MLLW&time_zone=lst_ldt&format=json&application=NOS.COOPS.TAC.TidePred&interval=hilo`;
-	let { response: waterData } = useFetch(waterTempEndpoint);
+	let {
+		response: waterData,
+		loading: waterLoading,
+		error: waterError,
+	} = useFetch(waterTempEndpoint);
 
 	return (
 		<StyledBanner>
-			{loading && <Loading />}
-			{airData && waterData && !loading ? (
+			{airLoading && <Loading />}
+			{airData && waterData && !airLoading ? (
 				<>
 					<StyledBannerItem>
 						<h4>Water Temperature</h4>
@@ -64,7 +72,7 @@ const Banner = ({ spot }) => {
 					</StyledBannerItem>
 				</>
 			) : (
-				error && !loading && <FetchError name="Weather" error={error} />
+				airError && !airLoading && <FetchError name="Weather" error={airError} />
 			)}
 		</StyledBanner>
 	);

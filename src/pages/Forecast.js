@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import SpotsContext from '../context/SpotsContext';
 // Components
 import ForecastHeading from '../components/ForecastHeading';
@@ -10,16 +10,15 @@ import Wind from '../components/Wind';
 import Swell from '../components/Swell';
 import FetchError from '../components/FetchError';
 // Styles
-import { StyledForecast, StyledGridContainer } from '../components/styles/Forecast.styled';
+import {
+	StyledForecast,
+	StyledGridContainer,
+} from '../components/styles/Forecast.styled';
 import { Container } from '../components/styles/Utils.styled';
 
 const Forecast = () => {
 	const { spots } = useContext(SpotsContext);
 	const { slug } = useParams();
-	const navigate = useNavigate();
-
-	// error check: not working...
-	!spots && navigate('*');
 
 	const filteredSpot = spots.filter((spot) => spot.slug === slug);
 	const spot = filteredSpot[0];

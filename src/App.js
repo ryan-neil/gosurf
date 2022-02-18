@@ -13,7 +13,7 @@ import Forecast from './pages/Forecast';
 import Missing from './pages/Missing';
 
 const App = () => {
-	const [theme, setTheme] = useState('dark');
+	const [theme, setTheme] = useState('light');
 
 	return (
 		<ThemeProvider theme={mode[theme]}>

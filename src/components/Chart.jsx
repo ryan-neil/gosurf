@@ -13,7 +13,7 @@ const Chart = ({ heading, xAxis, yAxis, yAxisSec }) => {
 		labels: xAxis,
 		datasets: [
 			{
-				label: 'Wave Heights',
+				label: 'Wave Height',
 				data: yAxis,
 			},
 		],
@@ -40,30 +40,31 @@ const Chart = ({ heading, xAxis, yAxis, yAxisSec }) => {
 		scales: {
 			xAxis: {
 				ticks: {
-					color: 'rgba(255, 255, 255, 0.6)', // tick font color
+					color: 'rgba(0, 0, 0, 0.6)', // tick font color
 					font: {
-						size: 12, // default font size (12)
+						size: 10, // default font size (12)
 					},
 				},
 				grid: {
 					display: false, // grid lines on xAxis
-					borderColor: 'rgba(255, 255, 255, 0.2)',
+					borderColor: 'rgba(0, 0, 0, 0.2)',
 				},
 			},
 			yAxis: {
 				ticks: {
-					color: 'rgba(255, 255, 255, 0.6)', // tick font color
+					color: 'rgba(0, 0, 0, 0.6)', // tick font color
 					font: {
-						size: 12, // default font size (12)
+						size: 10, // default font size (12)
 					},
 				},
 				grid: {
 					display: true, // grid lines on yAxis
 					borderDash: [4, 2],
-					color: 'rgba(255, 255, 255, 0.2)',
-					borderColor: 'rgba(255, 255, 255, 0.2)',
+					color: 'rgba(0, 0, 0, 0.2)',
+					borderColor: 'rgba(0, 0, 0, 0.2)',
 				},
 				min: 0, // set yAxis minimum tick number
+				// max: Math.max(...yAxis), // set yAxis maximum tick number
 				max: 10, // set yAxis maximum tick number
 				beginAtZero: false,
 			},

@@ -8,8 +8,6 @@
 4. [🌱 API Configuration](#🌱-api-configuration)
 5. [🖋️ Contributing](#🖋️-contributing)
 
-<br>
-
 ### Todos
 
 - [ ] Rework: `windBody` and `swellBody` components with `.map()` looping logic
@@ -36,6 +34,10 @@
 - [x] Add: `useLocalStorage` hook into project (Inside app Context)
 - [x] Rework: `useFetch` custom hook
 - [x] Rework: data fetching architecture into `Forecast` component
+
+### Resources:
+
+- [React Data Fetching Patterns](https://nordschool.com/react-data-fetching/)
 
 <br>
 
@@ -220,7 +222,7 @@ Some potential resources:
 - [Global Forecast System - Wave](https://polar.ncep.noaa.gov/waves/viewer.shtml?-gfswave-): Polar
 - [Nearshore Wave Prediction System](https://polar.ncep.noaa.gov/nwps/): Polar
 
-## Tides
+## Tides & Wind
 
 #### Current Tide Calculations
 

@@ -21,15 +21,12 @@ const Tides = ({ spot }) => {
 	const hourlyTideEndpoint = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?=&product=predictions&station=${spot.noaa_station_id}&begin_date=${fullDate}&range=24&units=english&datum=MLLW&time_zone=lst_ldt&format=json&application=NOS.COOPS.TAC.TidePred&interval=h`;
 	const { response: hourlyTidesData } = useFetch(hourlyTideEndpoint);
 
-	// if (loading) return (<Loading />);
-	// if (error) return (<FetchError name="Tide" error={error});
-
 	return (
 		<StyledGridItem>
 			<GridItemHeading icon={tidesIcon} title="Tides" />
 			{loading && <Loading />}
 			{currTideData && hourlyTidesData && !loading ? (
-				<TidesBody hourlyTidesData={hourlyTidesData} currTideData={currTideData} />
+				<TidesBody currTideData={currTideData} hourlyTidesData={hourlyTidesData} />
 			) : (
 				!loading && <FetchError name="Tide" error={error} />
 			)}

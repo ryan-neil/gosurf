@@ -29,8 +29,9 @@ export const LightTheme = {
 		// charts
 		chartBar: 'rgba(25, 160, 246, 0.6)',
 		chartBarBorder: 'rgba(25, 160, 246, 1)',
-		chartBorder: 'rgba(255, 255, 255, 0.2)',
-		chartTicks: 'rgba(255, 255, 255, 0.2)',
+		chartBorder: 'rgba(0, 0, 0, 0.2)',
+		chartTicks: 'rgba(0, 0, 0, 0.6)',
+		chartGrid: 'rgba(0, 0, 0, 0.2)',
 	},
 	styles: {
 		textXs: '11px',
@@ -81,7 +82,8 @@ export const DarkTheme = {
 		chartBar: 'rgba(25, 160, 246, 0.6)',
 		chartBarBorder: 'rgba(25, 160, 246, 1)',
 		chartBorder: 'rgba(255, 255, 255, 0.2)',
-		chartTicks: 'rgba(255, 255, 255, 0.2)',
+		chartTicks: 'rgba(255, 255, 255, 0.6)',
+		chartGrid: 'rgba(255, 255, 255, 0.2)',
 	},
 	styles: {
 		textXs: '11px',

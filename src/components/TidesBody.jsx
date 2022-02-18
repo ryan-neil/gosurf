@@ -5,7 +5,9 @@ import Chart from './Chart';
 import { Flex } from './styles/Utils.styled';
 import { StyledGridItemBody } from './styles/Forecast.styled';
 
-const TidesBody = ({ hourlyTidesData, currTideData }) => {
+const TidesBody = ({ currTideData, hourlyTidesData }) => {
+	// console.log(hourlyTidesData);
+
 	// get tides heights
 	const tidesHeights = hourlyTidesData.predictions.map((hour) =>
 		roundNumber(hour.v, 2)

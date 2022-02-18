@@ -16,8 +16,9 @@ const StyledError = styled.div`
 const FetchError = ({ name, error }) => {
 	return (
 		<StyledError>
-			<p>Oops, error fetching {name} data...</p>
-			{/* <p>{error}</p> */}
+			<p>
+				Sorry, error fetching {name} data...{error}
+			</p>
 		</StyledError>
 	);
 };

@@ -1,28 +1,15 @@
-import { roundNumber } from '../helpers/utils';
+import { roundNumber, convertTimeString } from '../helpers/utils';
 // Components
 import Chart from './Chart';
 // Styles
 import { StyledGridItemBody } from './styles/Forecast.styled';
 
 const WindBody = ({ currWindData, hourlyWindData }) => {
-	// get tides heights
-	const getWindHeightsAndTimes = () => {
-		let windSpeedsArr = [];
-		let windTimesArr = [];
+	// get wind speeds
+	const windSpeeds = hourlyWindData.data.map((hour) => roundNumber(hour.s));
 
-		for (let hour of hourlyWindData.data) {
-			const windSpeeds = hour.s;
-			const windTimes = hour.t;
-			windSpeedsArr.push(roundNumber(windSpeeds, 2));
-			windTimesArr.push(windTimes);
-		}
-
-		return {
-			windSpeedsArr,
-			windTimesArr,
-		};
-	};
-	const { windSpeedsArr, windTimesArr } = getWindHeightsAndTimes();
+	// get wind times
+	const windTimes = hourlyWindData.data.map((hour) => convertTimeString(hour.t));
 
 	return (
 		<>

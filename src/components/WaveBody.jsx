@@ -29,7 +29,9 @@ const WaveBody = ({ data }) => {
 			<StyledGridItemBody>
 				<p>Todays range:</p>
 				<p className="primary-data">
-					{minWaveHeight}-{maxWaveHeight} ft
+					{minWaveHeight === maxWaveHeight
+						? `${maxWaveHeight} ft`
+						: `${minWaveHeight}-${maxWaveHeight} ft`}
 				</p>
 				{calcBodySize(minWaveHeight, maxWaveHeight)}
 			</StyledGridItemBody>
