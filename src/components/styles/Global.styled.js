@@ -5,6 +5,15 @@ import { createGlobalStyle } from 'styled-components';
 App styles
 */
 const GlobalStyles = createGlobalStyle`
+	:root {
+		--primaryBG: ${({ theme }) => theme.colors.primaryBG};
+		--chartBar: ${({ theme }) => theme.colors.chartBar};
+		--chartBarBorder: ${({ theme }) => theme.colors.chartBarBorder};
+		--chartTicks: ${({ theme }) => theme.colors.chartTicks};
+		--chartGrid: ${({ theme }) => theme.colors.chartGrid};
+		--chartPrimSwellLine: ${({ theme }) => theme.colors.chartPrimSwellLine};
+		--chartSecSwellLine: ${({ theme }) => theme.colors.chartSecSwellLine};
+	}
   *,
   *::before,
   *::after {

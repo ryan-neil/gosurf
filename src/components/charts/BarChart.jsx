@@ -6,14 +6,21 @@ import {
 	StyledChartContainer,
 	StyledChartHeading,
 	StyledChart,
-} from './styles/Chart.styled';
+} from '../styles/Chart.styled';
 
-const Chart = ({ heading, xAxis, yAxis, yAxisSec }) => {
+const BarChart = ({ heading, xAxis, yAxis }) => {
+	// get chart global styles for chart styling
+	const style = getComputedStyle(document.body);
+	const chartBar = style.getPropertyValue('--chartBar');
+	const chartBarBorder = style.getPropertyValue('--chartBarBorder');
+	const chartTicks = style.getPropertyValue('--chartTicks');
+	const chartGrid = style.getPropertyValue('--chartGrid');
+
 	const data = {
 		labels: xAxis,
 		datasets: [
 			{
-				label: 'Wave Height',
+				label: heading === 'Wave Height' ? 'Wave Height' : 'Wind Speed',
 				data: yAxis,
 			},
 		],
@@ -30,29 +37,30 @@ const Chart = ({ heading, xAxis, yAxis, yAxisSec }) => {
 		// styling
 		elements: {
 			bar: {
-				backgroundColor: 'rgba(30, 144, 255, 0.6)',
+				// backgroundColor: 'rgba(30, 144, 255, 0.6)',
+				backgroundColor: chartBar,
 				borderWidth: 2,
 				borderRadius: 2,
-				borderColor: 'rgba(30, 144, 255, 1)',
-				// borderColor: `${({ theme }) => theme.colors.chartBarBorder}`,
+				borderColor: chartBarBorder,
 			},
 		},
 		scales: {
 			xAxis: {
 				ticks: {
-					color: 'rgba(0, 0, 0, 0.6)', // tick font color
+					color: chartTicks, // tick font color
 					font: {
 						size: 10, // default font size (12)
 					},
 				},
 				grid: {
 					display: false, // grid lines on xAxis
-					borderColor: 'rgba(0, 0, 0, 0.2)',
+					color: chartGrid,
+					borderColor: chartGrid,
 				},
 			},
 			yAxis: {
 				ticks: {
-					color: 'rgba(0, 0, 0, 0.6)', // tick font color
+					color: chartTicks, // tick font color
 					font: {
 						size: 10, // default font size (12)
 					},
@@ -60,12 +68,12 @@ const Chart = ({ heading, xAxis, yAxis, yAxisSec }) => {
 				grid: {
 					display: true, // grid lines on yAxis
 					borderDash: [4, 2],
-					color: 'rgba(0, 0, 0, 0.2)',
-					borderColor: 'rgba(0, 0, 0, 0.2)',
+					color: chartGrid,
+					borderColor: chartGrid,
 				},
 				min: 0, // set yAxis minimum tick number
 				// max: Math.max(...yAxis), // set yAxis maximum tick number
-				max: 10, // set yAxis maximum tick number
+				// max: 10, // set yAxis maximum tick number
 				beginAtZero: false,
 			},
 		},
@@ -81,4 +89,4 @@ const Chart = ({ heading, xAxis, yAxis, yAxisSec }) => {
 	);
 };
 
-export default Chart;
+export default BarChart;

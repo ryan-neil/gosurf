@@ -26,7 +26,7 @@ const Tides = ({ spot }) => {
 			<GridItemHeading icon={tidesIcon} title="Tides" />
 			{loading && <Loading />}
 			{currTideData && hourlyTidesData && !loading ? (
-				<TidesBody currTideData={currTideData} hourlyTidesData={hourlyTidesData} />
+				<TidesBody hourlyTidesData={hourlyTidesData} currTideData={currTideData} />
 			) : (
 				!loading && <FetchError name="Tide" error={error} />
 			)}

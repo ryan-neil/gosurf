@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 // Components
 import SearchBar from './SearchBar';
@@ -19,7 +20,11 @@ const Header = ({ theme, setTheme }) => {
 
 	// set theme icon
 	const themeIcon =
-		theme === 'light' ? <MoonIcon onClick={toggleTheme} /> : <SunIcon onClick={toggleTheme} />;
+		theme === 'light' ? (
+			<MoonIcon onClick={toggleTheme} />
+		) : (
+			<SunIcon onClick={toggleTheme} />
+		);
 
 	return (
 		<StyledHeader>

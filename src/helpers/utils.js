@@ -12,9 +12,11 @@ export const getTodaysDate = () => {
 };
 
 // convert time to human
-export const convertTimeString = (time) => {
+// { hour: 'numeric' } // 6 AM
+// { timeStyle: 'short' } // 6:00 AM
+export const convertTimeString = (time, options) => {
 	const date = new Date(time);
-	return date.toLocaleString('en-US', { timeStyle: 'short' }); // 6:00 AM
+	return date.toLocaleString('en-US', options); // 6 AM
 };
 
 // round numbers with a precision point
@@ -23,6 +25,7 @@ export const roundNumber = (value, precision) => {
 	return Math.round(value * multiplier) / multiplier;
 };
 
+// convert meters to feet
 export const convertMetersToFeet = (meters) => 3.281 * meters;
 
 // get average of an array

@@ -10,20 +10,22 @@
 
 ### Todos
 
-- [ ] Rework: `windBody` and `swellBody` components with `.map()` looping logic
-- [ ] Rework: charts x-axis times shortened (6 AM)
-- [ ] Style: charts theme colors for styling (use styled-components?)
-- [ ] Build: out Chart component for:
-  - [x] `Wave` component
-  - [ ] `Tides` component
-  - [ ] `Wind` component
-  - [ ] `Swell` component
-- [ ] Style: add Forecast component background header (absolute positioning)
-- [ ] Rework: consolidate StormGlass API calls (`Wave`, `Swell`) into `Forecast` component for fewer API calls
-- [ ] Rework: convert mock JSON API to Express API
+- [ ] Update: consolidate StormGlass API calls (`Wave`, `Swell`) into `Forecast` component for fewer API calls
+- [ ] Update: components as props design pattern for reusable Chart component (`<Chart type={<Bar />} />`)
+- [ ] Update: convert mock JSON API to Express API
+- [ ] Style/Logic: `Swell` component `LineChart` to show secondary swell line as a different color
+- [ ] Style/Add: add Forecast component background header (absolute positioning)
+- [ ] Style/Add: `Favorites` star icon to `ForecastHeading` component
 - [ ] Check: cross check data from NOAA and StormGlass for water temp, air temp, and wind consistency
-- [ ] Add: Favorites star icon to `ForecastHeading` component
 - [ ] Feat: "Favorites" feature
+- [x] Style/Logic: charts theme colors for styling (use styled-components?)
+- [x] Build: out `Chart` component for:
+  - [x] `Wave` component
+  - [x] `Tides` component
+  - [x] `Wind` component
+  - [x] `Swell` component
+- [x] Rework: charts x-axis times shortened (6 AM)
+- [x] Rework: `windBody` and `swellBody` components with `.map()` looping logic
 - [x] Rework: Check in `Forecast` component if `spot` is true and only then render `Container` component, else render `FetchError` component
 - [x] Add: gather Chart x and y axis data from `Wave`, `Tides`, `Wind` and `Swell` component (values array and times array)
 - [x] Add: individual card body components to `Wave`, `Tides`, `Wind`, and `Swell` components (i.e. `WaveBody`, `TidesBody`)
@@ -37,7 +39,14 @@
 
 ### Resources:
 
+**Standalone Components**: Fetch and render in same component.
+**HOC Components**: Fetch and render are separated into 2 components (_"Container"_ and _"Presentation"_).
+
 - [React Data Fetching Patterns](https://nordschool.com/react-data-fetching/)
+- [Thoughts on React Hooks, Redux, and Separation of Concerns](https://blog.isquaredsoftware.com/2019/07/blogged-answers-thoughts-on-hooks/)
+- [Hooks, HOCs, and Tradeoffs](https://blog.isquaredsoftware.com/2019/09/presentation-hooks-hocs-tradeoffs/)
+- [The Evolution of Redux Testing Approaches](https://blog.isquaredsoftware.com/2021/06/the-evolution-of-redux-testing-approaches/)
+- [How To Create And Test Custom Hooks In React](https://vhudyma-blog.eu/2020-07-11-how-to-create-and-test-custom-hooks-in-react/)
 
 <br>
 

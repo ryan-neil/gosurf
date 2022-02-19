@@ -7,20 +7,20 @@ import {
 	convertTimeString,
 } from '../helpers/utils';
 // Components
-import Chart from './Chart';
+import LineChart from './charts/LineChart';
 // Styles
 import { StyledGridItemBody, StyledSwellTag } from './styles/Forecast.styled';
 import { Flex, FlexCol } from './styles/Utils.styled';
 
-const SwellBody = ({ data }) => {
+const SwellBody = ({ swellData }) => {
 	// get primary swell data
-	const primSwellHeights = data.hours.map((hour) =>
+	const primSwellHeights = swellData.hours.map((hour) =>
 		convertMetersToFeet(hour.swellHeight.noaa)
 	);
-	const primSwellDirections = data.hours.map((hour) =>
+	const primSwellDirections = swellData.hours.map((hour) =>
 		roundNumber(hour.swellDirection.noaa, 0)
 	);
-	const primSwellPeriods = data.hours.map((hour) =>
+	const primSwellPeriods = swellData.hours.map((hour) =>
 		roundNumber(hour.swellPeriod.noaa, 0)
 	);
 	// get average primary swell data
@@ -29,13 +29,13 @@ const SwellBody = ({ data }) => {
 	const avgPrimSwellPeriod = roundNumber(avgOfArray(primSwellPeriods), 0);
 
 	// get secondary swell data
-	const secSwellHeights = data.hours.map((hour) =>
+	const secSwellHeights = swellData.hours.map((hour) =>
 		convertMetersToFeet(hour.secondarySwellHeight.noaa)
 	);
-	const secSwellDirections = data.hours.map((hour) =>
+	const secSwellDirections = swellData.hours.map((hour) =>
 		roundNumber(hour.secondarySwellDirection.noaa, 0)
 	);
-	const secSwellPeriods = data.hours.map((hour) =>
+	const secSwellPeriods = swellData.hours.map((hour) =>
 		roundNumber(hour.secondarySwellPeriod.noaa, 0)
 	);
 	// get average secondary swell data
@@ -44,8 +44,9 @@ const SwellBody = ({ data }) => {
 	const avgSecSwellPeriod = roundNumber(avgOfArray(secSwellPeriods), 0);
 
 	// get swell times
-	const swellTimes = data.hours.map(
-		(hour) => convertTimeString(hour.time.slice(0, 19)) // remove last 6 indexes of api time string (remove's: +00:00)
+	const swellTimes = swellData.hours.map(
+		// remove last 6 indexes of api time string (remove's: +00:00)
+		(hour) => convertTimeString(hour.time.slice(0, 19), { hour: 'numeric' }) // 6 AM
 	);
 
 	return (
@@ -77,7 +78,12 @@ const SwellBody = ({ data }) => {
 					</FlexCol>
 				</Flex>
 			</StyledGridItemBody>
-			<Chart heading="Swell" />
+			<LineChart
+				heading="Swell"
+				xAxis={swellTimes.slice(5, 21)}
+				yAxis={primSwellHeights.slice(5, 21)}
+				yAxisSec={secSwellHeights.slice(5, 21)}
+			/>
 		</>
 	);
 };

@@ -16,7 +16,7 @@ export const LightTheme = {
 		border: 'rgba(0, 0, 0, 0.1)',
 		inputBG: 'hsl(217, 45%, 97%)',
 		// misc
-		tertiary: '#ffad42',
+		tertiary: 'rgba(255, 173, 66, 1)',
 		danger: '#fa3945',
 		dangerLight: 'rgba(250, 57, 69, 0.1)',
 		success: '#45fa39',
@@ -29,9 +29,10 @@ export const LightTheme = {
 		// charts
 		chartBar: 'rgba(25, 160, 246, 0.6)',
 		chartBarBorder: 'rgba(25, 160, 246, 1)',
-		chartBorder: 'rgba(0, 0, 0, 0.2)',
 		chartTicks: 'rgba(0, 0, 0, 0.6)',
 		chartGrid: 'rgba(0, 0, 0, 0.2)',
+		chartPrimSwellLine: 'rgba(63, 185, 80, 1)',
+		chartSecSwellLine: 'rgba(255, 173, 66, 1)',
 	},
 	styles: {
 		textXs: '11px',
@@ -49,7 +50,8 @@ export const LightTheme = {
 		width: '1275px',
 	},
 	mobile: {
-		width: '718px',
+		// width: '718px', // split screen
+		width: '720px',
 	},
 };
 
@@ -81,9 +83,10 @@ export const DarkTheme = {
 		// charts
 		chartBar: 'rgba(25, 160, 246, 0.6)',
 		chartBarBorder: 'rgba(25, 160, 246, 1)',
-		chartBorder: 'rgba(255, 255, 255, 0.2)',
 		chartTicks: 'rgba(255, 255, 255, 0.6)',
 		chartGrid: 'rgba(255, 255, 255, 0.2)',
+		chartPrimSwellLine: 'rgba(63, 185, 80, 1)',
+		chartSecSwellLine: 'rgba(255, 173, 66, 1)',
 	},
 	styles: {
 		textXs: '11px',
@@ -101,7 +104,8 @@ export const DarkTheme = {
 		width: '1275px',
 	},
 	mobile: {
-		width: '718px',
+		// width: '718px', // split screen
+		width: '720px',
 	},
 };
 

@@ -20,7 +20,11 @@ const Swell = ({ spot }) => {
 		'secondarySwellPeriod',
 	];
 	const endpoint = `https://api.stormglass.io/v2/weather/point?lat=${spot.lat}&lng=${spot.lon}&params=${reqParams}&start=${fullDateHyphen}&end=${fullDateHyphen}T23:00`;
-	const { response, loading, error } = useFetch(endpoint, {
+	const {
+		response: swellData,
+		loading,
+		error,
+	} = useFetch(endpoint, {
 		headers: {
 			Authorization: process.env.REACT_APP_SG_KEY,
 		},
@@ -30,10 +34,10 @@ const Swell = ({ spot }) => {
 		<StyledGridItem>
 			<GridItemHeading icon={swellIcon} title="Swell" />
 			{loading && <Loading />}
-			{response && !loading ? (
-				<SwellBody data={response} />
+			{swellData && !loading ? (
+				<SwellBody swellData={swellData} />
 			) : (
-				error && !loading && <FetchError name="Swell" error={error} />
+				!loading && <FetchError name="Swell" error={error} />
 			)}
 		</StyledGridItem>
 	);

@@ -1,6 +1,6 @@
 import { roundNumber, convertTimeString } from '../helpers/utils';
 // Components
-import Chart from './Chart';
+import BarChart from './charts/BarChart';
 // Styles
 import { StyledGridItemBody } from './styles/Forecast.styled';
 
@@ -9,7 +9,9 @@ const WindBody = ({ currWindData, hourlyWindData }) => {
 	const windSpeeds = hourlyWindData.data.map((hour) => roundNumber(hour.s));
 
 	// get wind times
-	const windTimes = hourlyWindData.data.map((hour) => convertTimeString(hour.t));
+	const windTimes = hourlyWindData.data.map(
+		(hour) => convertTimeString(hour.t, { hour: 'numeric' }) // 6 AM
+	);
 
 	return (
 		<>
@@ -21,7 +23,7 @@ const WindBody = ({ currWindData, hourlyWindData }) => {
 					1
 				)}°)`}</p>
 			</StyledGridItemBody>
-			<Chart heading="Wind" />
+			<BarChart heading="Wind" xAxis={windTimes} yAxis={windSpeeds} />
 		</>
 	);
 };

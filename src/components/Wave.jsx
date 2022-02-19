@@ -1,4 +1,5 @@
-import { getTodaysDate } from '../helpers/utils';
+import { useEffect, useState } from 'react';
+import { getTodaysDate, convertMetersToFeet, roundNumber } from '../helpers/utils';
 import { useFetch } from '../hooks/useFetch';
 // Components
 import GridItemHeading from './GridItemHeading';
@@ -16,20 +17,29 @@ const Wave = ({ spot }) => {
 	const { fullDateHyphen } = getTodaysDate();
 	const reqParams = ['waveHeight', 'wavePeriod'];
 	const endpoint = `https://api.stormglass.io/v2/weather/point?lat=${spot.lat}&lng=${spot.lon}&params=${reqParams}&start=${fullDateHyphen}&end=${fullDateHyphen}T23:00`;
-	const { response, loading, error } = useFetch(endpoint, {
+	const {
+		response: waveData,
+		loading,
+		error,
+	} = useFetch(endpoint, {
 		headers: {
 			Authorization: process.env.REACT_APP_SG_KEY,
 		},
 	});
 
+	// const waveHeights = response.hours.map((wave) =>
+	// 	roundNumber(convertMetersToFeet(wave.waveHeight.noaa))
+	// );
+	// console.log(waveHeights);
+
 	return (
 		<StyledGridItem>
 			<GridItemHeading icon={waveIcon} title="Wave Height" />
 			{loading && <Loading />}
-			{response && !loading ? (
-				<WaveBody data={response} />
+			{waveData && !loading ? (
+				<WaveBody waveData={waveData} />
 			) : (
-				error && !loading && <FetchError name="Wave" error={error} />
+				!loading && <FetchError name="Wave" error={error} />
 			)}
 		</StyledGridItem>
 	);

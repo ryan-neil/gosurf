@@ -38,7 +38,6 @@ export const StyledGridItem = styled.div`
 `;
 
 export const StyledGridItemBody = styled.div`
-	margin: 1rem 0;
 	display: flex;
 	justify-content: space-between;
 	flex-direction: column;
