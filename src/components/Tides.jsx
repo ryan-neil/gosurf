@@ -8,7 +8,7 @@ import Loading from './Loading';
 import FetchError from './FetchError';
 // Styles
 import { StyledGridItem } from './styles/Forecast.styled';
-import tidesIcon from '../assets/tides.svg';
+import tidesIcon from '../assets/icons/tides.svg';
 
 const Tides = ({ spot }) => {
 	const { fullDate } = getTodaysDate();
@@ -20,6 +20,11 @@ const Tides = ({ spot }) => {
 	// fetch hourly tide data
 	const hourlyTideEndpoint = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?=&product=predictions&station=${spot.noaa_station_id}&begin_date=${fullDate}&range=24&units=english&datum=MLLW&time_zone=lst_ldt&format=json&application=NOS.COOPS.TAC.TidePred&interval=h`;
 	const { response: hourlyTidesData } = useFetch(hourlyTideEndpoint);
+
+	if (!currTideData && !loading) {
+		<FetchError name="Tides" error={error} />;
+		// return null;
+	}
 
 	return (
 		<StyledGridItem>

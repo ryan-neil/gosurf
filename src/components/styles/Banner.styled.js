@@ -4,13 +4,14 @@ export const StyledBanner = styled.section`
 	min-height: 100px;
 	height: auto;
 	margin-top: 1rem;
+	padding: 1rem;
+	background-color: ${({ theme }) => theme.colors.secondaryBG};
+	box-shadow: ${({ theme }) => theme.colors.boxShadow};
 	/* white-space: nowrap; */
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start; /* flex items take contents width */
 	gap: 1.5rem;
-	background-color: ${({ theme }) => theme.colors.secondaryBG};
-	padding: 1rem;
 	border-radius: ${({ theme }) => theme.styles.borderRadiusMd};
 	overflow-x: scroll;
 `;

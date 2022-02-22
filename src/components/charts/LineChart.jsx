@@ -24,12 +24,36 @@ const LineChart = ({ heading, xAxis, yAxis, yAxisSec }) => {
 		// for multiple lines on the chart add another object inside datasets array
 		datasets: [
 			{
+				// Tides and primary swell line
 				label: heading === 'Tides' ? 'Tides Height' : 'Swell Height',
 				data: yAxis,
+				// styles
+				fill: heading === 'Tides' ? true : false,
+				tension: heading === 'Tides' ? 0.2 : 0,
+				borderWidth: 1,
+				borderRadius: 2,
+				pointBorderWidth: 1.25,
+				pointRadius: 3.5,
+				// colors
+				backgroundColor: chartBar,
+				borderColor: heading === 'Tides' ? chartBarBorder : chartPrimSwellLine,
+				pointBackgroundColor: primaryBG,
+				pointBorderColor: heading === 'Tides' ? chartBarBorder : chartPrimSwellLine,
 			},
 			{
+				// Secondary swell line
 				label: heading === 'Tides' ? 'Tides Height' : 'Swell Height',
 				data: yAxisSec,
+				// styles
+				tension: 0,
+				borderWidth: 1,
+				borderRadius: 2,
+				pointBorderWidth: 1.25,
+				pointRadius: 3.5,
+				// colors
+				borderColor: chartSecSwellLine,
+				pointBackgroundColor: primaryBG,
+				pointBorderColor: chartSecSwellLine,
 			},
 		],
 	};
@@ -42,21 +66,7 @@ const LineChart = ({ heading, xAxis, yAxis, yAxisSec }) => {
 				display: false,
 			},
 		},
-		// styling
-		elements: {
-			point: {
-				borderWidth: 1,
-				backgroundColor: primaryBG,
-				borderColor: heading === 'Tides' ? chartBarBorder : chartPrimSwellLine,
-			},
-			line: {
-				borderWidth: 1,
-				backgroundColor: heading === 'Tides' ? chartBar : 'none',
-				borderColor: heading === 'Tides' ? chartBarBorder : chartPrimSwellLine,
-				fill: heading === 'Tides' ? true : false,
-				tension: heading === 'Tides' ? 0.35 : 0,
-			},
-		},
+		// Component chart styles and colors
 		scales: {
 			xAxis: {
 				ticks: {

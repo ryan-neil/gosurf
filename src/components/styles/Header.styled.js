@@ -14,7 +14,7 @@ export const StyledNav = styled.nav`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+	border-bottom: 1px solid ${({ theme }) => theme.colors.headerBorder};
 `;
 
 // Logo
@@ -30,6 +30,7 @@ export const StyledLogo = styled.div`
 		margin-right: 0.5rem;
 	}
 	h1 {
+		color: ${({ theme }) => theme.colors.white};
 		font-size: ${({ theme }) => theme.styles.textLg};
 		font-weight: 500;
 		margin-right: 0.5rem;
@@ -49,7 +50,8 @@ export const StyledLogo = styled.div`
 // Search Icon
 export const SearchIcon = styled(Search)`
 	display: none;
-	color: ${({ theme }) => theme.colors.heading};
+	color: ${({ theme }) => theme.colors.white};
+	/* color: ${({ theme }) => theme.colors.heading}; */
 	width: 1.8rem;
 	height: 1.8rem;
 	margin-right: 0.5rem;
@@ -58,7 +60,7 @@ export const SearchIcon = styled(Search)`
 	border-radius: ${({ theme }) => theme.styles.borderRadiusSm};
 	cursor: pointer;
 	&:hover {
-		background-color: ${({ theme }) => theme.colors.secondaryBG};
+		background-color: ${({ theme }) => theme.colors.hover};
 	}
 	/* Responsive Queries */
 	@media (max-width: ${({ theme }) => theme.mobile.width}) {
@@ -67,7 +69,8 @@ export const SearchIcon = styled(Search)`
 `;
 // Sun Icon
 export const SunIcon = styled(LightMode)`
-	color: ${({ theme }) => theme.colors.heading};
+	color: ${({ theme }) => theme.colors.white};
+	/* color: ${({ theme }) => theme.colors.heading}; */
 	width: 1.8rem;
 	height: 1.8rem;
 	padding-left: 0.25rem;
@@ -76,12 +79,13 @@ export const SunIcon = styled(LightMode)`
 	cursor: pointer;
 	transition: ${({ theme }) => theme.colors.transition};
 	&:hover {
-		background-color: ${({ theme }) => theme.colors.secondaryBG};
+		background-color: ${({ theme }) => theme.colors.hover};
 	}
 `;
 // Moon Icon
 export const MoonIcon = styled(DarkMode)`
-	color: ${({ theme }) => theme.colors.heading};
+	color: ${({ theme }) => theme.colors.white};
+	/* color: ${({ theme }) => theme.colors.heading}; */
 	width: 1.8rem;
 	height: 1.8rem;
 	padding-left: 0.25rem;
@@ -89,6 +93,6 @@ export const MoonIcon = styled(DarkMode)`
 	border-radius: ${({ theme }) => theme.styles.borderRadiusSm};
 	cursor: pointer;
 	&:hover {
-		background-color: ${({ theme }) => theme.colors.secondaryBG};
+		background-color: ${({ theme }) => theme.colors.hover};
 	}
 `;

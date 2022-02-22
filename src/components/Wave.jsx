@@ -8,7 +8,7 @@ import Loading from './Loading';
 import FetchError from './FetchError';
 // Styles
 import { StyledGridItem } from './styles/Forecast.styled';
-import waveIcon from '../assets/wave.svg';
+import waveIcon from '../assets/icons/wave.svg';
 
 const Wave = ({ spot }) => {
 	// Resource: https://daveceddia.com/react-before-render/
@@ -23,9 +23,18 @@ const Wave = ({ spot }) => {
 		error,
 	} = useFetch(endpoint, {
 		headers: {
-			Authorization: process.env.REACT_APP_SG_KEY,
+			// Authorization: process.env.REACT_APP_SG_KEY,
 		},
 	});
+
+	if (!waveData && !loading) {
+		<FetchError name="Wave" error={error} />;
+		// return null;
+	}
+
+	/**
+	 * BUG: Not Working...
+	 */
 
 	// const waveHeights = response.hours.map((wave) =>
 	// 	roundNumber(convertMetersToFeet(wave.waveHeight.noaa))

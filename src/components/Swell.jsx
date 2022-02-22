@@ -7,7 +7,7 @@ import Loading from './Loading';
 import FetchError from './FetchError';
 // Styles
 import { StyledGridItem } from './styles/Forecast.styled';
-import swellIcon from '../assets/swell.svg';
+import swellIcon from '../assets/icons/swell.svg';
 
 const Swell = ({ spot }) => {
 	const { fullDateHyphen } = getTodaysDate();
@@ -26,9 +26,14 @@ const Swell = ({ spot }) => {
 		error,
 	} = useFetch(endpoint, {
 		headers: {
-			Authorization: process.env.REACT_APP_SG_KEY,
+			// Authorization: process.env.REACT_APP_SG_KEY,
 		},
 	});
+
+	if (!swellData && !loading) {
+		<FetchError name="Swell" error={error} />;
+		// return null;
+	}
 
 	return (
 		<StyledGridItem>

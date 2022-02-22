@@ -2,45 +2,48 @@
 
 ### Table of Contents
 
-1. [⚡️ Get started](#⚡️-get-started)
-2. [🧐 What's inside?](#🧐-whats-inside)
-3. [🗂️ Repo Folder Breakdown](#🗂️-repo-folder-breakdown)
-4. [🌱 API Configuration](#🌱-api-configuration)
-5. [🖋️ Contributing](#🖋️-contributing)
+1. [⚡️ Get started](#get-started)
+2. [🧐 What's inside?](#whats-inside)
+3. [🗂️ Repo Folder Breakdown](#repo-folder-breakdown)
+4. [🌱 API Configuration](#api-configuration)
+5. [🖋️ Contributing](#contributing)
 
-### Todos
+### Todo:
 
+- [ ] Bug: wind hourly API call returns; up-until-current wind data, not predictions
+- [ ] Bug: when navigating back to `Home` page hero image disappears
 - [ ] Update: consolidate StormGlass API calls (`Wave`, `Swell`) into `Forecast` component for fewer API calls
 - [ ] Update: components as props design pattern for reusable Chart component (`<Chart type={<Bar />} />`)
 - [ ] Update: convert mock JSON API to Express API
-- [ ] Style/Logic: `Swell` component `LineChart` to show secondary swell line as a different color
-- [ ] Style/Add: add Forecast component background header (absolute positioning)
-- [ ] Style/Add: `Favorites` star icon to `ForecastHeading` component
 - [ ] Check: cross check data from NOAA and StormGlass for water temp, air temp, and wind consistency
-- [ ] Feat: "Favorites" feature
+- [ ] Feat: "Favorites" feature (`Favorites` page)
+- [x] Style/Add: add Forecast component background header (absolute positioning)
+- [x] Style/Add: `Favorites` star icon to `ForecastHeading` component
+- [x] Style/Logic: `Swell` component `LineChart` to show secondary swell line as a different color
+- [x] Style: inside `LineChart` add styling and colors in the datasets array object
 - [x] Style/Logic: charts theme colors for styling (use styled-components?)
 - [x] Build: out `Chart` component for:
   - [x] `Wave` component
   - [x] `Tides` component
   - [x] `Wind` component
   - [x] `Swell` component
-- [x] Rework: charts x-axis times shortened (6 AM)
-- [x] Rework: `windBody` and `swellBody` components with `.map()` looping logic
-- [x] Rework: Check in `Forecast` component if `spot` is true and only then render `Container` component, else render `FetchError` component
+- [x] Update: charts x-axis times shortened (6 AM)
+- [x] Update: `windBody` and `swellBody` components with `.map()` looping logic
+- [x] Update: Check in `Forecast` component if `spot` is true and only then render `Container` component, else render `FetchError` component
 - [x] Add: gather Chart x and y axis data from `Wave`, `Tides`, `Wind` and `Swell` component (values array and times array)
 - [x] Add: individual card body components to `Wave`, `Tides`, `Wind`, and `Swell` components (i.e. `WaveBody`, `TidesBody`)
 - [x] Add: `GridItemHeader` component
 - [x] Build: out `Swell` component
 - [x] Add: fetch and render Swell component data from API
-- [x] Rework: `useLocalStorage` custom hook
+- [x] Update: `useLocalStorage` custom hook
 - [x] Add: `useLocalStorage` hook into project (Inside app Context)
-- [x] Rework: `useFetch` custom hook
-- [x] Rework: data fetching architecture into `Forecast` component
+- [x] Update: `useFetch` custom hook
+- [x] Update: data fetching architecture into `Forecast` component
 
 ### Resources:
 
-**Standalone Components**: Fetch and render in same component.
-**HOC Components**: Fetch and render are separated into 2 components (_"Container"_ and _"Presentation"_).
+- **Standalone Components**: Fetch and render in same component.
+- **HOC Components**: Fetch and render are separated into 2 components (_"Container"_ and _"Presentation"_).
 
 - [React Data Fetching Patterns](https://nordschool.com/react-data-fetching/)
 - [Thoughts on React Hooks, Redux, and Separation of Concerns](https://blog.isquaredsoftware.com/2019/07/blogged-answers-thoughts-on-hooks/)

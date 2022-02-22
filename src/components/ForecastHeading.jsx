@@ -1,17 +1,31 @@
+// Component
+import Favorite from './Favorite';
+// Styles
 import styled from 'styled-components';
 
 const StyledForecastHeading = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	margin-top: 1rem;
 	h2 {
 		font-size: ${({ theme }) => theme.styles.textLg};
+		color: ${({ theme }) => theme.colors.white};
 		font-weight: 500;
 	}
 `;
 
 const ForecastHeading = ({ spot }) => {
+	const Heading = () => {
+		return (
+			<h2>{`${spot.name}, ${spot.location.county}, ${spot.location.state}`}</h2>
+		);
+	};
+
 	return (
 		<StyledForecastHeading>
-			<h2>{`${spot.name}, ${spot.location.county}, ${spot.location.state}`}</h2>
+			<Heading />
+			<Favorite />
 		</StyledForecastHeading>
 	);
 };

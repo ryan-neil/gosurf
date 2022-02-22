@@ -4,11 +4,19 @@ export const StyledForecast = styled.main`
 	width: 100%;
 	height: auto;
 	padding-bottom: 1rem;
+
+	.header-background {
+		position: absolute;
+		top: 0px;
+		width: 100%;
+		height: 200px;
+		background-color: ${({ theme }) => theme.colors.headerBG};
+		z-index: -1;
+	}
 `;
 
 export const StyledGridContainer = styled.div`
 	margin-top: 1rem;
-	width: 100%;
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	grid-template-rows: repeat(2, 1fr);
@@ -20,15 +28,15 @@ export const StyledGridContainer = styled.div`
 `;
 
 export const StyledGridItem = styled.div`
+	min-height: 300px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	gap: 1rem;
 	background: ${({ theme }) => theme.colors.secondaryBG};
-	min-height: 300px;
-	height: auto;
 	padding: 1rem;
 	border-radius: ${({ theme }) => theme.styles.borderRadiusMd};
+	box-shadow: ${({ theme }) => theme.colors.boxShadow};
 	h3 {
 		font-size: ${({ theme }) => theme.styles.textMd};
 	}
@@ -65,8 +73,8 @@ export const StyledGridItemBody = styled.div`
 `;
 
 export const StyledGridItemChart = styled.div`
-	width: 100%;
 	min-height: 200px;
+	width: 100%;
 	background-color: ${({ theme }) => theme.colors.primaryBG};
 	border-radius: ${({ theme }) => theme.styles.borderRadiusMd};
 `;

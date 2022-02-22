@@ -10,11 +10,15 @@ export const LightTheme = {
 		secondary: '#1a2634',
 		primaryBG: '#ffffff',
 		secondaryBG: 'hsl(217, 45%, 97%)',
+		headerBG: '#121a24',
 		heading: '#1b2635',
 		paragraph: 'rgba(27, 38, 53, 0.7)',
 		paragraphLight: 'rgba(27, 38, 53, 0.6)',
 		border: 'rgba(0, 0, 0, 0.1)',
+		headerBorder: 'rgba(255, 255, 255, 0.1)',
 		inputBG: 'hsl(217, 45%, 97%)',
+		boxShadow: '0px 2px 4px 0px rgba(14, 30, 37, 0.12)',
+		hover: '#233044',
 		// misc
 		tertiary: 'rgba(255, 173, 66, 1)',
 		danger: '#fa3945',
@@ -43,15 +47,18 @@ export const LightTheme = {
 		transition: 'ease .2s',
 		borderRadiusSm: '0.25rem',
 		borderRadiusMd: '0.35rem',
-		boxShadow: '0 1px 4px 0 rgba(0, 0, 0, .05)',
+		boxShadow: '0 2px 4px 0 hsla(198, 45%, 10%, .12)',
 		boxShadowInset: 'inset 0 1px 4px 0 rgba(0,0,0,0.05);',
+		hover: '#233044',
+		heroImage: `url('./assets/encinitas.png')`,
+		aboutImage: `url('./assets/topo-light.svg')`,
 	},
 	web: {
-		width: '1275px',
+		width: '1280px',
 	},
 	mobile: {
-		// width: '718px', // split screen
-		width: '720px',
+		width: '718px', // split screen
+		// width: '720px',
 	},
 };
 
@@ -64,10 +71,12 @@ export const DarkTheme = {
 		secondary: '#1a2634',
 		primaryBG: '#1b2635',
 		secondaryBG: '#233044',
+		headerBG: '#121a24',
 		heading: '#ffffff',
 		paragraph: 'rgba(255, 255, 255, 0.7)',
 		paragraphLight: 'rgba(255, 255, 255, 0.6)',
 		border: 'rgba(255, 255, 255, 0.1)',
+		headerBorder: 'rgba(255, 255, 255, 0.1)',
 		inputBG: '#233044',
 		// misc
 		tertiary: '#ffad42',
@@ -97,15 +106,18 @@ export const DarkTheme = {
 		transition: 'ease .2s',
 		borderRadiusSm: '0.25rem',
 		borderRadiusMd: '0.35rem',
-		boxShadow: '0 1px 4px 0 rgba(0, 0, 0, .05)',
+		boxShadow: '0 2px 4px 0 hsla(198, 45%, 10%, .12)',
 		boxShadowInset: 'inset 0 1px 4px 0 rgba(0,0,0,0.05);',
+		hover: '#233044',
+		heroImage: `url('./assets/encinitas.png')`,
+		aboutImage: `url('./assets/topo-light.svg')`,
 	},
 	web: {
-		width: '1275px',
+		width: '1280px',
 	},
 	mobile: {
-		// width: '718px', // split screen
-		width: '720px',
+		width: '718px', // split screen
+		// width: '720px',
 	},
 };
 

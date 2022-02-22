@@ -8,7 +8,7 @@ import Loading from './Loading';
 import FetchError from './FetchError';
 // Styles
 import { StyledGridItem } from './styles/Forecast.styled';
-import windIcon from '../assets/wind.svg';
+import windIcon from '../assets/icons/wind.svg';
 
 const Wind = ({ spot }) => {
 	// get api endpoint date
@@ -21,6 +21,11 @@ const Wind = ({ spot }) => {
 	// fetch hourly wind data
 	const hourlyWindEndpoint = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?=&product=wind&station=${spot.noaa_station_id}&begin_date=${fullDate}&range=24&units=english&datum=MLLW&time_zone=lst_ldt&format=json&application=NOS.COOPS.TAC.TidePred&interval=h`;
 	const { response: hourlyWindData } = useFetch(hourlyWindEndpoint);
+
+	if (!currWindData && !loading) {
+		<FetchError name="Wind" error={error} />;
+		// return null;
+	}
 
 	return (
 		<StyledGridItem>

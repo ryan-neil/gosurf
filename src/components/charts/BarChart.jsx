@@ -22,6 +22,11 @@ const BarChart = ({ heading, xAxis, yAxis }) => {
 			{
 				label: heading === 'Wave Height' ? 'Wave Height' : 'Wind Speed',
 				data: yAxis,
+				// styles
+				borderWidth: 2,
+				borderRadius: 2,
+				borderColor: chartBarBorder,
+				backgroundColor: chartBar,
 			},
 		],
 	};
@@ -34,16 +39,7 @@ const BarChart = ({ heading, xAxis, yAxis }) => {
 				display: false,
 			},
 		},
-		// styling
-		elements: {
-			bar: {
-				// backgroundColor: 'rgba(30, 144, 255, 0.6)',
-				backgroundColor: chartBar,
-				borderWidth: 2,
-				borderRadius: 2,
-				borderColor: chartBarBorder,
-			},
-		},
+		// Component chart styles and colors
 		scales: {
 			xAxis: {
 				ticks: {
