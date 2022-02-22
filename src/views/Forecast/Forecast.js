@@ -10,7 +10,11 @@ import Wind from './components/Wind/Wind';
 import Swell from './components/Swell/Swell';
 import FetchError from '../../components/FetchError/FetchError';
 // Styles
-import { StyledForecast, StyledGridContainer } from './Forecast.styled';
+import {
+	StyledForecast,
+	StyledGridContainer,
+	StyledHeaderBackground,
+} from './Forecast.styled';
 import { Container } from '../../styles/Utils.styled';
 
 const Forecast = () => {
@@ -22,7 +26,7 @@ const Forecast = () => {
 
 	return (
 		<StyledForecast>
-			<div className="header-background" />
+			<StyledHeaderBackground />
 			{spots ? (
 				<Container>
 					<ForecastHeading spot={spot} />

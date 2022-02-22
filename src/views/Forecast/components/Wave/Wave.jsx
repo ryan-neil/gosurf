@@ -7,7 +7,7 @@ import FetchError from '../../../../components/FetchError/FetchError';
 // Styles
 import { StyledGridItem } from '../../Forecast.styled';
 import { Flex } from '../../../../styles/Utils.styled';
-import waveIcon from '../../../../assets/icons/wave.svg';
+import waveIcon from '../../../../assets/wave.svg';
 
 const Wave = ({ spot }) => {
 	// Resource: https://daveceddia.com/react-before-render/

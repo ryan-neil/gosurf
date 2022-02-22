@@ -7,7 +7,7 @@ import FetchError from '../../../../components/FetchError/FetchError';
 // Styles
 import { StyledGridItem } from '../../Forecast.styled';
 import { Flex } from '../../../../styles/Utils.styled';
-import swellIcon from '../../../../assets/icons/swell.svg';
+import swellIcon from '../../../../assets/swell.svg';
 
 const Swell = ({ spot }) => {
 	const { fullDateHyphen } = calcTodaysDate();

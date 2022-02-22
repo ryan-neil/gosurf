@@ -7,7 +7,7 @@ import FetchError from '../../../../components/FetchError/FetchError';
 // Styles
 import { StyledGridItem } from '../../Forecast.styled';
 import { Flex } from '../../../../styles/Utils.styled';
-import tidesIcon from '../../../../assets/icons/tides.svg';
+import tidesIcon from '../../../../assets/tides.svg';
 
 const Tides = ({ spot }) => {
 	const { fullDate } = calcTodaysDate();

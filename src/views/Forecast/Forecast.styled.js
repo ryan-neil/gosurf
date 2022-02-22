@@ -4,15 +4,15 @@ export const StyledForecast = styled.main`
 	width: 100%;
 	height: auto;
 	padding-bottom: 1rem;
+`;
 
-	.header-background {
-		position: absolute;
-		top: 0px;
-		width: 100%;
-		height: 200px;
-		background-color: ${({ theme }) => theme.colors.headerBG};
-		z-index: -1;
-	}
+export const StyledHeaderBackground = styled.div`
+	position: absolute;
+	top: 0px;
+	background-color: ${({ theme }) => theme.colors.headerBG};
+	width: 100%;
+	height: 200px;
+	z-index: -1;
 `;
 
 export const StyledGridContainer = styled.div`

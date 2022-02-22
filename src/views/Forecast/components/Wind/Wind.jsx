@@ -7,7 +7,7 @@ import FetchError from '../../../../components/FetchError/FetchError';
 // Styles
 import { StyledGridItem } from '../../Forecast.styled';
 import { Flex } from '../../../../styles/Utils.styled';
-import windIcon from '../../../../assets/icons/wind.svg';
+import windIcon from '../../../../assets/wind.svg';
 
 const Wind = ({ spot }) => {
 	// get api endpoint date

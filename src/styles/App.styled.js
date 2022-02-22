@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const StyledApp = styled.div`
-	/* width: ${({ theme }) => theme.web.width};
-	margin: auto; */
+	position: relative; /* this needs to be here for the Forecast background header */
+	min-height: 100vh;
+	background-color: ${({ theme }) => theme.colors.primaryBG};
+	z-index: -1; /* this needs to be here for the Forecast background header */
 `;

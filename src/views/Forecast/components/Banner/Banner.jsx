@@ -6,8 +6,8 @@ import FetchError from '../../../../components/FetchError/FetchError';
 // Styles
 import { StyledBanner, StyledBannerItem } from './Banner.styled';
 import { Flex } from '../../../../styles/Utils.styled';
-import waterIcon from '../../../../assets/icons/water.svg';
-import airIcon from '../../../../assets/icons/air.svg';
+import waterIcon from '../../../../assets/water.svg';
+import airIcon from '../../../../assets/air.svg';
 
 const Banner = ({ spot }) => {
 	// get sunrise and sunset

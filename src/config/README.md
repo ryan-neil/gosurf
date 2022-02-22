@@ -10,7 +10,6 @@
 
 ### Todo:
 
-- [ ] Update: folder structure, separate out components into individual folders (https://www.robinwieruch.de/react-folder-structure/)
 - [ ] Add: unit testing (https://en.wikipedia.org/wiki/Unit_testing)
 - [ ] Style/Add: build `HeroContent` section for `Home` page
 - [ ] Style/Add: build `About` section for `Home` page
@@ -20,7 +19,10 @@
 - [ ] Update: components as props design pattern for reusable Chart component (`<Chart type={<Bar />} />`)
 - [ ] Update: convert mock JSON API to Express API
 - [ ] Check: cross check data from NOAA and StormGlass for water temp, air temp, and wind consistency
+- [ ] Feat: mobile search (`Search` page) (WeBull mobile search example)
+  - [ ] Feat/Add: recent searches
 - [ ] Feat: "Favorites" feature (`Favorites` page)
+- [x] Update: folder structure, separate out components into individual folders (https://www.robinwieruch.de/react-folder-structure/)
 - [x] Style/Add: build `HeroImage` section for `Home` page
 - [x] Style/Add: add Forecast component background header (absolute positioning)
 - [x] Style/Add: `Favorites` star icon to `ForecastHeading` component

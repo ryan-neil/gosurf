@@ -30,7 +30,6 @@ const GlobalStyles = createGlobalStyle`
   body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-    background-color: ${({ theme }) => theme.colors.primaryBG};
   }
   img,
   picture,
