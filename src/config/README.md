@@ -10,7 +10,8 @@
 
 ### Todo:
 
-- [ ] Update: folder structure, separate out components into individual folders (styles, tests, index.js file) [https://www.robinwieruch.de/react-folder-structure/]
+- [ ] Update: folder structure, separate out components into individual folders (https://www.robinwieruch.de/react-folder-structure/)
+- [ ] Add: unit testing (https://en.wikipedia.org/wiki/Unit_testing)
 - [ ] Style/Add: build `HeroContent` section for `Home` page
 - [ ] Style/Add: build `About` section for `Home` page
 - [ ] Bug: wind hourly API call returns; up-until-current wind data, not predictions

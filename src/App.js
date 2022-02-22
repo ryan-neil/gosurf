@@ -8,10 +8,10 @@ import { mode } from './components/styles/Theme.styled';
 import { SpotsDataProvider } from './context/SpotsContext';
 // Components
 import Header from './components/Header';
-// Pages
-import Home from './pages/Home';
-import Forecast from './pages/Forecast';
-import Missing from './pages/Missing';
+// Views
+import Home from './views/Home';
+import Forecast from './views/Forecast';
+import Missing from './views/Missing';
 
 const App = () => {
 	const [theme, setTheme] = useLocalStorage('theme', 'light');
