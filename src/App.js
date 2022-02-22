@@ -2,16 +2,17 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useLocalStorage } from './hooks/useLocalStorage';
 // Global Styles
 import { ThemeProvider } from 'styled-components';
-import { AppStyled } from './components/styles/App.styled';
-import GlobalStyles from './components/styles/Global.styled';
-import { mode } from './components/styles/Theme.styled';
+import { StyledApp } from './styles/App.styled';
+import GlobalStyles from './styles/Global.styled';
+import { mode } from './styles/Theme.styled';
+// Global context
 import { SpotsDataProvider } from './context/SpotsContext';
-// Components
-import Header from './components/Header';
+// ComponentsStyledApp
+import Header from './views/Header/Header';
 // Views
-import Home from './views/Home';
-import Forecast from './views/Forecast';
-import Missing from './views/Missing';
+import Home from './views/Home/Home';
+import Forecast from './views/Forecast/Forecast';
+import Missing from './views/Missing/Missing';
 
 const App = () => {
 	const [theme, setTheme] = useLocalStorage('theme', 'light');
@@ -21,14 +22,14 @@ const App = () => {
 			<GlobalStyles />
 			<SpotsDataProvider>
 				<Router>
-					<AppStyled>
+					<StyledApp>
 						<Header theme={theme} setTheme={setTheme} />
 						<Routes>
 							<Route path="/" element={<Home />} />
 							<Route path="/forecast/:slug" element={<Forecast />} />
 							<Route path="*" element={<Missing />} />
 						</Routes>
-					</AppStyled>
+					</StyledApp>
 				</Router>
 			</SpotsDataProvider>
 		</ThemeProvider>

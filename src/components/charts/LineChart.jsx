@@ -6,7 +6,7 @@ import {
 	StyledChartContainer,
 	StyledChartHeading,
 	StyledChart,
-} from '../styles/Chart.styled';
+} from './Charts.styled';
 
 const LineChart = ({ heading, xAxis, yAxis, yAxisSec }) => {
 	// get chart global styles for chart styling
