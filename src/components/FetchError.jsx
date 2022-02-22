@@ -26,7 +26,7 @@ const FetchError = ({ name, error }) => {
 		<StyledError>
 			<p>
 				<ErrorIcon />
-				Sorry, please try again later.
+				Sorry, please try again later. {error}.
 			</p>
 		</StyledError>
 	);

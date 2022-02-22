@@ -2,14 +2,17 @@
 
 ### Table of Contents
 
-1. [⚡️ Get started](#get-started)
-2. [🧐 What's inside?](#whats-inside)
-3. [🗂️ Repo Folder Breakdown](#repo-folder-breakdown)
-4. [🌱 API Configuration](#api-configuration)
-5. [🖋️ Contributing](#contributing)
+1. [⚡️ Get started](#⚡️-get-started)
+2. [🧐 What's inside?](#🧐-whats-inside)
+3. [🗂️ Repo Folder Breakdown](#🗂️-repo-folder-breakdown)
+4. [🌱 API Configuration](#🌱-api-configuration)
+5. [🖋️ Contributing](#🖋️-contributing)
 
 ### Todo:
 
+- [ ] Update: folder structure, separate out components into individual folders (styles, tests, index.js file) [https://www.robinwieruch.de/react-folder-structure/]
+- [ ] Style/Add: build `HeroContent` section for `Home` page
+- [ ] Style/Add: build `About` section for `Home` page
 - [ ] Bug: wind hourly API call returns; up-until-current wind data, not predictions
 - [ ] Bug: when navigating back to `Home` page hero image disappears
 - [ ] Update: consolidate StormGlass API calls (`Wave`, `Swell`) into `Forecast` component for fewer API calls
@@ -17,6 +20,7 @@
 - [ ] Update: convert mock JSON API to Express API
 - [ ] Check: cross check data from NOAA and StormGlass for water temp, air temp, and wind consistency
 - [ ] Feat: "Favorites" feature (`Favorites` page)
+- [x] Style/Add: build `HeroImage` section for `Home` page
 - [x] Style/Add: add Forecast component background header (absolute positioning)
 - [x] Style/Add: `Favorites` star icon to `ForecastHeading` component
 - [x] Style/Logic: `Swell` component `LineChart` to show secondary swell line as a different color
