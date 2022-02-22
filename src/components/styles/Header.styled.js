@@ -67,32 +67,3 @@ export const SearchIcon = styled(Search)`
 		display: block;
 	}
 `;
-// Sun Icon
-export const SunIcon = styled(LightMode)`
-	color: ${({ theme }) => theme.colors.white};
-	/* color: ${({ theme }) => theme.colors.heading}; */
-	width: 1.8rem;
-	height: 1.8rem;
-	padding-left: 0.25rem;
-	padding-right: 0.25rem;
-	border-radius: ${({ theme }) => theme.styles.borderRadiusSm};
-	cursor: pointer;
-	transition: ${({ theme }) => theme.colors.transition};
-	&:hover {
-		background-color: ${({ theme }) => theme.colors.hover};
-	}
-`;
-// Moon Icon
-export const MoonIcon = styled(DarkMode)`
-	color: ${({ theme }) => theme.colors.white};
-	/* color: ${({ theme }) => theme.colors.heading}; */
-	width: 1.8rem;
-	height: 1.8rem;
-	padding-left: 0.25rem;
-	padding-right: 0.25rem;
-	border-radius: ${({ theme }) => theme.styles.borderRadiusSm};
-	cursor: pointer;
-	&:hover {
-		background-color: ${({ theme }) => theme.colors.hover};
-	}
-`;

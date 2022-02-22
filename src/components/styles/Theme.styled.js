@@ -49,7 +49,6 @@ export const LightTheme = {
 		borderRadiusMd: '0.35rem',
 		boxShadow: '0 2px 4px 0 hsla(198, 45%, 10%, .12)',
 		boxShadowInset: 'inset 0 1px 4px 0 rgba(0,0,0,0.05);',
-		hover: '#233044',
 		heroImage: `url('./assets/encinitas.png')`,
 		aboutImage: `url('./assets/topo-light.svg')`,
 	},
@@ -78,6 +77,7 @@ export const DarkTheme = {
 		border: 'rgba(255, 255, 255, 0.1)',
 		headerBorder: 'rgba(255, 255, 255, 0.1)',
 		inputBG: '#233044',
+		hover: '#233044',
 		// misc
 		tertiary: '#ffad42',
 		danger: '#fa3945',
@@ -108,7 +108,6 @@ export const DarkTheme = {
 		borderRadiusMd: '0.35rem',
 		boxShadow: '0 2px 4px 0 hsla(198, 45%, 10%, .12)',
 		boxShadowInset: 'inset 0 1px 4px 0 rgba(0,0,0,0.05);',
-		hover: '#233044',
 		heroImage: `url('./assets/encinitas.png')`,
 		aboutImage: `url('./assets/topo-light.svg')`,
 	},

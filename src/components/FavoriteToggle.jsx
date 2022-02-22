@@ -12,7 +12,7 @@ export const StarBorderIcon = styled(StarBorder)`
 	padding-right: 0.25rem;
 	border-radius: ${({ theme }) => theme.styles.borderRadiusSm};
 	cursor: pointer;
-	transition: ${({ theme }) => theme.colors.transition};
+	transition: ${({ theme }) => theme.styles.transition};
 	&:hover {
 		background-color: ${({ theme }) => theme.colors.hover};
 	}
@@ -26,12 +26,13 @@ export const StarIcon = styled(Star)`
 	padding-right: 0.25rem;
 	border-radius: ${({ theme }) => theme.styles.borderRadiusSm};
 	cursor: pointer;
+	transition: ${({ theme }) => theme.styles.transition};
 	&:hover {
 		background-color: ${({ theme }) => theme.colors.hover};
 	}
 `;
 
-const Favorite = () => {
+const FavoriteToggle = () => {
 	const [favorite, setFavorite] = useState(false);
 
 	const toggleFavorite = () => {
@@ -49,4 +50,4 @@ const Favorite = () => {
 	return <span>{favoriteIcon}</span>;
 };
 
-export default Favorite;
+export default FavoriteToggle;

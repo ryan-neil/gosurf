@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useLocalStorage } from './hooks/useLocalStorage';
 // Global Styles
 import { ThemeProvider } from 'styled-components';
 import { AppStyled } from './components/styles/App.styled';
@@ -14,7 +14,7 @@ import Forecast from './pages/Forecast';
 import Missing from './pages/Missing';
 
 const App = () => {
-	const [theme, setTheme] = useState('light');
+	const [theme, setTheme] = useLocalStorage('theme', 'light');
 
 	return (
 		<ThemeProvider theme={mode[theme]}>

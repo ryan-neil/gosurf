@@ -1,31 +1,17 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 // Components
 import SearchBar from './SearchBar';
+import ThemeToggle from './ThemeToggle';
 // Styles
 import {
 	StyledHeader,
 	StyledNav,
 	StyledLogo,
 	SearchIcon,
-	SunIcon,
-	MoonIcon,
 } from './styles/Header.styled';
 import { Container, Flex } from './styles/Utils.styled';
 
 const Header = ({ theme, setTheme }) => {
-	const toggleTheme = () => {
-		return theme === 'light' ? setTheme('dark') : setTheme('light');
-	};
-
-	// set theme icon
-	const themeIcon =
-		theme === 'light' ? (
-			<MoonIcon onClick={toggleTheme} />
-		) : (
-			<SunIcon onClick={toggleTheme} />
-		);
-
 	return (
 		<StyledHeader>
 			<Container>
@@ -43,7 +29,7 @@ const Header = ({ theme, setTheme }) => {
 					{/* Widgets */}
 					<Flex>
 						<SearchIcon />
-						{themeIcon}
+						<ThemeToggle theme={theme} setTheme={setTheme} />
 					</Flex>
 				</StyledNav>
 			</Container>

@@ -1,8 +1,7 @@
 // Component
-import Favorite from './Favorite';
+import FavoriteToggle from './FavoriteToggle';
 // Styles
 import styled from 'styled-components';
-
 const StyledForecastHeading = styled.div`
 	display: flex;
 	justify-content: space-between;
@@ -25,7 +24,7 @@ const ForecastHeading = ({ spot }) => {
 	return (
 		<StyledForecastHeading>
 			<Heading />
-			<Favorite />
+			<FavoriteToggle />
 		</StyledForecastHeading>
 	);
 };

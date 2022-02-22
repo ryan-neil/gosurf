@@ -1,10 +1,10 @@
 // styles
-import { HomeStyled } from '../components/styles/Home.styled';
+import { HomeStyled, HeroImageStyled } from '../components/styles/Home.styled';
 import { Container } from '../components/styles/Utils.styled';
 
 const Home = () => (
 	<HomeStyled>
-		<div className="hero-background" />
+		<HeroImageStyled />
 		<Container>
 			<h2>Home page</h2>
 		</Container>
