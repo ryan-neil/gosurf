@@ -8,8 +8,13 @@ export const HeroStyled = styled.section`
 	padding: 1.6rem 1rem;
 	margin-top: 10rem;
 	border-radius: ${({ theme }) => theme.styles.borderRadiusMd};
-	background: ${({ theme }) => theme.colors.primaryBG};
 	box-shadow: ${({ theme }) => theme.colors.boxShadow};
+	background-color: ${({ theme }) => theme.colors.primaryBG};
+
+	/* Glassmorphism */
+	/* background: rgba(255, 255, 255, 0.2);
+	backdrop-filter: blur(30px);
+	border: 2px solid rgba(255, 255, 255, 0.1); */
 	h1 {
 		font-size: ${({ theme }) => theme.styles.textXl};
 		color: ${({ theme }) => theme.colors.heading};

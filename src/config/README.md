@@ -10,6 +10,8 @@
 
 ### Todo:
 
+- [ ] Add: chartjs data labels (https://chartjs-plugin-datalabels.netlify.app/) (https://medium.com/youth-jobbing/how-to-use-react-with-chart-js-and-plugins-d7eb958eebaf)
+- [ ] Add: error boundaries (https://www.youtube.com/watch?v=hszc3T0hdvU) (https://www.youtube.com/watch?v=w4sxsz7AO70)
 - [ ] Add: unit testing (https://en.wikipedia.org/wiki/Unit_testing)
 - [ ] Bug: wind hourly API call returns; up-until-current wind data, not predictions
 - [ ] Bug: when navigating back to `Home` page hero image disappears

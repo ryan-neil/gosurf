@@ -14,7 +14,7 @@ export const StyledNav = styled.nav`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	border-bottom: 1px solid ${({ theme }) => theme.colors.headerBorder};
+	/* border-bottom: 1px solid ${({ theme }) => theme.colors.headerBorder}; */
 `;
 
 // Logo

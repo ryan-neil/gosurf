@@ -11,7 +11,7 @@ export const StyledHeaderBackground = styled.div`
 	top: 0px;
 	background-color: ${({ theme }) => theme.colors.headerBG};
 	width: 100%;
-	height: 200px;
+	height: 188px;
 	z-index: -1;
 `;
 
@@ -87,7 +87,7 @@ export const StyledSwellTag = styled.span`
 	${(props) =>
 		props.primary &&
 		css`
-			background-color: ${({ theme }) => theme.colors.green};
+			background-color: ${({ theme }) => theme.colors.chartPrimSwellLine};
 		`};
 	${(props) =>
 		props.secondary &&

@@ -1,6 +1,7 @@
 // Chart.js
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS } from 'chart.js/auto'; // this is required to make chart.js work
+import ChartDataLabels from 'chartjs-plugin-datalabels'; // Chart.js datalabels plugin
 // Styles
 import {
 	StyledChartContainer,
@@ -27,6 +28,14 @@ const BarChart = ({ heading, xAxis, yAxis }) => {
 				borderRadius: 2,
 				borderColor: chartBarBorder,
 				backgroundColor: chartBar,
+				// datalabels plugin styles
+				datalabels: {
+					anchor: 'end', // https://chartjs-plugin-datalabels.netlify.app/guide/positioning.html#anchoring
+					align: 'top', // https://chartjs-plugin-datalabels.netlify.app/guide/positioning.html#alignment-and-offset
+					offset: 4, // https://chartjs-plugin-datalabels.netlify.app/guide/positioning.html#alignment-and-offset
+					color: chartTicks,
+					font: { size: 10 },
+				},
 			},
 		],
 	};
@@ -34,19 +43,13 @@ const BarChart = ({ heading, xAxis, yAxis }) => {
 	const options = {
 		responsive: true,
 		animation: true,
-		plugins: {
-			legend: {
-				display: false,
-			},
-		},
+		plugins: { legend: { display: false } },
 		// Component chart styles and colors
 		scales: {
 			xAxis: {
 				ticks: {
 					color: chartTicks, // tick font color
-					font: {
-						size: 10, // default font size (12)
-					},
+					font: { size: 10 },
 				},
 				grid: {
 					display: false, // grid lines on xAxis
@@ -57,9 +60,7 @@ const BarChart = ({ heading, xAxis, yAxis }) => {
 			yAxis: {
 				ticks: {
 					color: chartTicks, // tick font color
-					font: {
-						size: 10, // default font size (12)
-					},
+					font: { size: 10 },
 				},
 				grid: {
 					display: true, // grid lines on yAxis
@@ -67,10 +68,9 @@ const BarChart = ({ heading, xAxis, yAxis }) => {
 					color: chartGrid,
 					borderColor: chartGrid,
 				},
-				min: 0, // set yAxis minimum tick number
 				// max: Math.max(...yAxis), // set yAxis maximum tick number
 				// max: 10, // set yAxis maximum tick number
-				beginAtZero: false,
+				beginAtZero: true,
 			},
 		},
 	};
@@ -79,7 +79,7 @@ const BarChart = ({ heading, xAxis, yAxis }) => {
 		<StyledChartContainer>
 			<StyledChartHeading>{heading} Chart</StyledChartHeading>
 			<StyledChart>
-				<Bar data={data} options={options} />
+				<Bar data={data} options={options} plugins={[ChartDataLabels]} />
 			</StyledChart>
 		</StyledChartContainer>
 	);

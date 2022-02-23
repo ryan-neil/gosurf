@@ -12,7 +12,7 @@ export const AboutContainerStyled = styled.div`
 	background-size: cover;
 `;
 
-export const AboutCardContainer = styled.div`
+export const CardContainerStyled = styled.div`
 	width: ${({ theme }) => theme.web.width};
 	max-width: 100%;
 	height: 100%;
@@ -28,20 +28,20 @@ export const AboutCardContainer = styled.div`
 	}
 `;
 
-export const AboutCardStyled = styled.div`
+export const CardStyled = styled.div`
 	flex-basis: 100%;
 	img {
 		width: 52px;
 		height: 52px;
 	}
 	h3 {
-		font-size: 16px;
+		font-size: ${({ theme }) => theme.styles.textReg};
 		color: ${({ theme }) => theme.colors.heading};
 		line-height: ${({ theme }) => theme.styles.lineHeightMd};
 		margin: 0.8rem 0;
 	}
 	p {
-		font-size: ${({ theme }) => theme.styles.textReg};
+		font-size: ${({ theme }) => theme.styles.textSm};
 		color: ${({ theme }) => theme.colors.paragraph};
 		line-height: ${({ theme }) => theme.styles.lineHeightSm};
 	}

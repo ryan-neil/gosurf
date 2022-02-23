@@ -16,6 +16,7 @@ export const LightTheme = {
 		paragraphLight: 'rgba(27, 38, 53, 0.6)',
 		border: 'rgba(0, 0, 0, 0.1)',
 		headerBorder: 'rgba(255, 255, 255, 0.1)',
+		inputBorder: 'rgba(0, 0, 0, 0.05)',
 		inputBG: 'hsl(217, 45%, 97%)',
 		boxShadow: '0px 2px 4px 0px rgba(14, 30, 37, 0.12)',
 		hover: '#233044',
@@ -23,7 +24,8 @@ export const LightTheme = {
 		tertiary: 'rgba(255, 173, 66, 1)',
 		danger: '#fa3945',
 		dangerLight: 'rgba(250, 57, 69, 0.1)',
-		success: '#45fa39',
+		success: 'rgba(63, 185, 80, 1)',
+		successLight: 'rgba(63, 185, 80, 0.1)',
 		green: '#3fb950',
 		orange: '#f0883e',
 		red: '#da3633',
@@ -40,7 +42,8 @@ export const LightTheme = {
 	},
 	styles: {
 		textXs: '11px',
-		textReg: '14px',
+		textSm: '14px',
+		textReg: '16px',
 		textMd: '22px',
 		textLg: '26px',
 		textXl: '32px',
@@ -79,6 +82,7 @@ export const DarkTheme = {
 		paragraphLight: 'rgba(255, 255, 255, 0.6)',
 		border: 'rgba(255, 255, 255, 0.1)',
 		headerBorder: 'rgba(255, 255, 255, 0.1)',
+		inputBorder: 'rgba(255, 255, 255, 0.05)',
 		inputBG: '#233044',
 		hover: '#233044',
 		// misc
@@ -86,6 +90,7 @@ export const DarkTheme = {
 		danger: '#fa3945',
 		dangerLight: 'rgba(250, 57, 69, 0.1)',
 		success: '#45fa39',
+		successLight: 'rgba(69, 250, 57, 0.1)',
 		green: '#3fb950',
 		orange: '#f0883e',
 		red: '#da3633',
@@ -97,12 +102,13 @@ export const DarkTheme = {
 		chartBarBorder: 'rgba(25, 160, 246, 1)',
 		chartTicks: 'rgba(255, 255, 255, 0.6)',
 		chartGrid: 'rgba(255, 255, 255, 0.2)',
-		chartPrimSwellLine: 'rgba(63, 185, 80, 1)',
+		chartPrimSwellLine: '#45fa39',
 		chartSecSwellLine: 'rgba(255, 173, 66, 1)',
 	},
 	styles: {
 		textXs: '11px',
-		textReg: '14px',
+		textSm: '14px',
+		textReg: '16px',
 		textMd: '22px',
 		textLg: '26px',
 		textXl: '32px',
@@ -125,6 +131,12 @@ export const DarkTheme = {
 		// width: '720px',
 	},
 };
+
+// Glassmorphism: {
+//		background: rgba(255, 255, 255, 0.2);
+//		backdrop-filter: blur(30px);
+//		border: 2px solid rgba(255, 255, 255, 0.1);
+// }
 
 export const mode = {
 	light: LightTheme,

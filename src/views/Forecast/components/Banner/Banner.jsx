@@ -52,22 +52,30 @@ const Banner = ({ spot }) => {
 						<h4>Light</h4>
 						<Flex spaceBetween gapSm>
 							<p>Sunrise:</p>
-							<p>{sunrise}</p>
+							<p>
+								<span className="light">{sunrise}</span>
+							</p>
 						</Flex>
 						<Flex spaceBetween gapSm>
 							<p>Sunset:</p>
-							<p>{sunset}</p>
+							<p>
+								<span className="light">{sunset}</span>
+							</p>
 						</Flex>
 					</StyledBannerItem>
 					<StyledBannerItem>
 						<h4>Ideal Conditions</h4>
-						<Flex spaceBetween gapMd>
-							<p>Height: {spot.ideal_conditions.surf_height}</p>
-							<p>Tide: {spot.ideal_conditions.tide}</p>
+						<Flex spaceBetween gapSm>
+							<p>Height:</p>
+							<p className="ideal-cond">{spot.ideal_conditions.surf_height}</p>
+							<p>Tide:</p>
+							<p className="ideal-cond">{spot.ideal_conditions.tide}</p>
 						</Flex>
-						<Flex spaceBetween gapMd>
-							<p>Wind: '{spot.ideal_conditions.wind}'</p>
-							<p>Swell: '{spot.ideal_conditions.swell_direction}'</p>
+						<Flex spaceBetween gapSm>
+							<p>Wind:</p>
+							<p className="ideal-cond">'{spot.ideal_conditions.wind}'</p>
+							<p>Swell:</p>
+							<p className="ideal-cond">'{spot.ideal_conditions.swell_direction}'</p>
 						</Flex>
 					</StyledBannerItem>
 				</>

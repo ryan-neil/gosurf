@@ -1,8 +1,8 @@
 // Styles
 import {
 	AboutContainerStyled,
-	AboutCardContainer,
-	AboutCardStyled,
+	CardContainerStyled,
+	CardStyled,
 } from './About.styled';
 import carIcon from '../../../../assets/car.svg';
 import calendarIcon from '../../../../assets/calendar.svg';
@@ -38,11 +38,11 @@ const About = () => {
 
 	return (
 		<AboutContainerStyled>
-			<AboutCardContainer>
+			<CardContainerStyled>
 				{content.map((card) => (
 					<AboutCard key={card.id} card={card} />
 				))}
-			</AboutCardContainer>
+			</CardContainerStyled>
 		</AboutContainerStyled>
 	);
 };
@@ -50,11 +50,11 @@ const About = () => {
 // About Card component
 const AboutCard = ({ card }) => {
 	return (
-		<AboutCardStyled>
+		<CardStyled>
 			<img src={card.icon} alt="Surf Icon" />
 			<h3>{card.heading}</h3>
 			<p>{card.paragraph}</p>
-		</AboutCardStyled>
+		</CardStyled>
 	);
 };
 

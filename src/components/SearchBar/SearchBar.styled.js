@@ -19,17 +19,21 @@ export const StyledSearchBar = styled.div`
 		align-items: center;
 		height: 2.5rem;
 		padding: 0 0.25rem;
+		border: 1px solid ${({ theme }) => theme.colors.inputBorder};
 		border-radius: ${({ theme }) => theme.styles.borderRadiusMd};
 		box-shadow: ${({ theme }) => theme.colors.boxShadowInset};
+		&:focus-within {
+			outline: 2px solid ${({ theme }) => theme.colors.primary};
+		}
 		input {
 			padding: 0.25rem 0;
 			color: ${({ theme }) => theme.colors.paragraph};
-			font-size: ${({ theme }) => theme.styles.textReg}; /* 14px */
+			font-size: ${({ theme }) => theme.styles.textSm}; /* 14px */
 			letter-spacing: 0.025em;
 			text-align: left;
 			background: transparent;
 			border: none;
-			/* outline: none; */
+			outline: none;
 			&::placeholder {
 				color: ${({ theme }) => theme.colors.paragraphLight};
 			}
@@ -60,7 +64,7 @@ export const StyledSearchBar = styled.div`
 			align-items: center;
 			padding: 0 1rem;
 			p {
-				font-size: ${({ theme }) => theme.styles.textReg}; /* 14px */
+				font-size: ${({ theme }) => theme.styles.textSm}; /* 14px */
 				color: ${({ theme }) => theme.colors.paragraph};
 				margin: 0;
 			}
