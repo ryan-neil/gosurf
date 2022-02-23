@@ -4,11 +4,11 @@ export const HomeStyled = styled.main`
 	/* some styles */
 `;
 
-export const HeroImageStyled = styled.div`
+export const BackgroundImageStyled = styled.section`
 	position: absolute;
 	top: 0;
 	width: 100%;
-	height: 85vh;
+	height: 90vh;
 	/* Hero Image */
 	background-image: ${({ theme }) => theme.styles.heroImage};
 	background-position: center;

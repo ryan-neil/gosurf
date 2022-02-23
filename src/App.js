@@ -8,7 +8,7 @@ import { mode } from './styles/Theme.styled';
 // Global context
 import { SpotsDataProvider } from './context/SpotsContext';
 // ComponentsStyledApp
-import Header from './views/Header/Header';
+import Header from './views/Header/Header.js';
 // Views
 import Home from './views/Home/Home';
 import Forecast from './views/Forecast/Forecast';

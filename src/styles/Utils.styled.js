@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 export const Container = styled.div`
 	width: ${({ theme }) => theme.web.width};
 	max-width: 100%;
+	height: 100%;
 	padding: 0 1rem;
 	margin: 0 auto;
 `;

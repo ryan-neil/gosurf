@@ -1,11 +1,18 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Search } from '@styled-icons/material';
 
 export const StyledSearchBar = styled.div`
 	/* Responsive Queries */
 	@media (max-width: ${({ theme }) => theme.mobile.width}) {
 		display: none;
+		/* Props */
+		${({ mobile }) =>
+			mobile &&
+			css`
+				display: block;
+			`}
 	}
+
 	.input-container {
 		background-color: ${({ theme }) => theme.colors.inputBG};
 		display: flex;
@@ -35,7 +42,6 @@ export const StyledSearchBar = styled.div`
 		width: 225px;
 		height: auto;
 		max-height: 300px;
-		font-size: ${({ theme }) => theme.styles.textReg}; /* 14px */
 		background-color: ${({ theme }) => theme.colors.primaryBG};
 		border: 1px solid ${({ theme }) => theme.colors.border};
 		border-radius: ${({ theme }) => theme.styles.borderRadiusMd};
@@ -53,7 +59,11 @@ export const StyledSearchBar = styled.div`
 			display: flex;
 			align-items: center;
 			padding: 0 1rem;
-			color: ${({ theme }) => theme.colors.paragraph};
+			p {
+				font-size: ${({ theme }) => theme.styles.textReg}; /* 14px */
+				color: ${({ theme }) => theme.colors.paragraph};
+				margin: 0;
+			}
 			&:hover {
 				background-color: ${({ theme }) => theme.colors.secondaryBG};
 			}

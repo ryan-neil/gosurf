@@ -4,7 +4,7 @@ import SpotsContext from '../../context/SpotsContext';
 // Styles
 import { StyledSearchBar, SearchBarIcon } from './SearchBar.styled';
 
-const SearchBar = () => {
+const SearchBar = ({ mobile }) => {
 	const { spots } = useContext(SpotsContext);
 	const [inputValue, setInputValue] = useState('');
 	const [searchText, setSearchText] = useState('');
@@ -43,7 +43,7 @@ const SearchBar = () => {
 	));
 
 	return (
-		<StyledSearchBar>
+		<StyledSearchBar mobile={mobile}>
 			<div className="input-container">
 				<SearchBarIcon />
 				<input
