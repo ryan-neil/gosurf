@@ -51,7 +51,8 @@ export const LightTheme = {
 		borderRadiusMd: '0.35rem',
 		boxShadow: '0 2px 4px 0 hsla(198, 45%, 10%, .12)',
 		boxShadowInset: 'inset 0 1px 4px 0 rgba(0,0,0,0.05);',
-		heroImage: `url('./images/encinitas.png')`,
+		heroImage: `url('./images/encinitas.webp')`,
+		// heroImage: `url('./images/boards.webp')`,
 		aboutImage: `url('./images/topo-light.svg')`,
 	},
 	web: {
@@ -112,7 +113,8 @@ export const DarkTheme = {
 		borderRadiusMd: '0.35rem',
 		boxShadow: '0 2px 4px 0 hsla(198, 45%, 10%, .12)',
 		boxShadowInset: 'inset 0 1px 4px 0 rgba(0,0,0,0.05);',
-		heroImage: `url('./images/encinitas.png')`,
+		// heroImage: `url('./images/encinitas.webp')`,
+		heroImage: `url('./images/boards.webp')`,
 		aboutImage: `url('./images/topo-dark.svg')`,
 	},
 	web: {

@@ -11,8 +11,6 @@
 ### Todo:
 
 - [ ] Add: unit testing (https://en.wikipedia.org/wiki/Unit_testing)
-- [ ] Style/Add: build `HeroContent` section for `Home` page
-- [ ] Style/Add: build `About` section for `Home` page
 - [ ] Bug: wind hourly API call returns; up-until-current wind data, not predictions
 - [ ] Bug: when navigating back to `Home` page hero image disappears
 - [ ] Update: consolidate StormGlass API calls (`Wave`, `Swell`) into `Forecast` component for fewer API calls
@@ -22,6 +20,9 @@
 - [ ] Feat: mobile search (`Search` page) (WeBull mobile search example)
   - [ ] Feat/Add: recent searches
 - [ ] Feat: "Favorites" feature (`Favorites` page)
+- [x] Update: optimize images to webp format
+- [x] Style/Add: build `HeroContent` section for `Home` page
+- [x] Style/Add: build `About` section for `Home` page
 - [x] Update: folder structure, separate out components into individual folders (https://www.robinwieruch.de/react-folder-structure/)
 - [x] Style/Add: build `HeroImage` section for `Home` page
 - [x] Style/Add: add Forecast component background header (absolute positioning)
