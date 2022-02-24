@@ -1,6 +1,14 @@
 import styled from 'styled-components';
 
 export const HeroStyled = styled.section`
+	width: ${({ theme }) => theme.web.width};
+	max-width: 100%;
+	height: 100%;
+	padding: 0 1rem;
+	margin: 0 auto;
+`;
+
+export const HeroContentStyled = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
@@ -12,9 +20,10 @@ export const HeroStyled = styled.section`
 	background-color: ${({ theme }) => theme.colors.primaryBG};
 
 	/* Glassmorphism */
-	/* background: rgba(255, 255, 255, 0.2);
+	/* background-color: rgba(255, 255, 255, 0.2);
 	backdrop-filter: blur(30px);
 	border: 2px solid rgba(255, 255, 255, 0.1); */
+
 	h1 {
 		font-size: ${({ theme }) => theme.styles.textXl};
 		color: ${({ theme }) => theme.colors.heading};

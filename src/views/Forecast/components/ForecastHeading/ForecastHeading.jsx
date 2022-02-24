@@ -1,5 +1,5 @@
 // Component
-import FavoriteToggle from '../../../../components/FavoriteToggle/FavoriteToggle';
+import FavoriteToggle from '../FavoriteToggle/FavoriteToggle';
 // Styled
 import { StyledForecastHeading } from './ForecastHeading.styled';
 

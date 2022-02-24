@@ -1,10 +1,9 @@
 import styled from 'styled-components';
-import { LightMode, DarkMode } from '@styled-icons/material';
+import { LightMode, DarkMode } from '@styled-icons/material-outlined';
 
 // Sun Icon
 export const SunIcon = styled(LightMode)`
 	color: ${({ theme }) => theme.colors.white};
-	/* color: ${({ theme }) => theme.colors.heading}; */
 	width: 1.8rem;
 	height: 1.8rem;
 	padding-left: 0.25rem;
@@ -20,7 +19,6 @@ export const SunIcon = styled(LightMode)`
 // Moon Icon
 export const MoonIcon = styled(DarkMode)`
 	color: ${({ theme }) => theme.colors.white};
-	/* color: ${({ theme }) => theme.colors.heading}; */
 	width: 1.8rem;
 	height: 1.8rem;
 	padding-left: 0.25rem;

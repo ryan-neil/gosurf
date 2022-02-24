@@ -1,5 +1,5 @@
 // Components
-import LineChart from '../../../../components/Charts/LineChart';
+import LineChart from '../Charts/LineChart';
 // Helpers
 import { avgOfArray } from '../../../../helpers/array.helpers';
 import {

@@ -10,7 +10,6 @@
 
 ### Todo:
 
-- [ ] Add: chartjs data labels (https://chartjs-plugin-datalabels.netlify.app/) (https://medium.com/youth-jobbing/how-to-use-react-with-chart-js-and-plugins-d7eb958eebaf)
 - [ ] Add: error boundaries (https://www.youtube.com/watch?v=hszc3T0hdvU) (https://www.youtube.com/watch?v=w4sxsz7AO70)
 - [ ] Add: unit testing (https://en.wikipedia.org/wiki/Unit_testing)
 - [ ] Bug: wind hourly API call returns; up-until-current wind data, not predictions
@@ -22,6 +21,7 @@
 - [ ] Feat: mobile search (`Search` page) (WeBull mobile search example)
   - [ ] Feat/Add: recent searches
 - [ ] Feat: "Favorites" feature (`Favorites` page)
+- [x] Add: chartjs data labels (https://chartjs-plugin-datalabels.netlify.app/) (https://medium.com/youth-jobbing/how-to-use-react-with-chart-js-and-plugins-d7eb958eebaf)
 - [x] Update: optimize images to webp format
 - [x] Style/Add: build `HeroContent` section for `Home` page
 - [x] Style/Add: build `About` section for `Home` page

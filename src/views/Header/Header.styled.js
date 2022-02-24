@@ -54,7 +54,6 @@ export const SearchIcon = styled(Search)`
 	/* color: ${({ theme }) => theme.colors.heading}; */
 	width: 1.8rem;
 	height: 1.8rem;
-	margin-right: 0.5rem;
 	padding-left: 0.25rem;
 	padding-right: 0.25rem;
 	border-radius: ${({ theme }) => theme.styles.borderRadiusSm};

@@ -1,5 +1,5 @@
 // Components
-import BarChart from '../../../../components/Charts/BarChart';
+import BarChart from '../Charts/BarChart';
 // Helpers
 import {
 	convertTimeString,

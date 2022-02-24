@@ -59,7 +59,7 @@ const GlobalStyles = createGlobalStyle`
   h4,
   h5,
   h6 {
-    font-weight: 400;
+		font-weight: 400;
     overflow-wrap: break-word;
     color: ${({ theme }) => theme.colors.heading};
   }

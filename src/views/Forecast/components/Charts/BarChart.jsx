@@ -68,8 +68,7 @@ const BarChart = ({ heading, xAxis, yAxis }) => {
 					color: chartGrid,
 					borderColor: chartGrid,
 				},
-				// max: Math.max(...yAxis), // set yAxis maximum tick number
-				// max: 10, // set yAxis maximum tick number
+				max: Math.max(...yAxis) + 2, // set yAxis maximum tick number
 				beginAtZero: true,
 			},
 		},
