@@ -1,4 +1,4 @@
-import { ProfileIcon } from './Profile.styled';
+import { ProfileIcon } from './ProfileWidget.styled';
 
 const Profile = () => {
 	return (

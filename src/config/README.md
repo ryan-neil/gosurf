@@ -21,6 +21,7 @@
 - [ ] Feat: mobile search (`Search` page) (WeBull mobile search example)
   - [ ] Feat/Add: recent searches
 - [ ] Feat: "Favorites" feature (`Favorites` page)
+- [x] Add: `Profile` component icon in `Header`
 - [x] Add: chartjs data labels (https://chartjs-plugin-datalabels.netlify.app/) (https://medium.com/youth-jobbing/how-to-use-react-with-chart-js-and-plugins-d7eb958eebaf)
 - [x] Update: optimize images to webp format
 - [x] Style/Add: build `HeroContent` section for `Home` page

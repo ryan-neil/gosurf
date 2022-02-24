@@ -2,6 +2,7 @@
 import SearchBar from '../../../../components/SearchBar/SearchBar';
 // Styles
 import { HeroStyled, HeroContentStyled } from './Hero.styled';
+import { Container } from '../../../../styles/Utils.styled';
 
 const Hero = () => {
 	return (

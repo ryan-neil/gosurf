@@ -22,7 +22,7 @@ const Wave = ({ spot }) => {
 		error,
 	} = useFetch(endpoint, {
 		headers: {
-			Authorization: process.env.REACT_APP_SG_KEY,
+			// Authorization: process.env.REACT_APP_SG_KEY,
 		},
 	});
 
