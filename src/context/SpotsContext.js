@@ -9,6 +9,7 @@ export const SpotsDataProvider = ({ children }) => {
 	const [spots, setSpots] = useLocalStorage('spots', response);
 
 	// check if local spots data exists before setting spots state
+	// Bug: This might not be working as expected...
 	useEffect(() => {
 		if (response) {
 			setSpots(response);

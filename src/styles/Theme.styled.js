@@ -1,7 +1,7 @@
 // root theme styles
 // https://blog.agney.dev/theming-on-styled-components/
 
-export const LightTheme = {
+const LightTheme = {
 	colors: {
 		white: '#ffffff',
 		black: '#000000',
@@ -67,7 +67,7 @@ export const LightTheme = {
 	},
 };
 
-export const DarkTheme = {
+const DarkTheme = {
 	colors: {
 		white: '#ffffff',
 		black: '#000000',

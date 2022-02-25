@@ -2,12 +2,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useLocalStorage } from './hooks/useLocalStorage';
 // Global Styles
 import { ThemeProvider } from 'styled-components';
-import { StyledApp } from './styles/App.styled';
-import GlobalStyles from './styles/Global.styled';
 import { mode } from './styles/Theme.styled';
+import GlobalStyles from './styles/Global.styled';
+import { StyledApp } from './styles/App.styled';
 // Global context
 import { SpotsDataProvider } from './context/SpotsContext';
-// ComponentsStyledApp
+// Components
 import Header from './components/Header/Header';
 // Views
 import Home from './views/Home/Home';
@@ -18,10 +18,10 @@ const App = () => {
 	const [theme, setTheme] = useLocalStorage('theme', 'light');
 
 	return (
-		<ThemeProvider theme={mode[theme]}>
-			<GlobalStyles />
-			<SpotsDataProvider>
-				<Router>
+		<SpotsDataProvider>
+			<Router>
+				<ThemeProvider theme={mode[theme]}>
+					<GlobalStyles />
 					<StyledApp>
 						<Header theme={theme} setTheme={setTheme} />
 						<Routes>
@@ -30,9 +30,9 @@ const App = () => {
 							<Route path="*" element={<Missing />} />
 						</Routes>
 					</StyledApp>
-				</Router>
-			</SpotsDataProvider>
-		</ThemeProvider>
+				</ThemeProvider>
+			</Router>
+		</SpotsDataProvider>
 	);
 };
 

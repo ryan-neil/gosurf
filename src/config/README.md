@@ -10,23 +10,26 @@
 
 ### Todo:
 
-- [ ] Add: error boundaries (https://www.youtube.com/watch?v=hszc3T0hdvU) (https://www.youtube.com/watch?v=w4sxsz7AO70)
-- [ ] Add: unit testing (https://en.wikipedia.org/wiki/Unit_testing)
+#### Frontend:
+
+- [ ] Add: unit testing - (https://en.wikipedia.org/wiki/Unit_testing)
+- [ ] Add: linting (Air bnb ESLint)
+- [ ] Update: convert mock JSON API to Express API
 - [ ] Bug: wind hourly API call returns; up-until-current wind data, not predictions
 - [ ] Bug: when navigating back to `Home` page hero image disappears
 - [ ] Update: consolidate StormGlass API calls (`Wave`, `Swell`) into `Forecast` component for fewer API calls
 - [ ] Update: components as props design pattern for reusable Chart component (`<Chart type={<Bar />} />`)
-- [ ] Update: convert mock JSON API to Express API
 - [ ] Check: cross check data from NOAA and StormGlass for water temp, air temp, and wind consistency
 - [ ] Feat: mobile search (`Search` page) (WeBull mobile search example)
   - [ ] Feat/Add: recent searches
 - [ ] Feat: "Favorites" feature (`Favorites` page)
+- [x] Add: error boundaries - (https://www.youtube.com/watch?v=w4sxsz7AO70)
 - [x] Add: `Profile` component icon in `Header`
-- [x] Add: chartjs data labels (https://chartjs-plugin-datalabels.netlify.app/) (https://medium.com/youth-jobbing/how-to-use-react-with-chart-js-and-plugins-d7eb958eebaf)
+- [x] Add: chartjs data labels - (https://chartjs-plugin-datalabels.netlify.app/), (https://medium.com/youth-jobbing/how-to-use-react-with-chart-js-and-plugins-d7eb958eebaf)
 - [x] Update: optimize images to webp format
 - [x] Style/Add: build `HeroContent` section for `Home` page
 - [x] Style/Add: build `About` section for `Home` page
-- [x] Update: folder structure, separate out components into individual folders (https://www.robinwieruch.de/react-folder-structure/)
+- [x] Update: folder structure, separate out components into individual folders - (https://www.robinwieruch.de/react-folder-structure/)
 - [x] Style/Add: build `HeroImage` section for `Home` page
 - [x] Style/Add: add Forecast component background header (absolute positioning)
 - [x] Style/Add: `Favorites` star icon to `ForecastHeading` component
@@ -50,6 +53,10 @@
 - [x] Add: `useLocalStorage` hook into project (Inside app Context)
 - [x] Update: `useFetch` custom hook
 - [x] Update: data fetching architecture into `Forecast` component
+
+#### Backend:
+
+- [ ] Build: out GoSurf backend in Express.js
 
 ### Resources:
 
