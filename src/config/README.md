@@ -304,24 +304,24 @@ Can't find a surf spot? Help us add it! Open an issue and leave us some data abo
 
 ```json
 {
-	"name": "Bay Front",
-	"id": 0,
-	"lat": 19.7283,
-	"lon": -155.0848,
-	"timezone": "Pacific/Honolulu",
-	"timezone_offset": -36000,
-	"location": {
-		"city": "Hilo",
-		"state": "Hawai'i",
-		"county": "Big Island",
-		"country": "United States"
-	},
-	"idealConditions": {
-		"swellDirection": "NE",
-		"wind": "S",
-		"surfHeight": "3ft to 6ft",
-		"tide": "Low"
-	}
+  "name": "Bay Front",
+  "id": 0,
+  "lat": 19.7283,
+  "lon": -155.0848,
+  "timezone": "Pacific/Honolulu",
+  "timezone_offset": -36000,
+  "location": {
+    "city": "Hilo",
+    "state": "Hawai'i",
+    "county": "Big Island",
+    "country": "United States"
+  },
+  "idealConditions": {
+    "swellDirection": "NE",
+    "wind": "S",
+    "surfHeight": "3ft to 6ft",
+    "tide": "Low"
+  }
 }
 ```
 

@@ -1,0 +1,37 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["plugin:react/recommended", "airbnb", "prettier"],
+  "parserOptions": {
+    "ecmaVersion": 2022,
+    // "ecmaVersion": "latest",
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": ["react", "prettier"],
+  "rules": {
+    "prettier/prettier": ["error", { "trailingComma": "none" }],
+    "react/react-in-jsx-scope": 0,
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    "react/jsx-props-no-spreading": "off",
+    "react/function-component-definition": 0,
+    "react/prop-types": 0,
+    "react/destructuring-assignment": 1,
+    "react/no-array-index-key": 0,
+    "react/no-unescaped-entities": 0,
+    "react/jsx-no-constructed-context-values": 2,
+    "import/prefer-default-export": 0,
+    "import/no-extraneous-dependencies": 0,
+    "arrow-body-style": ["warn", "as-needed"],
+    "no-unused-vars": "warn",
+    "no-unused-expressions": ["error", { "allowShortCircuit": true, "allowTernary": true }],
+    "no-console": "warn",
+    "consistent-return": 0,
+    "func-names": "off",
+    "object-shorthand": "off"
+  }
+}

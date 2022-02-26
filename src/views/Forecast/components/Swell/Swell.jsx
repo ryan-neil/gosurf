@@ -10,47 +10,47 @@ import { Flex } from '../../../../styles/Utils.styled';
 import swellIcon from '../../../../assets/swell.svg';
 
 const Swell = ({ spot }) => {
-	const { fullDateHyphen } = calcTodaysDate();
-	const reqParams = [
-		'swellHeight',
-		'swellDirection',
-		'swellPeriod',
-		'secondarySwellHeight',
-		'secondarySwellDirection',
-		'secondarySwellPeriod',
-	];
-	const endpoint = `https://api.stormglass.io/v2/weather/point?lat=${spot.lat}&lng=${spot.lon}&params=${reqParams}&start=${fullDateHyphen}&end=${fullDateHyphen}T23:00`;
-	const {
-		response: swellData,
-		loading,
-		error,
-	} = useFetch(endpoint, {
-		headers: {
-			// Authorization: process.env.REACT_APP_SG_KEY,
-		},
-	});
+  const { fullDateHyphen } = calcTodaysDate();
+  const reqParams = [
+    'swellHeight',
+    'swellDirection',
+    'swellPeriod',
+    'secondarySwellHeight',
+    'secondarySwellDirection',
+    'secondarySwellPeriod'
+  ];
+  const endpoint = `https://api.stormglass.io/v2/weather/point?lat=${spot.lat}&lng=${spot.lon}&params=${reqParams}&start=${fullDateHyphen}&end=${fullDateHyphen}T23:00`;
+  const {
+    response: swellData,
+    loading,
+    error
+  } = useFetch(endpoint, {
+    headers: {
+      // Authorization: process.env.REACT_APP_SG_KEY,
+    }
+  });
 
-	if (!swellData && !loading) {
-		<FetchError name="Swell" error={error} />;
-		// return null;
-	}
+  if (!swellData && !loading) {
+    <FetchError name="Swell" error={error} />;
+    // return null;
+  }
 
-	return (
-		<StyledGridItem>
-			{/* Heading */}
-			<Flex gapSm>
-				<img src={swellIcon} alt="Swell Icon" />
-				<h3>Swell</h3>
-			</Flex>
-			{/* Body */}
-			{loading && <Loading />}
-			{swellData && !loading ? (
-				<SwellBody swellData={swellData} />
-			) : (
-				!loading && <FetchError name="Swell" error={error} />
-			)}
-		</StyledGridItem>
-	);
+  return (
+    <StyledGridItem>
+      {/* Heading */}
+      <Flex gapSm>
+        <img src={swellIcon} alt="Swell Icon" />
+        <h3>Swell</h3>
+      </Flex>
+      {/* Body */}
+      {loading && <Loading />}
+      {swellData && !loading ? (
+        <SwellBody swellData={swellData} />
+      ) : (
+        !loading && <FetchError name="Swell" error={error} />
+      )}
+    </StyledGridItem>
+  );
 };
 
 export default Swell;

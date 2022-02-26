@@ -10,52 +10,52 @@ import { Flex } from '../../../../styles/Utils.styled';
 import waveIcon from '../../../../assets/wave.svg';
 
 const Wave = ({ spot }) => {
-	// Resource: https://daveceddia.com/react-before-render/
-	// Resource: https://blog.isquaredsoftware.com/2020/05/blogged-answers-a-mostly-complete-guide-to-react-rendering-behavior/
+  // Resource: https://daveceddia.com/react-before-render/
+  // Resource: https://blog.isquaredsoftware.com/2020/05/blogged-answers-a-mostly-complete-guide-to-react-rendering-behavior/
 
-	const { fullDateHyphen } = calcTodaysDate();
-	const reqParams = ['waveHeight', 'wavePeriod'];
-	const endpoint = `https://api.stormglass.io/v2/weather/point?lat=${spot.lat}&lng=${spot.lon}&params=${reqParams}&start=${fullDateHyphen}&end=${fullDateHyphen}T23:00`;
-	const {
-		response: waveData,
-		loading,
-		error,
-	} = useFetch(endpoint, {
-		headers: {
-			// Authorization: process.env.REACT_APP_SG_KEY,
-		},
-	});
+  const { fullDateHyphen } = calcTodaysDate();
+  const reqParams = ['waveHeight', 'wavePeriod'];
+  const endpoint = `https://api.stormglass.io/v2/weather/point?lat=${spot.lat}&lng=${spot.lon}&params=${reqParams}&start=${fullDateHyphen}&end=${fullDateHyphen}T23:00`;
+  const {
+    response: waveData,
+    loading,
+    error
+  } = useFetch(endpoint, {
+    headers: {
+      // Authorization: process.env.REACT_APP_SG_KEY,
+    }
+  });
 
-	if (!waveData && !loading) {
-		<FetchError name="Wave" error={error} />;
-		// return null;
-	}
+  if (!waveData && !loading) {
+    <FetchError name="Wave" error={error} />;
+    // return null;
+  }
 
-	/**
-	 * BUG: Not Working...
-	 */
+  /**
+   * BUG: Not Working...
+   */
 
-	// const waveHeights = response.hours.map((wave) =>
-	// 	roundNumber(convertMetersToFeet(wave.waveHeight.noaa))
-	// );
-	// console.log(waveHeights);
+  // const waveHeights = response.hours.map((wave) =>
+  // 	roundNumber(convertMetersToFeet(wave.waveHeight.noaa))
+  // );
+  // console.log(waveHeights);
 
-	return (
-		<StyledGridItem>
-			{/* Heading */}
-			<Flex gapSm>
-				<img src={waveIcon} alt="Wave Height Icon" />
-				<h3>Wave Height</h3>
-			</Flex>
-			{/* Body */}
-			{loading && <Loading />}
-			{waveData && !loading ? (
-				<WaveBody waveData={waveData} />
-			) : (
-				!loading && <FetchError name="Wave" error={error} />
-			)}
-		</StyledGridItem>
-	);
+  return (
+    <StyledGridItem>
+      {/* Heading */}
+      <Flex gapSm>
+        <img src={waveIcon} alt="Wave Height Icon" />
+        <h3>Wave Height</h3>
+      </Flex>
+      {/* Body */}
+      {loading && <Loading />}
+      {waveData && !loading ? (
+        <WaveBody waveData={waveData} />
+      ) : (
+        !loading && <FetchError name="Wave" error={error} />
+      )}
+    </StyledGridItem>
+  );
 };
 
 export default Wave;

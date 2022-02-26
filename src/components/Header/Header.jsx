@@ -9,22 +9,22 @@ import { StyledHeader, StyledNav } from './Header.styled';
 import { Container, Flex } from '../../styles/Utils.styled';
 
 const Header = ({ theme, setTheme }) => {
-	return (
-		<StyledHeader>
-			<Container>
-				<StyledNav>
-					<Logo />
-					<SearchBar />
-					{/* Widgets */}
-					<Flex gapSm>
-						<SearchWidget />
-						<ThemeToggle theme={theme} setTheme={setTheme} />
-						<ProfileWidget />
-					</Flex>
-				</StyledNav>
-			</Container>
-		</StyledHeader>
-	);
+  return (
+    <StyledHeader>
+      <Container>
+        <StyledNav>
+          <Logo />
+          <SearchBar />
+          {/* Widgets */}
+          <Flex gapSm>
+            <SearchWidget />
+            <ThemeToggle theme={theme} setTheme={setTheme} />
+            <ProfileWidget />
+          </Flex>
+        </StyledNav>
+      </Container>
+    </StyledHeader>
+  );
 };
 
 export default Header;
