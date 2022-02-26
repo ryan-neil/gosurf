@@ -13,7 +13,6 @@
 #### Frontend:
 
 - [ ] Add: unit testing - (https://en.wikipedia.org/wiki/Unit_testing)
-- [ ] Add: linting (Air bnb ESLint)
 - [ ] Update: convert mock JSON API to Express API
 - [ ] Bug: wind hourly API call returns; up-until-current wind data, not predictions
 - [ ] Bug: when navigating back to `Home` page hero image disappears
@@ -23,6 +22,7 @@
 - [ ] Feat: mobile search (`Search` page) (WeBull mobile search example)
   - [ ] Feat/Add: recent searches
 - [ ] Feat: "Favorites" feature (`Favorites` page)
+- [x] Add: linting (Air bnb ESLint)
 - [x] Add: error boundaries - (https://www.youtube.com/watch?v=w4sxsz7AO70)
 - [x] Add: `Profile` component icon in `Header`
 - [x] Add: chartjs data labels - (https://chartjs-plugin-datalabels.netlify.app/), (https://medium.com/youth-jobbing/how-to-use-react-with-chart-js-and-plugins-d7eb958eebaf)
