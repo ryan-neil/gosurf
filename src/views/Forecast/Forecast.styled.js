@@ -53,6 +53,7 @@ export const StyledGridItemBody = styled.div`
     color: ${({ theme }) => theme.colors.heading};
     font-size: ${({ theme }) => theme.styles.textXl};
   }
+
   ${(props) =>
     props.tide &&
     css`
@@ -65,6 +66,7 @@ export const StyledGridItemBody = styled.div`
         }
       }
     `};
+
   ${(props) =>
     props.swell &&
     css`
@@ -84,11 +86,13 @@ export const StyledSwellTag = styled.span`
   height: 1rem;
   border-radius: ${({ theme }) => theme.styles.borderRadiusSm};
   margin-top: 0.25rem;
+
   ${(props) =>
     props.primary &&
     css`
       background-color: ${({ theme }) => theme.colors.chartPrimSwellLine};
     `};
+
   ${(props) =>
     props.secondary &&
     css`

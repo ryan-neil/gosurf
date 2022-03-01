@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { useLocalStorage } from './hooks/useLocalStorage';
 // Global Styles
@@ -18,21 +18,19 @@ const App = () => {
   const [theme, setTheme] = useLocalStorage('theme', 'light');
 
   return (
-    <SpotsDataProvider>
-      <Router>
-        <ThemeProvider theme={mode[theme]}>
-          <GlobalStyles />
-          <StyledApp>
-            <Header theme={theme} setTheme={setTheme} />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/forecast/:slug" element={<Forecast />} />
-              <Route path="*" element={<Missing />} />
-            </Routes>
-          </StyledApp>
-        </ThemeProvider>
-      </Router>
-    </SpotsDataProvider>
+    <ThemeProvider theme={mode[theme]}>
+      <GlobalStyles />
+      <StyledApp>
+        <SpotsDataProvider>
+          <Header theme={theme} setTheme={setTheme} />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/forecast/:slug" element={<Forecast />} />
+            <Route path="*" element={<Missing />} />
+          </Routes>
+        </SpotsDataProvider>
+      </StyledApp>
+    </ThemeProvider>
   );
 };
 

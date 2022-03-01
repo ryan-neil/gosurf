@@ -35,26 +35,6 @@ export const convertDegToWindDir = (degrees) => {
     'Northwest'
   ];
 
-  // Points on a compass mapped to their degrees.
-  const compassPoints = [
-    { N: '0' },
-    { NNE: '23' },
-    { NE: '45' },
-    { ENE: '68' },
-    { E: '90' },
-    { ESE: '113' },
-    { SE: '135' },
-    { SSE: '158' },
-    { S: '180' },
-    { SSW: '203' },
-    { SW: '225' },
-    { WSW: '248' },
-    { W: '270' },
-    { WNW: '292' },
-    { NW: '315' },
-    { NNW: '326' }
-  ];
-
   // Split into the 8 directions
   windDegrees = (windDegrees * 8) / 360;
   // round to nearest integer.

@@ -1,11 +1,13 @@
 import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import SpotsContext from '../../context/SpotsContext';
+// Components
+
 // Styles
 import { StyledSearchBar, SearchBarIcon } from './SearchBar.styled';
 
 const SearchBar = ({ mobile }) => {
-  const { spots } = useContext(SpotsContext);
+  const { response } = useContext(SpotsContext);
   const [inputValue, setInputValue] = useState('');
   const [searchText, setSearchText] = useState('');
   const [searchResults, setSearchResults] = useState([]);
@@ -16,8 +18,8 @@ const SearchBar = ({ mobile }) => {
     // get users' searched word
     setSearchText(e.target.value);
     // filter for matching spots
-    const filteredResults = spots.filter((spot) =>
-      spot.name.toLowerCase().includes(searchText.toLowerCase())
+    const filteredResults = response.filter((item) =>
+      item.name.toLowerCase().includes(searchText.toLowerCase())
     );
     // update search state
     searchText === '' ? setSearchResults([]) : setSearchResults(filteredResults);

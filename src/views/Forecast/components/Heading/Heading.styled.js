@@ -1,7 +1,7 @@
 // Styles
 import styled from 'styled-components';
 
-export const StyledForecastHeading = styled.div`
+export const StyledHeading = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;

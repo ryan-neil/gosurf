@@ -1,15 +1,15 @@
 // Component
 import FavoriteToggle from '../FavoriteToggle/FavoriteToggle';
 // Styled
-import { StyledForecastHeading } from './ForecastHeading.styled';
+import { StyledHeading } from './Heading.styled';
 
-const ForecastHeading = ({ spot }) => {
+const Heading = ({ spot }) => {
   return (
-    <StyledForecastHeading>
+    <StyledHeading>
       <h2>{`${spot.name}, ${spot.location.county}, ${spot.location.state}`}</h2>
       <FavoriteToggle />
-    </StyledForecastHeading>
+    </StyledHeading>
   );
 };
 
-export default ForecastHeading;
+export default Heading;
