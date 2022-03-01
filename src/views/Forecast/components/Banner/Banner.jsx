@@ -19,11 +19,7 @@ const Banner = ({ spot }) => {
 
   // fetch water temperature data
   const waterTempEndpoint = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?=&product=water_temperature&station=${spot.noaa_station_id}&date=latest&units=english&datum=MLLW&time_zone=lst_ldt&format=json&application=NOS.COOPS.TAC.TidePred&interval=hilo`;
-  const {
-    response: waterData,
-    loading: waterLoading,
-    error: waterError
-  } = useFetch(waterTempEndpoint);
+  const { response: waterData } = useFetch(waterTempEndpoint);
 
   return (
     <StyledBanner>

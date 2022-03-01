@@ -12,8 +12,10 @@
 
 #### Frontend:
 
+- [ ] Add: error checking to beginning of render components (`if (!data) {return null}`)
 - [ ] Add: unit testing - (https://en.wikipedia.org/wiki/Unit_testing)
 - [ ] Update: convert mock JSON API to Express API
+- [ ] Bug/Linter: 'react/jsx-no-constructed-context-values' (look into useMemo hook for context)
 - [ ] Bug: wind hourly API call returns; up-until-current wind data, not predictions
 - [ ] Bug: when navigating back to `Home` page hero image disappears
 - [ ] Update: consolidate StormGlass API calls (`Wave`, `Swell`) into `Forecast` component for fewer API calls
@@ -56,7 +58,8 @@
 
 #### Backend:
 
-- [ ] Build: out GoSurf backend in Express.js
+- [ ] Build: start building out backend
+- [ ] Build: replace mock spots API with Express.js API
 
 ### Resources:
 
