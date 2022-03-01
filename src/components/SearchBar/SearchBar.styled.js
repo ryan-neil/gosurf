@@ -12,33 +12,6 @@ export const StyledSearchBar = styled.div`
         display: block;
       `}
   }
-
-  .input-container {
-    background-color: ${({ theme }) => theme.colors.inputBG};
-    display: flex;
-    align-items: center;
-    height: 2.5rem;
-    padding: 0 0.25rem;
-    border: 1px solid ${({ theme }) => theme.colors.inputBorder};
-    border-radius: ${({ theme }) => theme.styles.borderRadiusMd};
-    box-shadow: ${({ theme }) => theme.colors.boxShadowInset};
-    &:focus-within {
-      outline: 2px solid ${({ theme }) => theme.colors.primary};
-    }
-    input {
-      padding: 0.25rem 0;
-      color: ${({ theme }) => theme.colors.paragraph};
-      font-size: ${({ theme }) => theme.styles.textSm}; /* 14px */
-      letter-spacing: 0.025em;
-      text-align: left;
-      background: transparent;
-      border: none;
-      outline: none;
-      &::placeholder {
-        color: ${({ theme }) => theme.colors.paragraphLight};
-      }
-    }
-  }
   .results-container {
     position: absolute;
     margin-top: 5px;
@@ -65,14 +38,46 @@ export const StyledSearchBar = styled.div`
       padding: 0 1rem;
       p {
         font-size: ${({ theme }) => theme.styles.textSm}; /* 14px */
-        color: ${({ theme }) => theme.colors.paragraph};
-        margin: 0;
       }
       &:hover {
         background-color: ${({ theme }) => theme.colors.secondaryBG};
       }
     }
   }
+`;
+
+export const StyledInputContainer = styled.div`
+  background-color: ${({ theme }) => theme.colors.inputBG};
+  display: flex;
+  align-items: center;
+  height: 2.5rem;
+  padding: 0 0.25rem;
+  border: 1px solid ${({ theme }) => theme.colors.inputBorder};
+  border-radius: ${({ theme }) => theme.styles.borderRadiusMd};
+  box-shadow: ${({ theme }) => theme.colors.boxShadowInset};
+  &:focus-within {
+    outline: 2px solid ${({ theme }) => theme.colors.primary};
+  }
+  input {
+    padding: 0.25rem 0;
+    color: ${({ theme }) => theme.colors.paragraph};
+    font-size: ${({ theme }) => theme.styles.textSm}; /* 14px */
+    letter-spacing: 0.025em;
+    text-align: left;
+    background: transparent;
+    border: none;
+    outline: none;
+    &::placeholder {
+      color: ${({ theme }) => theme.colors.paragraphLight};
+    }
+  }
+
+  /* Props */
+  ${({ error }) =>
+    error &&
+    css`
+      outline: 1px solid ${({ theme }) => theme.colors.danger};
+    `}
 `;
 
 export const SearchBarIcon = styled(Search)`

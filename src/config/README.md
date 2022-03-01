@@ -12,7 +12,6 @@
 
 #### Frontend:
 
-- [ ] Add: error checking to beginning of render components (`if (!data) {return null}`)
 - [ ] Add: unit testing - (https://en.wikipedia.org/wiki/Unit_testing)
 - [ ] Update: convert mock JSON API to Express API
 - [ ] Bug/Linter: 'react/jsx-no-constructed-context-values' (look into useMemo hook for context)
@@ -24,6 +23,8 @@
 - [ ] Feat: mobile search (`Search` page) (WeBull mobile search example)
   - [ ] Feat/Add: recent searches
 - [ ] Feat: "Favorites" feature (`Favorites` page)
+- [x] Test: spots API error checks in components (`SearchBar`/`Forecast`)
+- [x] Bug/Style: `<p>` elements getting styles from unknown origin
 - [x] Add: linting (Air bnb ESLint)
 - [x] Add: error boundaries - (https://www.youtube.com/watch?v=w4sxsz7AO70)
 - [x] Add: `Profile` component icon in `Header`

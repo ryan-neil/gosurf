@@ -26,7 +26,6 @@ export const HeroContentStyled = styled.div`
 
   h1 {
     font-size: ${({ theme }) => theme.styles.textXl};
-    color: ${({ theme }) => theme.colors.heading};
     margin-bottom: 1rem;
   }
   h2 {
@@ -54,7 +53,5 @@ export const HeroContentStyled = styled.div`
   p {
     font-size: ${({ theme }) => theme.styles.textXs};
     color: ${({ theme }) => theme.colors.paragraphLight};
-    margin-top: 0.5rem;
-    margin-left: 1rem;
   }
 `;

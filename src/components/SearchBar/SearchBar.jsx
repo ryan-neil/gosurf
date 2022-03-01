@@ -1,16 +1,38 @@
 import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import SpotsContext from '../../context/SpotsContext';
 // Components
-
+import Loading from '../Loading/Loading';
+import { ErrorIcon } from '../FetchError/FetchError.styled';
+// Context
+import SpotsContext from '../../context/SpotsContext';
 // Styles
-import { StyledSearchBar, SearchBarIcon } from './SearchBar.styled';
+import { StyledSearchBar, StyledInputContainer, SearchBarIcon } from './SearchBar.styled';
 
 const SearchBar = ({ mobile }) => {
-  const { response } = useContext(SpotsContext);
+  // fetch spots API data
+  const { response, error, loading } = useContext(SpotsContext);
+  // set states
   const [inputValue, setInputValue] = useState('');
   const [searchText, setSearchText] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+
+  // mounted data checks (if api response is null remove the SearchBar)
+  // if (!response) return null;
+
+  // mounted data checks
+  if (loading) {
+    return <Loading />;
+  }
+  if (error) {
+    return (
+      <StyledSearchBar mobile={mobile}>
+        <StyledInputContainer error>
+          <ErrorIcon />
+          <input type="text" placeholder="Error fetching data" disabled />
+        </StyledInputContainer>
+      </StyledSearchBar>
+    );
+  }
 
   const handleSearch = (e) => {
     // set the input value to users input
@@ -35,8 +57,8 @@ const SearchBar = ({ mobile }) => {
   // loop through search results and render the element
   const results = searchResults.map((spot) => (
     <Link
-      key={spot.id}
       className="results-item"
+      key={spot.id}
       to={`/forecast/${spot.slug}`}
       onClick={() => handleClick(spot)}
     >
@@ -46,7 +68,7 @@ const SearchBar = ({ mobile }) => {
 
   return (
     <StyledSearchBar mobile={mobile}>
-      <div className="input-container">
+      <StyledInputContainer>
         <SearchBarIcon />
         <input
           type="text"
@@ -54,7 +76,7 @@ const SearchBar = ({ mobile }) => {
           value={inputValue}
           onChange={handleSearch}
         />
-      </div>
+      </StyledInputContainer>
       {searchResults.length !== 0 && <div className="results-container">{results}</div>}
     </StyledSearchBar>
   );

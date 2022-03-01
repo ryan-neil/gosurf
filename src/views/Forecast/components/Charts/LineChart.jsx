@@ -1,6 +1,6 @@
 // Chart.js
 import { Line } from 'react-chartjs-2';
-import { Chart as ChartJS } from 'chart.js/auto'; // this is required to make chart.js work
+import { Chart as ChartJS } from 'chart.js/auto'; // eslint-disable-line no-unused-vars
 // Styles
 import { StyledChartContainer, StyledChartHeading, StyledChart } from './Charts.styled';
 

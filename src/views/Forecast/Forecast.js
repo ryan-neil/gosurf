@@ -21,14 +21,20 @@ const Forecast = () => {
   // fetch spots API data
   const { response, loading, error } = useContext(SpotsContext);
 
-  // render loading until response from api (this must come before the filtering logic)
+  // mounted data checks
   if (loading) {
-    return <Loading />;
+    return (
+      <Container>
+        <Loading />
+      </Container>
+    );
   }
-
-  // if error render error (this must come before the filtering logic)
   if (error) {
-    return <FetchError name="Forecast" error={error} />;
+    return (
+      <Container>
+        <FetchError name="SearchBar" error={error} />
+      </Container>
+    );
   }
 
   // filter for param spot
