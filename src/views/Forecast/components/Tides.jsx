@@ -1,15 +1,15 @@
 // Helpers
-import { convertRoundNumber, convertTimeString } from '../../../../helpers/conversions.helpers';
-import { calcTodaysDate } from '../../../../helpers/calculations.helpers';
-import { useFetch } from '../../../../hooks/useFetch';
+import { convertRoundNumber, convertTimeString } from '../../../helpers/conversions.helpers';
+import { calcTodaysDate } from '../../../helpers/calculations.helpers';
+import { useFetch } from '../../../hooks/useFetch';
 // Components
-import LineChart from '../Charts/LineChart';
-import Loading from '../../../../components/Loading/Loading';
-import FetchError from '../../../../components/FetchError/FetchError';
+import LineChart from './Charts/LineChart';
+import Loading from '../../../components/Loading/Loading';
+import FetchError from '../../../components/FetchError/FetchError';
 // Styles
-import { StyledGridItem, StyledGridItemBody } from '../../Forecast.styled';
-import { Flex } from '../../../../styles/Utils.styled';
-import tidesIcon from '../../../../assets/tides.svg';
+import { StyledGridItem, StyledGridItemBody } from '../Forecast.styled';
+import { Flex } from '../../../styles/Utils.styled';
+import tidesIcon from '../../../assets/tides.svg';
 
 const Tides = ({ spot }) => {
   // date formatted for api

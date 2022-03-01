@@ -23,6 +23,7 @@ const LightTheme = {
     hover: '#233044',
     // misc
     tertiary: 'rgba(255, 173, 66, 1)',
+    tertiaryLight: 'rgba(255, 173, 66, 0.2)',
     danger: '#fa3945',
     dangerLight: 'rgba(250, 57, 69, 0.1)',
     success: 'rgba(63, 185, 80, 1)',
@@ -89,6 +90,7 @@ const DarkTheme = {
     hover: '#233044',
     // misc
     tertiary: '#ffad42',
+    tertiaryLight: 'rgba(255, 173, 66, 0.2)',
     danger: '#fa3945',
     dangerLight: 'rgba(250, 57, 69, 0.1)',
     success: '#45fa39',

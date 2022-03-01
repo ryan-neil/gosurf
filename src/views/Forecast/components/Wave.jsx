@@ -1,19 +1,19 @@
 // Components
-import Loading from '../../../../components/Loading/Loading';
-import FetchError from '../../../../components/FetchError/FetchError';
-import BarChart from '../Charts/BarChart';
+import Loading from '../../../components/Loading/Loading';
+import FetchError from '../../../components/FetchError/FetchError';
+import BarChart from './Charts/BarChart';
 // Helpers
 import {
   convertRoundNumber,
   convertMetersToFeet,
   convertTimeString
-} from '../../../../helpers/conversions.helpers';
-import { calcTodaysDate, calcBodySize } from '../../../../helpers/calculations.helpers';
-import { useFetch } from '../../../../hooks/useFetch';
+} from '../../../helpers/conversions.helpers';
+import { calcTodaysDate, calcBodySize } from '../../../helpers/calculations.helpers';
+import { useFetch } from '../../../hooks/useFetch';
 // Styles
-import { StyledGridItem, StyledGridItemBody } from '../../Forecast.styled';
-import { Flex } from '../../../../styles/Utils.styled';
-import waveIcon from '../../../../assets/wave.svg';
+import { StyledGridItem, StyledGridItemBody } from '../Forecast.styled';
+import { Flex } from '../../../styles/Utils.styled';
+import waveIcon from '../../../assets/wave.svg';
 
 const Wave = ({ spot }) => {
   // Resource: https://daveceddia.com/react-before-render/
@@ -24,7 +24,7 @@ const Wave = ({ spot }) => {
   const endpoint = `https://api.stormglass.io/v2/weather/point?lat=${spot.lat}&lng=${spot.lon}&params=${reqParams}&start=${fullDateHyphen}&end=${fullDateHyphen}T23:00`;
   const { response, loading, error } = useFetch(endpoint, {
     headers: {
-      Authorization: process.env.REACT_APP_SG_KEY
+      // Authorization: process.env.REACT_APP_SG_KEY
     }
   });
 

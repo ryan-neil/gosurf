@@ -4,10 +4,10 @@ import SpotsContext from '../../context/SpotsContext';
 // Components
 import Heading from './components/Heading/Heading';
 import Banner from './components/Banner/Banner';
-import Wave from './components/Wave/Wave';
-import Tides from './components/Tides/Tides';
-import Wind from './components/Wind/Wind';
-import Swell from './components/Swell/Swell';
+import Wave from './components/Wave';
+import Tides from './components/Tides';
+import Wind from './components/Wind';
+import Swell from './components/Swell';
 import Loading from '../../components/Loading/Loading';
 import FetchError from '../../components/FetchError/FetchError';
 import SpotError from '../../components/SpotError/SpotError';
@@ -23,20 +23,12 @@ const Forecast = () => {
 
   // render loading until response from api (this must come before the filtering logic)
   if (loading) {
-    return (
-      <Container>
-        <Loading />
-      </Container>
-    );
+    return <Loading />;
   }
 
   // if error render error (this must come before the filtering logic)
   if (error) {
-    return (
-      <Container>
-        <FetchError name="Forecast" />
-      </Container>
-    );
+    return <FetchError name="Forecast" error={error} />;
   }
 
   // filter for param spot

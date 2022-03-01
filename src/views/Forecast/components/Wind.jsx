@@ -1,15 +1,15 @@
 // Components
-import BarChart from '../Charts/BarChart';
-import Loading from '../../../../components/Loading/Loading';
-import FetchError from '../../../../components/FetchError/FetchError';
+import BarChart from './Charts/BarChart';
+import Loading from '../../../components/Loading/Loading';
+import FetchError from '../../../components/FetchError/FetchError';
 // Helpers
-import { convertTimeString, convertRoundNumber } from '../../../../helpers/conversions.helpers';
-import { calcTodaysDate } from '../../../../helpers/calculations.helpers';
-import { useFetch } from '../../../../hooks/useFetch';
+import { convertTimeString, convertRoundNumber } from '../../../helpers/conversions.helpers';
+import { calcTodaysDate } from '../../../helpers/calculations.helpers';
+import { useFetch } from '../../../hooks/useFetch';
 // Styles
-import { StyledGridItem, StyledGridItemBody } from '../../Forecast.styled';
-import { Flex } from '../../../../styles/Utils.styled';
-import windIcon from '../../../../assets/wind.svg';
+import { StyledGridItem, StyledGridItemBody } from '../Forecast.styled';
+import { Flex } from '../../../styles/Utils.styled';
+import windIcon from '../../../assets/wind.svg';
 
 const Wind = ({ spot }) => {
   // date formatted for api

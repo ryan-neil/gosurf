@@ -5,10 +5,10 @@ import { StyledError, ErrorIcon } from './SpotError.styled';
 const SpotError = () => {
   return (
     <StyledError>
-      <p>
+      <h3>
         <ErrorIcon />
         Oops, the spot you're looking for does not exist.
-      </p>
+      </h3>
     </StyledError>
   );
 };

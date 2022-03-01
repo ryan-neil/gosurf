@@ -1,21 +1,21 @@
 // Components
-import LineChart from '../Charts/LineChart';
-import Loading from '../../../../components/Loading/Loading';
-import FetchError from '../../../../components/FetchError/FetchError';
+import LineChart from './Charts/LineChart';
+import Loading from '../../../components/Loading/Loading';
+import FetchError from '../../../components/FetchError/FetchError';
 // Helpers
-import { calcTodaysDate } from '../../../../helpers/calculations.helpers';
-import { useFetch } from '../../../../hooks/useFetch';
-import { avgOfArray } from '../../../../helpers/array.helpers';
+import { calcTodaysDate } from '../../../helpers/calculations.helpers';
+import { useFetch } from '../../../hooks/useFetch';
+import { avgOfArray } from '../../../helpers/array.helpers';
 import {
   convertRoundNumber,
   convertMetersToFeet,
   convertTimeString,
   convertDegToWindDir
-} from '../../../../helpers/conversions.helpers';
+} from '../../../helpers/conversions.helpers';
 // Styles
-import { StyledGridItem, StyledGridItemBody, StyledSwellTag } from '../../Forecast.styled';
-import { Flex, FlexCol } from '../../../../styles/Utils.styled';
-import swellIcon from '../../../../assets/swell.svg';
+import { StyledGridItem, StyledGridItemBody, StyledSwellTag } from '../Forecast.styled';
+import { Flex, FlexCol } from '../../../styles/Utils.styled';
+import swellIcon from '../../../assets/swell.svg';
 
 const Swell = ({ spot }) => {
   const { fullDateHyphen } = calcTodaysDate();
@@ -30,7 +30,7 @@ const Swell = ({ spot }) => {
   const endpoint = `https://api.stormglass.io/v2/weather/point?lat=${spot.lat}&lng=${spot.lon}&params=${reqParams}&start=${fullDateHyphen}&end=${fullDateHyphen}T23:00`;
   const { response, loading, error } = useFetch(endpoint, {
     headers: {
-      Authorization: process.env.REACT_APP_SG_KEY
+      // Authorization: process.env.REACT_APP_SG_KEY
     }
   });
 
