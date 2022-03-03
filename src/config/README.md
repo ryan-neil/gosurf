@@ -5,14 +5,17 @@
 1. [⚡️ Get started](#⚡️-get-started)
 2. [🧐 What's inside?](#🧐-whats-inside)
 3. [🗂️ Repo Folder Breakdown](#🗂️-repo-folder-breakdown)
-4. [🌱 API Configuration](#🌱-api-configuration)
-5. [🖋️ Contributing](#🖋️-contributing)
+4. [🌊 Forecasting](#🌊-repo-folder-breakdown)
+5. [🌱 API Configuration](#🌱-api-configuration)
+6. [🖋️ Contributing](#🖋️-contributing)
 
 ### Todo:
 
 #### Frontend:
 
-- [ ] Check: look into React Query for all data fetching ([React Query Docs](https://react-query.tanstack.com/overview))
+- [ ] Research: look into wget replacement
+- [ ] Research: linear wave theory
+- [ ] Update: project flow map to represent new architecture
 - [ ] Add: unit testing - (https://en.wikipedia.org/wiki/Unit_testing)
 - [ ] Fix: convert mock JSON API to Express API
 - [ ] Fix: App loading styles (skeleton loaders)
@@ -25,6 +28,7 @@
 - [ ] Feat: mobile search (`Search` page) (WeBull mobile search example)
   - [ ] Feat/Add: recent searches
 - [ ] Feat: "Favorites" feature (`Favorites` page)
+- [x] Check: look into React Query for all data fetching ([React Query Docs](https://react-query.tanstack.com/overview))
 - [x] Test: spots API error checks in components (`SearchBar`/`Forecast`)
 - [x] Bug/Style: `<p>` elements getting styles from unknown origin
 - [x] Add: linting (Air bnb ESLint)
@@ -198,17 +202,57 @@ _Out of date..._
 
 <br>
 
-# 🌱 API Configuration
+# 🌊 Forecasting
 
-## Buoys
+Weather forecasting is all probabilistic statistics.
 
-#### Buoy Wave Height Trend Calculations
+Resources:
 
-Calculation of the significant wave height trend for each buoy is based on performing a simple linear regression to identify whether or not it seems like the data is trending upward or downward. The arbitrary values for determining this are based on looking at the past 24 hours worth of data, if it looks like it is trending upward or downward by a foot.
+- [Surf Forecasting Help:](https://magicseaweed.com/help/) Magicseaweed
 
-Logic for the simple linear regression can be found at [simple_linear_regression.js](src/services/simple_linear_regression.js)
+### NOAA Buoys
 
-#### Understanding CORS
+Some potential sources of data:
+
+- NDBC Station Selection: https://www.ndbc.noaa.gov/
+- NDBC Real-Time Data Directory: https://www.ndbc.noaa.gov/data/realtime2/
+- Hilo, HI Buoy: https://www.ndbc.noaa.gov/station_page.php?station=51206
+- Hilo, HI realtime2 Data (.txt file): https://www.ndbc.noaa.gov/data/realtime2/51206.txt
+
+- NDBC - Web Data Guide: http://www.ndbc.noaa.gov/docs/ndbc_web_data_guide.pdf
+- NDBC - Measurement Descriptions and Units: https://www.ndbc.noaa.gov/measdes.shtml
+- NDBC - Sensor Observation Service (SOS): https://sdf.ndbc.noaa.gov/sos/
+
+### NOAA Stations
+
+Some potential sources of data:
+
+- Tides and Currents Web Services: https://tidesandcurrents.noaa.gov/web_services_info.html
+- CO-OPS API Reference: https://api.tidesandcurrents.noaa.gov/api/prod/
+- Predictions: https://tidesandcurrents.noaa.gov/tide_predictions.html?gid=1399#listing
+- Hilo Tides: https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=1617760
+
+## Wave Height
+
+To determine the breaking wave height at a place on shore given the deep water wave height at a buoy, we must do some math to trace the waves motion as it moves towards shallow water and starts to feel the bathymetry of the sea floor.
+
+Unfortunately this is very computationally expensive, so for simple estimation purposes we can round everything off a bit using airy wave theory (linear wave theory).
+
+In order to get truly accurate wave height readings at the shore we must take into account the depths and bathymetry slopes for each specific spot.
+
+- [Airy Wave Theory:](https://en.wikipedia.org/wiki/Airy_wave_theory) Wikipedia
+- [Linear Wave Theory:](https://www.globalspec.com/reference/63553/203279/linear-wave-theory) Globalspec
+- [Linear Wave Theory in Python:](https://github.com/mpiannucci/surfpy/blob/master/examples/fetch_buoy_forecast.py) Github
+- [Shallow-water wave theory:](http://www.coastalwiki.org/wiki/Shallow-water_wave_theory) Coastal Wiki
+- [Python function that runs the calculation:](https://github.com/mpiannucci/surfpy/blob/master/surfpy/swell.py) Github
+
+Some potential resources:
+
+- [EMC Operational Wave Models](https://polar.ncep.noaa.gov/waves/index.php): Polar
+- [Global Forecast System - Wave](https://polar.ncep.noaa.gov/waves/viewer.shtml?-gfswave-): Polar
+- [Nearshore Wave Prediction System](https://polar.ncep.noaa.gov/nwps/): Polar
+
+### Understanding CORS
 
 Not all NOAA endpoints have CORS support. Specifically, the Buoys and the SurfState do not support this functionality and therefore directly calling the APIs through the browser is not supported. This therefore requires a proxy such as described in the links below:
 
@@ -229,61 +273,98 @@ Example `netlify.toml` file for the proxies:
   status = 200
 ```
 
-#### Data Sources
+## Tides
 
-- [NDBC - Web Data Guide](http://www.ndbc.noaa.gov/docs/ndbc_web_data_guide.pdf)
-- [NDBC - Measurement Descriptions and Units](https://www.ndbc.noaa.gov/measdes.shtml)
-- [NDBC - Sensor Observation Service (SOS)](https://sdf.ndbc.noaa.gov/sos/)
-
-Some potential sources of data:
-
-- NDBC Station Selection: https://www.ndbc.noaa.gov/
-- Hilo Buoy: https://www.ndbc.noaa.gov/station_page.php?station=51206
-- Hilo realtime2 Data (.txt): https://www.ndbc.noaa.gov/data/realtime2/51206.txt
-- Hilo realtime2 Data (.spec): https://www.ndbc.noaa.gov/data/realtime2/51206.spec
-
-#### Buoys
-
-The following buoys have wave height data:
-
-- 51206 - Hilo
-- 51211 - Pearl Harbor
-- 51212 - Barbers Point
-- 51210 - Kaneohe Bay
-- 51201 - Waimea Bay
-
-## Wave Heights
-
-Some potential resources:
-
-- [EMC Operational Wave Models](https://polar.ncep.noaa.gov/waves/index.php): Polar
-- [Global Forecast System - Wave](https://polar.ncep.noaa.gov/waves/viewer.shtml?-gfswave-): Polar
-- [Nearshore Wave Prediction System](https://polar.ncep.noaa.gov/nwps/): Polar
-
-## Tides & Wind
-
-#### Current Tide Calculations
+### Current Tide Calculations
 
 The NOAA provides the predictions for significant tide heights (i.e. lowest and highest values) it does not provide a means to determine the "current" tide (that I know of).
 
-#### Data Sources
+### Hourly Tide Calculations
 
-Some potential sources of information:
+The NOAA does provide the predictions for significant hourly tide heights over a chosen period of time.
 
-- CO-OPS API Reference: https://api.tidesandcurrents.noaa.gov/api/prod/
-- Predictions: https://tidesandcurrents.noaa.gov/tide_predictions.html?gid=1399#listing
-- Hilo Tides: https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=1617760
+## Wind
 
-## Sunrise/Sunset Calculations
+Something...
+
+## Swell
+
+Swell is the collection of waves moving away from a storm in the ocean. Although the waves will all be of different size and power and heading in slightly different directions we can tend to talk about averages of all these waves as one discreet swell. This swell as it heads into shallow water at your local beach will make the waves you surf.
+
+The "primary" swell tends to be the one estimated to make the largest and most powerful waves on the beach. This is what the "wave height" calculations are derived from.
+
+### Swell Height
+
+The swell height here is an average of the largest 1/3rd of all waves. Something very much like the average set wave. It's measured from the trough (very lowest point) to peak (very highest point) of each wave.
+
+Generally speaking the larger the swell the larger the waves it'll create. While this should be fairly obvious it's complicated because longer period swells also make larger waves in shallow water and the direction of the swell will also have an effect. ALl of these factors must be taken into account when predicting the conditions.
+
+### Swell Period
+
+Swell period is the time it takes for successive waves to pass the same point in seconds.
+
+Together with the wave height, the wave period represents one of the key parameters when it comes to define a sea state. For a given wave height, the larger the period, the more energetic and powerful the swell. In addition, the period plays a crucial role (together with wave height and beach slope) in controlling the wave breaking.
+
+## Sunrise/Sunset
 
 - NOAA Calculations: https://www.esrl.noaa.gov/gmd/grad/solcalc/
 - NOAA Old Calculator: https://www.esrl.noaa.gov/gmd/grad/solcalc/sunrise.html
 - Javascript Library: https://github.com/mourner/suncalc
 
+<br>
+
+# 🌱 API Configuration
+
+Resources:
+
+- _node-wget_: A download tool, now supporting http/https resource and http/https proxy ([Github](https://github.com/wuchengwei/node-wget), [npm](https://www.npmjs.com/package/wget)) (used to grab buoy data)
+
+NOAA:
+
+- NOAA CO-OPS API for Data Retrieval - ([NOAA Tides API Docs](https://api.tidesandcurrents.noaa.gov/api/prod/))
+  - NOAA CO-OPS API Response Help - ([NOAA Tides API Docs](https://api.tidesandcurrents.noaa.gov/api/prod/responseHelp.html))
+- Retrieving Data From National Data Buoy Center API - ([Medium](https://medium.com/@holtan.chase/retrieving-data-from-national-data-buoy-center-api-f94d262c7ea7))
+- Buoy Kit Package: FetchBuoy and tide information from government NDBC data using Javascript - ([Github](https://github.com/derekdowling/buoy-kit), [npm](https://www.npmjs.com/package/buoy-kit))
+- seebuoy API (NOAA Data) - ([seebuoy](https://www.seebuoy.com/api/))
+- Amazing NOAA Repo Resources - (Matthew Iannucci Github)
+- Buoy Data Reddit Thread (some really good info here) - ([Reddit](https://www.reddit.com/r/surfing/comments/a3rh3n/for_those_of_you_who_like_to_play_with_buoy_data/))
+
+StormGlass:
+
+- StormGlass API -([Docs](https://docs.stormglass.io/#/), [Github](https://github.com/stormglass))
+
+Surfline:
+
+- Surfline API Exploration - ([Observable](https://observablehq.com/@justingosses/surfline-api-exploration))
+- API client for fetching data from the Surfline API v1 and v2 - ([Github](https://github.com/mhelmetag/surflinef))
+
 ## Known NOAA APIs
 
-- https://www.ncdc.noaa.gov/cdo-web/webservices/v2
-- https://www.weather.gov/documentation/services-web-api
+- [Climate Data Online: Web Services Documentation:](https://www.ncdc.noaa.gov/cdo-web/webservices/v2) NOAA
+- [CO-OPS API For Data Retrieval:](https://api.tidesandcurrents.noaa.gov/api/prod/) NOAA
+- [API Web Service:](https://www.weather.gov/documentation/services-web-api) NWS
+
+### Example Endpoints:
+
+#### Air Temperature (Current):
+
+```js
+// Example parameter data
+const today = 20220302; // -> needs to be in this format
+const station_id = '1617760';
+
+fetch(
+  `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?=&product=air_temperature&station=${station_id}&date=latest&units=english&datum=MLLW&time_zone=lst_ldt&format=json&application=NOS.COOPS.TAC.TidePred&interval=hilo`
+);
+```
+
+#### Water Temperature (Current):
+
+```js
+fetch(
+  `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?=&product=water_temperature&station=${station_id}&date=latest&units=english&datum=MLLW&time_zone=lst_ldt&format=json&application=NOS.COOPS.TAC.TidePred&interval=hilo`
+);
+```
 
 ## Other Resources
 
