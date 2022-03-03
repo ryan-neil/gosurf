@@ -12,13 +12,15 @@
 
 #### Frontend:
 
+- [ ] Check: look into React Query for all data fetching ([React Query Docs](https://react-query.tanstack.com/overview))
 - [ ] Add: unit testing - (https://en.wikipedia.org/wiki/Unit_testing)
-- [ ] Update: convert mock JSON API to Express API
+- [ ] Fix: convert mock JSON API to Express API
+- [ ] Fix: App loading styles (skeleton loaders)
 - [ ] Bug/Linter: 'react/jsx-no-constructed-context-values' (look into useMemo hook for context)
 - [ ] Bug: wind hourly API call returns; up-until-current wind data, not predictions
 - [ ] Bug: when navigating back to `Home` page hero image disappears
-- [ ] Update: consolidate StormGlass API calls (`Wave`, `Swell`) into `Forecast` component for fewer API calls
-- [ ] Update: components as props design pattern for reusable Chart component (`<Chart type={<Bar />} />`)
+- [ ] Fix: consolidate StormGlass API calls (`Wave`, `Swell`) into `Forecast` component for fewer API calls
+- [ ] Fix: components as props design pattern for reusable Chart component (`<Chart type={<Bar />} />`)
 - [ ] Check: cross check data from NOAA and StormGlass for water temp, air temp, and wind consistency
 - [ ] Feat: mobile search (`Search` page) (WeBull mobile search example)
   - [ ] Feat/Add: recent searches
@@ -44,21 +46,23 @@
   - [x] `Tides` component
   - [x] `Wind` component
   - [x] `Swell` component
-- [x] Update: charts x-axis times shortened (6 AM)
-- [x] Update: `windBody` and `swellBody` components with `.map()` looping logic
-- [x] Update: Check in `Forecast` component if `spot` is true and only then render `Container` component, else render `FetchError` component
+- [x] Fix: charts x-axis times shortened (6 AM)
+- [x] Fix: `windBody` and `swellBody` components with `.map()` looping logic
+- [x] Fix: Check in `Forecast` component if `spot` is true and only then render `Container` component, else render `FetchError` component
 - [x] Add: gather Chart x and y axis data from `Wave`, `Tides`, `Wind` and `Swell` component (values array and times array)
 - [x] Add: individual card body components to `Wave`, `Tides`, `Wind`, and `Swell` components (i.e. `WaveBody`, `TidesBody`)
 - [x] Add: `GridItemHeader` component
 - [x] Build: out `Swell` component
 - [x] Add: fetch and render Swell component data from API
-- [x] Update: `useLocalStorage` custom hook
+- [x] Fix: `useLocalStorage` custom hook
 - [x] Add: `useLocalStorage` hook into project (Inside app Context)
-- [x] Update: `useFetch` custom hook
-- [x] Update: data fetching architecture into `Forecast` component
+- [x] Fix: `useFetch` custom hook
+- [x] Fix: data fetching architecture into `Forecast` component
 
 #### Backend:
 
+- [ ] Check: MERN app crash course ([Tutorial](https://www.youtube.com/watch?v=I7EDAR2GRVo))
+- [ ] Check: Express with React and building custom API's
 - [ ] Build: start building out backend
 - [ ] Build: replace mock spots API with Express.js API
 

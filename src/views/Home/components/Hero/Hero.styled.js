@@ -53,5 +53,6 @@ export const HeroContentStyled = styled.div`
   p {
     font-size: ${({ theme }) => theme.styles.textXs};
     color: ${({ theme }) => theme.colors.paragraphLight};
+    margin: 0.25rem 0 0 1rem;
   }
 `;
