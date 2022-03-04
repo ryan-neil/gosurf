@@ -2,20 +2,20 @@ import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import SpotsContext from '../../context/SpotsContext';
 // Components
-import Heading from './components/Heading/Heading';
-import Banner from './components/Banner/Banner';
+import { Heading } from './components/Heading';
+import { Banner } from './components/Banner';
 import Wave from './components/Wave';
 import Tides from './components/Tides';
 import Wind from './components/Wind';
 import Swell from './components/Swell';
-import Loading from '../../components/Loading/Loading';
-import FetchError from '../../components/FetchError/FetchError';
-import SpotError from '../../components/SpotError/SpotError';
+import { Loading } from '../../components/Loading';
+import { FetchError } from '../../components/FetchError';
+import { SpotError } from '../../components/SpotError';
 // Styles
 import { StyledForecast, StyledGridContainer, StyledHeaderBackground } from './Forecast.styled';
 import { Container } from '../../styles/Utils.styled';
 
-const Forecast = () => {
+export const Forecast = () => {
   // get param value
   const { slug } = useParams();
   // fetch spots API data
@@ -65,5 +65,3 @@ const Forecast = () => {
     </StyledForecast>
   );
 };
-
-export default Forecast;

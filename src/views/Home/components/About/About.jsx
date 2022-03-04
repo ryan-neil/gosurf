@@ -5,7 +5,7 @@ import calendarIcon from '../../../../assets/calendar.svg';
 import campingIcon from '../../../../assets/camping.svg';
 
 // About component
-const About = () => {
+export const About = () => {
   // about section content
   const content = [
     {
@@ -53,5 +53,3 @@ const AboutCard = ({ card }) => {
     </CardStyled>
   );
 };
-
-export default About;

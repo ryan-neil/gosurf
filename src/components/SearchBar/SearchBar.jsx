@@ -1,14 +1,14 @@
 import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 // Components
-import Loading from '../Loading/Loading';
+import { Loading } from '../Loading';
 import { ErrorIcon } from '../FetchError/FetchError.styled';
 // Context
 import SpotsContext from '../../context/SpotsContext';
 // Styles
 import { StyledSearchBar, StyledInputContainer, SearchBarIcon } from './SearchBar.styled';
 
-const SearchBar = ({ mobile }) => {
+export const SearchBar = ({ mobile }) => {
   // fetch spots API data
   const { response, error, loading } = useContext(SpotsContext);
   // set states
@@ -81,5 +81,3 @@ const SearchBar = ({ mobile }) => {
     </StyledSearchBar>
   );
 };
-
-export default SearchBar;

@@ -8,11 +8,11 @@ import { StyledApp } from './styles/App.styled';
 // Global context
 import { SpotsDataProvider } from './context/SpotsContext';
 // Components
-import Header from './components/Header/Header';
+import { Header } from './components/Header';
 // Views
-import Home from './views/Home/Home';
-import Forecast from './views/Forecast/Forecast';
-import Missing from './views/Missing/Missing';
+import { Home } from './views/Home';
+import { Forecast } from './views/Forecast';
+import { Missing } from './views/Missing';
 
 const App = () => {
   const [theme, setTheme] = useLocalStorage('theme', 'light');

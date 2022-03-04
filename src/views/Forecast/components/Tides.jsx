@@ -4,8 +4,8 @@ import { calcTodaysDate } from '../../../helpers/calculations.helpers';
 import { useFetch } from '../../../hooks/useFetch';
 // Components
 import LineChart from './Charts/LineChart';
-import Loading from '../../../components/Loading/Loading';
-import FetchError from '../../../components/FetchError/FetchError';
+import { Loading } from '../../../components/Loading';
+import { FetchError } from '../../../components/FetchError';
 // Styles
 import { StyledGridItem, StyledGridItemBody } from '../Forecast.styled';
 import { Flex } from '../../../styles/Utils.styled';

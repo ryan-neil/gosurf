@@ -1,11 +1,9 @@
 import { ProfileIcon } from './ProfileWidget.styled';
 
-const Profile = () => {
+export const ProfileWidget = () => {
   return (
     <span>
       <ProfileIcon />
     </span>
   );
 };
-
-export default Profile;

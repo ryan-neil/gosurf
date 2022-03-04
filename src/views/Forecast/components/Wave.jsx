@@ -1,6 +1,6 @@
 // Components
-import Loading from '../../../components/Loading/Loading';
-import FetchError from '../../../components/FetchError/FetchError';
+import { Loading } from '../../../components/Loading';
+import { FetchError } from '../../../components/FetchError';
 import BarChart from './Charts/BarChart';
 // Helpers
 import {

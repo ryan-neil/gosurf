@@ -1,7 +1,7 @@
 // Components
 import BarChart from './Charts/BarChart';
-import Loading from '../../../components/Loading/Loading';
-import FetchError from '../../../components/FetchError/FetchError';
+import { Loading } from '../../../components/Loading';
+import { FetchError } from '../../../components/FetchError';
 // Helpers
 import { convertTimeString, convertRoundNumber } from '../../../helpers/conversions.helpers';
 import { calcTodaysDate } from '../../../helpers/calculations.helpers';

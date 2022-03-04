@@ -2,7 +2,7 @@ import { StyledError, ErrorIcon } from './SpotError.styled';
 
 // Sorry, error fetching {name} data...{error}
 
-const SpotError = () => {
+export const SpotError = () => {
   return (
     <StyledError>
       <h3>
@@ -12,5 +12,3 @@ const SpotError = () => {
     </StyledError>
   );
 };
-
-export default SpotError;

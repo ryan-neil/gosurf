@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 // Styled
 import { StyledLogo } from './Logo.styled';
 
-const Logo = () => {
+export const Logo = () => {
   return (
     <StyledLogo>
       <Link to="/">
@@ -13,5 +13,3 @@ const Logo = () => {
     </StyledLogo>
   );
 };
-
-export default Logo;

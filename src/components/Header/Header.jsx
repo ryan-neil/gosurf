@@ -1,14 +1,14 @@
 // Components
-import Logo from './components/Logo/Logo';
-import SearchBar from '../SearchBar/SearchBar';
-import SearchWidget from './components/SearchWidget/SearchWidget';
-import ThemeToggle from './components/ThemeToggle/ThemeToggle';
-import ProfileWidget from './components/ProfileWidget/ProfileWidget';
+import { Logo } from './components/Logo';
+import { SearchBar } from '../SearchBar';
+import { SearchWidget } from './components/SearchWidget';
+import { ThemeToggle } from './components/ThemeToggle';
+import { ProfileWidget } from './components/ProfileWidget';
 // Styles
 import { StyledHeader, StyledNav } from './Header.styled';
 import { Container, Flex } from '../../styles/Utils.styled';
 
-const Header = ({ theme, setTheme }) => {
+export const Header = ({ theme, setTheme }) => {
   return (
     <StyledHeader>
       <Container>
@@ -26,5 +26,3 @@ const Header = ({ theme, setTheme }) => {
     </StyledHeader>
   );
 };
-
-export default Header;

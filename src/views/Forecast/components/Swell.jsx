@@ -1,7 +1,7 @@
 // Components
 import LineChart from './Charts/LineChart';
-import Loading from '../../../components/Loading/Loading';
-import FetchError from '../../../components/FetchError/FetchError';
+import { Loading } from '../../../components/Loading';
+import { FetchError } from '../../../components/FetchError';
 // Helpers
 import { calcTodaysDate } from '../../../helpers/calculations.helpers';
 import { useFetch } from '../../../hooks/useFetch';

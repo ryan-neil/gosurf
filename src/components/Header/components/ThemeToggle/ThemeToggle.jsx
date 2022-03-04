@@ -1,7 +1,7 @@
 // Styles
 import { SunIcon, MoonIcon } from './ThemeToggle.styled';
 
-const ThemeToggle = ({ theme, setTheme }) => {
+export const ThemeToggle = ({ theme, setTheme }) => {
   const handleClick = () => {
     return theme === 'light' ? setTheme('dark') : setTheme('light');
   };
@@ -11,5 +11,3 @@ const ThemeToggle = ({ theme, setTheme }) => {
 
   return <span>{themeIcon}</span>;
 };
-
-export default ThemeToggle;

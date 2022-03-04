@@ -1,7 +1,7 @@
 // Styles
 import { Container } from '../../styles/Utils.styled';
 
-const Missing = () => (
+export const Missing = () => (
   <main>
     <Container>
       <h2>404</h2>
@@ -9,5 +9,3 @@ const Missing = () => (
     </Container>
   </main>
 );
-
-export default Missing;

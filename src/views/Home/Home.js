@@ -1,9 +1,9 @@
-import Hero from './components/Hero/Hero';
-import About from './components/About/About';
+import { Hero } from './components/Hero';
+import { About } from './components/About';
 // Styles
 import { HomeStyled, BackgroundImageStyled } from './Home.styled';
 
-const Home = () => {
+export const Home = () => {
   return (
     <HomeStyled>
       <BackgroundImageStyled />
@@ -12,5 +12,3 @@ const Home = () => {
     </HomeStyled>
   );
 };
-
-export default Home;

@@ -1,9 +1,9 @@
 // Component
-import FavoriteToggle from '../FavoriteToggle/FavoriteToggle';
+import { FavoriteToggle } from '../FavoriteToggle';
 // Styled
 import { StyledHeading } from './Heading.styled';
 
-const Heading = ({ spot }) => {
+export const Heading = ({ spot }) => {
   return (
     <StyledHeading>
       <h2>{`${spot.name}, ${spot.location.county}, ${spot.location.state}`}</h2>
@@ -11,5 +11,3 @@ const Heading = ({ spot }) => {
     </StyledHeading>
   );
 };
-
-export default Heading;

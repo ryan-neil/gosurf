@@ -1,15 +1,15 @@
 import { calcSunTimes } from '../../../../helpers/calculations.helpers';
 import { useFetch } from '../../../../hooks/useFetch';
 // Components
-import Loading from '../../../../components/Loading/Loading';
-import FetchError from '../../../../components/FetchError/FetchError';
+import { Loading } from '../../../../components/Loading';
+import { FetchError } from '../../../../components/FetchError';
 // Styles
 import { StyledBanner, StyledBannerItem } from './Banner.styled';
 import { Flex } from '../../../../styles/Utils.styled';
 import waterIcon from '../../../../assets/water.svg';
 import airIcon from '../../../../assets/air.svg';
 
-const Banner = ({ spot }) => {
+export const Banner = ({ spot }) => {
   // get sunrise and sunset
   const { sunrise, sunset } = calcSunTimes(spot.lat, spot.lon);
 
@@ -84,5 +84,3 @@ const Banner = ({ spot }) => {
     </StyledBanner>
   );
 };
-
-export default Banner;

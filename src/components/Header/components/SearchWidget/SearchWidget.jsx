@@ -1,8 +1,6 @@
 // Styled
 import { SearchIcon } from './SearchWidget.styled';
 
-const SearchWidget = () => {
+export const SearchWidget = () => {
   return <SearchIcon />;
 };
-
-export default SearchWidget;
