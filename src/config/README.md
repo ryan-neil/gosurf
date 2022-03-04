@@ -13,6 +13,9 @@
 
 #### Frontend:
 
+- [ ] Add: "bathymetry" (sea floor) and "exposure" (how exposed the break is) to all spots in database
+- [ ] Fix: Swell data needs to show "current" primary swell conditions and "current" secondary swell conditions, not the averages
+- [ ] Research: "services" folder in React (all API logic)
 - [ ] Research: look into wget replacement
 - [ ] Research: linear wave theory
 - [ ] Update: project flow map to represent new architecture
@@ -72,9 +75,8 @@
 
 ### Resources:
 
-- **Standalone Components**: Fetch and render in same component.
-- **HOC Components**: Fetch and render are separated into 2 components (_"Container"_ and _"Presentation"_).
-
+- _Standalone Components_: Fetch and render in same component.
+- _HOC Components_: Fetch and render are separated into 2 components (_"Container"_ and _"Presentation"_).
 - [React Data Fetching Patterns](https://nordschool.com/react-data-fetching/)
 - [Thoughts on React Hooks, Redux, and Separation of Concerns](https://blog.isquaredsoftware.com/2019/07/blogged-answers-thoughts-on-hooks/)
 - [Hooks, HOCs, and Tradeoffs](https://blog.isquaredsoftware.com/2019/09/presentation-hooks-hocs-tradeoffs/)
@@ -117,10 +119,16 @@ REACT_APP_SG_KEY='ENTER STORMGLASS KEY'
 
 #### 5. Run the application:
 
-_Production_ environment:
+Start the server:
 
 ```bash
-npm start
+npm run server
+```
+
+Start the app:
+
+```bash
+npm run start
 ```
 
 <br>
@@ -218,7 +226,6 @@ Some potential sources of data:
 - NDBC Real-Time Data Directory: https://www.ndbc.noaa.gov/data/realtime2/
 - Hilo, HI Buoy: https://www.ndbc.noaa.gov/station_page.php?station=51206
 - Hilo, HI realtime2 Data (.txt file): https://www.ndbc.noaa.gov/data/realtime2/51206.txt
-
 - NDBC - Web Data Guide: http://www.ndbc.noaa.gov/docs/ndbc_web_data_guide.pdf
 - NDBC - Measurement Descriptions and Units: https://www.ndbc.noaa.gov/measdes.shtml
 - NDBC - Sensor Observation Service (SOS): https://sdf.ndbc.noaa.gov/sos/
@@ -301,9 +308,26 @@ Generally speaking the larger the swell the larger the waves it'll create. While
 
 ### Swell Period
 
+- Swell Period Guide ([Magicseaweed](https://magicseaweed.com/help/forecast-table/wave-period-overview))
+
 Swell period is the time it takes for successive waves to pass the same point in seconds.
 
 Together with the wave height, the wave period represents one of the key parameters when it comes to define a sea state. For a given wave height, the larger the period, the more energetic and powerful the swell. In addition, the period plays a crucial role (together with wave height and beach slope) in controlling the wave breaking.
+
+Example:
+
+- 4ft @ 10 seconds = 6ft breaking waves
+- 4ft @ 20 seconds = 9ft breaking waves
+
+Doubling the period gives about a 50% increase in the height of the breaking waves from the same sized swell.
+
+### Swell Direction
+
+In order for waves to break on the beach the swell needs to be heading towards it. In other words, the more the swell arrow is pointing straight towards the beach the larger the waves are going to be, all things considered.
+
+For even the most exposed breaks once the swell pushes beyond 90 degrees from the ideal direction the chance of any waves at all rapidly diminishes.
+
+Here's the tricky part, because of course with weather forecasting there are some exceptions. Longer period swells refract (bend) _better_ around obstacles and the precise shape of the sea bed (bathymetry) or other local obstructions can have a major effect on the wave height as some breaks.
 
 ## Sunrise/Sunset
 
@@ -340,13 +364,14 @@ Surfline:
 
 ## Known NOAA APIs
 
-- [Climate Data Online: Web Services Documentation:](https://www.ncdc.noaa.gov/cdo-web/webservices/v2) NOAA
 - [CO-OPS API For Data Retrieval:](https://api.tidesandcurrents.noaa.gov/api/prod/) NOAA
+- [NDBC Real-Time Data Directory:](https://www.ndbc.noaa.gov/data/realtime2/) NDBC (Not an API, returns .txt files)
+- [Climate Data Online: Web Services Documentation:](https://www.ncdc.noaa.gov/cdo-web/webservices/v2) NOAA
 - [API Web Service:](https://www.weather.gov/documentation/services-web-api) NWS
 
 ### Example Endpoints:
 
-#### Air Temperature (Current):
+#### Tides (hourly):
 
 ```js
 // Example parameter data
@@ -354,15 +379,15 @@ const today = 20220302; // -> needs to be in this format
 const station_id = '1617760';
 
 fetch(
-  `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?=&product=air_temperature&station=${station_id}&date=latest&units=english&datum=MLLW&time_zone=lst_ldt&format=json&application=NOS.COOPS.TAC.TidePred&interval=hilo`
+  `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?=&product=predictions&station=${station_id}&begin_date=${today}&range=24&units=english&datum=MLLW&time_zone=lst_ldt&format=json&application=NOS.COOPS.TAC.TidePred&interval=h`
 );
 ```
 
-#### Water Temperature (Current):
+#### Air Temperature (Current):
 
 ```js
 fetch(
-  `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?=&product=water_temperature&station=${station_id}&date=latest&units=english&datum=MLLW&time_zone=lst_ldt&format=json&application=NOS.COOPS.TAC.TidePred&interval=hilo`
+  `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?=&product=air_temperature&station=${station_id}&date=latest&units=english&datum=MLLW&time_zone=lst_ldt&format=json&application=NOS.COOPS.TAC.TidePred&interval=hilo`
 );
 ```
 
