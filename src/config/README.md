@@ -13,24 +13,42 @@
 
 #### Frontend:
 
-- [ ] Add: "bathymetry" (sea floor) and "exposure" (how exposed the break is) to all spots in database
-- [ ] Fix: Swell data needs to show "current" primary swell conditions and "current" secondary swell conditions, not the averages
-- [ ] Research: "services" folder in React (all API logic)
-- [ ] Research: look into wget replacement
-- [ ] Research: linear wave theory
-- [ ] Update: project flow map to represent new architecture
-- [ ] Add: unit testing - (https://en.wikipedia.org/wiki/Unit_testing)
-- [ ] Fix: convert mock JSON API to Express API
-- [ ] Fix: App loading styles (skeleton loaders)
-- [ ] Bug/Linter: 'react/jsx-no-constructed-context-values' (look into useMemo hook for context)
-- [ ] Bug: wind hourly API call returns; up-until-current wind data, not predictions
-- [ ] Bug: when navigating back to `Home` page hero image disappears
-- [ ] Fix: consolidate StormGlass API calls (`Wave`, `Swell`) into `Forecast` component for fewer API calls
-- [ ] Fix: components as props design pattern for reusable Chart component (`<Chart type={<Bar />} />`)
-- [ ] Check: cross check data from NOAA and StormGlass for water temp, air temp, and wind consistency
+Features:
+
+- [ ] Feat: "bathymetry" (sea floor) and "exposure" (how exposed the break is) to all spots in database
+- [ ] Feat: unit testing - (https://en.wikipedia.org/wiki/Unit_testing)
 - [ ] Feat: mobile search (`Search` page) (WeBull mobile search example)
   - [ ] Feat/Add: recent searches
 - [ ] Feat: "Favorites" feature (`Favorites` page)
+
+Bugs:
+
+- [ ] Bug/Linter: 'react/jsx-no-constructed-context-values' (look into useMemo hook for context) ([Failure to memoize](https://www.youtube.com/watch?v=b0IZo2Aho9Y))
+- [ ] Bug: Swell data needs to show "current" primary swell conditions and "current" secondary swell conditions, not the averages
+- [ ] Bug: when navigating back to `Home` page hero image disappears
+
+Fixes:
+
+- [ ] Fix: folder structure to incorporate barrel files ([Barrel Files](https://adrianfaciu.dev/posts/barrel-files/))
+- [ ] Fix: convert mock JSON API to Express API
+- [ ] Fix: App loading styles (skeleton loaders)
+- [ ] Fix: consolidate StormGlass API calls (`Wave`, `Swell`) into `Forecast` component for fewer API calls
+- [ ] Fix: components as props design pattern for reusable Chart component (`<Chart type={<Bar />} />`)
+
+Updates:
+
+- [ ] Update: project flow map to represent new architecture
+
+Research:
+
+- [ ] Research: "services" folder in React (all API logic)
+- [ ] Research: look into wget replacement
+- [ ] Research: linear wave theory
+- [ ] Research: cross check data from NOAA and StormGlass for water temp, air temp, and wind consistency
+
+Completed:
+
+- [x] Bug: wind hourly API call returns; up-until-current wind data, not predictions
 - [x] Check: look into React Query for all data fetching ([React Query Docs](https://react-query.tanstack.com/overview))
 - [x] Test: spots API error checks in components (`SearchBar`/`Forecast`)
 - [x] Bug/Style: `<p>` elements getting styles from unknown origin
@@ -68,10 +86,15 @@
 
 #### Backend:
 
-- [ ] Check: MERN app crash course ([Tutorial](https://www.youtube.com/watch?v=I7EDAR2GRVo))
-- [ ] Check: Express with React and building custom API's
-- [ ] Build: start building out backend
-- [ ] Build: replace mock spots API with Express.js API
+Feat:
+
+- [ ] Feat: start building out backend
+- [ ] Feat: replace mock spots API with Express.js API
+
+Research:
+
+- [ ] Research: MERN app crash course ([Tutorial](https://www.youtube.com/watch?v=I7EDAR2GRVo))
+- [ ] Research: Express with React and building custom API's
 
 ### Resources:
 
@@ -82,6 +105,29 @@
 - [Hooks, HOCs, and Tradeoffs](https://blog.isquaredsoftware.com/2019/09/presentation-hooks-hocs-tradeoffs/)
 - [The Evolution of Redux Testing Approaches](https://blog.isquaredsoftware.com/2021/06/the-evolution-of-redux-testing-approaches/)
 - [How To Create And Test Custom Hooks In React](https://vhudyma-blog.eu/2020-07-11-how-to-create-and-test-custom-hooks-in-react/)
+
+Barrel Files - Component file has a regular name (`Navbar.jsx`) and the index file (`index.jsx`) is used to export it:
+
+```js
+// Navbar.jsx
+
+export default Navbar;
+```
+
+```js
+// index.jsx
+
+export { default } from './Navbar';
+```
+
+```js
+// App.js
+
+// good
+import Navbar from './Navbar';
+// bad
+import Navbar from './Navbar/Navbar';
+```
 
 <br>
 
