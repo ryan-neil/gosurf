@@ -22,6 +22,7 @@
   - [ ] Feat/Add: recent searches
 - [ ] Feat: "Favorites" feature (`Favorites` page)
 - [ ] Feat: start building out backend
+- [ ] Feat: add JSON database to MongoDB ([Tutorial](https://www.youtube.com/watch?v=IjAflHMkuzk))
 - [ ] Feat: replace mock spots API with Express.js API
 
 **Bugs**:
@@ -32,7 +33,6 @@
 
 **Fixes**:
 
-- [ ] Fix: folder structure to incorporate barrel files ([Barrel Files](https://adrianfaciu.dev/posts/barrel-files/))
 - [ ] Fix: convert mock JSON API to Express API
 - [ ] Fix: App loading styles (skeleton loaders)
 - [ ] Fix: consolidate StormGlass API calls (`Wave`, `Swell`) into `Forecast` component for fewer API calls
@@ -53,6 +53,7 @@
 
 **Completed**:
 
+- [x] Fix: folder structure to incorporate barrel files ([Barrel Files](https://adrianfaciu.dev/posts/barrel-files/))
 - [x] Bug: wind hourly API call returns; up-until-current wind data, not predictions
 - [x] Check: look into React Query for all data fetching ([React Query Docs](https://react-query.tanstack.com/overview))
 - [x] Test: spots API error checks in components (`SearchBar`/`Forecast`)
@@ -256,6 +257,7 @@ Weather forecasting is all probabilistic statistics.
 Resources:
 
 - [Surf Forecasting Help:](https://magicseaweed.com/help/) Magicseaweed
+- [Surf Captain Data Q/A:](https://surfcaptain.com/faq) Surf Captain
 
 ### NOAA Buoys
 
