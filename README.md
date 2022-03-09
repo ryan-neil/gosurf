@@ -15,7 +15,7 @@ The concept for GoSurf is based on the fact that modern day surf tracking sites 
 # 🚀 Features
 
 - 🤙🏻 **Ease of use**: GoSurf is for the casual shredder who doesn't care about the extra "noise" of modern surf forecasting sites
-- ⏰ **When to surf**: Ideal times to surf that day based on specific spot conditions
+- ✨ **Ideal conditions**: Ideal forecast conditions modeled to each surf spot
 - 🌊 **Wave heights**: Hour by hour wave heights and periods as well as the days range
 - 💧 **Tides**: Tide data on the extremes (high's and low's) for the day
 - 💨 **Wind**: Hour by hour wind speed and direction for the day
@@ -26,7 +26,7 @@ The concept for GoSurf is based on the fact that modern day surf tracking sites 
 
 # 🧑🏽‍💻 For Developers
 
-Interested in the application? Checkout our [App Configuration](https://github.com/ryan-neil/gosurf/tree/master/src/config) section and have a look under the hood. If we missed your favorite spot let us know! We're always looking to expand our forecasting reach.
+Interested in the application? Checkout our [App Configuration](https://github.com/ryan-neil/gosurf/blob/main/config/README.md) section and have a look under the hood. If we missed your favorite spot let us know! We're always looking to expand our forecasting reach.
 
 GoSurf is and always will be [Open Source](https://opensource.com/resources/what-open-source) and for the surfing community.
 
@@ -34,7 +34,7 @@ GoSurf is and always will be [Open Source](https://opensource.com/resources/what
 
 # Contributing
 
-Contributions are always welcome! Review the [App Configuration](https://github.com/ryan-neil/gosurf/tree/master/src/config) section of the repo on how to contribute to the project!
+Contributions are always welcome! Review the [App Configuration](https://github.com/ryan-neil/gosurf/blob/main/config/README.md) section of the repo on how to contribute to the project!
 
 <br>
 
