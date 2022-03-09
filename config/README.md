@@ -11,11 +11,13 @@
 
 ### Road Map:
 
-- [ ] Connect frontend to backend
-- [ ] Add unit tests
-- [ ] Deploy to Netlify (Continuous)
-- [ ] Add spot to database feature
-- [ ] Update MongoDB security
+- [x] Deploy: Create Express backend REST API (Spots database)
+- [x] Deploy: Connect frontend to backend
+- [ ] Deploy: Hide frontend environment variables (API keys)
+- [ ] Deploy: Add unit tests
+- [ ] Deploy: Deploy to Netlify (Continuous)
+- [ ] Deploy: Add spot to database feature
+- [ ] Deploy: Update MongoDB security
 
 ### Todo:
 
@@ -53,8 +55,6 @@
 
 **Completed**:
 
-- [x] Create Express backend (Spots database)
-- [x] Hide environment variables on backend
 - [x] Feat: start building out backend
 - [x] Feat: add JSON database to MongoDB ([Tutorial](https://www.youtube.com/watch?v=IjAflHMkuzk))
 - [x] Feat: replace mock spots API with Express.js API
