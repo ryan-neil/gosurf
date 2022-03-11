@@ -16,6 +16,7 @@ const Tides = ({ spot }) => {
   const { fullDate } = calcTodaysDate();
 
   // fetch current tide data
+  // `localhost:9001/api/tides/current?stationId=${spot.station_id}`
   const currTideEndpoint = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?=&product=predictions&station=${spot.station_id}&begin_date=${fullDate}&range=24&units=english&datum=MLLW&time_zone=lst_ldt&format=json&application=NOS.COOPS.TAC.TidePred&interval=hilo`;
   const {
     response: currTideData,
@@ -24,6 +25,7 @@ const Tides = ({ spot }) => {
   } = useFetch(currTideEndpoint);
 
   // fetch hourly tide data
+  // `localhost:9001/api/tides/hourly?stationId=${spot.station_id}`
   const hourlyTideEndpoint = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?=&product=predictions&station=${spot.station_id}&begin_date=${fullDate}&range=24&units=english&datum=MLLW&time_zone=lst_ldt&format=json&application=NOS.COOPS.TAC.TidePred&interval=h`;
   const {
     response: hourlyTidesData,
