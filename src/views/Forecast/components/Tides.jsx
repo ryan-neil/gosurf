@@ -11,12 +11,10 @@ import { Flex } from '../../../styles/Utils.styled';
 import tidesIcon from '../../../assets/tides.svg';
 
 const Tides = ({ spot }) => {
-  // fetch weather data
+  // fetch tides data
   const { response, loading, error } = useFetch(
     `http://localhost:9001/api/tides?stationId=${spot.station_id}`
   );
-
-  // if (!response) return null;
 
   // const todaysTides = response.current;
   // const tidesHeights = response.hourly.map((hour) => convertRoundNumber(hour.v, 2));

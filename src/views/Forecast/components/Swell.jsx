@@ -3,9 +3,7 @@ import LineChart from './Charts/LineChart';
 import { Loading } from '../../../components/Loading';
 import { FetchError } from '../../../components/FetchError';
 // Helpers
-import { calcTodaysDate } from '../../../helpers/calculations.helpers';
 import { useFetch } from '../../../hooks/useFetch';
-import { avgOfArray } from '../../../helpers/array.helpers';
 import {
   convertRoundNumber,
   convertMetersToFeet,
@@ -18,86 +16,46 @@ import { Flex, FlexCol } from '../../../styles/Utils.styled';
 import swellIcon from '../../../assets/swell.svg';
 
 const Swell = ({ spot }) => {
-  const { fullDateHyphen } = calcTodaysDate();
-  const reqParams = [
-    'swellHeight',
-    'swellDirection',
-    'swellPeriod',
-    'secondarySwellHeight',
-    'secondarySwellDirection',
-    'secondarySwellPeriod'
-  ];
-  const endpoint = `https://api.stormglass.io/v2/weather/point?lat=${spot.lat}&lng=${spot.lon}&params=${reqParams}&start=${fullDateHyphen}&end=${fullDateHyphen}T23:00`;
-  const { response, loading, error } = useFetch(endpoint, {
-    headers: {
-      // Authorization: process.env.REACT_APP_SG_KEY
-    }
-  });
-
-  // render loading until response from api (this must come before the filtering logic)
-  if (loading) {
-    return <Loading />;
-  }
-
-  // if error render error (this must come before the filtering logic)
-  if (error) {
-    return <FetchError name="Swell" error={error} />;
-  }
-
-  // component logic:
-  // get primary swell data
-  const primSwellHeights = response.hours.map((hour) => convertMetersToFeet(hour.swellHeight.noaa));
-  const primSwellDirections = response.hours.map((hour) =>
-    convertRoundNumber(hour.swellDirection.noaa, 0)
+  // fetch wave data
+  const { response, loading, error } = useFetch(
+    `http://localhost:9001/api/swell?lat=${spot.lat}&lon=${spot.lon}`
   );
-  const primSwellPeriods = response.hours.map((hour) =>
-    convertRoundNumber(hour.swellPeriod.noaa, 0)
-  );
-  // get average primary swell data
-  const avgPrimSwellHeight = convertRoundNumber(avgOfArray(primSwellHeights), 1);
-  const avgPrimSwellDirection = convertRoundNumber(avgOfArray(primSwellDirections), 0);
-  const avgPrimSwellPeriod = convertRoundNumber(avgOfArray(primSwellPeriods), 0);
-
-  // get secondary swell data
-  const secSwellHeights = response.hours.map((hour) =>
-    convertMetersToFeet(hour.secondarySwellHeight.noaa)
-  );
-  const secSwellDirections = response.hours.map((hour) =>
-    convertRoundNumber(hour.secondarySwellDirection.noaa, 0)
-  );
-  const secSwellPeriods = response.hours.map((hour) =>
-    convertRoundNumber(hour.secondarySwellPeriod.noaa, 0)
-  );
-  // get average secondary swell data
-  const avgSecSwellHeight = convertRoundNumber(avgOfArray(secSwellHeights), 1);
-  const avgSecSwellDirection = convertRoundNumber(avgOfArray(secSwellDirections), 0);
-  const avgSecSwellPeriod = convertRoundNumber(avgOfArray(secSwellPeriods), 0);
-
-  // get swell times
-  const swellTimes = response.hours.map(
-    // remove last 6 indexes of api time string (remove's: +00:00)
-    (hour) => convertTimeString(hour.time.slice(0, 19), { hour: 'numeric' }) // 6 AM
-  );
-
-  const renderData = {
-    avgPrimSwellHeight,
-    avgPrimSwellDirection,
-    avgPrimSwellPeriod,
-    avgSecSwellHeight,
-    avgSecSwellDirection,
-    avgSecSwellPeriod
-  };
 
   return (
     <StyledGridItem>
-      <SwellHeader />
-      <SwellBody data={renderData} />
-      <LineChart
-        heading="Swell"
-        xAxis={swellTimes.slice(5, 21)}
-        yAxis={primSwellHeights.slice(5, 21)}
-        yAxisSec={secSwellHeights.slice(5, 21)}
-      />
+      {loading && <Loading />}
+      {error && <FetchError name="Swell" error={error} />}
+      {response && (
+        <>
+          <SwellHeader />
+          <SwellBody
+            currentPrimSwellHeight={convertRoundNumber(response.primarySwellHeight.current, 1)}
+            currentPrimSwellDirection={convertRoundNumber(
+              response.primarySwellDirection.current,
+              0
+            )}
+            currentPrimSwellPeriod={convertRoundNumber(response.primarySwellPeriod.current, 0)}
+            currentSecSwellHeight={convertRoundNumber(response.secondarySwellHeight.current, 1)}
+            currentSecSwellDirection={convertRoundNumber(
+              response.secondarySwellDirection.current,
+              0
+            )}
+            currentSecSwellPeriod={convertRoundNumber(response.secondarySwellPeriod.current, 0)}
+          />
+          <LineChart
+            heading="Swell"
+            xAxis={response.times
+              .map((hour) => convertTimeString(hour.slice(0, 19), { hour: 'numeric' }))
+              .slice(5, 21)}
+            yAxis={response.primarySwellHeight.hourly
+              .map((hour) => convertMetersToFeet(hour))
+              .slice(5, 21)}
+            yAxisSec={response.secondarySwellHeight.hourly
+              .map((hour) => convertMetersToFeet(hour))
+              .slice(5, 21)}
+          />
+        </>
+      )}
     </StyledGridItem>
   );
 };
@@ -111,7 +69,14 @@ const SwellHeader = () => {
   );
 };
 
-const SwellBody = ({ data }) => {
+const SwellBody = ({
+  currentPrimSwellHeight,
+  currentPrimSwellDirection,
+  currentPrimSwellPeriod,
+  currentSecSwellHeight,
+  currentSecSwellDirection,
+  currentSecSwellPeriod
+}) => {
   return (
     <StyledGridItemBody swell>
       {/* Primary Swell */}
@@ -119,12 +84,12 @@ const SwellBody = ({ data }) => {
         <StyledSwellTag primary />
         <FlexCol>
           <p>Primary swell:</p>
-          <p className="primary-data">{data.avgPrimSwellHeight} ft</p>
+          <p className="primary-data">{currentPrimSwellHeight} ft</p>
           <p>
-            '{convertDegToWindDir(data.avgPrimSwellDirection)}' ({data.avgPrimSwellDirection}
+            '{convertDegToWindDir(currentPrimSwellDirection)}' ({currentPrimSwellDirection}
             º)
           </p>
-          <p>Period: {data.avgPrimSwellPeriod}s</p>
+          <p>Period: {currentPrimSwellPeriod}s</p>
         </FlexCol>
       </Flex>
       {/* Secondary Swell */}
@@ -132,11 +97,11 @@ const SwellBody = ({ data }) => {
         <StyledSwellTag secondary />
         <FlexCol>
           <p>Secondary swell:</p>
-          <p className="primary-data">{data.avgSecSwellHeight} ft</p>
+          <p className="primary-data">{currentSecSwellHeight} ft</p>
           <p>
-            '{convertDegToWindDir(data.avgSecSwellDirection)}' ({data.avgSecSwellDirection}º)
+            '{convertDegToWindDir(currentSecSwellDirection)}' ({currentSecSwellDirection}º)
           </p>
-          <p>Period: {data.avgSecSwellPeriod}s</p>
+          <p>Period: {currentSecSwellPeriod}s</p>
         </FlexCol>
       </Flex>
     </StyledGridItemBody>

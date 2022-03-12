@@ -8,7 +8,7 @@ import {
   convertMetersToFeet,
   convertTimeString
 } from '../../../helpers/conversions.helpers';
-import { calcTodaysDate, calcBodySize } from '../../../helpers/calculations.helpers';
+import { calcBodySize } from '../../../helpers/calculations.helpers';
 import { useFetch } from '../../../hooks/useFetch';
 // Styles
 import { StyledGridItem, StyledGridItemBody } from '../Forecast.styled';
@@ -16,53 +16,35 @@ import { Flex } from '../../../styles/Utils.styled';
 import waveIcon from '../../../assets/wave.svg';
 
 const Wave = ({ spot }) => {
-  // Resource: https://daveceddia.com/react-before-render/
-  // Resource: https://blog.isquaredsoftware.com/2020/05/blogged-answers-a-mostly-complete-guide-to-react-rendering-behavior/
-
-  const { fullDateHyphen } = calcTodaysDate();
-  const reqParams = ['waveHeight', 'wavePeriod'];
-  const endpoint = `https://api.stormglass.io/v2/weather/point?lat=${spot.lat}&lng=${spot.lon}&params=${reqParams}&start=${fullDateHyphen}&end=${fullDateHyphen}T23:00`;
-  const { response, loading, error } = useFetch(endpoint, {
-    headers: {
-      // Authorization: process.env.REACT_APP_SG_KEY
-    }
-  });
-
-  // render loading until data is populated
-  if (loading) {
-    return <Loading />;
-  }
-
-  // if error render error
-  if (error) {
-    return <FetchError name="Wave" error={error} />;
-  }
-
-  // all logic
-  // get wave heights
-  const waveHeights = response.hours.map((wave) =>
-    convertRoundNumber(convertMetersToFeet(wave.waveHeight.noaa))
+  // fetch wave data
+  const { response, loading, error } = useFetch(
+    `http://localhost:9001/api/wave?lat=${spot.lat}&lon=${spot.lon}`
   );
-  // get minimum wave height
-  const minWaveHeight = convertRoundNumber(Math.min(...waveHeights));
-  // get maximum wave height
-  const maxWaveHeight = convertRoundNumber(Math.max(...waveHeights));
 
-  // get wave times
-  const waveTimes = response.hours.map(
-    // remove last 6 indexes of api time string (remove's: +00:00)
-    (wave) => convertTimeString(wave.time.slice(0, 19), { hour: 'numeric' }) // 6 AM
-  );
+  // const waveTimes = response.times.map((wave) => convertTimeString(wave.slice(0, 19), { hour: 'numeric' }));
+  // const waveHeights = response.waveHeight.hourly.map((wave) => convertRoundNumber(convertMetersToFeet(wave)));
+  // const minWaveHeight = convertRoundNumber(response.waveHeight.min);
+  // const maxWaveHeight = convertRoundNumber(response.waveHeight.max);
 
   return (
     <StyledGridItem>
-      <WaveHeader />
-      <WaveBody
-        minWaveHeight={minWaveHeight}
-        maxWaveHeight={maxWaveHeight}
-        waveTimes={waveTimes}
-        waveHeights={waveHeights}
-      />
+      {loading && <Loading />}
+      {error && <FetchError name="Wave" error={error} />}
+      {response && (
+        <>
+          <WaveHeader />
+          <WaveBody
+            waveTimes={response.times.map((hour) =>
+              convertTimeString(hour.slice(0, 19), { hour: 'numeric' })
+            )}
+            waveHeights={response.waveHeight.hourly.map((hour) =>
+              convertRoundNumber(convertMetersToFeet(hour))
+            )}
+            minWaveHeight={convertRoundNumber(response.waveHeight.min)}
+            maxWaveHeight={convertRoundNumber(response.waveHeight.max)}
+          />
+        </>
+      )}
     </StyledGridItem>
   );
 };
