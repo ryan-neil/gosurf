@@ -4,7 +4,6 @@ import { Loading } from '../../../components/Loading';
 import { FetchError } from '../../../components/FetchError';
 // Helpers
 import { convertTimeString, convertRoundNumber } from '../../../helpers/conversions.helpers';
-import { calcTodaysDate } from '../../../helpers/calculations.helpers';
 import { useFetch } from '../../../hooks/useFetch';
 // Styles
 import { StyledGridItem, StyledGridItemBody } from '../Forecast.styled';
@@ -12,48 +11,33 @@ import { Flex } from '../../../styles/Utils.styled';
 import windIcon from '../../../assets/wind.svg';
 
 const Wind = ({ spot }) => {
-  // date formatted for api
-  const { fullDate } = calcTodaysDate();
-
-  // fetch current wind data
-  const currWindEndpoint = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?=&product=wind&station=${spot.station_id}&date=latest&units=english&datum=MLLW&time_zone=lst_ldt&format=json&application=NOS.COOPS.TAC.TidePred&interval=hilo`;
-  const {
-    response: currWindData,
-    loading: currWindLoading,
-    error: currWindError
-  } = useFetch(currWindEndpoint);
-
-  // fetch hourly wind data
-  // response returns data every 6 minutes
-  const hourlyWindEndpoint = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?=&product=wind&station=${spot.station_id}&begin_date=${fullDate}&range=24&units=english&datum=MLLW&time_zone=lst_ldt&format=json&application=NOS.COOPS.TAC.TidePred&interval=hilo`;
-  const {
-    response: hourlyWindData,
-    loading: hourlyWindLoading,
-    error: hourlyWindError
-  } = useFetch(hourlyWindEndpoint);
-
-  // render loading until data is populated
-  if (currWindLoading || hourlyWindLoading) {
-    return <Loading />;
-  }
-
-  // if error render error
-  if (currWindError || hourlyWindError) {
-    return <FetchError name="Wind" error={currWindError || hourlyWindError} />;
-  }
-
-  // get wind speeds
-  const windSpeeds = hourlyWindData.data.map((hour) => convertRoundNumber(hour.s));
-
-  // get wind times
-  const windTimes = hourlyWindData.data.map(
-    (hour) => convertTimeString(hour.t, { hour: 'numeric' }) // 6 AM
+  // fetch weather data
+  const { response, loading, error } = useFetch(
+    `http://localhost:9001/api/wind?stationId=${spot.station_id}`
   );
+
+  // if (!response) return null;
+
+  // const currentWindDataData = response.current;
+  // const windSpeeds = response.hourly.map((hour) => convertRoundNumber(hour.s));
+  // const windTimes = response.hourly.map((hour) => convertTimeString(hour.t, { hour: 'numeric' }));
 
   return (
     <StyledGridItem>
-      <WindHeader />
-      <WindBody currWindData={currWindData} windTimes={windTimes} windSpeeds={windSpeeds} />
+      {loading && <Loading />}
+      {error && <FetchError name="Wind" error={error} />}
+      {response && (
+        <>
+          <WindHeader />
+          <WindBody
+            currentWindData={response.current}
+            windTimes={response.hourly.map((hour) =>
+              convertTimeString(hour.t, { hour: 'numeric' })
+            )}
+            windSpeeds={response.hourly.map((hour) => convertRoundNumber(hour.s))}
+          />
+        </>
+      )}
     </StyledGridItem>
   );
 };
@@ -69,13 +53,13 @@ const WindHeader = () => {
 };
 
 // wind body component (presentational)
-const WindBody = ({ currWindData, windTimes, windSpeeds }) => {
+const WindBody = ({ currentWindData, windTimes, windSpeeds }) => {
   return (
     <>
       <StyledGridItemBody>
         <p>Current speed:</p>
-        <p className="primary-data">{convertRoundNumber(currWindData.data[0].s, 1)} kts</p>
-        <p>{`'${currWindData.data[0].dr}' (${convertRoundNumber(currWindData.data[0].d, 1)}°)`}</p>
+        <p className="primary-data">{convertRoundNumber(currentWindData.s, 1)} kts</p>
+        <p>{`'${currentWindData.dr}' (${convertRoundNumber(currentWindData.d, 1)}°)`}</p>
       </StyledGridItemBody>
       <BarChart heading="Wind" xAxis={windTimes} yAxis={windSpeeds} />
     </>

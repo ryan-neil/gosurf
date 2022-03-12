@@ -25,7 +25,7 @@ const Tides = ({ spot }) => {
   return (
     <StyledGridItem>
       {loading && <Loading />}
-      {error && <FetchError name="Weather" error={error} />}
+      {error && <FetchError name="Tides" error={error} />}
       {response && (
         <>
           <TidesHeader />
