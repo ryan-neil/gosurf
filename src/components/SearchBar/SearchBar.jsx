@@ -1,16 +1,16 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 // Components
 import { Loading } from '../Loading';
 import { ErrorIcon } from '../FetchError/FetchError.styled';
 // Context
-import SpotsContext from '../../context/SpotsContext';
+import { useSpotsContextAPI } from '../../context/SpotsContext';
 // Styles
 import { StyledSearchBar, StyledInputContainer, SearchBarIcon } from './SearchBar.styled';
 
 export const SearchBar = ({ mobile }) => {
   // fetch spots API data
-  const { response, error, loading } = useContext(SpotsContext);
+  const { response, error, loading } = useSpotsContextAPI();
   // set states
   const [inputValue, setInputValue] = useState('');
   const [searchText, setSearchText] = useState('');
@@ -58,7 +58,7 @@ export const SearchBar = ({ mobile }) => {
   const results = searchResults.map((spot) => (
     <Link
       className="results-item"
-      key={spot.id}
+      key={spot.spot_id}
       to={`/forecast/${spot.slug}`}
       onClick={() => handleClick(spot)}
     >

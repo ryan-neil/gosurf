@@ -1,6 +1,5 @@
-import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import SpotsContext from '../../context/SpotsContext';
+import { useSpotsContextAPI } from '../../context/SpotsContext';
 // Components
 import { Heading } from './components/Heading';
 import { Banner } from './components/Banner';
@@ -19,35 +18,18 @@ export const Forecast = () => {
   // get param value
   const { slug } = useParams();
   // fetch spots API data
-  const { response, loading, error } = useContext(SpotsContext);
+  const { response, loading, error } = useSpotsContextAPI();
 
-  // mounted data checks
-  if (loading) {
-    return (
-      <Container>
-        <Loading />
-      </Container>
-    );
-  }
-  if (error) {
-    return (
-      <Container>
-        <FetchError name="SearchBar" error={error} />
-      </Container>
-    );
-  }
+  // maybe show spinner here (centered on page)
+  if (loading) return <Loading />;
+  // render error on error
+  if (error) return <FetchError name="Forecast" error={error} />;
 
   // filter for param spot
   const spot = response.filter((item) => item.slug === slug);
 
   // check if parameter spot is valid
-  if (spot.length === 0) {
-    return (
-      <Container>
-        <SpotError />
-      </Container>
-    );
-  }
+  if (spot.length === 0) return <SpotError />;
 
   return (
     <StyledForecast>

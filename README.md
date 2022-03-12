@@ -28,7 +28,7 @@ Check out the GoSurf [Backend Repo](https://github.com/ryan-neil/gosurf-backend)
 
 # 🧑🏽‍💻 For Developers
 
-Interested in the application? Checkout our [App Configuration](https://github.com/ryan-neil/gosurf-backend/README.md) section of the GoSurf backend repo and have a look under the hood. If we missed your favorite spot let us know! We're always looking to expand our forecasting reach.
+Interested in the application? Checkout our [App Configuration](https://github.com/ryan-neil/gosurf-backend#%EF%B8%8F-app-configuration) section of the GoSurf backend repo and have a look under the hood. If we missed your favorite spot let us know! We're always looking to expand our forecasting reach.
 
 GoSurf is and always will be [Open Source](https://opensource.com/resources/what-open-source) and for the surfing community.
 
