@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 // Components
 import { Logo } from './components/Logo';
 import { SearchBar } from '../SearchBar';
@@ -25,4 +26,10 @@ export const Header = ({ theme, setTheme }) => {
       </Container>
     </StyledHeader>
   );
+};
+
+// prop types
+Header.propTypes = {
+  theme: PropTypes.string.isRequired,
+  setTheme: PropTypes.func.isRequired,
 };

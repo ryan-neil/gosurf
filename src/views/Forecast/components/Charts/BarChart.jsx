@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 // Chart.js
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS } from 'chart.js/auto'; // eslint-disable-line no-unused-vars
@@ -30,10 +31,10 @@ const BarChart = ({ heading, xAxis, yAxis }) => {
           align: 'top', // https://chartjs-plugin-datalabels.netlify.app/guide/positioning.html#alignment-and-offset
           offset: 4, // https://chartjs-plugin-datalabels.netlify.app/guide/positioning.html#alignment-and-offset
           color: chartTicks,
-          font: { size: 10 }
-        }
-      }
-    ]
+          font: { size: 10 },
+        },
+      },
+    ],
   };
 
   const options = {
@@ -45,29 +46,29 @@ const BarChart = ({ heading, xAxis, yAxis }) => {
       xAxis: {
         ticks: {
           color: chartTicks, // tick font color
-          font: { size: 10 }
+          font: { size: 10 },
         },
         grid: {
           display: false, // grid lines on xAxis
           color: chartGrid,
-          borderColor: chartGrid
-        }
+          borderColor: chartGrid,
+        },
       },
       yAxis: {
         ticks: {
           color: chartTicks, // tick font color
-          font: { size: 10 }
+          font: { size: 10 },
         },
         grid: {
           display: true, // grid lines on yAxis
           borderDash: [4, 2],
           color: chartGrid,
-          borderColor: chartGrid
+          borderColor: chartGrid,
         },
         max: Math.max(...yAxis) + 2, // set yAxis maximum tick number
-        beginAtZero: true
-      }
-    }
+        beginAtZero: true,
+      },
+    },
   };
 
   return (
@@ -78,6 +79,13 @@ const BarChart = ({ heading, xAxis, yAxis }) => {
       </StyledChart>
     </StyledChartContainer>
   );
+};
+
+// prop types
+BarChart.propTypes = {
+  heading: PropTypes.string.isRequired,
+  xAxis: PropTypes.arrayOf(PropTypes.string).isRequired,
+  yAxis: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
 
 export default BarChart;

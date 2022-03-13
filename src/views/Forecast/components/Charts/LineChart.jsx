@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 // Chart.js
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS } from 'chart.js/auto'; // eslint-disable-line no-unused-vars
@@ -34,7 +35,7 @@ const LineChart = ({ heading, xAxis, yAxis, yAxisSec }) => {
         backgroundColor: chartBar,
         borderColor: heading === 'Tides' ? chartBarBorder : chartPrimSwellLine,
         pointBackgroundColor: primaryBG,
-        pointBorderColor: heading === 'Tides' ? chartBarBorder : chartPrimSwellLine
+        pointBorderColor: heading === 'Tides' ? chartBarBorder : chartPrimSwellLine,
       },
       {
         // Secondary swell line
@@ -49,9 +50,9 @@ const LineChart = ({ heading, xAxis, yAxis, yAxisSec }) => {
         // colors
         borderColor: chartSecSwellLine,
         pointBackgroundColor: primaryBG,
-        pointBorderColor: chartSecSwellLine
-      }
-    ]
+        pointBorderColor: chartSecSwellLine,
+      },
+    ],
   };
 
   const options = {
@@ -59,8 +60,8 @@ const LineChart = ({ heading, xAxis, yAxis, yAxisSec }) => {
     animation: true,
     plugins: {
       legend: {
-        display: false
-      }
+        display: false,
+      },
     },
     // Component chart styles and colors
     scales: {
@@ -68,31 +69,31 @@ const LineChart = ({ heading, xAxis, yAxis, yAxisSec }) => {
         ticks: {
           color: chartTicks, // tick font color
           font: {
-            size: 10 // default font size (12)
-          }
+            size: 10, // default font size (12)
+          },
         },
         grid: {
           display: false, // grid lines on xAxis
           color: chartGrid,
-          borderColor: chartGrid
-        }
+          borderColor: chartGrid,
+        },
       },
       yAxis: {
         ticks: {
           color: chartTicks, // tick font color
           font: {
-            size: 10 // default font size (12)
-          }
+            size: 10, // default font size (12)
+          },
         },
         grid: {
           display: true, // grid lines on yAxis
           borderDash: [4, 2],
           color: chartGrid,
-          borderColor: chartGrid
+          borderColor: chartGrid,
         },
-        beginAtZero: false
-      }
-    }
+        beginAtZero: false,
+      },
+    },
   };
 
   return (
@@ -103,6 +104,14 @@ const LineChart = ({ heading, xAxis, yAxis, yAxisSec }) => {
       </StyledChart>
     </StyledChartContainer>
   );
+};
+
+// prop types
+LineChart.propTypes = {
+  heading: PropTypes.string.isRequired,
+  xAxis: PropTypes.arrayOf(PropTypes.string).isRequired,
+  yAxis: PropTypes.arrayOf(PropTypes.number).isRequired,
+  yAxisSec: PropTypes.arrayOf(PropTypes.number),
 };
 
 export default LineChart;

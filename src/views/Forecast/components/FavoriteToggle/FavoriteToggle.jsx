@@ -11,11 +11,7 @@ export const FavoriteToggle = () => {
 
   // set theme icon
   const favoriteIcon =
-    favorite === false ? (
-      <StarBorderIcon onClick={toggleFavorite} />
-    ) : (
-      <StarIcon onClick={toggleFavorite} />
-    );
+    favorite === false ? <StarBorderIcon onClick={toggleFavorite} /> : <StarIcon onClick={toggleFavorite} />;
 
   return <span>{favoriteIcon}</span>;
 };

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 // Components
 import { Loading } from '../Loading';
 import { ErrorIcon } from '../FetchError/FetchError.styled';
@@ -9,7 +10,7 @@ import { useSpotsContextAPI } from '../../context/SpotsContext';
 import { StyledSearchBar, StyledInputContainer, SearchBarIcon } from './SearchBar.styled';
 
 export const SearchBar = ({ mobile }) => {
-  // fetch spots API data
+  // fetch backend spots API data
   const { response, error, loading } = useSpotsContextAPI();
   // set states
   const [inputValue, setInputValue] = useState('');
@@ -40,9 +41,7 @@ export const SearchBar = ({ mobile }) => {
     // get users' searched word
     setSearchText(e.target.value);
     // filter for matching spots
-    const filteredResults = response.filter((item) =>
-      item.name.toLowerCase().includes(searchText.toLowerCase())
-    );
+    const filteredResults = response.filter((item) => item.name.toLowerCase().includes(searchText.toLowerCase()));
     // update search state
     searchText === '' ? setSearchResults([]) : setSearchResults(filteredResults);
   };
@@ -56,12 +55,7 @@ export const SearchBar = ({ mobile }) => {
 
   // loop through search results and render the element
   const results = searchResults.map((spot) => (
-    <Link
-      className="results-item"
-      key={spot.spot_id}
-      to={`/forecast/${spot.slug}`}
-      onClick={() => handleClick(spot)}
-    >
+    <Link className="results-item" key={spot.spot_id} to={`/forecast/${spot.slug}`} onClick={() => handleClick(spot)}>
       <p>{`${spot.name}, ${spot.location.state}`}</p>
     </Link>
   ));
@@ -70,14 +64,14 @@ export const SearchBar = ({ mobile }) => {
     <StyledSearchBar mobile={mobile}>
       <StyledInputContainer>
         <SearchBarIcon />
-        <input
-          type="text"
-          placeholder="Search spot..."
-          value={inputValue}
-          onChange={handleSearch}
-        />
+        <input type="text" placeholder="Search spot..." value={inputValue} onChange={handleSearch} />
       </StyledInputContainer>
       {searchResults.length !== 0 && <div className="results-container">{results}</div>}
     </StyledSearchBar>
   );
+};
+
+// prop types
+SearchBar.propTypes = {
+  mobile: PropTypes.bool,
 };

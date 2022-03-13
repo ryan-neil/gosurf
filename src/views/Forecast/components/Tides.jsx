@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 // Helpers
 import { convertRoundNumber, convertTimeString } from '../../../helpers/conversions.helpers';
 import { useFetch } from '../../../hooks/useFetch';
@@ -12,9 +13,7 @@ import tidesIcon from '../../../assets/tides.svg';
 
 const Tides = ({ spot }) => {
   // fetch tides data
-  const { response, loading, error } = useFetch(
-    `http://localhost:9001/api/tides?stationId=${spot.station_id}`
-  );
+  const { response, loading, error } = useFetch(`http://localhost:9001/api/tides?stationId=${spot.station_id}`);
 
   // const todaysTides = response.current;
   // const tidesHeights = response.hourly.map((hour) => convertRoundNumber(hour.v, 2));
@@ -28,9 +27,7 @@ const Tides = ({ spot }) => {
         <>
           <TidesHeader />
           <TidesBody
-            tidesTimes={response.hourly.map((hour) =>
-              convertTimeString(hour.t, { hour: 'numeric' })
-            )}
+            tidesTimes={response.hourly.map((hour) => convertTimeString(hour.t, { hour: 'numeric' }))}
             tidesHeights={response.hourly.map((hour) => convertRoundNumber(hour.v, 2))}
             todaysTides={response.current}
           />
@@ -64,13 +61,19 @@ const TidesBody = ({ tidesTimes, tidesHeights, todaysTides }) => {
   return (
     <>
       <StyledGridItemBody tide>{TideItem}</StyledGridItemBody>
-      <LineChart
-        heading="Tides"
-        xAxis={tidesTimes.slice(5, 21)}
-        yAxis={tidesHeights.slice(5, 21)}
-      />
+      <LineChart heading="Tides" xAxis={tidesTimes.slice(5, 21)} yAxis={tidesHeights.slice(5, 21)} />
     </>
   );
+};
+
+// prop types
+Tides.propTypes = {
+  spot: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]),
+};
+TidesBody.propTypes = {
+  tidesTimes: PropTypes.arrayOf(PropTypes.string).isRequired,
+  tidesHeights: PropTypes.arrayOf(PropTypes.number).isRequired,
+  todaysTides: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)).isRequired,
 };
 
 export default Tides;

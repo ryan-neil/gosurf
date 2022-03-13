@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 // Components
 import LineChart from './Charts/LineChart';
 import { Loading } from '../../../components/Loading';
@@ -8,7 +9,7 @@ import {
   convertRoundNumber,
   convertMetersToFeet,
   convertTimeString,
-  convertDegToWindDir
+  convertDegToWindDir,
 } from '../../../helpers/conversions.helpers';
 // Styles
 import { StyledGridItem, StyledGridItemBody, StyledSwellTag } from '../Forecast.styled';
@@ -17,9 +18,7 @@ import swellIcon from '../../../assets/swell.svg';
 
 const Swell = ({ spot }) => {
   // fetch wave data
-  const { response, loading, error } = useFetch(
-    `http://localhost:9001/api/swell?lat=${spot.lat}&lon=${spot.lon}`
-  );
+  const { response, loading, error } = useFetch(`http://localhost:9001/api/swell?lat=${spot.lat}&lon=${spot.lon}`);
 
   return (
     <StyledGridItem>
@@ -30,29 +29,17 @@ const Swell = ({ spot }) => {
           <SwellHeader />
           <SwellBody
             currentPrimSwellHeight={convertRoundNumber(response.primarySwellHeight.current, 1)}
-            currentPrimSwellDirection={convertRoundNumber(
-              response.primarySwellDirection.current,
-              0
-            )}
+            currentPrimSwellDirection={convertRoundNumber(response.primarySwellDirection.current, 0)}
             currentPrimSwellPeriod={convertRoundNumber(response.primarySwellPeriod.current, 0)}
             currentSecSwellHeight={convertRoundNumber(response.secondarySwellHeight.current, 1)}
-            currentSecSwellDirection={convertRoundNumber(
-              response.secondarySwellDirection.current,
-              0
-            )}
+            currentSecSwellDirection={convertRoundNumber(response.secondarySwellDirection.current, 0)}
             currentSecSwellPeriod={convertRoundNumber(response.secondarySwellPeriod.current, 0)}
           />
           <LineChart
             heading="Swell"
-            xAxis={response.times
-              .map((hour) => convertTimeString(hour.slice(0, 19), { hour: 'numeric' }))
-              .slice(5, 21)}
-            yAxis={response.primarySwellHeight.hourly
-              .map((hour) => convertMetersToFeet(hour))
-              .slice(5, 21)}
-            yAxisSec={response.secondarySwellHeight.hourly
-              .map((hour) => convertMetersToFeet(hour))
-              .slice(5, 21)}
+            xAxis={response.times.map((hour) => convertTimeString(hour.slice(0, 19), { hour: 'numeric' })).slice(5, 21)}
+            yAxis={response.primarySwellHeight.hourly.map((hour) => convertMetersToFeet(hour)).slice(5, 21)}
+            yAxisSec={response.secondarySwellHeight.hourly.map((hour) => convertMetersToFeet(hour)).slice(5, 21)}
           />
         </>
       )}
@@ -75,7 +62,7 @@ const SwellBody = ({
   currentPrimSwellPeriod,
   currentSecSwellHeight,
   currentSecSwellDirection,
-  currentSecSwellPeriod
+  currentSecSwellPeriod,
 }) => {
   return (
     <StyledGridItemBody swell>
@@ -106,6 +93,19 @@ const SwellBody = ({
       </Flex>
     </StyledGridItemBody>
   );
+};
+
+// prop types
+Swell.propTypes = {
+  spot: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]).isRequired,
+};
+SwellBody.propTypes = {
+  currentPrimSwellHeight: PropTypes.number.isRequired,
+  currentPrimSwellDirection: PropTypes.number.isRequired,
+  currentPrimSwellPeriod: PropTypes.number.isRequired,
+  currentSecSwellHeight: PropTypes.number.isRequired,
+  currentSecSwellDirection: PropTypes.number.isRequired,
+  currentSecSwellPeriod: PropTypes.number.isRequired,
 };
 
 export default Swell;

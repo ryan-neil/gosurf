@@ -40,6 +40,6 @@ export const useFetch = (url, options) => {
   return {
     response,
     error,
-    loading
+    loading,
   };
 };

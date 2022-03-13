@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 // Component
 import { FavoriteToggle } from '../FavoriteToggle';
 // Styled
@@ -10,4 +11,9 @@ export const Heading = ({ spot }) => {
       <FavoriteToggle />
     </StyledHeading>
   );
+};
+
+// prop types
+Heading.propTypes = {
+  spot: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]),
 };

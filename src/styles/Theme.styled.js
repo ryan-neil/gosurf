@@ -40,7 +40,7 @@ const LightTheme = {
     chartTicks: 'rgba(0, 0, 0, 0.6)',
     chartGrid: 'rgba(0, 0, 0, 0.2)',
     chartPrimSwellLine: 'rgba(63, 185, 80, 1)',
-    chartSecSwellLine: 'rgba(255, 173, 66, 1)'
+    chartSecSwellLine: 'rgba(255, 173, 66, 1)',
   },
   styles: {
     textXs: '11px',
@@ -58,15 +58,15 @@ const LightTheme = {
     boxShadowInset: 'inset 0 1px 4px 0 rgba(0,0,0,0.05);',
     heroImage: `url('./images/encinitas.webp')`,
     // heroImage: `url('./images/boards.webp')`,
-    aboutImage: `url('./images/topo-light.svg')`
+    aboutImage: `url('./images/topo-light.svg')`,
   },
   web: {
-    width: '1280px'
+    width: '1280px',
   },
   mobile: {
-    width: '718px' // split screen
+    width: '718px', // split screen
     // width: '720px',
-  }
+  },
 };
 
 const DarkTheme = {
@@ -107,7 +107,7 @@ const DarkTheme = {
     chartTicks: 'rgba(255, 255, 255, 0.6)',
     chartGrid: 'rgba(255, 255, 255, 0.2)',
     chartPrimSwellLine: '#45fa39',
-    chartSecSwellLine: 'rgba(255, 173, 66, 1)'
+    chartSecSwellLine: 'rgba(255, 173, 66, 1)',
   },
   styles: {
     textXs: '11px',
@@ -125,15 +125,15 @@ const DarkTheme = {
     boxShadowInset: 'inset 0 1px 4px 0 rgba(0,0,0,0.05);',
     // heroImage: `url('./images/encinitas.webp')`,
     heroImage: `url('./images/boards.webp')`,
-    aboutImage: `url('./images/topo-dark.svg')`
+    aboutImage: `url('./images/topo-dark.svg')`,
   },
   web: {
-    width: '1280px'
+    width: '1280px',
   },
   mobile: {
-    width: '718px' // split screen
+    width: '718px', // split screen
     // width: '720px',
-  }
+  },
 };
 
 // Glassmorphism: {
@@ -144,5 +144,5 @@ const DarkTheme = {
 
 export const mode = {
   light: LightTheme,
-  dark: DarkTheme
+  dark: DarkTheme,
 };

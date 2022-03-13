@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { createContext, useContext } from 'react';
 import { useFetch } from '../hooks/useFetch';
 
@@ -12,12 +13,17 @@ export const SpotsDataProvider = ({ children }) => {
       value={{
         response,
         loading,
-        error
+        error,
       }}
     >
       {children}
     </SpotsContext.Provider>
   );
+};
+
+// prop types
+SpotsDataProvider.propTypes = {
+  children: PropTypes.node,
 };
 
 export default SpotsDataProvider;
