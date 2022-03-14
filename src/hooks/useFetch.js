@@ -6,8 +6,6 @@ export const useFetch = (url, options) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // console.log('inside useFetch');
-
     let isMounted = true;
 
     const fetchData = async () => {
@@ -39,7 +37,7 @@ export const useFetch = (url, options) => {
 
   return {
     response,
-    error,
     loading,
+    error,
   };
 };

@@ -11,19 +11,20 @@ import { StyledSearchBar, StyledInputContainer, SearchBarIcon } from './SearchBa
 
 export const SearchBar = ({ mobile }) => {
   // fetch backend spots API data
-  const { response, error, loading } = useSpotsContextAPI();
+  const { response, loading, error } = useSpotsContextAPI();
   // set states
   const [inputValue, setInputValue] = useState('');
   const [searchText, setSearchText] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
-  // mounted data checks (if api response is null remove the SearchBar)
+  // mounted response checks (if api data is null remove the SearchBar)
   // if (!response) return null;
 
   // mounted data checks
   if (loading) {
     return <Loading />;
   }
+
   if (error) {
     return (
       <StyledSearchBar mobile={mobile}>
