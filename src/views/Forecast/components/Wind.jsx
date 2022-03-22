@@ -66,7 +66,7 @@ const WindBody = ({ currentWindData, windTimes, windSpeeds }) => {
 
 // prop types
 Wind.propTypes = {
-  spot: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]).isRequired,
+  spot: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object])).isRequired,
 };
 WindBody.propTypes = {
   currentWindData: PropTypes.objectOf(PropTypes.string).isRequired,

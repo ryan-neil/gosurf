@@ -68,7 +68,7 @@ const TidesBody = ({ tidesTimes, tidesHeights, todaysTides }) => {
 
 // prop types
 Tides.propTypes = {
-  spot: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]),
+  spot: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object])).isRequired,
 };
 TidesBody.propTypes = {
   tidesTimes: PropTypes.arrayOf(PropTypes.string).isRequired,

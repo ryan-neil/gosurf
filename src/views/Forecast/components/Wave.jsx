@@ -67,7 +67,7 @@ const WaveBody = ({ minWaveHeight, maxWaveHeight, waveTimes, waveHeights }) => {
 
 // prop types
 Wave.propTypes = {
-  spot: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]),
+  spot: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object])).isRequired,
 };
 WaveBody.propTypes = {
   minWaveHeight: PropTypes.number.isRequired,

@@ -97,7 +97,7 @@ const SwellBody = ({
 
 // prop types
 Swell.propTypes = {
-  spot: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]).isRequired,
+  spot: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object])).isRequired,
 };
 SwellBody.propTypes = {
   currentPrimSwellHeight: PropTypes.number.isRequired,

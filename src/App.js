@@ -6,7 +6,7 @@ import { mode } from './styles/Theme.styled';
 import GlobalStyles from './styles/Global.styled';
 import { StyledApp } from './styles/App.styled';
 // Global context
-import { SpotsDataProvider } from './context/SpotsContext';
+import SpotsDataProvider from './context/SpotsContext';
 // Components
 import { Header } from './components/Header';
 // Views

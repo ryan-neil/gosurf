@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+// Context
 import { useSpotsContextAPI } from '../../context/SpotsContext';
 // Components
 import { Heading } from './components/Heading';
@@ -17,16 +18,11 @@ import { Container } from '../../styles/Utils.styled';
 export const Forecast = () => {
   // get param value
   const { slug } = useParams();
-  // fetch spots API data
-
-  // just fetch a single spot here based on the parameter
-  // const { response, loading, error } = useFetch(`http://localhost:9001/api/spos/${slug}`);
-
+  // fetch API from context
   const { response, loading, error } = useSpotsContextAPI();
 
   // maybe show spinner here (centered on page)
   if (loading) return <Loading />;
-  // render error on error
   if (error) return <FetchError name="Forecast" error={error} />;
 
   // filter for param spot

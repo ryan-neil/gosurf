@@ -1,27 +1,24 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-// Components
-import { Loading } from '../Loading';
-import { ErrorIcon } from '../FetchError/FetchError.styled';
 // Context
 import { useSpotsContextAPI } from '../../context/SpotsContext';
+// Components
+import { Loading } from '../Loading';
 // Styles
 import { StyledSearchBar, StyledInputContainer, SearchBarIcon, StyledInputResults } from './SearchBar.styled';
+import { ErrorIcon } from '../FetchError/FetchError.styled';
 
 export const SearchBar = ({ mobile }) => {
   // set states
   const [inputValue, setInputValue] = useState('');
   const [searchText, setSearchText] = useState('');
   const [searchResults, setSearchResults] = useState([]);
-  // fetch backend spots API data
+  // fetch API from context
   const { response, loading, error } = useSpotsContextAPI();
 
   // mounted data checks
-  if (loading) {
-    return <Loading />;
-  }
-
+  if (loading) return <Loading />;
   if (error) {
     return (
       <StyledSearchBar mobile={mobile}>
@@ -72,6 +69,7 @@ export const SearchBar = ({ mobile }) => {
     </StyledSearchBar>
   );
 };
+
 SearchBar.propTypes = { mobile: PropTypes.bool };
 
 // InputResult component
@@ -84,7 +82,8 @@ const InputResult = ({ spot, handleClick }) => {
     </li>
   );
 };
+
 InputResult.propTypes = {
-  spot: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]).isRequired,
+  spot: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object])).isRequired,
   handleClick: PropTypes.func,
 };
