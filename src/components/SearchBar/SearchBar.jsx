@@ -7,18 +7,15 @@ import { ErrorIcon } from '../FetchError/FetchError.styled';
 // Context
 import { useSpotsContextAPI } from '../../context/SpotsContext';
 // Styles
-import { StyledSearchBar, StyledInputContainer, SearchBarIcon } from './SearchBar.styled';
+import { StyledSearchBar, StyledInputContainer, SearchBarIcon, StyledInputResults } from './SearchBar.styled';
 
 export const SearchBar = ({ mobile }) => {
-  // fetch backend spots API data
-  const { response, loading, error } = useSpotsContextAPI();
   // set states
   const [inputValue, setInputValue] = useState('');
   const [searchText, setSearchText] = useState('');
   const [searchResults, setSearchResults] = useState([]);
-
-  // mounted response checks (if api data is null remove the SearchBar)
-  // if (!response) return null;
+  // fetch backend spots API data
+  const { response, loading, error } = useSpotsContextAPI();
 
   // mounted data checks
   if (loading) {
@@ -36,13 +33,15 @@ export const SearchBar = ({ mobile }) => {
     );
   }
 
-  const handleSearch = (e) => {
+  const handleChange = (e) => {
     // set the input value to users input
     setInputValue(e.target.value);
     // get users' searched word
     setSearchText(e.target.value);
     // filter for matching spots
-    const filteredResults = response.filter((item) => item.name.toLowerCase().includes(searchText.toLowerCase()));
+    const filteredResults = response.filter((item) =>
+      item.name.toLowerCase().includes(searchText.toLowerCase().trim())
+    );
     // update search state
     searchText === '' ? setSearchResults([]) : setSearchResults(filteredResults);
   };
@@ -54,25 +53,38 @@ export const SearchBar = ({ mobile }) => {
     setSearchResults([]);
   };
 
-  // loop through search results and render the element
-  const results = searchResults.map((spot) => (
-    <Link className="results-item" key={spot.spot_id} to={`/forecast/${spot.slug}`} onClick={() => handleClick(spot)}>
-      <p>{`${spot.name}, ${spot.location.state}`}</p>
-    </Link>
-  ));
+  // render search results
+  const handleResults = searchResults.length !== 0 && (
+    <StyledInputResults>
+      {searchResults.map((spot) => (
+        <InputResult key={spot.spot_id} spot={spot} handleClick={handleClick} />
+      ))}
+    </StyledInputResults>
+  );
 
   return (
     <StyledSearchBar mobile={mobile}>
       <StyledInputContainer>
         <SearchBarIcon />
-        <input type="text" placeholder="Search spot..." value={inputValue} onChange={handleSearch} />
+        <input type="text" placeholder="Search spot..." value={inputValue} onChange={handleChange} />
       </StyledInputContainer>
-      {searchResults.length !== 0 && <div className="results-container">{results}</div>}
+      {handleResults}
     </StyledSearchBar>
   );
 };
+SearchBar.propTypes = { mobile: PropTypes.bool };
 
-// prop types
-SearchBar.propTypes = {
-  mobile: PropTypes.bool,
+// InputResult component
+const InputResult = ({ spot, handleClick }) => {
+  return (
+    <li>
+      <Link to={`/forecast/${spot.slug}`} onClick={() => handleClick(spot)}>
+        {`${spot.name}, ${spot.location.state}`}
+      </Link>
+    </li>
+  );
+};
+InputResult.propTypes = {
+  spot: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]).isRequired,
+  handleClick: PropTypes.func,
 };

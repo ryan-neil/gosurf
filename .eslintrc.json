@@ -16,7 +16,10 @@
     "prettier/prettier": ["error"],
     "arrow-body-style": 0,
     "no-unused-vars": "warn",
-    "no-unused-expressions": ["error", { "allowShortCircuit": true, "allowTernary": true }],
+    "no-unused-expressions": [
+      "error",
+      { "allowShortCircuit": true, "allowTernary": true }
+    ],
     "no-console": "warn",
     "no-underscore-dangle": 0,
     "consistent-return": 0,
@@ -25,7 +28,10 @@
     "import/prefer-default-export": 0,
     "import/no-extraneous-dependencies": 0,
     "react/react-in-jsx-scope": 0,
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    "react/jsx-filename-extension": [
+      1,
+      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+    ],
     "react/jsx-props-no-spreading": "off",
     "react/prop-types": "warn",
     "react/require-default-props": 0,
