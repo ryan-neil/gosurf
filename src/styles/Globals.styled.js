@@ -4,7 +4,7 @@ import { createGlobalStyle } from 'styled-components';
 =================================
 App styles
 */
-const GlobalStyles = createGlobalStyle`
+const GlobalsStyled = createGlobalStyle`
 	:root {
 		--primaryBG: ${({ theme }) => theme.colors.primaryBG};
 		--chartBar: ${({ theme }) => theme.colors.chartBar};
@@ -30,6 +30,12 @@ const GlobalStyles = createGlobalStyle`
   body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+		// scrollbar styles
+		-ms-overflow-style: none; // IE and Edge
+  	scrollbar-width: none; // Firefox
+  &::-webkit-scrollbar {
+    display: none; // Chrome, Safari and Opera
+  }
   }
   img,
   picture,
@@ -45,13 +51,24 @@ const GlobalStyles = createGlobalStyle`
   select {
     font: inherit;
   }
+	button::-moz-focus-inner,
+	input::-moz-focus-inner {
+		border: 0;
+		padding: 0;
+	}
+	// button reset
+	button {
+		all: initial;
+	}
   a {
     text-decoration: none;
+		color: ${({ theme }) => theme.colors.paragraph};
   }
   p {
     font-weight: 400;
     overflow-wrap: break-word;
     color: ${({ theme }) => theme.colors.paragraph};
+		font-size: ${({ theme }) => theme.styles.textReg};
   }
   h1,
   h2,
@@ -62,11 +79,13 @@ const GlobalStyles = createGlobalStyle`
 		font-weight: 400;
     overflow-wrap: break-word;
     color: ${({ theme }) => theme.colors.heading};
+		font-size: ${({ theme }) => theme.styles.textReg};
   }
   #root,
   #__next {
     isolation: isolate;
+		width: 100%;
   }
 `;
 
-export default GlobalStyles;
+export default GlobalsStyled;

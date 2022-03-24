@@ -2,8 +2,8 @@ import { Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { useLocalStorage } from './hooks/useLocalStorage';
 // Global Styles
-import { mode } from './styles/Theme.styled';
-import GlobalStyles from './styles/Global.styled';
+import { themeMode } from './styles/Theme.styled';
+import GlobalsStyled from './styles/Globals.styled';
 import { StyledApp } from './styles/App.styled';
 // Global context
 import SpotsDataProvider from './context/SpotsContext';
@@ -18,8 +18,8 @@ const App = () => {
   const [theme, setTheme] = useLocalStorage('theme', 'light');
 
   return (
-    <ThemeProvider theme={mode[theme]}>
-      <GlobalStyles />
+    <ThemeProvider theme={themeMode[theme]}>
+      <GlobalsStyled />
       <StyledApp>
         <SpotsDataProvider>
           <Header theme={theme} setTheme={setTheme} />

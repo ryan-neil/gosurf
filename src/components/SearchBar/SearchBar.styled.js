@@ -1,17 +1,9 @@
-import styled, { css } from 'styled-components';
-import { Search } from '@styled-icons/material';
+import styled from 'styled-components';
+import { Search } from '@styled-icons/feather';
 
 export const StyledSearchBar = styled.div`
-  /* Responsive Queries */
-  @media (max-width: ${({ theme }) => theme.mobile.width}) {
-    display: none;
-    /* Props */
-    ${({ mobile }) =>
-      mobile &&
-      css`
-        display: block;
-      `}
-  }
+  display: flex;
+  align-items: flex-start;
 `;
 
 export const StyledInputContainer = styled.div`
@@ -39,17 +31,10 @@ export const StyledInputContainer = styled.div`
       color: ${({ theme }) => theme.colors.paragraphLight};
     }
   }
-
-  /* Props */
-  ${({ error }) =>
-    error &&
-    css`
-      outline: 1px solid ${({ theme }) => theme.colors.danger};
-    `}
 `;
 
 export const SearchBarIcon = styled(Search)`
-  color: ${({ theme }) => theme.colors.paragraph};
+  color: ${({ theme }) => theme.colors.heading};
   width: 1rem;
   margin: 0 0.5rem;
 `;
@@ -58,12 +43,12 @@ export const StyledInputResults = styled.ul`
   padding: 0;
   margin: 0;
   position: absolute;
-  margin-top: 5px;
+  margin-top: 42px;
   width: auto;
   width: 225px;
   height: auto;
   max-height: 300px;
-  background-color: ${({ theme }) => theme.colors.primaryBG};
+  background-color: ${({ theme }) => theme.colors.secondaryBG};
   border: 1px solid ${({ theme }) => theme.colors.inputBorder};
   border-radius: ${({ theme }) => theme.styles.borderRadiusMd};
   overflow: hidden;
@@ -77,10 +62,9 @@ export const StyledInputResults = styled.ul`
   li {
     font-size: 14px; // 14px
     &:hover {
-      background-color: ${({ theme }) => theme.colors.secondaryBG};
+      background-color: ${({ theme }) => theme.colors.primaryBG};
     }
     a {
-      color: rgba(27, 38, 53, 0.7);
       width: 100%;
       height: 50px;
       display: flex;

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Droplet, Sun } from '@styled-icons/feather';
 
 export const StyledBanner = styled.section`
   width: 100%;
@@ -10,6 +11,7 @@ export const StyledBanner = styled.section`
   box-shadow: ${({ theme }) => theme.colors.boxShadow};
   border-radius: ${({ theme }) => theme.styles.borderRadiusMd};
   overflow-x: scroll;
+  // scrollbar-width: none; // hide scrollbar on firefox
 
   display: flex;
   justify-content: space-between;
@@ -21,13 +23,14 @@ export const StyledBannerItem = styled.div`
   height: auto;
   min-width: 200px;
   width: auto;
-  h4 {
+  h3 {
     padding-bottom: 0.25rem;
     margin-bottom: 0.5rem;
     border-bottom: 1px solid ${({ theme }) => theme.colors.border};
   }
-  img {
-    width: 1.6rem;
+  h4 {
+    color: ${({ theme }) => theme.colors.paragraph};
+    font-size: ${({ theme }) => theme.styles.textMd};
   }
   p {
     white-space: nowrap;
@@ -44,4 +47,16 @@ export const StyledBannerItem = styled.div`
     letter-spacing: 0.025em;
     border-radius: ${({ theme }) => theme.styles.borderRadiusSm};
   }
+`;
+
+// Water Icon
+export const StyledWaterIcon = styled(Droplet)`
+  color: ${({ theme }) => theme.colors.primary};
+  width: 1.8rem;
+`;
+
+// Air Icon
+export const StyledAirIcon = styled(Sun)`
+  color: ${({ theme }) => theme.colors.primary};
+  width: 1.8rem;
 `;

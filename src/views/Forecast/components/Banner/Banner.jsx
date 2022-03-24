@@ -6,10 +6,8 @@ import { useFetch } from '../../../../hooks/useFetch';
 import { Loading } from '../../../../components/Loading';
 import { FetchError } from '../../../../components/FetchError';
 // Styles
-import { StyledBanner, StyledBannerItem } from './Banner.styled';
+import { StyledBanner, StyledBannerItem, StyledWaterIcon, StyledAirIcon } from './Banner.styled';
 import { Flex } from '../../../../styles/Utils.styled';
-import waterIcon from '../../../../assets/water.svg';
-import airIcon from '../../../../assets/air.svg';
 
 export const Banner = ({ spot }) => {
   // get sunrise and sunset
@@ -25,21 +23,21 @@ export const Banner = ({ spot }) => {
       {response && (
         <>
           <StyledBannerItem>
-            <h4>Water Temperature</h4>
+            <h3>Water Temperature</h3>
             <Flex gapSm>
-              <img src={waterIcon} alt="Water Temperature Icon" />
-              <p>{`${response.waterTemp}°F`}</p>
+              <StyledWaterIcon />
+              <h4>{`${response.waterTemp}°F`}</h4>
             </Flex>
           </StyledBannerItem>
           <StyledBannerItem>
-            <h4>Air Temperature</h4>
+            <h3>Air Temperature</h3>
             <Flex gapSm>
-              <img src={airIcon} alt="Air Temperature Icon" />
-              <p>{`${response.airTemp}°F`}</p>
+              <StyledAirIcon />
+              <h4>{`${response.airTemp}°F`}</h4>
             </Flex>
           </StyledBannerItem>
           <StyledBannerItem>
-            <h4>Light</h4>
+            <h3>Light</h3>
             <Flex spaceBetween gapSm>
               <p>Sunrise:</p>
               <p>
@@ -76,5 +74,7 @@ export const Banner = ({ spot }) => {
 
 // prop types
 Banner.propTypes = {
-  spot: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object])).isRequired,
+  spot: PropTypes.objectOf(
+    PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object, PropTypes.objectOf(PropTypes.array)])
+  ).isRequired,
 };
