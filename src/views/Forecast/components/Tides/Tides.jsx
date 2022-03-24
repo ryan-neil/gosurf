@@ -1,17 +1,17 @@
 import PropTypes from 'prop-types';
 // Helpers
-import { convertRoundNumber, convertTimeString } from '../../../helpers/conversions.helpers';
-import { useFetch } from '../../../hooks/useFetch';
+import { convertRoundNumber, convertTimeString } from '../../../../helpers/conversions.helpers';
+import { useFetch } from '../../../../hooks/useFetch';
 // Components
-import LineChart from './Charts/LineChart';
-import { Loading } from '../../../components/Loading';
-import { FetchError } from '../../../components/FetchError';
+import { LineChart } from '../LineChart';
+import { Loading } from '../../../../components/Loading';
+import { FetchError } from '../../../../components/FetchError';
 // Styles
-import { StyledGridItem, StyledGridItemBody } from '../Forecast.styled';
-import { Flex } from '../../../styles/Utils.styled';
-import tidesIcon from '../../../assets/tides.svg';
+import { StyledGridItem, StyledGridItemBody } from '../../Forecast.styled';
+import { Flex } from '../../../../styles/Utils.styled';
+import tidesIcon from '../../../../assets/tides.svg';
 
-const Tides = ({ spot }) => {
+export const Tides = ({ spot }) => {
   // fetch tides data
   const { response, loading, error } = useFetch(`http://localhost:9001/api/tides?stationId=${spot.station_id}`);
 
@@ -75,5 +75,3 @@ TidesBody.propTypes = {
   tidesHeights: PropTypes.arrayOf(PropTypes.number).isRequired,
   todaysTides: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)).isRequired,
 };
-
-export default Tides;

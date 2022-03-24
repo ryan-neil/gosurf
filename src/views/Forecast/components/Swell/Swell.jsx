@@ -1,22 +1,22 @@
 import PropTypes from 'prop-types';
 // Components
-import LineChart from './Charts/LineChart';
-import { Loading } from '../../../components/Loading';
-import { FetchError } from '../../../components/FetchError';
+import { LineChart } from '../LineChart';
+import { Loading } from '../../../../components/Loading';
+import { FetchError } from '../../../../components/FetchError';
 // Helpers
-import { useFetch } from '../../../hooks/useFetch';
+import { useFetch } from '../../../../hooks/useFetch';
 import {
   convertRoundNumber,
   convertMetersToFeet,
   convertTimeString,
   convertDegToWindDir,
-} from '../../../helpers/conversions.helpers';
+} from '../../../../helpers/conversions.helpers';
 // Styles
-import { StyledGridItem, StyledGridItemBody, StyledSwellTag } from '../Forecast.styled';
-import { Flex, FlexCol } from '../../../styles/Utils.styled';
-import swellIcon from '../../../assets/swell.svg';
+import { StyledGridItem, StyledGridItemBody, StyledSwellTag } from '../../Forecast.styled';
+import { Flex, FlexCol } from '../../../../styles/Utils.styled';
+import swellIcon from '../../../../assets/swell.svg';
 
-const Swell = ({ spot }) => {
+export const Swell = ({ spot }) => {
   // fetch wave data
   const { response, loading, error } = useFetch(`http://localhost:9001/api/swell?lat=${spot.lat}&lon=${spot.lon}`);
 
@@ -107,5 +107,3 @@ SwellBody.propTypes = {
   currentSecSwellDirection: PropTypes.number.isRequired,
   currentSecSwellPeriod: PropTypes.number.isRequired,
 };
-
-export default Swell;

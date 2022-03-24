@@ -1,18 +1,18 @@
 import PropTypes from 'prop-types';
 
 // Components
-import BarChart from './Charts/BarChart';
-import { Loading } from '../../../components/Loading';
-import { FetchError } from '../../../components/FetchError';
+import { BarChart } from '../BarChart';
+import { Loading } from '../../../../components/Loading';
+import { FetchError } from '../../../../components/FetchError';
 // Helpers
-import { convertTimeString, convertRoundNumber } from '../../../helpers/conversions.helpers';
-import { useFetch } from '../../../hooks/useFetch';
+import { convertTimeString, convertRoundNumber } from '../../../../helpers/conversions.helpers';
+import { useFetch } from '../../../../hooks/useFetch';
 // Styles
-import { StyledGridItem, StyledGridItemBody } from '../Forecast.styled';
-import { Flex } from '../../../styles/Utils.styled';
-import windIcon from '../../../assets/wind.svg';
+import { StyledGridItem, StyledGridItemBody } from '../../Forecast.styled';
+import { Flex } from '../../../../styles/Utils.styled';
+import windIcon from '../../../../assets/wind.svg';
 
-const Wind = ({ spot }) => {
+export const Wind = ({ spot }) => {
   // fetch weather data
   const { response, loading, error } = useFetch(`http://localhost:9001/api/wind?stationId=${spot.station_id}`);
 
@@ -73,5 +73,3 @@ WindBody.propTypes = {
   windTimes: PropTypes.arrayOf(PropTypes.string).isRequired,
   windSpeeds: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
-
-export default Wind;

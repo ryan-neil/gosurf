@@ -1,18 +1,18 @@
 import PropTypes from 'prop-types';
 // Components
-import { Loading } from '../../../components/Loading';
-import { FetchError } from '../../../components/FetchError';
-import BarChart from './Charts/BarChart';
+import { Loading } from '../../../../components/Loading';
+import { FetchError } from '../../../../components/FetchError';
+import { BarChart } from '../BarChart';
 // Helpers
-import { convertRoundNumber, convertMetersToFeet, convertTimeString } from '../../../helpers/conversions.helpers';
-import { calcBodySize } from '../../../helpers/calculations.helpers';
-import { useFetch } from '../../../hooks/useFetch';
+import { convertRoundNumber, convertMetersToFeet, convertTimeString } from '../../../../helpers/conversions.helpers';
+import { calcBodySize } from '../../../../helpers/calculations.helpers';
+import { useFetch } from '../../../../hooks/useFetch';
 // Styles
-import { StyledGridItem, StyledGridItemBody } from '../Forecast.styled';
-import { Flex } from '../../../styles/Utils.styled';
-import waveIcon from '../../../assets/wave.svg';
+import { StyledGridItem, StyledGridItemBody } from '../../Forecast.styled';
+import { Flex } from '../../../../styles/Utils.styled';
+import waveIcon from '../../../../assets/wave.svg';
 
-const Wave = ({ spot }) => {
+export const Wave = ({ spot }) => {
   // fetch wave data
   const { response, loading, error } = useFetch(`http://localhost:9001/api/wave?lat=${spot.lat}&lon=${spot.lon}`);
 
@@ -40,6 +40,7 @@ const Wave = ({ spot }) => {
   );
 };
 
+// Wave Header component
 const WaveHeader = () => {
   return (
     <Flex gapSm>
@@ -49,7 +50,9 @@ const WaveHeader = () => {
   );
 };
 
+// Wave Body component
 const WaveBody = ({ minWaveHeight, maxWaveHeight, waveTimes, waveHeights }) => {
+  // if min and max wave heights are the same only render the max number
   const getWaveHeight =
     minWaveHeight === maxWaveHeight ? `${maxWaveHeight} ft` : `${minWaveHeight}-${maxWaveHeight} ft`;
 
@@ -67,7 +70,9 @@ const WaveBody = ({ minWaveHeight, maxWaveHeight, waveTimes, waveHeights }) => {
 
 // prop types
 Wave.propTypes = {
-  spot: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object])).isRequired,
+  spot: PropTypes.objectOf(
+    PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object, PropTypes.objectOf(PropTypes.array)])
+  ).isRequired,
 };
 WaveBody.propTypes = {
   minWaveHeight: PropTypes.number.isRequired,
@@ -75,5 +80,3 @@ WaveBody.propTypes = {
   waveTimes: PropTypes.arrayOf(PropTypes.string),
   waveHeights: PropTypes.arrayOf(PropTypes.number),
 };
-
-export default Wave;

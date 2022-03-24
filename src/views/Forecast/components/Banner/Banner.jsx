@@ -52,7 +52,7 @@ export const Banner = ({ spot }) => {
             </Flex>
           </StyledBannerItem>
           <StyledBannerItem>
-            <h4>Ideal Conditions</h4>
+            <h3>Ideal Conditions</h3>
             <Flex spaceBetween gapSm>
               <p>Height:</p>
               <p className="ideal-cond">{spot.ideal_conditions.surf_height}</p>

@@ -4,10 +4,10 @@ import { useSpotsContextAPI } from '../../context/SpotsContext';
 // Components
 import { Heading } from './components/Heading';
 import { Banner } from './components/Banner';
-import Wave from './components/Wave';
-import Tides from './components/Tides';
-import Wind from './components/Wind';
-import Swell from './components/Swell';
+import { Wave } from './components/Wave/Wave';
+import { Tides } from './components/Tides/Tides';
+import { Wind } from './components/Wind/Wind';
+import { Swell } from './components/Swell/Swell';
 import { Loading } from '../../components/Loading';
 import { FetchError } from '../../components/FetchError';
 import { SpotError } from '../../components/SpotError';

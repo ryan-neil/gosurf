@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS } from 'chart.js/auto'; // eslint-disable-line no-unused-vars
 // Styles
-import { StyledChartContainer, StyledChartHeading, StyledChart } from './Charts.styled';
+import { StyledChartContainer, StyledChartHeading, StyledChart } from './LineChart.styled';
 
-const LineChart = ({ heading, xAxis, yAxis, yAxisSec }) => {
+export const LineChart = ({ heading, xAxis, yAxis, yAxisSec }) => {
   // get chart global styles for chart styling
   const style = getComputedStyle(document.body);
   const primaryBG = style.getPropertyValue('--primaryBG');
@@ -113,5 +113,3 @@ LineChart.propTypes = {
   yAxis: PropTypes.arrayOf(PropTypes.number).isRequired,
   yAxisSec: PropTypes.arrayOf(PropTypes.number),
 };
-
-export default LineChart;

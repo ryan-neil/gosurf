@@ -4,10 +4,10 @@ import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS } from 'chart.js/auto'; // eslint-disable-line no-unused-vars
 import ChartDataLabels from 'chartjs-plugin-datalabels'; // Chart.js datalabels plugin
 // Styles
-import { StyledChartContainer, StyledChartHeading, StyledChart } from './Charts.styled';
+import { StyledChartContainer, StyledChartHeading, StyledChart } from './BarChart.styled';
 
-const BarChart = ({ heading, xAxis, yAxis }) => {
-  // get chart global styles for chart styling
+export const BarChart = ({ heading, xAxis, yAxis }) => {
+  // global chart styles for chart styling
   const style = getComputedStyle(document.body);
   const chartBar = style.getPropertyValue('--chartBar');
   const chartBarBorder = style.getPropertyValue('--chartBarBorder');
@@ -87,5 +87,3 @@ BarChart.propTypes = {
   xAxis: PropTypes.arrayOf(PropTypes.string).isRequired,
   yAxis: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
-
-export default BarChart;
