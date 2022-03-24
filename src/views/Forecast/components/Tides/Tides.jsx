@@ -50,7 +50,7 @@ const TidesHeader = () => {
 // tides body render component
 const TidesBody = ({ tidesTimes, tidesHeights, todaysTides }) => {
   // loop through current tide data and render the information
-  const TideItem = todaysTides.map((tide, idx) => (
+  const tideItem = todaysTides.map((tide, idx) => (
     <Flex gapMd spaceBetween key={idx}>
       {tide.type === 'H' ? <p>High:</p> : <p>Low:</p>}
       <p>{convertTimeString(tide.t, { timeStyle: 'short' })}</p>
@@ -60,15 +60,17 @@ const TidesBody = ({ tidesTimes, tidesHeights, todaysTides }) => {
 
   return (
     <>
-      <StyledGridItemBody tide>{TideItem}</StyledGridItemBody>
-      <LineChart heading="Tides" xAxis={tidesTimes.slice(5, 21)} yAxis={tidesHeights.slice(5, 21)} />
+      <StyledGridItemBody tide>{tideItem}</StyledGridItemBody>
+      {/* <LineChart heading="Tides" xAxis={tidesTimes.slice(5, 21)} yAxis={tidesHeights.slice(5, 21)} /> */}
     </>
   );
 };
 
 // prop types
 Tides.propTypes = {
-  spot: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object])).isRequired,
+  spot: PropTypes.objectOf(
+    PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object, PropTypes.objectOf(PropTypes.array)])
+  ).isRequired,
 };
 TidesBody.propTypes = {
   tidesTimes: PropTypes.arrayOf(PropTypes.string).isRequired,

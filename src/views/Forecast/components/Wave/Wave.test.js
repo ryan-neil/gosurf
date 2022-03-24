@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+
 import { Chart as ChartJS } from 'chart.js/auto'; // eslint-disable-line no-unused-vars
 
 import { render, screen } from '@testing-library/react';
@@ -42,14 +44,12 @@ beforeEach(() =>
 
 describe('Wave', () => {
   it('Should render minimum and maximum wave height range', async () => {
-    const waveHeightsElement = await screen.findByText(/6-7/i);
+    const waveHeightsElement = await screen.findByText(/8-9/i);
     expect(waveHeightsElement).toBeInTheDocument();
   });
 
   it('Should render body sizing text', async () => {
-    const bodyHeightsElement = await screen.findByText(
-      /Head high to overhead/i
-    );
+    const bodyHeightsElement = await screen.findByText(/Double overhead to triple overhead/i);
     expect(bodyHeightsElement).toBeInTheDocument();
   });
 });

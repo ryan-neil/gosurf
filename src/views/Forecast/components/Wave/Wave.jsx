@@ -63,7 +63,7 @@ const WaveBody = ({ minWaveHeight, maxWaveHeight, waveTimes, waveHeights }) => {
         <p className="primary-data">{getWaveHeight}</p>
         {calcBodySize(minWaveHeight, maxWaveHeight)}
       </StyledGridItemBody>
-      <BarChart heading="Wave Height" xAxis={waveTimes.slice(5, 21)} yAxis={waveHeights.slice(5, 21)} />
+      {/* <BarChart heading="Wave Height" xAxis={waveTimes.slice(5, 21)} yAxis={waveHeights.slice(5, 21)} /> */}
     </>
   );
 };
