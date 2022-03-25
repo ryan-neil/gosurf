@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Search } from '@styled-icons/material';
+import { Search } from '@styled-icons/feather';
 
 // Search Icon
 export const SearchIcon = styled(Search)`

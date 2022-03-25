@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { PersonOutline } from '@styled-icons/material-outlined';
+import { User } from '@styled-icons/feather';
 
-export const ProfileIcon = styled(PersonOutline)`
+export const ProfileIcon = styled(User)`
   color: ${({ theme }) => theme.colors.white};
   width: 1.8rem;
   height: 1.8rem;

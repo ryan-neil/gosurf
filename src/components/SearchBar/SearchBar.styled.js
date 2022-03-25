@@ -1,9 +1,20 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Search } from '@styled-icons/feather';
 
 export const StyledSearchBar = styled.div`
   display: flex;
   align-items: flex-start;
+
+  /* Responsive Queries */
+  @media (max-width: ${({ theme }) => theme.mobile.width}) {
+    display: none;
+    /* Props */
+    ${({ mobile }) =>
+      mobile &&
+      css`
+        display: block;
+      `}
+  }
 `;
 
 export const StyledInputContainer = styled.div`
@@ -31,6 +42,16 @@ export const StyledInputContainer = styled.div`
       color: ${({ theme }) => theme.colors.paragraphLight};
     }
   }
+  /* Props */
+  ${({ error }) =>
+    error &&
+    css`
+      outline: 1px solid ${({ theme }) => theme.colors.danger};
+      padding-left: 0 1rem;
+      input::placeholder {
+        color: ${({ theme }) => theme.colors.danger};
+      }
+    `}
 `;
 
 export const SearchBarIcon = styled(Search)`

@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 // Context API
 import { useSpotsContextAPI } from '../../context/SpotsContext';
+// Components
+import { Loading } from '../Loading';
 // Styles
 import { StyledSearchBar, SearchBarIcon, StyledInputContainer, StyledInputResults } from './SearchBar.styled';
 
-export const SearchBar = () => {
+export const SearchBar = ({ mobile }) => {
   const [inputValue, setInputValue] = useState('');
   const [searchText, setSearchText] = useState('');
   const [searchResults, setSearchResults] = useState([]);
@@ -14,8 +16,16 @@ export const SearchBar = () => {
   const { response, loading, error } = useSpotsContextAPI();
 
   // wait for response to be returned
-  if (loading) return <p>Loading data...</p>;
-  if (error) return <p>Error fetching data.</p>;
+  if (loading) return <Loading />;
+  if (error) {
+    return (
+      <StyledSearchBar mobile={mobile}>
+        <StyledInputContainer error>
+          <input type="text" placeholder="Error fetching data" disabled />
+        </StyledInputContainer>
+      </StyledSearchBar>
+    );
+  }
 
   // handle user search
   const handleChange = (e) => {
@@ -45,7 +55,7 @@ export const SearchBar = () => {
   );
 
   return (
-    <StyledSearchBar>
+    <StyledSearchBar mobile={mobile}>
       <StyledInputContainer>
         <SearchBarIcon />
         <input type="text" placeholder="Search spot..." value={inputValue} onChange={handleChange} />

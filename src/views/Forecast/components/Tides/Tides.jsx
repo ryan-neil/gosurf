@@ -61,7 +61,7 @@ const TidesBody = ({ tidesTimes, tidesHeights, todaysTides }) => {
   return (
     <>
       <StyledGridItemBody tide>{tideItem}</StyledGridItemBody>
-      {/* <LineChart heading="Tides" xAxis={tidesTimes.slice(5, 21)} yAxis={tidesHeights.slice(5, 21)} /> */}
+      <LineChart heading="Tides" xAxis={tidesTimes.slice(5, 21)} yAxis={tidesHeights.slice(5, 21)} />
     </>
   );
 };

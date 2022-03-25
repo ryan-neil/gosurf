@@ -35,12 +35,12 @@ export const Swell = ({ spot }) => {
             currentSecSwellDirection={convertRoundNumber(response.secondarySwellDirection.current, 0)}
             currentSecSwellPeriod={convertRoundNumber(response.secondarySwellPeriod.current, 0)}
           />
-          {/* <LineChart
+          <LineChart
             heading="Swell"
             xAxis={response.times.map((hour) => convertTimeString(hour.slice(0, 19), { hour: 'numeric' })).slice(5, 21)}
             yAxis={response.primarySwellHeight.hourly.map((hour) => convertMetersToFeet(hour)).slice(5, 21)}
             yAxisSec={response.secondarySwellHeight.hourly.map((hour) => convertMetersToFeet(hour)).slice(5, 21)}
-          /> */}
+          />
         </>
       )}
     </StyledGridItem>

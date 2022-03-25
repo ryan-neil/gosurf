@@ -19,11 +19,6 @@ export const HeroContentStyled = styled.div`
   box-shadow: ${({ theme }) => theme.colors.boxShadow};
   background-color: ${({ theme }) => theme.colors.primaryBG};
 
-  /* Glassmorphism */
-  /* background-color: rgba(255, 255, 255, 0.2);
-	backdrop-filter: blur(30px);
-	border: 2px solid rgba(255, 255, 255, 0.1); */
-
   h1 {
     font-size: ${({ theme }) => theme.styles.textXl};
     margin-bottom: 1rem;

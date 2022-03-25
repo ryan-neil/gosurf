@@ -59,7 +59,7 @@ const WindBody = ({ currentWindData, windTimes, windSpeeds }) => {
         <p className="primary-data">{convertRoundNumber(currentWindData.s, 1)} kts</p>
         <p>{`'${currentWindData.dr}' (${convertRoundNumber(currentWindData.d, 1)}°)`}</p>
       </StyledGridItemBody>
-      {/* <BarChart heading="Wind" xAxis={windTimes} yAxis={windSpeeds} /> */}
+      <BarChart heading="Wind" xAxis={windTimes} yAxis={windSpeeds} />
     </>
   );
 };
