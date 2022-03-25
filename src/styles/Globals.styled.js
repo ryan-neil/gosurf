@@ -26,16 +26,17 @@ const GlobalsStyled = createGlobalStyle`
   body {
     height: 100%;
     font-family: 'Ubuntu', -apple-system, sans-serif;
-  }
-  body {
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
+
+		-webkit-font-smoothing: antialiased;
 		// scrollbar styles
 		-ms-overflow-style: none; // IE and Edge
   	scrollbar-width: none; // Firefox
-  &::-webkit-scrollbar {
-    display: none; // Chrome, Safari and Opera
+		&::-webkit-scrollbar {
+			display: none; // Chrome, Safari and Opera
+		}
   }
+  body {
+    line-height: 1.5;
   }
   img,
   picture,
