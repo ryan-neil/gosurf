@@ -26,6 +26,7 @@ export const StyledInputContainer = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.inputBorder};
   border-radius: ${({ theme }) => theme.styles.borderRadiusMd};
   box-shadow: ${({ theme }) => theme.colors.boxShadowInset};
+
   &:focus-within {
     outline: 2px solid ${({ theme }) => theme.colors.primary};
   }
@@ -47,7 +48,7 @@ export const StyledInputContainer = styled.div`
     error &&
     css`
       outline: 1px solid ${({ theme }) => theme.colors.danger};
-      padding-left: 0 1rem;
+      padding-left: 1rem;
       input::placeholder {
         color: ${({ theme }) => theme.colors.danger};
       }
@@ -72,6 +73,7 @@ export const StyledInputResults = styled.ul`
   background-color: ${({ theme }) => theme.colors.secondaryBG};
   border: 1px solid ${({ theme }) => theme.colors.inputBorder};
   border-radius: ${({ theme }) => theme.styles.borderRadiusMd};
+  box-shadow: ${({ theme }) => theme.colors.boxShadowMd};
   overflow: hidden;
   overflow-y: auto;
   // scrollbar styles

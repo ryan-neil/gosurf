@@ -21,8 +21,8 @@ export const About = () => {
       id: 2,
       icon: calendarIcon,
       heading: `Know when to go`,
-      paragraph: `Each surf spot has our “ideal” times for when you should be shredding. This
-				is based on each spots preferred conditions.`,
+      paragraph: `Each surf spot has our “ideal” conditions specific to that spot. This
+				is to help you understand your local spot and know when you should be shredding.`,
     },
     {
       id: 3,

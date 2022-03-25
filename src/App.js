@@ -9,6 +9,7 @@ import { StyledApp } from './styles/App.styled';
 import SpotsDataProvider from './context/SpotsContext';
 // Components
 import { Header } from './components/Header';
+import { Footer } from './components/Footer';
 // Views
 import { Home } from './views/Home';
 import { Forecast } from './views/Forecast';
@@ -28,6 +29,7 @@ const App = () => {
             <Route path="/forecast/:slug" element={<Forecast />} />
             <Route path="*" element={<Missing />} />
           </Routes>
+          <Footer />
         </SpotsDataProvider>
       </StyledApp>
     </ThemeProvider>

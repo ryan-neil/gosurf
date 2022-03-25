@@ -1,7 +1,7 @@
 // Styles
 import styled from 'styled-components';
 
-export const StyledHeading = styled.div`
+export const StyledHeading = styled.section`
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -10,7 +10,7 @@ export const StyledBanner = styled.section`
   background-color: ${({ theme }) => theme.colors.secondaryBG};
   box-shadow: ${({ theme }) => theme.colors.boxShadow};
   border-radius: ${({ theme }) => theme.styles.borderRadiusMd};
-  overflow-x: scroll;
+  overflow-x: auto;
   // scrollbar-width: none; // hide scrollbar on firefox
 
   display: flex;

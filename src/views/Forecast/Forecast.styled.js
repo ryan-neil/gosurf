@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 export const StyledForecast = styled.main`
   width: 100%;
   height: auto;
-  padding-bottom: 1rem;
+  padding-bottom: 3rem;
 `;
 
 export const StyledHeaderBackground = styled.div`
@@ -15,7 +15,7 @@ export const StyledHeaderBackground = styled.div`
   z-index: -1;
 `;
 
-export const StyledGridContainer = styled.div`
+export const StyledGridContainer = styled.section`
   margin-top: 1rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);

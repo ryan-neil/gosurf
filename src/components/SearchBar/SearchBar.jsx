@@ -65,6 +65,11 @@ export const SearchBar = ({ mobile }) => {
   );
 };
 
+// prop types
+SearchBar.propTypes = {
+  mobile: PropTypes.bool,
+};
+
 // InputResult component
 const InputResult = ({ spot, handleClick }) => {
   return (

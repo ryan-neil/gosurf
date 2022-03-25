@@ -3,13 +3,8 @@ import styled from 'styled-components';
 export const AboutContainerStyled = styled.div`
   background-color: ${({ theme }) => theme.colors.primaryBG};
   margin-top: 12rem;
-  padding: 3rem 0;
+  padding: 4rem 0;
   width: 100%;
-  /* Image overlay */
-  background-image: ${({ theme }) => theme.styles.aboutImage};
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
 `;
 
 export const CardContainerStyled = styled.div`
