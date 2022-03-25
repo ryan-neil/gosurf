@@ -14,6 +14,12 @@ Check out the GoSurf [Backend Repo](https://github.com/ryan-neil/gosurf-backend)
 
 <br>
 
+<p align="center">
+  <img src="assets/gosurf-demo.gif" width="550">
+</p>
+
+<br>
+
 # 🚀 Features
 
 - 🤙🏻 **Ease of use**: GoSurf is for the casual shredder who doesn't care about the extra "noise" of modern surf forecasting sites
