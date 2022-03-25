@@ -14,8 +14,8 @@ Check out the GoSurf [Backend Repo](https://github.com/ryan-neil/gosurf-backend)
 
 <br>
 
-<p align="center">
-  <img src="assets/gosurf-demo.gif" width="550">
+<p align="left">
+  <img src="assets/gosurf-demo.gif" width="675">
 </p>
 
 <br>
