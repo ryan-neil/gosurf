@@ -1,11 +1,11 @@
-[build]
-	command = "npm run build"
-	functions = "functions"
-	node_bundler = "esbuild"
-	publish = "build"
+# [build]
+# 	command = "npm run build"
+# 	functions = "functions"
+# 	node_bundler = "esbuild"
+# 	publish = "build"
 
-[dev]
-	command = "npm run start"
-	functions = "functions"
-	node_bundler = "esbuild"
-	publish = "client"
+# [dev]
+# 	command = "npm run start"
+# 	functions = "functions"
+# 	node_bundler = "esbuild"
+# 	publish = "client"
