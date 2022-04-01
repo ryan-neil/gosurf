@@ -1,0 +1,62 @@
+const dotenv = require('dotenv').config();
+const express = require('express');
+const cors = require('cors');
+const path = require('path');
+// database
+const connectDB = require('./db/connectDB');
+// routes
+const spotsRouter = require('./routes/spotsRoute');
+const weatherRouter = require('./routes/weatherRoute');
+const waveRouter = require('./routes/waveRoute');
+const tidesRouter = require('./routes/tidesRoute');
+const windRouter = require('./routes/windRoute');
+const swellRouter = require('./routes/swellRoute');
+// configuration files
+const corConfig = require('./config/corsConfig');
+const envConfig = require('./config/envConfig');
+// middleware
+const errorHandler = require('./middleware/errorHandler');
+
+const app = express();
+
+// allow request from frontend
+app.use(cors(corConfig));
+// handle parsing json
+app.use(express.json());
+
+// serve routes
+app.get('/', (req, res) => res.send('Hello from the inside...')); // *REMOVE* for prod
+app.use('/api/spots', spotsRouter);
+app.use('/api/weather', weatherRouter);
+app.use('/api/wave', waveRouter);
+app.use('/api/tides', tidesRouter);
+app.use('/api/wind', windRouter);
+app.use('/api/swell', swellRouter);
+
+// serve frontend
+if (envConfig.NODE_ENV === 'production') {
+  // set static folder (react build folder)
+  app.use(express.static(path.join(__dirname, '../client/build')));
+  // route to the index.html file inside the react build folder
+  app.get('*', (req, res) =>
+    res.sendFile(path.resolve(__dirname, '../', 'client', 'build', 'index.html'))
+  );
+}
+
+// error handling
+app.use(errorHandler);
+
+// DJ, spin that sh*t...
+const start = async () => {
+  try {
+    await connectDB(envConfig.DATABASE);
+    app.listen(envConfig.PORT || 9001, () => {
+      console.log(
+        `Database successfully connected. Server is running on: http://localhost:${envConfig.PORT}`
+      );
+    });
+  } catch (err) {
+    console.log(err.message);
+  }
+};
+start();
