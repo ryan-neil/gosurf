@@ -9,7 +9,11 @@
     "chartjs",
     "styled-component",
     "react-testing-library",
-    "jest"
+    "jest",
+    "node",
+    "express",
+    "mongodb",
+    "mongoose"
   ],
   "bugs": {
     "url": "https://github.com/ryan-neil/gosurf/issues"

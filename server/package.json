@@ -15,7 +15,8 @@
     "mongoose"
   ],
   "scripts": {
-    "server": "nodemon src/server"
+    "start": "node src/server",
+    "dev": "nodemon src/server"
   },
   "dependencies": {
     "cors": "^2.8.5",
