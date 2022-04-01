@@ -3,6 +3,7 @@ import { Sun, Moon } from '@styled-icons/feather';
 
 // Sun Icon
 export const StyledSunIcon = styled(Sun)`
+  stroke-width: 2px;
   color: ${({ theme }) => theme.colors.white};
   width: 1.8rem;
   height: 1.8rem;

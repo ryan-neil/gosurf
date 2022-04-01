@@ -57,15 +57,13 @@ const LightTheme = {
     borderRadiusSm: '0.25rem',
     borderRadiusMd: '0.35rem',
     heroImage: `url('./images/encinitas.webp')`,
-    // heroImage: `url('./images/boards.webp')`,
-    aboutImage: `url('./images/topo-light.svg')`,
+    footerImage: `url('./images/topo-light.svg')`,
   },
   web: {
     width: '1280px',
   },
   mobile: {
     width: '718px', // split screen
-    // width: '720px',
   },
 };
 
@@ -123,16 +121,14 @@ const DarkTheme = {
     transition: 'ease .2s',
     borderRadiusSm: '0.25rem',
     borderRadiusMd: '0.35rem',
-    // heroImage: `url('./images/encinitas.webp')`,
     heroImage: `url('./images/boards.webp')`,
-    aboutImage: `url('./images/topo-dark.svg')`,
+    footerImage: `url('./images/topo-dark.svg')`,
   },
   web: {
     width: '1280px',
   },
   mobile: {
     width: '718px', // split screen
-    // width: '720px',
   },
 };
 

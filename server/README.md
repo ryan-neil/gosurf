@@ -1,6 +1,6 @@
 # ⚙️ App Configuration
 
-This is the GoSurf.io backend repo.
+This is the GoSurf.io backend server.
 
 ### Table of Contents
 
@@ -371,6 +371,7 @@ fetch(
 
 ### Resources
 
+- [Create React App on Netlify](https://docs.netlify.com/configure-builds/common-configurations/create-react-app/)
 - [Functions overview](https://docs.netlify.com/functions/overview/): Netlify Docs
 - [Example Hello World Netlify Lambda Functions App](https://github.com/netlify/example-hello-world-functions): Github
 - [How to Deploy Express.js on Netlify](https://www.youtube.com/watch?v=hQAu0YEIF0g&t=15s): Owen Conti Youtube

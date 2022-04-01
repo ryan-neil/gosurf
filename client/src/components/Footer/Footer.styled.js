@@ -12,6 +12,7 @@ export const StyledFooter = styled.footer`
 `;
 
 export const StyledGithubIcon = styled(Github)`
+  stroke-width: 2px;
   color: ${({ theme }) => theme.colors.heading};
   width: 1.8rem;
   height: 1.8rem;

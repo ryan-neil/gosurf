@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.js": "/static/js/main.9bf35925.chunk.js",
+    "main.js.map": "/static/js/main.9bf35925.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.ecc548bc.js",
+    "runtime-main.js.map": "/static/js/runtime-main.ecc548bc.js.map",
+    "static/js/2.025d4d7b.chunk.js": "/static/js/2.025d4d7b.chunk.js",
+    "static/js/2.025d4d7b.chunk.js.map": "/static/js/2.025d4d7b.chunk.js.map",
+    "index.html": "/index.html",
+    "static/js/2.025d4d7b.chunk.js.LICENSE.txt": "/static/js/2.025d4d7b.chunk.js.LICENSE.txt",
+    "static/media/calendar.f6781459.svg": "/static/media/calendar.f6781459.svg",
+    "static/media/camping.83afe9d6.svg": "/static/media/camping.83afe9d6.svg",
+    "static/media/car.7ae009f8.svg": "/static/media/car.7ae009f8.svg",
+    "static/media/swell.b7b5c32d.svg": "/static/media/swell.b7b5c32d.svg",
+    "static/media/tides.7891f5b3.svg": "/static/media/tides.7891f5b3.svg",
+    "static/media/wave.6ca26a48.svg": "/static/media/wave.6ca26a48.svg",
+    "static/media/wind.6f910320.svg": "/static/media/wind.6f910320.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ecc548bc.js",
+    "static/js/2.025d4d7b.chunk.js",
+    "static/js/main.9bf35925.chunk.js"
+  ]
+}

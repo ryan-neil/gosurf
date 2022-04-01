@@ -3,6 +3,7 @@ import { Search } from '@styled-icons/feather';
 
 // Search Icon
 export const SearchIcon = styled(Search)`
+  stroke-width: 2px;
   display: none;
   color: ${({ theme }) => theme.colors.white};
   width: 1.8rem;
