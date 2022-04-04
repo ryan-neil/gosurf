@@ -6,11 +6,13 @@
 
 <h1 align="center">Simplify checking the surf forecast</h1>
 
-GoSurf is a modern web application that aims to simplify checking the surf forecast for your local surf spot in a clean but simplistic UI/UX.
+GoSurf is a fullstack web application that aims to simplify checking the surf forecast for your local surf spot in a clean but simplistic UI/UX.
 
 The concept for GoSurf is based on the fact that modern day surf tracking sites and applications are extremely noisy, and difficult to understand.
 
-Check out the GoSurf [Backend Server](https://github.com/ryan-neil/gosurf/tree/main/server)!
+Want to know more about how it works? Have a look at the [GoSurf "Serverless" Backend](https://github.com/ryan-neil/gosurf/tree/main/server).
+
+This repository contains the GoSurf source code. This repo is a work in progress, so we appreciate your patience as we figure things out.
 
 <br>
 
@@ -34,7 +36,7 @@ Check out the GoSurf [Backend Server](https://github.com/ryan-neil/gosurf/tree/m
 
 # 🧑🏽‍💻 For Developers
 
-Interested in the application? Checkout our [App Configuration](https://github.com/ryan-neil/gosurf/tree/main/server#%EF%B8%8F-app-configuration) section of the GoSurf server directory and have a look under the hood. If we missed your favorite spot let us know! We're always looking to expand our forecasting reach.
+Interested in the application? Checkout our [App Configuration](https://github.com/ryan-neil/gosurf/tree/main/server#%EF%B8%8F-app-configuration) section of the server directory and have a look under the hood. If we missed your favorite spot let us know! We're always looking to expand our forecasting reach.
 
 GoSurf is and always will be [Open Source](https://opensource.com/resources/what-open-source) and for the surfing community.
 

@@ -1,6 +1,6 @@
 # ⚙️ App Configuration
 
-This is the GoSurf.io backend server.
+This repository contains the GoSurf backend source code. This repo is a work in progress, so we appreciate your patience as we figure things out.
 
 ### Table of Contents
 
@@ -10,7 +10,6 @@ This is the GoSurf.io backend server.
 1. [🧐 What's Inside?](#-whats-inside)
 1. [🌊 Forecasting](#-forecasting)
 1. [🌱 API Configuration](#-api-configuration)
-1. [🌿 Netlify](#-netlify)
 1. [🖋️ Contributing](#%EF%B8%8F-contributing)
 
 # 📚 Whats on the Stack
@@ -19,17 +18,12 @@ This is the GoSurf.io backend server.
 - [x] Deploy: Connect frontend to backend
 - [x] Deploy: Integrate unit tests for main components
 - [x] Deploy: Add `Footer` component
-- [x] Deploy: Add gif of demo to main README
-- [ ] Deploy: Deploy to Netlify
+- [x] Deploy: Deploy to Netlify
 - [ ] Feat: Add mobile `Search` component (WeBull example)
 - [ ] Feat: Integrate [Highcharts](https://www.highcharts.com/products/highcharts/) instead of chartsjs
 - [ ] Feat: Add `node-cache` to backend server ([npm](https://www.npmjs.com/package/node-cache), [Link](https://www.youtube.com/watch?v=xZ_Rnh1UHTs))
 - [ ] Feat: Add `express-rate-limit` to backend server ([npm](https://www.npmjs.com/package/express-rate-limit), [Link](https://www.youtube.com/watch?v=mZ0O7gcS7Yk))
 - [ ] Feat: Integrate React Query for all API logic and management
-- [ ] Feat: Integrate Rapid API
-- [ ] Feat: Set up POST requests
-- [ ] Feat: Update MongoDB security
-- [ ] Feat: Get buoy data with `wget`
 - [ ] Feat: "Favorites" feature (`Favorites` page)
 
 [Back to Top](#table-of-contents)
@@ -38,6 +32,7 @@ This is the GoSurf.io backend server.
 
 # 🐛 Bug Report
 
+- [ ] Favicon not loading in
 - [ ] `Forecast` `Footer` component is not showing background topo image
 - [ ] When navigating back to Home page hero image doesn't show up until page refresh
 - [ ] Chartjs breaks conditions components unit tests ([StackOverflow issue](https://stackoverflow.com/questions/68146899/failing-test-in-react-by-using-chart-js))
@@ -101,18 +96,17 @@ npm run start
 
 # 🧐 What's Inside?
 
-(_outdated_)
-
 A quick look at the files and directories you'll see in the repo.
 
 ### Built with:
 
-- MongoDB
-- [Express](https://expressjs.com/): Backend things.
 - React.js
-  - [Chart.js](https://www.chartjs.org/): All application charts.
-  - [styled-components](https://styled-components.com/): All application styles.
+  - [Chart.js](https://www.chartjs.org/): All application charts
+  - [styled-components](https://styled-components.com/): All application styles
 - Node.js
+- [Express](https://expressjs.com/): Backend things
+- MongoDB: Database things
+- Netlify: Deployment and Serverless functions
 
 <br>
 
@@ -123,40 +117,29 @@ A quick look at the files and directories you'll see in the repo.
 │  └── github repo images
 ├── public
 ├── server
-│  └── spots api
+│  └── backend logic
 ├── src
 │  ├── assets
 │  │  └── app icons
 │  ├── components
-│  │  ├── styles
-│  │  │  └── component styles
-│  │  ├── Banner.jsx
-│  │  ├── Chart.jsx
-│  │  ├── FetchError.jsx
-│  │  ├── ForecastHeading.jsx
-│  │  ├── GridItemHeading.jsx
-│  │  ├── Header.jsx
-│  │  ├── Loading.jsx
-│  │  ├── SearchBar.jsx
-│  │  ├── Swell.jsx
-│  │  ├── SwellBody.jsx
-│  │  ├── Tides.jsx
-│  │  ├── TidesBody.jsx
-│  │  ├── Wave.jsx
-│  │  ├── WaveBody.jsx
-│  │  ├── Wind.jsx
-│  │  └── WindBody.jsx
+│  │  ├── ErrorBoundary
+│  │  ├── FetchError
+│  │  ├── Footer
+│  │  ├── Header
+│  │  ├── Loading
+│  │  ├── Logo
+│  │  ├── SearchBar
+│  │  └── Spot Error
 │  ├── context
 │  │  └── SpotsContext.js
 │  ├── helpers
-│  │  └── utils.js
+│  │  └── app helper functions
 │  ├── hooks
-│  │  ├── useFetch.js
-│  │  └── useLocalStorage.js
-│  ├── pages
-│  │  ├── Home.js
-│  │  ├── Forecast.js
-│  │  └── Missing.js
+│  │  └── app hooks
+│  ├── views
+│  │  ├── Home
+│  │  ├── Forecast
+│  │  └── 404
 │  ├── App.js
 │  └── index.js
 └── README.md
@@ -363,20 +346,6 @@ fetch(
 - Surfline Example Endpoints:
   - `http://api.surfline.com/v1/forecasts/4991?resources=surf&days=1&getAllSpots=false&units=e&interpolate=true&showOptimal=false`
   - `https://services.surfline.com/kbyg/spots/forecasts/wave?spotId=5842041f4e65fad6a7708dec&days=16&intervalHours=1&maxHeights=true`
-
-[Back to Top](#table-of-contents)
-
-<br>
-
-# 🌿 Netlify
-
-### Resources
-
-- [Create React App on Netlify](https://docs.netlify.com/configure-builds/common-configurations/create-react-app/)
-- [Functions overview](https://docs.netlify.com/functions/overview/): Netlify Docs
-- [Example Hello World Netlify Lambda Functions App](https://github.com/netlify/example-hello-world-functions): Github
-- [How to Deploy Express.js on Netlify](https://www.youtube.com/watch?v=hQAu0YEIF0g&t=15s): Owen Conti Youtube
-- [Using Netlify for FullStack Apps](https://blog.bitsrc.io/using-netlify-for-fullstack-apps-9d6a07968523): Medium
 
 [Back to Top](#table-of-contents)
 

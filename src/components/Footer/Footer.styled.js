@@ -4,11 +4,6 @@ import { Github } from '@styled-icons/feather';
 export const StyledFooter = styled.footer`
   background-color: ${({ theme }) => theme.colors.secondaryBG};
   padding: 4rem 0;
-  /* Image overlay */
-  background-image: ${({ theme }) => theme.styles.footerImage};
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
 `;
 
 export const StyledGithubIcon = styled(Github)`

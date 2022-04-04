@@ -57,7 +57,7 @@ const LightTheme = {
     borderRadiusSm: '0.25rem',
     borderRadiusMd: '0.35rem',
     heroImage: `url('./images/encinitas.webp')`,
-    footerImage: `url('./images/topo-light.svg')`,
+    aboutImage: `url('./images/topo-light.svg')`,
   },
   web: {
     width: '1280px',
@@ -122,7 +122,7 @@ const DarkTheme = {
     borderRadiusSm: '0.25rem',
     borderRadiusMd: '0.35rem',
     heroImage: `url('./images/boards.webp')`,
-    footerImage: `url('./images/topo-dark.svg')`,
+    aboutImage: `url('./images/topo-dark.svg')`,
   },
   web: {
     width: '1280px',

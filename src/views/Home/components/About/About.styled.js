@@ -5,6 +5,11 @@ export const AboutContainerStyled = styled.div`
   margin-top: 12rem;
   padding: 4rem 0;
   width: 100%;
+  /* Image overlay */
+  background-image: ${({ theme }) => theme.styles.aboutImage};
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 
 export const CardContainerStyled = styled.div`
