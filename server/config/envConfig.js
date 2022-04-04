@@ -11,7 +11,6 @@ const getEnvironmentVariable = (environmentVariable) => {
 
 // define the environment variables object
 const envConfig = {
-  NODE_ENV: getEnvironmentVariable('NODE_ENV'),
   PORT: getEnvironmentVariable('PORT'),
   DATABASE: getEnvironmentVariable('DATABASE'),
   API_KEY: getEnvironmentVariable('API_KEY'),

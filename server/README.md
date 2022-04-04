@@ -22,6 +22,7 @@ This is the GoSurf.io backend server.
 - [x] Deploy: Add gif of demo to main README
 - [ ] Deploy: Deploy to Netlify
 - [ ] Feat: Add mobile `Search` component (WeBull example)
+- [ ] Feat: Integrate [Highcharts](https://www.highcharts.com/products/highcharts/) instead of chartsjs
 - [ ] Feat: Add `node-cache` to backend server ([npm](https://www.npmjs.com/package/node-cache), [Link](https://www.youtube.com/watch?v=xZ_Rnh1UHTs))
 - [ ] Feat: Add `express-rate-limit` to backend server ([npm](https://www.npmjs.com/package/express-rate-limit), [Link](https://www.youtube.com/watch?v=mZ0O7gcS7Yk))
 - [ ] Feat: Integrate React Query for all API logic and management
