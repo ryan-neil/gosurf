@@ -5,8 +5,8 @@ const envConfig = require('./envConfig');
 // *REMOVE* development urls for prod
 const whitelist = [
   'https://www.gosurf.io', // production domain
-  `http://localhost:${envConfig.port}`, // development domain
-  'http://localhost:3000', // react domain
+  'https://gosurf-app.netlify.app/', // netlify domain
+  `http://localhost:${envConfig.SERVER_PORT}`, // development domain
 ];
 
 // define the Cross Origin Resource Sharing options
