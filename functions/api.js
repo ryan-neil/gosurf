@@ -27,12 +27,12 @@ app.use(express.json());
 connectDB(envConfig.DATABASE);
 
 // serve routes with netlify redirects
-app.use('/api/spots', spotsRouter);
-app.use('/api/weather', weatherRouter);
-app.use('/api/wave', waveRouter);
-app.use('/api/tides', tidesRouter);
-app.use('/api/wind', windRouter);
-app.use('/api/swell', swellRouter);
+app.use('/.netlify/functions/api/spots', spotsRouter);
+app.use('/.netlify/functions/api/weather', weatherRouter);
+app.use('/.netlify/functions/api/wave', waveRouter);
+app.use('/.netlify/functions/api/tides', tidesRouter);
+app.use('/.netlify/functions/api/wind', windRouter);
+app.use('/.netlify/functions/api/swell', swellRouter);
 
 // error handling
 app.use(errorHandler);

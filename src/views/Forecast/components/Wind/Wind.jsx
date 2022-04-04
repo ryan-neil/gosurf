@@ -14,7 +14,7 @@ import windIcon from '../../../../assets/wind.svg';
 
 export const Wind = ({ spot }) => {
   // fetch weather data
-  const { response, loading, error } = useFetch(`/api/wind?stationId=${spot.station_id}`);
+  const { response, loading, error } = useFetch(`/.netlify/functions/api/wind?stationId=${spot.station_id}`);
 
   // const currentWindDataData = response.current;
   // const windSpeeds = response.hourly.map((hour) => convertRoundNumber(hour.s));
