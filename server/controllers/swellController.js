@@ -27,17 +27,31 @@ const getSwellData = async (req, res) => {
 
     // set swell data
     const hourlyPrimarySwellDirection = data.hours.map((hour) => hour.swellDirection.noaa);
-    const currentPrimarySwellDirection = hourlyPrimarySwellDirection.filter((hour, idx) => idx === currentTime);
+    const currentPrimarySwellDirection = hourlyPrimarySwellDirection.filter(
+      (hour, idx) => idx === currentTime
+    );
     const hourlyPrimarySwellHeight = data.hours.map((hour) => hour.swellHeight.noaa);
-    const currentPrimarySwellHeight = hourlyPrimarySwellHeight.filter((hour, idx) => idx === currentTime);
+    const currentPrimarySwellHeight = hourlyPrimarySwellHeight.filter(
+      (hour, idx) => idx === currentTime
+    );
     const hourlyPrimarySwellPeriod = data.hours.map((hour) => hour.swellPeriod.noaa);
-    const currentPrimarySwellPeriod = hourlyPrimarySwellPeriod.filter((hour, idx) => idx === currentTime);
-    const hourlySecondarySwellDirection = data.hours.map((hour) => hour.secondarySwellDirection.noaa);
-    const currentSecondarySwellDirection = hourlySecondarySwellDirection.filter((hour, idx) => idx === currentTime);
+    const currentPrimarySwellPeriod = hourlyPrimarySwellPeriod.filter(
+      (hour, idx) => idx === currentTime
+    );
+    const hourlySecondarySwellDirection = data.hours.map(
+      (hour) => hour.secondarySwellDirection.noaa
+    );
+    const currentSecondarySwellDirection = hourlySecondarySwellDirection.filter(
+      (hour, idx) => idx === currentTime
+    );
     const hourlySecondarySwellHeight = data.hours.map((hour) => hour.secondarySwellHeight.noaa);
-    const currentSecondarySwellHeight = hourlySecondarySwellHeight.filter((hour, idx) => idx === currentTime);
+    const currentSecondarySwellHeight = hourlySecondarySwellHeight.filter(
+      (hour, idx) => idx === currentTime
+    );
     const hourlySecondarySwellPeriod = data.hours.map((hour) => hour.secondarySwellPeriod.noaa);
-    const currentSecondarySwellPeriod = hourlySecondarySwellPeriod.filter((hour, idx) => idx === currentTime);
+    const currentSecondarySwellPeriod = hourlySecondarySwellPeriod.filter(
+      (hour, idx) => idx === currentTime
+    );
 
     // create our data object
     const dataObject = {

@@ -29,7 +29,9 @@ export const Wind = ({ spot }) => {
           <WindHeader />
           <WindBody
             currentWindData={response.current}
-            windTimes={response.hourly.map((hour) => convertTimeString(hour.t, { hour: 'numeric' }))}
+            windTimes={response.hourly.map((hour) =>
+              convertTimeString(hour.t, { hour: 'numeric' })
+            )}
             windSpeeds={response.hourly.map((hour) => convertRoundNumber(hour.s))}
           />
         </>
@@ -64,7 +66,9 @@ const WindBody = ({ currentWindData, windTimes, windSpeeds }) => {
 
 // prop types
 Wind.propTypes = {
-  spot: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object])).isRequired,
+  spot: PropTypes.objectOf(
+    PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object])
+  ).isRequired,
 };
 WindBody.propTypes = {
   currentWindData: PropTypes.objectOf(PropTypes.string).isRequired,

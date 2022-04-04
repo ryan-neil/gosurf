@@ -24,7 +24,16 @@ export const convertDegToWindDir = (degrees) => {
   let windDegrees = degrees;
 
   // Define array of directions
-  const directions = ['North', 'Northeast', 'East', 'Southeast', 'South', 'Southwest', 'West', 'Northwest'];
+  const directions = [
+    'North',
+    'Northeast',
+    'East',
+    'Southeast',
+    'South',
+    'Southwest',
+    'West',
+    'Northwest',
+  ];
 
   // Split into the 8 directions
   windDegrees = (windDegrees * 8) / 360;

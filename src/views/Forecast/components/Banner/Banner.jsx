@@ -75,6 +75,11 @@ export const Banner = ({ spot }) => {
 // prop types
 Banner.propTypes = {
   spot: PropTypes.objectOf(
-    PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object, PropTypes.objectOf(PropTypes.array)])
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.object,
+      PropTypes.objectOf(PropTypes.array),
+    ])
   ).isRequired,
 };

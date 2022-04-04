@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 
 import { render, screen } from '@testing-library/react';
-import userEvents from '@testing-library/user-event';
+// import userEvents from '@testing-library/user-event';
 // theme styles
 import { ThemeProvider } from 'styled-components';
 import { themeMode } from '../../../../styles/Theme.styled';

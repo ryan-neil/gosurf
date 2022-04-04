@@ -6,7 +6,12 @@ import { useSpotsContextAPI } from '../../context/SpotsContext';
 // Components
 import { Loading } from '../Loading';
 // Styles
-import { StyledSearchBar, SearchBarIcon, StyledInputContainer, StyledInputResults } from './SearchBar.styled';
+import {
+  StyledSearchBar,
+  SearchBarIcon,
+  StyledInputContainer,
+  StyledInputResults,
+} from './SearchBar.styled';
 
 export const SearchBar = ({ mobile }) => {
   const [inputValue, setInputValue] = useState('');
@@ -32,7 +37,9 @@ export const SearchBar = ({ mobile }) => {
     setInputValue(e.target.value);
     setSearchText(e.target.value);
 
-    const filteredResults = response.filter((item) => item.name.toLowerCase().includes(searchText.trim()));
+    const filteredResults = response.filter((item) =>
+      item.name.toLowerCase().includes(searchText.trim())
+    );
 
     searchText === '' ? setSearchResults([]) : setSearchResults(filteredResults);
   };
@@ -58,7 +65,12 @@ export const SearchBar = ({ mobile }) => {
     <StyledSearchBar mobile={mobile}>
       <StyledInputContainer>
         <SearchBarIcon />
-        <input type="text" placeholder="Search spot..." value={inputValue} onChange={handleChange} />
+        <input
+          type="text"
+          placeholder="Search spot..."
+          value={inputValue}
+          onChange={handleChange}
+        />
       </StyledInputContainer>
       {handleResults}
     </StyledSearchBar>
@@ -82,6 +94,8 @@ const InputResult = ({ spot, handleClick }) => {
 };
 
 InputResult.propTypes = {
-  spot: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object])).isRequired,
+  spot: PropTypes.objectOf(
+    PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object])
+  ).isRequired,
   handleClick: PropTypes.func,
 };

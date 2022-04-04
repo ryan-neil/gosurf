@@ -29,17 +29,29 @@ export const Swell = ({ spot }) => {
           <SwellHeader />
           <SwellBody
             currentPrimSwellHeight={convertRoundNumber(response.primarySwellHeight.current, 1)}
-            currentPrimSwellDirection={convertRoundNumber(response.primarySwellDirection.current, 0)}
+            currentPrimSwellDirection={convertRoundNumber(
+              response.primarySwellDirection.current,
+              0
+            )}
             currentPrimSwellPeriod={convertRoundNumber(response.primarySwellPeriod.current, 0)}
             currentSecSwellHeight={convertRoundNumber(response.secondarySwellHeight.current, 1)}
-            currentSecSwellDirection={convertRoundNumber(response.secondarySwellDirection.current, 0)}
+            currentSecSwellDirection={convertRoundNumber(
+              response.secondarySwellDirection.current,
+              0
+            )}
             currentSecSwellPeriod={convertRoundNumber(response.secondarySwellPeriod.current, 0)}
           />
           <LineChart
             heading="Swell"
-            xAxis={response.times.map((hour) => convertTimeString(hour.slice(0, 19), { hour: 'numeric' })).slice(5, 21)}
-            yAxis={response.primarySwellHeight.hourly.map((hour) => convertMetersToFeet(hour)).slice(5, 21)}
-            yAxisSec={response.secondarySwellHeight.hourly.map((hour) => convertMetersToFeet(hour)).slice(5, 21)}
+            xAxis={response.times
+              .map((hour) => convertTimeString(hour.slice(0, 19), { hour: 'numeric' }))
+              .slice(5, 21)}
+            yAxis={response.primarySwellHeight.hourly
+              .map((hour) => convertMetersToFeet(hour))
+              .slice(5, 21)}
+            yAxisSec={response.secondarySwellHeight.hourly
+              .map((hour) => convertMetersToFeet(hour))
+              .slice(5, 21)}
           />
         </>
       )}
@@ -98,7 +110,12 @@ const SwellBody = ({
 // prop types
 Swell.propTypes = {
   spot: PropTypes.objectOf(
-    PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object, PropTypes.objectOf(PropTypes.array)])
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.object,
+      PropTypes.objectOf(PropTypes.array),
+    ])
   ).isRequired,
 };
 SwellBody.propTypes = {

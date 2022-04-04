@@ -4,7 +4,11 @@ import { Loading } from '../../../../components/Loading';
 import { FetchError } from '../../../../components/FetchError';
 import { BarChart } from '../BarChart';
 // Helpers
-import { convertRoundNumber, convertMetersToFeet, convertTimeString } from '../../../../helpers/conversions.helpers';
+import {
+  convertRoundNumber,
+  convertMetersToFeet,
+  convertTimeString,
+} from '../../../../helpers/conversions.helpers';
 import { calcBodySize } from '../../../../helpers/calculations.helpers';
 import { useFetch } from '../../../../hooks/useFetch';
 // Styles
@@ -29,8 +33,12 @@ export const Wave = ({ spot }) => {
         <>
           <WaveHeader />
           <WaveBody
-            waveTimes={response.times.map((hour) => convertTimeString(hour.slice(0, 19), { hour: 'numeric' }))}
-            waveHeights={response.waveHeight.hourly.map((hour) => convertRoundNumber(convertMetersToFeet(hour)))}
+            waveTimes={response.times.map((hour) =>
+              convertTimeString(hour.slice(0, 19), { hour: 'numeric' })
+            )}
+            waveHeights={response.waveHeight.hourly.map((hour) =>
+              convertRoundNumber(convertMetersToFeet(hour))
+            )}
             minWaveHeight={convertRoundNumber(convertMetersToFeet(response.waveHeight.min))}
             maxWaveHeight={convertRoundNumber(convertMetersToFeet(response.waveHeight.max))}
           />
@@ -54,7 +62,9 @@ const WaveHeader = () => {
 const WaveBody = ({ minWaveHeight, maxWaveHeight, waveTimes, waveHeights }) => {
   // if min and max wave heights are the same only render the max number
   const getWaveHeight =
-    minWaveHeight === maxWaveHeight ? `${maxWaveHeight} ft` : `${minWaveHeight}-${maxWaveHeight} ft`;
+    minWaveHeight === maxWaveHeight
+      ? `${maxWaveHeight} ft`
+      : `${minWaveHeight}-${maxWaveHeight} ft`;
 
   return (
     <>
@@ -63,7 +73,11 @@ const WaveBody = ({ minWaveHeight, maxWaveHeight, waveTimes, waveHeights }) => {
         <p className="primary-data">{getWaveHeight}</p>
         {calcBodySize(minWaveHeight, maxWaveHeight)}
       </StyledGridItemBody>
-      <BarChart heading="Wave Height" xAxis={waveTimes.slice(5, 21)} yAxis={waveHeights.slice(5, 21)} />
+      <BarChart
+        heading="Wave Height"
+        xAxis={waveTimes.slice(5, 21)}
+        yAxis={waveHeights.slice(5, 21)}
+      />
     </>
   );
 };
@@ -71,7 +85,12 @@ const WaveBody = ({ minWaveHeight, maxWaveHeight, waveTimes, waveHeights }) => {
 // prop types
 Wave.propTypes = {
   spot: PropTypes.objectOf(
-    PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object, PropTypes.objectOf(PropTypes.array)])
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.object,
+      PropTypes.objectOf(PropTypes.array),
+    ])
   ).isRequired,
 };
 WaveBody.propTypes = {

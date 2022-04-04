@@ -56,5 +56,7 @@ const AboutCard = ({ card }) => {
 };
 
 AboutCard.propTypes = {
-  card: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.symbol])).isRequired,
+  card: PropTypes.objectOf(
+    PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.symbol])
+  ).isRequired,
 };

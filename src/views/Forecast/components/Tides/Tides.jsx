@@ -27,7 +27,9 @@ export const Tides = ({ spot }) => {
         <>
           <TidesHeader />
           <TidesBody
-            tidesTimes={response.hourly.map((hour) => convertTimeString(hour.t, { hour: 'numeric' }))}
+            tidesTimes={response.hourly.map((hour) =>
+              convertTimeString(hour.t, { hour: 'numeric' })
+            )}
             tidesHeights={response.hourly.map((hour) => convertRoundNumber(hour.v, 2))}
             todaysTides={response.current}
           />
@@ -61,7 +63,11 @@ const TidesBody = ({ tidesTimes, tidesHeights, todaysTides }) => {
   return (
     <>
       <StyledGridItemBody tide>{tideItem}</StyledGridItemBody>
-      <LineChart heading="Tides" xAxis={tidesTimes.slice(5, 21)} yAxis={tidesHeights.slice(5, 21)} />
+      <LineChart
+        heading="Tides"
+        xAxis={tidesTimes.slice(5, 21)}
+        yAxis={tidesHeights.slice(5, 21)}
+      />
     </>
   );
 };
@@ -69,7 +75,12 @@ const TidesBody = ({ tidesTimes, tidesHeights, todaysTides }) => {
 // prop types
 Tides.propTypes = {
   spot: PropTypes.objectOf(
-    PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object, PropTypes.objectOf(PropTypes.array)])
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.object,
+      PropTypes.objectOf(PropTypes.array),
+    ])
   ).isRequired,
 };
 TidesBody.propTypes = {
