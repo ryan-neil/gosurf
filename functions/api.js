@@ -23,6 +23,9 @@ app.use(cors(corConfig));
 // handle parsing json
 app.use(express.json());
 
+// DJ, spin that sh*t...
+connectDB(envConfig.DATABASE);
+
 // serve routes with netlify redirects
 app.use('/api/spots', spotsRouter);
 app.use('/api/weather', weatherRouter);
@@ -33,15 +36,5 @@ app.use('/api/swell', swellRouter);
 
 // error handling
 app.use(errorHandler);
-
-// DJ, spin that sh*t...
-const start = async () => {
-  try {
-    await connectDB(envConfig.DATABASE);
-  } catch (err) {
-    console.log(err.message);
-  }
-};
-start();
 
 module.exports.handler = serverless(app);
