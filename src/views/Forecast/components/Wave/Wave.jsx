@@ -14,7 +14,7 @@ import waveIcon from '../../../../assets/wave.svg';
 
 export const Wave = ({ spot }) => {
   // fetch wave data
-  const { response, loading, error } = useFetch(`/.netlify/functions/api/wave?lat=${spot.lat}&lon=${spot.lon}`);
+  const { response, loading, error } = useFetch(`/api/wave?lat=${spot.lat}&lon=${spot.lon}`);
 
   // const waveTimes = response.times.map((wave) => convertTimeString(wave.slice(0, 19), { hour: 'numeric' }));
   // const waveHeights = response.waveHeight.hourly.map((wave) => convertRoundNumber(convertMetersToFeet(wave)));

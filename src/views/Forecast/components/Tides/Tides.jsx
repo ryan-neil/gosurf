@@ -13,7 +13,7 @@ import tidesIcon from '../../../../assets/tides.svg';
 
 export const Tides = ({ spot }) => {
   // fetch tides data
-  const { response, loading, error } = useFetch(`/.netlify/functions/api/tides?stationId=${spot.station_id}`);
+  const { response, loading, error } = useFetch(`/api/tides?stationId=${spot.station_id}`);
 
   // const todaysTides = response.current;
   // const tidesHeights = response.hourly.map((hour) => convertRoundNumber(hour.v, 2));

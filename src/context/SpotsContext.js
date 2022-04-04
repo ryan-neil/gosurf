@@ -6,7 +6,7 @@ export const SpotsContext = createContext({});
 
 const SpotsDataProvider = ({ children }) => {
   // fetch backend api (get all spots)
-  const { response, loading, error } = useFetch('/.netlify/functions/api/spots');
+  const { response, loading, error } = useFetch('/api/spots');
 
   // memoize the full spots context value
   const spots = useMemo(
