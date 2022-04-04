@@ -7,10 +7,10 @@
 	functions = "functions"
 
 # redirects to clean up our api urls
-# [[redirects]]
-# 	from = "/api/*" # the path we want to redirect
-# 	to = "/.netlify/functions/api/:splat" # the url or path we want to redirect to
-# 	status = 200
+[[redirects]]
+	from = "/api/*" # the path we want to redirect
+	to = "/.netlify/functions/api/:splat" # the url or path we want to redirect to
+	status = 200
 
 # redirects for react router
 [[redirects]]

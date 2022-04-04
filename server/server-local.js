@@ -39,8 +39,8 @@ app.use(errorHandler);
 const start = async () => {
   try {
     await connectDB(envConfig.DATABASE);
-    app.listen(envConfig.PORT || 9001, () => {
-      console.log(`Database successfully connected. Server is running on: http://localhost:${envConfig.PORT}`);
+    app.listen(envConfig.SERVER_PORT || 9001, () => {
+      console.log(`Database successfully connected. Server is running on: http://localhost:${envConfig.SERVER_PORT}`);
     });
   } catch (err) {
     console.log(err.message);

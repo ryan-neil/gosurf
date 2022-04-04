@@ -17,7 +17,7 @@ import { SearchBar } from './SearchBar';
 
 // mock fetch API
 const server = setupServer(
-  rest.get('http://localhost:9001/api/spots', (req, res, ctx) => {
+  rest.get('/api/spots', (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(spotsMockData));
   })
 );

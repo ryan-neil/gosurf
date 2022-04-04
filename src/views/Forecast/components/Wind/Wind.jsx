@@ -14,7 +14,7 @@ import windIcon from '../../../../assets/wind.svg';
 
 export const Wind = ({ spot }) => {
   // fetch weather data
-  const { response, loading, error } = useFetch(`http://localhost:9001/api/wind?stationId=${spot.station_id}`);
+  const { response, loading, error } = useFetch(`/api/wind?stationId=${spot.station_id}`);
 
   // if (!response) return null;
 

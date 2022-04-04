@@ -14,7 +14,7 @@ import { Wind } from './Wind';
 
 // mock fetch API
 const server = setupServer(
-  rest.get('http://localhost:9001/api/wind', (req, res, ctx) => {
+  rest.get('/api/wind', (req, res, ctx) => {
     // given "/api/weather?stationId=1617760"
     req.url.searchParams.get('stationId'); // "1617760"
 

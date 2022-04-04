@@ -14,7 +14,7 @@ export const Banner = ({ spot }) => {
   const { sunrise, sunset } = calcSunTimes(spot.lat, spot.lon);
 
   // fetch weather data
-  const { response, loading, error } = useFetch(`http://localhost:9001/api/weather?stationId=${spot.station_id}`);
+  const { response, loading, error } = useFetch(`/api/weather?stationId=${spot.station_id}`);
 
   return (
     <StyledBanner>

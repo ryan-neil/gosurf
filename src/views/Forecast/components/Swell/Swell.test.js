@@ -14,7 +14,7 @@ import { Swell } from './Swell';
 
 // mock fetch API
 const server = setupServer(
-  rest.get('http://localhost:9001/api/swell', (req, res, ctx) => {
+  rest.get('/api/swell', (req, res, ctx) => {
     // given "/api/wave?lat=19.7558&lon=-155.0908"
     req.url.searchParams.getAll('lat', 'lon'); // "1617760"
 

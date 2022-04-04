@@ -18,7 +18,7 @@ import swellIcon from '../../../../assets/swell.svg';
 
 export const Swell = ({ spot }) => {
   // fetch wave data
-  const { response, loading, error } = useFetch(`http://localhost:9001/api/swell?lat=${spot.lat}&lon=${spot.lon}`);
+  const { response, loading, error } = useFetch(`/api/swell?lat=${spot.lat}&lon=${spot.lon}`);
 
   return (
     <StyledGridItem>

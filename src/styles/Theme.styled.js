@@ -75,7 +75,7 @@ const DarkTheme = {
     primaryLight: 'rgba(25, 160, 246, 0.1)',
     secondary: '#1a2634',
     primaryBG: '#1b2635',
-    secondaryBG: '#233044',
+    secondaryBG: '#223044',
     headerBG: '#151E2B',
     heading: '#ffffff',
     paragraph: 'rgba(255, 255, 255, 0.7)',

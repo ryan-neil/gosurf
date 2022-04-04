@@ -19,6 +19,7 @@ export const StyledSunIcon = styled(Sun)`
 
 // Moon Icon
 export const StyledMoonIcon = styled(Moon)`
+  stroke-width: 2px;
   color: ${({ theme }) => theme.colors.white};
   width: 1.8rem;
   height: 1.8rem;
