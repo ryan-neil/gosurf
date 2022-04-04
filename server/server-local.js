@@ -24,7 +24,6 @@ app.use(cors(corConfig));
 app.use(express.json());
 
 // serve routes
-app.get('/', (req, res) => res.send('Hello from the inside...')); // *REMOVE* for prod
 app.use('/api/spots', spotsRouter);
 app.use('/api/weather', weatherRouter);
 app.use('/api/wave', waveRouter);

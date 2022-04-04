@@ -1,12 +1,6 @@
 // Spots API routes
 const express = require('express');
-const {
-  getAllSpots,
-  getSpot,
-  addAllSpots,
-  addSpot,
-  deleteAllSpots,
-} = require('../controllers/spotsController');
+const { getAllSpots, getSpot, addAllSpots, addSpot, deleteAllSpots } = require('../controllers/spotsController');
 
 const router = express.Router();
 

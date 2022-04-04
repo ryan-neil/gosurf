@@ -45,7 +45,7 @@ describe('SearchBar', () => {
     expect(searchInputElement.value).toBe('');
   });
 
-  it('Should be able to search', async () => {
+  it.skip('Should be able to search', async () => {
     const searchInputElement = await screen.findByRole('textbox');
     userEvent.type(searchInputElement, 'honls');
 
@@ -55,7 +55,7 @@ describe('SearchBar', () => {
 
 // SearchBar container testing
 describe('SearchBar results container', () => {
-  it('Should render six list items', async () => {
+  it.skip('Should render six list items', async () => {
     const loadingElement = await screen.findByText(/Loading data.../i);
     expect(loadingElement).toBeInTheDocument();
 
