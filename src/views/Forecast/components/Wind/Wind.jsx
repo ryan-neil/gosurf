@@ -16,8 +16,6 @@ export const Wind = ({ spot }) => {
   // fetch weather data
   const { response, loading, error } = useFetch(`/api/wind?stationId=${spot.station_id}`);
 
-  if (!response) return null;
-
   // const currentWindDataData = response.current;
   // const windSpeeds = response.hourly.map((hour) => convertRoundNumber(hour.s));
   // const windTimes = response.hourly.map((hour) => convertTimeString(hour.t, { hour: 'numeric' }));
