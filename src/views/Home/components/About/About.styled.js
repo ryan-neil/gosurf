@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const AboutContainerStyled = styled.div`
   background-color: ${({ theme }) => theme.colors.primaryBG};
-  margin-top: 12rem;
+  margin-top: 8rem;
   padding: 4rem 0;
   width: 100%;
   /* Image overlay */

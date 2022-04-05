@@ -6,6 +6,7 @@ export const StyledChartContainer = styled.div`
 
 export const StyledChartHeading = styled.p`
   font-size: ${({ theme }) => theme.styles.textXs};
+  margin-bottom: 2px;
 `;
 
 export const StyledChart = styled.div`

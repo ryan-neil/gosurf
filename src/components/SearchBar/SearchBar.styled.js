@@ -65,7 +65,7 @@ export const StyledInputResults = styled.ul`
   padding: 0;
   margin: 0;
   position: absolute;
-  margin-top: 42px;
+  margin-top: 2.8rem;
   width: auto;
   width: 225px;
   height: auto;
@@ -94,5 +94,10 @@ export const StyledInputResults = styled.ul`
       align-items: center;
       padding: 0 1rem;
     }
+  }
+
+  /* Responsive Queries */
+  @media (max-width: ${({ theme }) => theme.mobile.width}) {
+    margin-top: 0.25rem;
   }
 `;

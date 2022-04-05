@@ -2,6 +2,8 @@
 // { hour: 'numeric' } // 6 AM
 // { timeStyle: 'short' } // 6:00 AM
 export const convertTimeString = (time, options) => {
+  // convert date to be compliant with IETF RFC 2822 / ISO8601
+
   const date = new Date(time);
   return date.toLocaleString('en-US', options); // 6 AM
 };

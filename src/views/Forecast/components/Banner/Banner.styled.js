@@ -11,18 +11,18 @@ export const StyledBanner = styled.section`
   box-shadow: ${({ theme }) => theme.colors.boxShadow};
   border-radius: ${({ theme }) => theme.styles.borderRadiusMd};
   overflow-x: auto;
-  // scrollbar-width: none; // hide scrollbar on firefox
 
   display: flex;
   justify-content: space-between;
   align-items: flex-start; /* flex items take contents width */
-  gap: 1.5rem;
+  gap: 2rem;
 `;
 
 export const StyledBannerItem = styled.div`
+  flex-grow: 1;
   height: auto;
-  min-width: 200px;
-  width: auto;
+  width: max-content;
+  white-space: nowrap;
   h3 {
     padding-bottom: 0.25rem;
     margin-bottom: 0.5rem;
@@ -39,6 +39,7 @@ export const StyledBannerItem = styled.div`
     font-size: ${({ theme }) => theme.styles.textSm};
   }
   .ideal-cond {
+    width: max-content;
     align-self: flex-start; /* flex items take contents width */
     color: ${({ theme }) => theme.colors.success};
     background-color: ${({ theme }) => theme.colors.successLight};

@@ -11,8 +11,10 @@ export const BarChart = ({ heading, xAxis, yAxis }) => {
   const style = getComputedStyle(document.body);
   const chartBar = style.getPropertyValue('--chartBar');
   const chartBarBorder = style.getPropertyValue('--chartBarBorder');
+  const chartBarBorderWidth = style.getPropertyValue('--chartBarBorderWidth');
   const chartTicks = style.getPropertyValue('--chartTicks');
   const chartGrid = style.getPropertyValue('--chartGrid');
+  const chartFontSize = style.getPropertyValue('--chartFontSize');
 
   const data = {
     labels: xAxis,
@@ -21,7 +23,7 @@ export const BarChart = ({ heading, xAxis, yAxis }) => {
         label: heading === 'Wave Height' ? 'Wave Height' : 'Wind Speed',
         data: yAxis,
         // styles
-        borderWidth: 2,
+        borderWidth: chartBarBorderWidth,
         borderRadius: 2,
         borderColor: chartBarBorder,
         backgroundColor: chartBar,
@@ -31,7 +33,7 @@ export const BarChart = ({ heading, xAxis, yAxis }) => {
           align: 'top', // https://chartjs-plugin-datalabels.netlify.app/guide/positioning.html#alignment-and-offset
           offset: 4, // https://chartjs-plugin-datalabels.netlify.app/guide/positioning.html#alignment-and-offset
           color: chartTicks,
-          font: { size: 10 },
+          font: { size: chartFontSize },
         },
       },
     ],
@@ -46,7 +48,7 @@ export const BarChart = ({ heading, xAxis, yAxis }) => {
       xAxis: {
         ticks: {
           color: chartTicks, // tick font color
-          font: { size: 10 },
+          font: { size: chartFontSize },
         },
         grid: {
           display: false, // grid lines on xAxis
@@ -57,7 +59,7 @@ export const BarChart = ({ heading, xAxis, yAxis }) => {
       yAxis: {
         ticks: {
           color: chartTicks, // tick font color
-          font: { size: 10 },
+          font: { size: chartFontSize },
         },
         grid: {
           display: true, // grid lines on yAxis

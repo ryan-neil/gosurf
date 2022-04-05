@@ -5,6 +5,7 @@ import { StyledSunIcon, StyledMoonIcon } from './ThemeToggle.styled';
 export const ThemeToggle = ({ theme, setTheme }) => {
   // toggle theme status
   const handleClick = () => {
+    // window.location.reload(); // fixes homepage image but and chart colors bug (bad: causes more api calls)
     return theme === 'light' ? setTheme('dark') : setTheme('light');
   };
 

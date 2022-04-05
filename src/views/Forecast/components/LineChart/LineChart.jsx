@@ -11,10 +11,12 @@ export const LineChart = ({ heading, xAxis, yAxis, yAxisSec }) => {
   const primaryBG = style.getPropertyValue('--primaryBG');
   const chartBar = style.getPropertyValue('--chartBar');
   const chartBarBorder = style.getPropertyValue('--chartBarBorder');
+  const chartPointRadius = style.getPropertyValue('--chartPointRadius');
   const chartTicks = style.getPropertyValue('--chartTicks');
   const chartGrid = style.getPropertyValue('--chartGrid');
   const chartPrimSwellLine = style.getPropertyValue('--chartPrimSwellLine');
   const chartSecSwellLine = style.getPropertyValue('--chartSecSwellLine');
+  const chartFontSize = style.getPropertyValue('--chartFontSize');
 
   const data = {
     labels: xAxis,
@@ -25,12 +27,12 @@ export const LineChart = ({ heading, xAxis, yAxis, yAxisSec }) => {
         label: heading === 'Tides' ? 'Tides Height' : 'Swell Height',
         data: yAxis,
         // styles
-        fill: heading === 'Tides' || false,
+        // fill: heading === 'Tides' || false,
         tension: heading === 'Tides' ? 0.2 : 0,
         borderWidth: 1,
         borderRadius: 2,
         pointBorderWidth: 1.25,
-        pointRadius: 3.5,
+        pointRadius: chartPointRadius,
         // colors
         backgroundColor: chartBar,
         borderColor: heading === 'Tides' ? chartBarBorder : chartPrimSwellLine,
@@ -46,7 +48,7 @@ export const LineChart = ({ heading, xAxis, yAxis, yAxisSec }) => {
         borderWidth: 1,
         borderRadius: 2,
         pointBorderWidth: 1.25,
-        pointRadius: 3.5,
+        pointRadius: chartPointRadius,
         // colors
         borderColor: chartSecSwellLine,
         pointBackgroundColor: primaryBG,
@@ -68,9 +70,7 @@ export const LineChart = ({ heading, xAxis, yAxis, yAxisSec }) => {
       xAxis: {
         ticks: {
           color: chartTicks, // tick font color
-          font: {
-            size: 10, // default font size (12)
-          },
+          font: { size: chartFontSize },
         },
         grid: {
           display: false, // grid lines on xAxis
@@ -81,9 +81,7 @@ export const LineChart = ({ heading, xAxis, yAxis, yAxisSec }) => {
       yAxis: {
         ticks: {
           color: chartTicks, // tick font color
-          font: {
-            size: 10, // default font size (12)
-          },
+          font: { size: chartFontSize },
         },
         grid: {
           display: true, // grid lines on yAxis

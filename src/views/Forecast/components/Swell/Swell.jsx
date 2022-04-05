@@ -20,6 +20,8 @@ export const Swell = ({ spot }) => {
   // fetch wave data
   const { response, loading, error } = useFetch(`/api/swell?lat=${spot.lat}&lon=${spot.lon}`);
 
+  // if (response) console.log('Swell: ', response.times);
+
   return (
     <StyledGridItem>
       {loading && <Loading />}

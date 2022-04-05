@@ -45,6 +45,7 @@ const LightTheme = {
     chartSecSwellLine: 'rgba(255, 173, 66, 1)',
   },
   styles: {
+    textXxs: '6px',
     textXs: '11px',
     textSm: '14px',
     textReg: '16px',
@@ -110,6 +111,7 @@ const DarkTheme = {
     chartSecSwellLine: 'rgba(255, 173, 66, 1)',
   },
   styles: {
+    textXxs: '9px',
     textXs: '11px',
     textSm: '14px',
     textReg: '16px',

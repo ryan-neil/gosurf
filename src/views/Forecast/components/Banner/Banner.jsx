@@ -24,14 +24,14 @@ export const Banner = ({ spot }) => {
         <>
           <StyledBannerItem>
             <h3>Water Temperature</h3>
-            <Flex gapSm>
+            <Flex gapSm center>
               <StyledWaterIcon />
               <h4>{`${response.waterTemp}°F`}</h4>
             </Flex>
           </StyledBannerItem>
           <StyledBannerItem>
             <h3>Air Temperature</h3>
-            <Flex gapSm>
+            <Flex gapSm center>
               <StyledAirIcon />
               <h4>{`${response.airTemp}°F`}</h4>
             </Flex>
@@ -53,17 +53,21 @@ export const Banner = ({ spot }) => {
           </StyledBannerItem>
           <StyledBannerItem>
             <h3>Ideal Conditions</h3>
-            <Flex spaceBetween gapSm>
-              <p>Height:</p>
-              <p className="ideal-cond">{spot.ideal_conditions.surf_height}</p>
-              <p>Tide:</p>
-              <p className="ideal-cond">{spot.ideal_conditions.tide}</p>
+            <Flex gapSm>
+              <p>
+                Height: <span className="ideal-cond">{spot.ideal_conditions.surf_height}</span>
+              </p>
+              <p>
+                Tide: <span className="ideal-cond">{spot.ideal_conditions.tide}</span>
+              </p>
             </Flex>
-            <Flex spaceBetween gapSm>
-              <p>Wind:</p>
-              <p className="ideal-cond">'{spot.ideal_conditions.wind}'</p>
-              <p>Swell:</p>
-              <p className="ideal-cond">'{spot.ideal_conditions.swell_direction}'</p>
+            <Flex gapSm>
+              <p>
+                Wind: <span className="ideal-cond">{spot.ideal_conditions.wind}</span>
+              </p>
+              <p>
+                Swell: <span className="ideal-cond">{spot.ideal_conditions.swell_direction}</span>
+              </p>
             </Flex>
           </StyledBannerItem>
         </>

@@ -1,24 +1,9 @@
 {
   "name": "gosurf",
-  "version": "1.2.0",
-  "description": "Client for the GoSurf web application",
+  "private": true,
+  "version": "1.3.0",
+  "description": "The GoSurf web application",
   "author": "Ryan Neil",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ryan-neil/gosurf.git"
-  },
-  "keywords": [
-    "react",
-    "chartjs",
-    "styled-component",
-    "react-testing-library",
-    "jest",
-    "node",
-    "express",
-    "mongodb",
-    "mongoose"
-  ],
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -26,7 +11,10 @@
     "eject": "react-scripts eject",
     "lint": "eslint .",
     "lint-fix": "eslint --fix",
-    "server": "nodemon server/server-local"
+    "server": "nodemon server/server-local",
+    "start:dev": "netlify dev",
+    "build:dev": "netlify build",
+    "build:dev-dry": "netlify build --dry"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
@@ -81,5 +69,22 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ryan-neil/gosurf.git"
+  },
+  "keywords": [
+    "react",
+    "chartjs",
+    "styled-component",
+    "react-testing-library",
+    "jest",
+    "node",
+    "express",
+    "mongodb",
+    "mongoose"
+  ],
+  "homepage": ""
 }

@@ -13,6 +13,15 @@ const GlobalsStyled = createGlobalStyle`
 		--chartSecSwellLine: ${({ theme }) => theme.colors.chartSecSwellLine};
 		--chartTicks: ${({ theme }) => theme.colors.chartTicks};
 		--chartGrid: ${({ theme }) => theme.colors.chartGrid};
+		--chartBarBorderWidth: 2;
+		--chartPointRadius: 3.5;
+		--chartFontSize: 10;
+		/* Responsive styles */
+		@media (max-width: ${({ theme }) => theme.mobile.width}) {
+			--chartBarBorderWidth: 1;
+			--chartPointRadius: 2.5;
+			--chartFontSize: 8;
+  	}
 	}
   *,
   *::before,
@@ -26,6 +35,7 @@ const GlobalsStyled = createGlobalStyle`
   body {
     height: 100%;
     font-family: 'Ubuntu', -apple-system, sans-serif;
+		font-size: 16px;
 
 		-webkit-font-smoothing: antialiased;
 		// scrollbar styles

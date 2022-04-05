@@ -20,11 +20,12 @@ This repository contains the GoSurf backend source code. This repo is a work in 
 - [x] Deploy: Add `Footer` component
 - [x] Deploy: Deploy to Netlify
 - [ ] Feat: Add mobile `Search` component (WeBull example)
+- [ ] Feat: Integrate React Query for all API logic and management
 - [ ] Feat: Integrate [Highcharts](https://www.highcharts.com/products/highcharts/) instead of chartsjs
 - [ ] Feat: Add `node-cache` to backend server ([npm](https://www.npmjs.com/package/node-cache), [Link](https://www.youtube.com/watch?v=xZ_Rnh1UHTs))
 - [ ] Feat: Add `express-rate-limit` to backend server ([npm](https://www.npmjs.com/package/express-rate-limit), [Link](https://www.youtube.com/watch?v=mZ0O7gcS7Yk))
-- [ ] Feat: Integrate React Query for all API logic and management
-- [ ] Feat: "Favorites" feature (`Favorites` page)
+- [ ] Feat: "Favorites" feature (`Favorites`/`Dashboard` page)
+- [ ] Feat: Create account feature (authentication)
 
 [Back to Top](#table-of-contents)
 
@@ -32,11 +33,12 @@ This repository contains the GoSurf backend source code. This repo is a work in 
 
 # 🐛 Bug Report
 
-- [ ] Favicon not loading in
-- [ ] `Forecast` `Footer` component is not showing background topo image
-- [ ] When navigating back to Home page hero image doesn't show up until page refresh
-- [ ] Chartjs breaks conditions components unit tests ([StackOverflow issue](https://stackoverflow.com/questions/68146899/failing-test-in-react-by-using-chart-js))
-- [ ] `Wind` speed data is up to the hour, not 24 hour predictions
+- [ ] `Charts`: Fix invalid date for `Tides` and `Wind` components
+- [ ] `Home`: Remove `Header` `SearchBar`
+- [ ] `Home`: When navigating back to Home page hero image doesn't show up until page refresh
+- [ ] `Wind`: Speed data is up to the hour, not 24 hour predictions
+- [ ] `Banner`/`Wave`/`Tides`/`Wind`/`Swell`: Chartjs breaks unit tests ([StackOverflow issue](https://stackoverflow.com/questions/68146899/failing-test-in-react-by-using-chart-js))
+- [x] App: Favicon not loading in
 
 [Back to Top](#table-of-contents)
 
@@ -89,6 +91,10 @@ Start the app:
 ```bash
 npm run start
 ```
+
+## Run builds locally
+
+You can run builds in Netlify CLI to mimic the behavior of running a build on Netlify.
 
 [Back to Top](#table-of-contents)
 

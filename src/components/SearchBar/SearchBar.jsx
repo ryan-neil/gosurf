@@ -38,7 +38,7 @@ export const SearchBar = ({ mobile }) => {
     setSearchText(e.target.value);
 
     const filteredResults = response.filter((item) =>
-      item.name.toLowerCase().includes(searchText.trim())
+      item.name.toLowerCase().includes(searchText.toLowerCase().trim())
     );
 
     searchText === '' ? setSearchResults([]) : setSearchResults(filteredResults);

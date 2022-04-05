@@ -19,6 +19,11 @@ export const Tides = ({ spot }) => {
   // const tidesHeights = response.hourly.map((hour) => convertRoundNumber(hour.v, 2));
   // const tidesTimes = response.hourly.map((hour) => convertTimeString(hour.t, { hour: 'numeric' }));
 
+  // if (response) console.log('Tides: ', response.hourly);
+  // const date = new Date('2022-04-04 00:00');
+  // const isoDate = date.toISOString();
+  // console.log(isoDate.toLocaleString('en-US', { hour: 'numeric' }));
+
   return (
     <StyledGridItem>
       {loading && <Loading />}
@@ -26,12 +31,13 @@ export const Tides = ({ spot }) => {
       {response && (
         <>
           <TidesHeader />
-          <TidesBody
-            tidesTimes={response.hourly.map((hour) =>
-              convertTimeString(hour.t, { hour: 'numeric' })
-            )}
-            tidesHeights={response.hourly.map((hour) => convertRoundNumber(hour.v, 2))}
-            todaysTides={response.current}
+          <TidesBody todaysTides={response.current} />
+          <LineChart
+            heading="Tides"
+            xAxis={response.hourly
+              .map((hour) => convertTimeString(hour.t, { hour: 'numeric' }))
+              .slice(5, 21)}
+            yAxis={response.hourly.map((hour) => convertRoundNumber(hour.v, 2)).slice(5, 21)}
           />
         </>
       )}
@@ -50,25 +56,17 @@ const TidesHeader = () => {
 };
 
 // tides body render component
-const TidesBody = ({ tidesTimes, tidesHeights, todaysTides }) => {
-  // loop through current tide data and render the information
-  const tideItem = todaysTides.map((tide, idx) => (
-    <Flex gapMd spaceBetween key={idx}>
-      {tide.type === 'H' ? <p>High:</p> : <p>Low:</p>}
-      <p>{convertTimeString(tide.t, { timeStyle: 'short' })}</p>
-      <p>{convertRoundNumber(tide.v, 2)} ft</p>
-    </Flex>
-  ));
-
+const TidesBody = ({ todaysTides }) => {
   return (
-    <>
-      <StyledGridItemBody tide>{tideItem}</StyledGridItemBody>
-      <LineChart
-        heading="Tides"
-        xAxis={tidesTimes.slice(5, 21)}
-        yAxis={tidesHeights.slice(5, 21)}
-      />
-    </>
+    <StyledGridItemBody tide>
+      {todaysTides.map((tide, idx) => (
+        <Flex gapMd spaceBetween key={idx}>
+          {tide.type === 'H' ? <p>High:</p> : <p>Low:</p>}
+          <p>{convertTimeString(tide.t, { timeStyle: 'short' })}</p>
+          <p>{convertRoundNumber(tide.v, 2)} ft</p>
+        </Flex>
+      ))}
+    </StyledGridItemBody>
   );
 };
 
@@ -84,7 +82,5 @@ Tides.propTypes = {
   ).isRequired,
 };
 TidesBody.propTypes = {
-  tidesTimes: PropTypes.arrayOf(PropTypes.string).isRequired,
-  tidesHeights: PropTypes.arrayOf(PropTypes.number).isRequired,
   todaysTides: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)).isRequired,
 };
