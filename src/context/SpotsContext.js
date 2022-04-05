@@ -1,12 +1,17 @@
 import PropTypes from 'prop-types';
 import { createContext, useContext, useMemo } from 'react';
 import { useFetch } from '../hooks/useFetch';
+// dev mock data
+import mockSpots from '../mocks/spotsMockData.json';
 
 export const SpotsContext = createContext({});
 
 const SpotsDataProvider = ({ children }) => {
   // fetch backend api (get all spots)
-  const { response, loading, error } = useFetch('/api/spots');
+  // const { response, loading, error } = useFetch('/api/spots');
+  const response = mockSpots;
+  const loading = false;
+  const error = false;
 
   // memoize the full spots context value
   const spots = useMemo(

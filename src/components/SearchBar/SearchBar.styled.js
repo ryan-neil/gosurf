@@ -4,17 +4,6 @@ import { Search } from '@styled-icons/feather';
 export const StyledSearchBar = styled.div`
   display: flex;
   align-items: flex-start;
-
-  /* Responsive Queries */
-  @media (max-width: ${({ theme }) => theme.mobile.width}) {
-    display: none;
-    /* Props */
-    ${({ mobile }) =>
-      mobile &&
-      css`
-        display: block;
-      `}
-  }
 `;
 
 export const StyledInputContainer = styled.div`

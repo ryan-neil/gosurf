@@ -12,7 +12,7 @@ export const Hero = () => {
           Experience checking the surf without the noise and all the{' '}
           <span className="text-underline">enjoyment</span>.
         </h2>
-        <SearchBar mobile />
+        <SearchBar />
         <p>try "pipeline"</p>
       </HeroContentStyled>
     </HeroStyled>

@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-// Context API
-import { useSpotsContextAPI } from '../../context/SpotsContext';
-// Components
+// api data
+import { useFetch } from '../../hooks/useFetch';
+import { useDebounce } from '../../hooks/useDebounce';
+import mockSpots from '../../mocks/spotsMockData.json';
+// components
 import { Loading } from '../Loading';
-// Styles
+// styles
 import {
   StyledSearchBar,
   SearchBarIcon,
@@ -13,56 +14,62 @@ import {
   StyledInputResults,
 } from './SearchBar.styled';
 
-export const SearchBar = ({ mobile }) => {
+export const SearchBar = () => {
+  // const { response, loading, error } = useFetch('api/spots');
+  const [spots, setSpots] = useState(mockSpots);
+
   const [inputValue, setInputValue] = useState('');
   const [searchText, setSearchText] = useState('');
   const [searchResults, setSearchResults] = useState([]);
-  // fetch API from context
-  const { response, loading, error } = useSpotsContextAPI();
 
-  // wait for response to be returned
-  if (loading) return <Loading />;
-  if (error) {
-    return (
-      <StyledSearchBar mobile={mobile}>
-        <StyledInputContainer error>
-          <input type="text" placeholder="Error fetching data" disabled />
-        </StyledInputContainer>
-      </StyledSearchBar>
-    );
-  }
-
-  // handle user search
+  /**
+   * Handle user search
+   * set input to show value of user search
+   * get user search text
+   * fetch spots api and filter for matching text (clean the users text input)
+   * debounce results
+   */
   const handleChange = (e) => {
     setInputValue(e.target.value);
     setSearchText(e.target.value);
-
-    const filteredResults = response.filter((item) =>
+    const filteredResults = spots.filter((item) =>
       item.name.toLowerCase().includes(searchText.toLowerCase().trim())
     );
-
     searchText === '' ? setSearchResults([]) : setSearchResults(filteredResults);
   };
 
-  // handle user click
+  /**
+   * Handle user selection
+   * set input value once selected
+   * reset search results (close dropdown)
+   */
   const handleClick = (spot) => {
-    // set input value to clicked spot
     setInputValue(`${spot.name}, ${spot.location.state}`);
-    // close the dropdown
     setSearchResults([]);
   };
 
-  // render search results
+  /**
+   * Render the search results
+   * might need to add a prop for web results and mobile results
+   * <StyledInputResults web={web} mobile={mobile}>
+   * Input result logic and styles
+   * handle redirect to Forecast page
+   * handle render display
+   */
   const handleResults = searchResults.length !== 0 && (
     <StyledInputResults>
       {searchResults.map((spot) => (
-        <InputResult key={spot.spot_id} spot={spot} handleClick={handleClick} />
+        <li key={spot.spot_id}>
+          <Link to={`/forecast/${spot.slug}`} onClick={() => handleClick(spot)}>
+            {`${spot.name}, ${spot.location.state}`}
+          </Link>
+        </li>
       ))}
     </StyledInputResults>
   );
 
   return (
-    <StyledSearchBar mobile={mobile}>
+    <StyledSearchBar>
       <StyledInputContainer>
         <SearchBarIcon />
         <input
@@ -75,27 +82,4 @@ export const SearchBar = ({ mobile }) => {
       {handleResults}
     </StyledSearchBar>
   );
-};
-
-// prop types
-SearchBar.propTypes = {
-  mobile: PropTypes.bool,
-};
-
-// InputResult component
-const InputResult = ({ spot, handleClick }) => {
-  return (
-    <li>
-      <Link to={`/forecast/${spot.slug}`} onClick={() => handleClick(spot)}>
-        {`${spot.name}, ${spot.location.state}`}
-      </Link>
-    </li>
-  );
-};
-
-InputResult.propTypes = {
-  spot: PropTypes.objectOf(
-    PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object])
-  ).isRequired,
-  handleClick: PropTypes.func,
 };

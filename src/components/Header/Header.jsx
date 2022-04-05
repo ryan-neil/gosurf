@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 // Components
 import { Logo } from '../Logo';
-import { SearchBar } from '../SearchBar';
 import { SearchWidget } from './components/SearchWidget';
 import { ThemeToggle } from './components/ThemeToggle';
 import { ProfileWidget } from './components/ProfileWidget';
@@ -15,7 +14,6 @@ export const Header = ({ theme, setTheme }) => {
       <Container>
         <StyledNav>
           <Logo header />
-          <SearchBar />
           {/* Widgets */}
           <Flex gapSm>
             <SearchWidget />
