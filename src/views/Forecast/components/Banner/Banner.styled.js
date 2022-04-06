@@ -52,12 +52,14 @@ export const StyledBannerItem = styled.div`
 
 // Water Icon
 export const StyledWaterIcon = styled(Droplet)`
+  stroke-width: 2px;
   color: ${({ theme }) => theme.colors.primary};
   width: 1.8rem;
 `;
 
 // Air Icon
 export const StyledAirIcon = styled(Sun)`
+  stroke-width: 2px;
   color: ${({ theme }) => theme.colors.primary};
   width: 1.8rem;
 `;

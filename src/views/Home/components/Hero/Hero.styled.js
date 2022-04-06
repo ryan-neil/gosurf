@@ -29,20 +29,8 @@ export const HeroContentStyled = styled.div`
     line-height: ${({ theme }) => theme.styles.lineHeightMd};
     margin-bottom: 2rem;
     .text-underline {
-      display: inline-block;
-      position: relative;
-      z-index: 1;
-    }
-    .text-underline::after {
-      content: '';
-      position: absolute;
-      bottom: -15px;
-      left: 0;
-      height: 15px;
-      width: 100%;
-      border: solid 2px ${({ theme }) => theme.colors.primary};
-      border-color: ${({ theme }) => theme.colors.primary} transparent transparent transparent;
-      border-radius: 50%;
+      padding-bottom: 0.25rem;
+      border-bottom: solid 2px ${({ theme }) => theme.colors.primary};
     }
   }
   p {

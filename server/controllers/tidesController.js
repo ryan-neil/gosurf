@@ -24,7 +24,7 @@ const getTidesData = async (req, res) => {
     ]);
 
     // convert time to ISO here before our frontend receives it
-    console.log(hourly);
+    // console.log(hourly);
 
     // create our data object
     const dataObject = {

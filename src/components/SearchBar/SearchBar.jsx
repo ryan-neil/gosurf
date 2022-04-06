@@ -31,6 +31,9 @@ export const SearchBar = () => {
    */
   const handleChange = (e) => {
     setInputValue(e.target.value);
+
+    // fetch api
+
     setSearchText(e.target.value);
     const filteredResults = spots.filter((item) =>
       item.name.toLowerCase().includes(searchText.toLowerCase().trim())
@@ -50,9 +53,9 @@ export const SearchBar = () => {
 
   /**
    * Render the search results
-   * might need to add a prop for web results and mobile results
+   * need to add a prop for web results and mobile results to make the component reusable
    * <StyledInputResults web={web} mobile={mobile}>
-   * Input result logic and styles
+   * handle input result logic and styles
    * handle redirect to Forecast page
    * handle render display
    */
