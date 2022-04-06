@@ -1,11 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// api data
-import { useFetch } from '../../hooks/useFetch';
-import { useDebounce } from '../../hooks/useDebounce';
-import mockSpots from '../../mocks/spotsMockData.json';
-// components
-import { Loading } from '../Loading';
+// helpers
+import useDebounce from '../../hooks/useDebounce';
 // styles
 import {
   StyledSearchBar,
@@ -15,56 +11,59 @@ import {
 } from './SearchBar.styled';
 
 export const SearchBar = () => {
-  // const { response, loading, error } = useFetch('api/spots');
-  const [spots, setSpots] = useState(mockSpots);
-
-  const [inputValue, setInputValue] = useState('');
-  const [searchText, setSearchText] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [results, setResults] = useState([]);
+  // call custom debounce hooks
+  const debouncedSearchTerm = useDebounce(searchTerm, 1000);
 
   /**
-   * Handle user search
-   * set input to show value of user search
-   * get user search text
-   * fetch spots api and filter for matching text (clean the users text input)
-   * debounce results
+   * Handle user search:
+   * fetch api
+   * filter for matching text (clean the users text input)
+   * return filtered results back to client
    */
-  const handleChange = (e) => {
-    setInputValue(e.target.value);
+  const handleSearch = async (search) => {
+    try {
+      const res = await fetch('/api/spots');
+      const data = await res.json();
 
-    // fetch api
+      const filteredResults = data.filter((item) =>
+        item.name.toLowerCase().includes(search.toLowerCase().trim())
+      );
 
-    setSearchText(e.target.value);
-    const filteredResults = spots.filter((item) =>
-      item.name.toLowerCase().includes(searchText.toLowerCase().trim())
-    );
-    searchText === '' ? setSearchResults([]) : setSearchResults(filteredResults);
+      return filteredResults;
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   /**
-   * Handle user selection
-   * set input value once selected
-   * reset search results (close dropdown)
+   * The effect for the api:
+   * check for user searching and call handle search logic and set the search results
+   * if no results close the dropdown
+   * dependency array: only call effect if debounced search term changes
    */
-  const handleClick = (spot) => {
-    setInputValue(`${spot.name}, ${spot.location.state}`);
-    setSearchResults([]);
-  };
+  useEffect(() => {
+    if (debouncedSearchTerm) {
+      handleSearch(debouncedSearchTerm).then((data) => {
+        setResults(data);
+      });
+    } else {
+      setResults([]);
+    }
+  }, [debouncedSearchTerm]);
 
   /**
-   * Render the search results
-   * need to add a prop for web results and mobile results to make the component reusable
-   * <StyledInputResults web={web} mobile={mobile}>
-   * handle input result logic and styles
-   * handle redirect to Forecast page
-   * handle render display
+   * Render the search results:
+   * set input result logic and styles
+   * handle redirect to Forecast page on user selection
    */
-  const handleResults = searchResults.length !== 0 && (
+  const handleResults = results.length !== 0 && (
     <StyledInputResults>
-      {searchResults.map((spot) => (
-        <li key={spot.spot_id}>
-          <Link to={`/forecast/${spot.slug}`} onClick={() => handleClick(spot)}>
-            {`${spot.name}, ${spot.location.state}`}
+      {results.map((result) => (
+        <li key={result.spot_id}>
+          <Link to={`/forecast/${result.slug}`} onClick={() => setResults([])}>
+            {`${result.name}, ${result.location.state}`}
           </Link>
         </li>
       ))}
@@ -78,8 +77,7 @@ export const SearchBar = () => {
         <input
           type="text"
           placeholder="Search spot..."
-          value={inputValue}
-          onChange={handleChange}
+          onChange={(e) => setSearchTerm(e.target.value)}
         />
       </StyledInputContainer>
       {handleResults}
