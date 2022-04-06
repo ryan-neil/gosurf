@@ -1,19 +1,16 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+// mock api
+import mockData from '../../mocks/spotsMockData.json';
 // helpers
 import useDebounce from '../../hooks/useDebounce';
 // styles
-import {
-  StyledSearchBar,
-  SearchBarIcon,
-  StyledInputContainer,
-  StyledInputResults,
-} from './SearchBar.styled';
+import { StyledSearchBar, StyledInputResults } from './SearchBar.styled';
+import { SearchBarIcon, StyledInput } from '../../styles/Utils.styled';
 
 export const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [results, setResults] = useState([]);
-  // call custom debounce hooks
   const debouncedSearchTerm = useDebounce(searchTerm, 1000);
 
   /**
@@ -24,10 +21,10 @@ export const SearchBar = () => {
    */
   const handleSearch = async (search) => {
     try {
-      const res = await fetch('/api/spots');
-      const data = await res.json();
+      // const res = await fetch('/api/spots');
+      // const data = await res.json();
 
-      const filteredResults = data.filter((item) =>
+      const filteredResults = mockData.filter((item) =>
         item.name.toLowerCase().includes(search.toLowerCase().trim())
       );
 
@@ -72,14 +69,14 @@ export const SearchBar = () => {
 
   return (
     <StyledSearchBar>
-      <StyledInputContainer>
+      <StyledInput>
         <SearchBarIcon />
         <input
           type="text"
           placeholder="Search spot..."
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-      </StyledInputContainer>
+      </StyledInput>
       {handleResults}
     </StyledSearchBar>
   );

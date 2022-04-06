@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { Search } from '@styled-icons/feather';
 
 export const Container = styled.div`
   width: ${({ theme }) => theme.web.width};
@@ -54,21 +55,52 @@ export const FlexCol = styled.div`
     `};
 `;
 
-export const IconStyled = styled.figure`
-  color: ${({ theme }) => theme.colors.white};
-  width: 1.8rem;
-  height: 1.8rem;
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-  border-radius: ${({ theme }) => theme.styles.borderRadiusSm};
-  cursor: pointer;
-  transition: ${({ theme }) => theme.styles.transition};
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.hover};
+export const StyledInput = styled.div`
+  background-color: ${({ theme }) => theme.colors.inputBG};
+  display: flex;
+  align-items: center;
+  flex: none;
+  height: 2.5rem;
+  padding: 0 0.25rem;
+  border: 1px solid ${({ theme }) => theme.colors.inputBorder};
+  border-radius: ${({ theme }) => theme.styles.borderRadiusMd};
+  box-shadow: ${({ theme }) => theme.colors.boxShadowInset};
+
+  &:focus-within {
+    outline: 2px solid ${({ theme }) => theme.colors.primary};
   }
+  input {
+    padding: 0.25rem 0;
+    color: ${({ theme }) => theme.colors.paragraph};
+    font-size: ${({ theme }) => theme.styles.textSm}; /* 14px */
+    letter-spacing: 0.025em;
+    text-align: left;
+    background: transparent;
+    border: none;
+    outline: none;
+    &::placeholder {
+      color: ${({ theme }) => theme.colors.paragraphLight};
+    }
+  }
+  /* Props */
+  ${({ error }) =>
+    error &&
+    css`
+      outline: 1px solid ${({ theme }) => theme.colors.danger};
+      padding-left: 1rem;
+      input::placeholder {
+        color: ${({ theme }) => theme.colors.danger};
+      }
+    `}
 `;
 
-export const ButtonStyled = styled.button`
+export const SearchBarIcon = styled(Search)`
+  color: ${({ theme }) => theme.colors.heading};
+  width: 1rem;
+  margin: 0 0.5rem;
+`;
+
+export const StyledButton = styled.button`
   font-family: 'Ubuntu', -apple-system, sans-serif;
   font-size: ${({ theme }) => theme.styles.textReg};
   color: ${({ theme }) => theme.colors.primary};
