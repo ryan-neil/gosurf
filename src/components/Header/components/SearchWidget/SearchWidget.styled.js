@@ -4,7 +4,7 @@ import { Search } from '@styled-icons/feather';
 // Search Icon
 export const SearchIcon = styled(Search)`
   stroke-width: 2px;
-  display: none;
+  /* display: none; */
   color: ${({ theme }) => theme.colors.white};
   width: 1.8rem;
   height: 1.8rem;
@@ -16,7 +16,7 @@ export const SearchIcon = styled(Search)`
     background-color: ${({ theme }) => theme.colors.hover};
   }
   /* Responsive Queries */
-  @media (max-width: ${({ theme }) => theme.mobile.width}) {
+  /* @media (max-width: ${({ theme }) => theme.mobile.width}) {
     display: block;
-  }
+  } */
 `;

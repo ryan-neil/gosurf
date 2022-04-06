@@ -42,6 +42,6 @@ export const StyledInputResults = styled.ul`
 
   /* Responsive Queries */
   @media (max-width: ${({ theme }) => theme.mobile.width}) {
-    margin-top: 0.25rem;
+    margin-top: 2.8rem;
   }
 `;

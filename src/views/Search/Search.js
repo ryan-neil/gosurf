@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 // mock api
-import mockData from '../../mocks/spotsMockData.json';
+// import mockData from '../../mocks/spotsMockData.json';
 // helpers
 import useDebounce from '../../hooks/useDebounce';
 // styles
@@ -29,10 +29,10 @@ export const Search = () => {
    */
   const handleSearch = async (search) => {
     try {
-      // const res = await fetch('/api/spots');
-      // const data = await res.json();
+      const res = await fetch('/api/spots');
+      const data = await res.json();
 
-      const filteredResults = mockData.filter((item) =>
+      const filteredResults = data.filter((item) =>
         item.name.toLowerCase().includes(search.toLowerCase().trim())
       );
 

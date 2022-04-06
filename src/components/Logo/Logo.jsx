@@ -9,7 +9,7 @@ export const Logo = ({ header, footer }) => {
       <Link to="/">
         <img src="../logo.svg" alt="gosurf logo" />
         <h1>GoSurf</h1>
-        <p>Alpha</p>
+        <p>Beta</p>
       </Link>
     </StyledLogo>
   );

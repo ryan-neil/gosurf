@@ -33,7 +33,9 @@ export const StyledInputResults = styled.ul`
   list-style-type: none;
   padding-bottom: 1rem;
   li {
-    padding: 0.5rem 0;
+    padding: 0.5rem;
+    border-radius: ${({ theme }) => theme.styles.borderRadiusMd};
+
     border-bottom: 1px solid ${({ theme }) => theme.colors.inputBorder};
     &:last-of-type {
       border-bottom: none;

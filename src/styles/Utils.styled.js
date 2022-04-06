@@ -70,6 +70,7 @@ export const StyledInput = styled.div`
     outline: 2px solid ${({ theme }) => theme.colors.primary};
   }
   input {
+    width: 200px;
     padding: 0.25rem 0;
     color: ${({ theme }) => theme.colors.paragraph};
     font-size: ${({ theme }) => theme.styles.textSm}; /* 14px */
@@ -102,7 +103,7 @@ export const SearchBarIcon = styled(Search)`
 
 export const StyledButton = styled.button`
   font-family: 'Ubuntu', -apple-system, sans-serif;
-  font-size: ${({ theme }) => theme.styles.textReg};
+  font-size: ${({ theme }) => theme.styles.textSm};
   color: ${({ theme }) => theme.colors.primary};
   background-color: ${({ theme }) => theme.colors.secondaryBG};
   padding: 0.35rem 1rem;
