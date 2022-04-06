@@ -67,3 +67,17 @@ export const IconStyled = styled.figure`
     background-color: ${({ theme }) => theme.colors.hover};
   }
 `;
+
+export const ButtonStyled = styled.button`
+  font-family: 'Ubuntu', -apple-system, sans-serif;
+  font-size: ${({ theme }) => theme.styles.textReg};
+  color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.secondaryBG};
+  padding: 0.35rem 1rem;
+  border-radius: ${({ theme }) => theme.styles.borderRadiusMd};
+  cursor: pointer;
+  transition: ${({ theme }) => theme.styles.transition};
+  &:hover {
+    opacity: 0.8;
+  }
+`;

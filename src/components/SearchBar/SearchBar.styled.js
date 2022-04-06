@@ -10,6 +10,7 @@ export const StyledInputContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.inputBG};
   display: flex;
   align-items: center;
+  flex: none;
   height: 2.5rem;
   padding: 0 0.25rem;
   border: 1px solid ${({ theme }) => theme.colors.inputBorder};

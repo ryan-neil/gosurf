@@ -13,6 +13,7 @@ import { Footer } from './components/Footer';
 // Views
 import { Home } from './views/Home';
 import { Forecast } from './views/Forecast';
+import { Search } from './views/Search';
 import { Missing } from './views/Missing';
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/forecast/:slug" element={<Forecast />} />
+            <Route path="/search" element={<Search />} />
             <Route path="*" element={<Missing />} />
           </Routes>
           <Footer />

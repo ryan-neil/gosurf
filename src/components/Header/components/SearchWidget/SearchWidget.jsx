@@ -1,6 +1,11 @@
 // Styled
+import { Link } from 'react-router-dom';
 import { SearchIcon } from './SearchWidget.styled';
 
 export const SearchWidget = () => {
-  return <SearchIcon />;
+  return (
+    <Link to="/search">
+      <SearchIcon />
+    </Link>
+  );
 };

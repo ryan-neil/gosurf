@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { createContext, useContext, useMemo } from 'react';
-import { useFetch } from '../hooks/useFetch';
+// import { useFetch } from '../hooks/useFetch';
 // dev mock data
 import mockSpots from '../mocks/spotsMockData.json';
 
