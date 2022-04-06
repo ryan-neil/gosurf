@@ -33,7 +33,7 @@ export const SearchBar = () => {
 
       return filteredResults;
     } catch (err) {
-      console.log(err);
+      // console.error(err);
     }
   };
 
