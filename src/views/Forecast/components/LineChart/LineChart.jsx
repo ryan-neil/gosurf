@@ -27,7 +27,7 @@ export const LineChart = ({ heading, xAxis, yAxis, yAxisSec }) => {
         label: heading === 'Tides' ? 'Tides Height' : 'Swell Height',
         data: yAxis,
         // styles
-        // fill: heading === 'Tides' || false,
+        fill: heading === 'Tides' || false,
         tension: heading === 'Tides' ? 0.2 : 0,
         borderWidth: 1,
         borderRadius: 2,

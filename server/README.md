@@ -25,7 +25,9 @@ This repository contains the GoSurf backend source code. This repo is a work in 
 - [ ] Feat: Integrate [Highcharts](https://www.highcharts.com/products/highcharts/) instead of chartsjs
 - [ ] Feat: Add `node-cache` to backend server ([npm](https://www.npmjs.com/package/node-cache), [Link](https://www.youtube.com/watch?v=xZ_Rnh1UHTs))
 - [ ] Feat: "Favorites" feature (`Favorites`/`Dashboard` page)
+- [ ] Feat: Skeleton loaders for loading states
 - [ ] Feat: Create account feature (authentication)
+- [ ] Feat: Send `spot` object from `SearchBar` to Forecast page
 
 [Back to Top](#table-of-contents)
 
@@ -34,9 +36,10 @@ This repository contains the GoSurf backend source code. This repo is a work in 
 # 🐛 Bug Report
 
 - [x] `SearchBar`/`Search`: Fix debounce timeout time
-- [ ] `API: Create development session with all mock data (Searchbars, Banner, Wave, Tides, Wind, Swell)
+- [x] `API`: Create development session with all mock data
 - [ ] `API`: Secure API endpoint (Express rate limiting, Enforce IP address filtering)
 - [ ] `Charts`: Fix invalid date for `Tides` and `Wind` components for mobile
+- [ ] `Charts`: Fix LineChart hover points
 - [ ] `SearchBar`: Combine `SearchBar`s to be reusable
 - [ ] `Charts`: Colors not updating when theme is toggled
 - [ ] `Home`: When navigating back to Home page hero image doesn't show up until page refresh
