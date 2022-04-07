@@ -13,7 +13,7 @@ export const Hero = () => {
           <span className="text-underline">enjoyment</span>.
         </h2>
         <SearchBar web />
-        <p>try "pipeline"</p>
+        <p>try "pinetrees"</p>
       </HeroContentStyled>
     </HeroStyled>
   );

@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
-
-// Components
+// components
 import { BarChart } from '../BarChart';
 import { Loading } from '../../../../components/Loading';
 import { FetchError } from '../../../../components/FetchError';
-// Helpers
-import { convertTimeString, convertRoundNumber } from '../../../../helpers/conversions.helpers';
+// helpers
+// import mockData from '../../../../mocks/windMockData.json';
 import { useFetch } from '../../../../hooks/useFetch';
-// Styles
+import { convertTimeString, convertRoundNumber } from '../../../../helpers/conversions.helpers';
+// styles
 import { StyledGridItem, StyledGridItemBody } from '../../Forecast.styled';
 import { Flex } from '../../../../styles/Utils.styled';
 import windIcon from '../../../../assets/wind.svg';
@@ -15,6 +15,10 @@ import windIcon from '../../../../assets/wind.svg';
 export const Wind = ({ spot }) => {
   // fetch weather data
   const { response, loading, error } = useFetch(`/api/wind?stationId=${spot.station_id}`);
+  // mock data
+  // const response = mockData;
+  // const loading = false;
+  // const error = false;
 
   // const currentWindDataData = response.current;
   // const windSpeeds = response.hourly.map((hour) => convertRoundNumber(hour.s));

@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 // Helpers
-import { calcSunTimes } from '../../../../helpers/calculations.helpers';
+// import mockData from '../../../../mocks/bannerMockData.json';
 import { useFetch } from '../../../../hooks/useFetch';
+import { calcSunTimes } from '../../../../helpers/calculations.helpers';
 // Components
 import { Loading } from '../../../../components/Loading';
 import { FetchError } from '../../../../components/FetchError';
@@ -15,6 +16,10 @@ export const Banner = ({ spot }) => {
 
   // fetch weather data
   const { response, loading, error } = useFetch(`/api/weather?stationId=${spot.station_id}`);
+  // mock fetch
+  // const response = mockData;
+  // const loading = false;
+  // const error = false;
 
   return (
     <StyledBanner>

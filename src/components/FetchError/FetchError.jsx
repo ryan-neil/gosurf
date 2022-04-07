@@ -1,14 +1,12 @@
 import PropTypes from 'prop-types';
 import { StyledError, ErrorIcon } from './FetchError.styled';
 
-// Sorry, error fetching {name} data...{error}
-
-export const FetchError = ({ name, error }) => {
+export const FetchError = ({ name }) => {
   return (
     <StyledError>
       <p>
         <ErrorIcon />
-        Error fetching {name} data. Please try again later ({error}).
+        Error fetching {name} data. Try refreshing the page or try again later.
       </p>
     </StyledError>
   );
@@ -16,5 +14,4 @@ export const FetchError = ({ name, error }) => {
 
 FetchError.propTypes = {
   name: PropTypes.string.isRequired,
-  error: PropTypes.string.isRequired,
 };

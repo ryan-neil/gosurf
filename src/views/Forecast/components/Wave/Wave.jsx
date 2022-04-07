@@ -1,16 +1,17 @@
 import PropTypes from 'prop-types';
-// Components
+// components
 import { Loading } from '../../../../components/Loading';
 import { FetchError } from '../../../../components/FetchError';
 import { BarChart } from '../BarChart';
-// Helpers
+// helpers
+// import mockData from '../../../../mocks/waveMockData.json';
+import { useFetch } from '../../../../hooks/useFetch';
 import {
   convertRoundNumber,
   convertMetersToFeet,
   convertTimeString,
 } from '../../../../helpers/conversions.helpers';
 import { calcBodySize } from '../../../../helpers/calculations.helpers';
-import { useFetch } from '../../../../hooks/useFetch';
 // Styles
 import { StyledGridItem, StyledGridItemBody } from '../../Forecast.styled';
 import { Flex } from '../../../../styles/Utils.styled';
@@ -19,6 +20,10 @@ import waveIcon from '../../../../assets/wave.svg';
 export const Wave = ({ spot }) => {
   // fetch wave data
   const { response, loading, error } = useFetch(`/api/wave?lat=${spot.lat}&lon=${spot.lon}`);
+  // mock data
+  // const response = mockData;
+  // const loading = false;
+  // const error = false;
 
   // const waveTimes = response.times.map((wave) => convertTimeString(wave.slice(0, 19), { hour: 'numeric' }));
   // const waveHeights = response.waveHeight.hourly.map((wave) => convertRoundNumber(convertMetersToFeet(wave)));

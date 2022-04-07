@@ -8,8 +8,6 @@ import { setupServer } from 'msw/node';
 import { ThemeProvider } from 'styled-components';
 import { themeMode } from '../../styles/Theme.styled';
 
-// api context
-import SpotsDataProvider from '../../context/SpotsContext';
 // mock data
 import spotsMockData from '../../mocks/spotsMockData.json';
 // component
@@ -31,9 +29,7 @@ const theme = 'light';
 beforeEach(() =>
   render(
     <ThemeProvider theme={themeMode[theme]}>
-      <SpotsDataProvider>
-        <SearchBar />
-      </SpotsDataProvider>
+      <SearchBar />
     </ThemeProvider>
   )
 );

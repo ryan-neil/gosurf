@@ -19,11 +19,11 @@ This repository contains the GoSurf backend source code. This repo is a work in 
 - [x] Deploy: Integrate unit tests for main components
 - [x] Deploy: Add `Footer` component
 - [x] Deploy: Deploy to Netlify
-- [ ] Feat: Add mobile `Search` component (WeBull example)
+- [x] Feat: Add mobile `Search` component (WeBull example)
+- [ ] Feat: Add `express-rate-limit` to backend server ([npm](https://www.npmjs.com/package/express-rate-limit), [Link](https://www.youtube.com/watch?v=mZ0O7gcS7Yk))
 - [ ] Feat: Integrate React Query for all API logic and management
 - [ ] Feat: Integrate [Highcharts](https://www.highcharts.com/products/highcharts/) instead of chartsjs
 - [ ] Feat: Add `node-cache` to backend server ([npm](https://www.npmjs.com/package/node-cache), [Link](https://www.youtube.com/watch?v=xZ_Rnh1UHTs))
-- [ ] Feat: Add `express-rate-limit` to backend server ([npm](https://www.npmjs.com/package/express-rate-limit), [Link](https://www.youtube.com/watch?v=mZ0O7gcS7Yk))
 - [ ] Feat: "Favorites" feature (`Favorites`/`Dashboard` page)
 - [ ] Feat: Create account feature (authentication)
 
@@ -33,12 +33,15 @@ This repository contains the GoSurf backend source code. This repo is a work in 
 
 # 🐛 Bug Report
 
-- [ ] `Charts`: Fix invalid date for `Tides` and `Wind` components
-- [ ] `Home`: Remove `Header` `SearchBar`
+- [x] `SearchBar`/`Search`: Fix debounce timeout time
+- [ ] `API: Create development session with all mock data (Searchbars, Banner, Wave, Tides, Wind, Swell)
+- [ ] `API`: Secure API endpoint (Express rate limiting, Enforce IP address filtering)
+- [ ] `Charts`: Fix invalid date for `Tides` and `Wind` components for mobile
+- [ ] `SearchBar`: Combine `SearchBar`s to be reusable
+- [ ] `Charts`: Colors not updating when theme is toggled
 - [ ] `Home`: When navigating back to Home page hero image doesn't show up until page refresh
 - [ ] `Wind`: Speed data is up to the hour, not 24 hour predictions
 - [ ] `Banner`/`Wave`/`Tides`/`Wind`/`Swell`: Chartjs breaks unit tests ([StackOverflow issue](https://stackoverflow.com/questions/68146899/failing-test-in-react-by-using-chart-js))
-- [x] App: Favicon not loading in
 
 [Back to Top](#table-of-contents)
 

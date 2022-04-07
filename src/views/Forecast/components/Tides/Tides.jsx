@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
-// Helpers
-import { convertRoundNumber, convertTimeString } from '../../../../helpers/conversions.helpers';
+// helpers
+// import mockData from '../../../../mocks/tidesMockData.json';
 import { useFetch } from '../../../../hooks/useFetch';
-// Components
+import { convertRoundNumber, convertTimeString } from '../../../../helpers/conversions.helpers';
+// components
 import { LineChart } from '../LineChart';
 import { Loading } from '../../../../components/Loading';
 import { FetchError } from '../../../../components/FetchError';
-// Styles
+// styles
 import { StyledGridItem, StyledGridItemBody } from '../../Forecast.styled';
 import { Flex } from '../../../../styles/Utils.styled';
 import tidesIcon from '../../../../assets/tides.svg';
@@ -14,11 +15,18 @@ import tidesIcon from '../../../../assets/tides.svg';
 export const Tides = ({ spot }) => {
   // fetch tides data
   const { response, loading, error } = useFetch(`/api/tides?stationId=${spot.station_id}`);
+  // mock fetch
+  // const response = mockData;
+  // const loading = false;
+  // const error = false;
 
   // const todaysTides = response.current;
   // const tidesHeights = response.hourly.map((hour) => convertRoundNumber(hour.v, 2));
   // const tidesTimes = response.hourly.map((hour) => convertTimeString(hour.t, { hour: 'numeric' }));
 
+  /**
+   * Debugging undefined chart dates on mobile
+   */
   // if (response) console.log('Tides: ', response.hourly);
   // const date = new Date('2022-04-04 00:00');
   // const isoDate = date.toISOString();

@@ -11,7 +11,7 @@ import { SearchBarIcon, StyledInput } from '../../styles/Utils.styled';
 export const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [results, setResults] = useState([]);
-  const debouncedSearchTerm = useDebounce(searchTerm, 1000);
+  const debouncedSearchTerm = useDebounce(searchTerm, 500);
 
   /**
    * Handle user search:
@@ -30,7 +30,7 @@ export const SearchBar = () => {
 
       return filteredResults;
     } catch (err) {
-      // console.error(err);
+      throw new Error('Search Error: ', err);
     }
   };
 

@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
-// Context
-import { useSpotsContextAPI } from '../../context/SpotsContext';
+// helpers
+// import mockData from '../../mocks/spotsMockData.json';
+import { useFetch } from '../../hooks/useFetch';
 // Components
 import { Heading } from './components/Heading';
 import { Banner } from './components/Banner';
@@ -18,8 +19,12 @@ import { Container } from '../../styles/Utils.styled';
 export const Forecast = () => {
   // get param value
   const { slug } = useParams();
-  // fetch API from context
-  const { response, loading, error } = useSpotsContextAPI();
+  // fetch spots api
+  const { response, loading, error } = useFetch('/api/spots');
+  // mock data
+  // const response = mockData;
+  // const loading = false;
+  // const error = false;
 
   // maybe show spinner here (centered on page)
   if (loading) return <Loading />;

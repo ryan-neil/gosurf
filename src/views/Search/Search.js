@@ -38,7 +38,7 @@ export const Search = () => {
 
       return filteredResults;
     } catch (err) {
-      // console.error(err);
+      throw new Error('Search Error: ', err);
     }
   };
 

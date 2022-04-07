@@ -1,16 +1,15 @@
 import { Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { useLocalStorage } from './hooks/useLocalStorage';
-// Global Styles
+// global styles
 import { themeMode } from './styles/Theme.styled';
 import GlobalsStyled from './styles/Globals.styled';
 import { StyledApp } from './styles/App.styled';
-// Global context
-import SpotsDataProvider from './context/SpotsContext';
-// Components
+// components
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
-// Views
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
+// views
 import { Home } from './views/Home';
 import { Forecast } from './views/Forecast';
 import { Search } from './views/Search';
@@ -22,8 +21,8 @@ const App = () => {
   return (
     <ThemeProvider theme={themeMode[theme]}>
       <GlobalsStyled />
-      <StyledApp>
-        <SpotsDataProvider>
+      <ErrorBoundary>
+        <StyledApp>
           <Header theme={theme} setTheme={setTheme} />
           <Routes>
             <Route path="/" element={<Home />} />
@@ -32,8 +31,8 @@ const App = () => {
             <Route path="*" element={<Missing />} />
           </Routes>
           <Footer />
-        </SpotsDataProvider>
-      </StyledApp>
+        </StyledApp>
+      </ErrorBoundary>
     </ThemeProvider>
   );
 };

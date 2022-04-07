@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import { Component } from 'react';
+// components
+import { Logo } from '../Logo';
 // Styles
-import { StyledErrorBoundary, ErrorIcon } from './ErrorBoundary.styled';
-import { Flex } from '../../styles/Utils.styled';
+import { StyledErrorBoundary } from './ErrorBoundary.styled';
 
 class ErrorBoundary extends Component {
   constructor(props) {
@@ -20,12 +21,8 @@ class ErrorBoundary extends Component {
       // You can render any custom fallback UI
       return (
         <StyledErrorBoundary>
-          <Flex gapSm center>
-            <img src="../logo.svg" alt="GoSurf Logo" />
-            <h1>GoSurf</h1>
-          </Flex>
-          <p>
-            <ErrorIcon />
+          <Logo />
+          <p className="error-message">
             Sorry, something went wrong on our end. Please refresh the page or try again later.
           </p>
         </StyledErrorBoundary>

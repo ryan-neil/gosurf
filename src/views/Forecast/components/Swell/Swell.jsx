@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
-// Components
+// components
 import { LineChart } from '../LineChart';
 import { Loading } from '../../../../components/Loading';
 import { FetchError } from '../../../../components/FetchError';
-// Helpers
+// helpers
+// import mockData from '../../../../mocks/swellMockData.json';
 import { useFetch } from '../../../../hooks/useFetch';
 import {
   convertRoundNumber,
@@ -11,7 +12,7 @@ import {
   convertTimeString,
   convertDegToWindDir,
 } from '../../../../helpers/conversions.helpers';
-// Styles
+// styles
 import { StyledGridItem, StyledGridItemBody, StyledSwellTag } from '../../Forecast.styled';
 import { Flex, FlexCol } from '../../../../styles/Utils.styled';
 import swellIcon from '../../../../assets/swell.svg';
@@ -19,8 +20,10 @@ import swellIcon from '../../../../assets/swell.svg';
 export const Swell = ({ spot }) => {
   // fetch wave data
   const { response, loading, error } = useFetch(`/api/swell?lat=${spot.lat}&lon=${spot.lon}`);
-
-  // if (response) console.log('Swell: ', response.times);
+  // mock fetch
+  // const response = mockData;
+  // const loading = false;
+  // const error = false;
 
   return (
     <StyledGridItem>

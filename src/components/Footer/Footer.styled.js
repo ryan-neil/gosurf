@@ -4,6 +4,9 @@ import { Github } from '@styled-icons/feather';
 export const StyledFooter = styled.footer`
   background-color: ${({ theme }) => theme.colors.secondaryBG};
   padding: 4rem 0;
+  p {
+    font-size: ${({ theme }) => theme.styles.textSm};
+  }
 `;
 
 export const StyledGithubIcon = styled(Github)`
