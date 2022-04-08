@@ -20,12 +20,10 @@ export const Wind = ({ spot }) => {
   // const loading = false;
   // const error = false;
 
-  // const test = response.hourly.map((hour) => convertTimeString(hour.t, { hour: 'numeric' }));
-  // console.log(test);
-
-  // const currentWindDataData = response.current;
-  // const windSpeeds = response.hourly.map((hour) => convertRoundNumber(hour.s));
-  // const windTimes = response.hourly.map((hour) => convertTimeString(hour.t, { hour: 'numeric' }));
+  // DEBUGGING:
+  // const windTimesTest = response.hourly.map((hour) =>
+  //   convertTimeString(hour.t, { hour: 'numeric' })
+  // );
 
   return (
     <StyledGridItem>
@@ -34,12 +32,11 @@ export const Wind = ({ spot }) => {
       {response && (
         <>
           <WindHeader />
-          <WindBody
-            currentWindData={response.current}
-            windTimes={response.hourly.map((hour) =>
-              convertTimeString(hour.t, { hour: 'numeric' })
-            )}
-            windSpeeds={response.hourly.map((hour) => convertRoundNumber(hour.s))}
+          <WindBody currentWindData={response.current} />
+          <BarChart
+            heading="Wind"
+            xAxis={response.hourly.map((hour) => convertTimeString(hour.t, { hour: 'numeric' }))}
+            yAxis={response.hourly.map((hour) => convertRoundNumber(hour.s))}
           />
         </>
       )}
@@ -58,16 +55,13 @@ const WindHeader = () => {
 };
 
 // wind body component (presentational)
-const WindBody = ({ currentWindData, windTimes, windSpeeds }) => {
+const WindBody = ({ currentWindData }) => {
   return (
-    <>
-      <StyledGridItemBody>
-        <p>Current speed:</p>
-        <p className="primary-data">{convertRoundNumber(currentWindData.s, 1)} kts</p>
-        <p>{`'${currentWindData.dr}' (${convertRoundNumber(currentWindData.d, 1)}°)`}</p>
-      </StyledGridItemBody>
-      <BarChart heading="Wind" xAxis={windTimes} yAxis={windSpeeds} />
-    </>
+    <StyledGridItemBody>
+      <p>Current speed:</p>
+      <p className="primary-data">{convertRoundNumber(currentWindData.s, 1)} kts</p>
+      <p>{`'${currentWindData.dr}' (${convertRoundNumber(currentWindData.d, 1)}°)`}</p>
+    </StyledGridItemBody>
   );
 };
 
@@ -79,6 +73,4 @@ Wind.propTypes = {
 };
 WindBody.propTypes = {
   currentWindData: PropTypes.objectOf(PropTypes.string).isRequired,
-  windTimes: PropTypes.arrayOf(PropTypes.string).isRequired,
-  windSpeeds: PropTypes.arrayOf(PropTypes.number).isRequired,
 };

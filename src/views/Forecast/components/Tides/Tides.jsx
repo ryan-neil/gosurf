@@ -20,17 +20,10 @@ export const Tides = ({ spot }) => {
   // const loading = false;
   // const error = false;
 
-  // const todaysTides = response.current;
-  // const tidesHeights = response.hourly.map((hour) => convertRoundNumber(hour.v, 2));
-  // const tidesTimes = response.hourly.map((hour) => convertTimeString(hour.t, { hour: 'numeric' }));
-
-  /**
-   * Debugging undefined chart dates on mobile
-   */
-  // if (response) console.log('Tides: ', response.hourly);
-  // const date = new Date('2022-04-04 00:00');
-  // const isoDate = date.toISOString();
-  // console.log(isoDate.toLocaleString('en-US', { hour: 'numeric' }));
+  // DEBUGGING
+  // const xAxisTest = response.hourly
+  //   .map((hour) => convertTimeString(hour.t, { hour: 'numeric' }))
+  //   .slice(5, 21);
 
   return (
     <StyledGridItem>

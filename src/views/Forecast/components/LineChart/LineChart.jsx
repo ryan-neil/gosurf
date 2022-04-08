@@ -11,7 +11,7 @@ export const LineChart = ({ heading, xAxis, yAxis, yAxisSec }) => {
   const primaryBG = style.getPropertyValue('--primaryBG');
   const chartBar = style.getPropertyValue('--chartBar');
   const chartBarBorder = style.getPropertyValue('--chartBarBorder');
-  const chartPointRadius = style.getPropertyValue('--chartPointRadius');
+  // const chartPointRadius = style.getPropertyValue('--chartPointRadius');
   const chartTicks = style.getPropertyValue('--chartTicks');
   const chartGrid = style.getPropertyValue('--chartGrid');
   const chartPrimSwellLine = style.getPropertyValue('--chartPrimSwellLine');
@@ -32,7 +32,7 @@ export const LineChart = ({ heading, xAxis, yAxis, yAxisSec }) => {
         borderWidth: 1,
         borderRadius: 2,
         pointBorderWidth: 1.25,
-        pointRadius: chartPointRadius,
+        pointRadius: 3, // 3.5 (chartPointRadius)
         // colors
         backgroundColor: chartBar,
         borderColor: heading === 'Tides' ? chartBarBorder : chartPrimSwellLine,
@@ -48,7 +48,7 @@ export const LineChart = ({ heading, xAxis, yAxis, yAxisSec }) => {
         borderWidth: 1,
         borderRadius: 2,
         pointBorderWidth: 1.25,
-        pointRadius: chartPointRadius,
+        pointRadius: 3, // 3.5 (chartPointRadius)
         // colors
         borderColor: chartSecSwellLine,
         pointBackgroundColor: primaryBG,

@@ -38,14 +38,17 @@ export const Wave = ({ spot }) => {
         <>
           <WaveHeader />
           <WaveBody
-            waveTimes={response.times.map((hour) =>
-              convertTimeString(hour.slice(0, 19), { hour: 'numeric' })
-            )}
-            waveHeights={response.waveHeight.hourly.map((hour) =>
-              convertRoundNumber(convertMetersToFeet(hour))
-            )}
             minWaveHeight={convertRoundNumber(convertMetersToFeet(response.waveHeight.min))}
             maxWaveHeight={convertRoundNumber(convertMetersToFeet(response.waveHeight.max))}
+          />
+          <BarChart
+            heading="Wave Height"
+            xAxis={response.times
+              .map((hour) => convertTimeString(hour.slice(0, 19), { hour: 'numeric' }))
+              .slice(5, 21)}
+            yAxis={response.waveHeight.hourly
+              .map((hour) => convertRoundNumber(convertMetersToFeet(hour)))
+              .slice(5, 21)}
           />
         </>
       )}
@@ -64,7 +67,7 @@ const WaveHeader = () => {
 };
 
 // Wave Body component
-const WaveBody = ({ minWaveHeight, maxWaveHeight, waveTimes, waveHeights }) => {
+const WaveBody = ({ minWaveHeight, maxWaveHeight }) => {
   // if min and max wave heights are the same only render the max number
   const getWaveHeight =
     minWaveHeight === maxWaveHeight
@@ -72,18 +75,11 @@ const WaveBody = ({ minWaveHeight, maxWaveHeight, waveTimes, waveHeights }) => {
       : `${minWaveHeight}-${maxWaveHeight} ft`;
 
   return (
-    <>
-      <StyledGridItemBody>
-        <p>Todays 'buoy' range:</p>
-        <p className="primary-data">{getWaveHeight}</p>
-        {calcBodySize(minWaveHeight, maxWaveHeight)}
-      </StyledGridItemBody>
-      <BarChart
-        heading="Wave Height"
-        xAxis={waveTimes.slice(5, 21)}
-        yAxis={waveHeights.slice(5, 21)}
-      />
-    </>
+    <StyledGridItemBody>
+      <p>Todays 'buoy' range:</p>
+      <p className="primary-data">{getWaveHeight}</p>
+      {calcBodySize(minWaveHeight, maxWaveHeight)}
+    </StyledGridItemBody>
   );
 };
 
@@ -101,6 +97,4 @@ Wave.propTypes = {
 WaveBody.propTypes = {
   minWaveHeight: PropTypes.number.isRequired,
   maxWaveHeight: PropTypes.number.isRequired,
-  waveTimes: PropTypes.arrayOf(PropTypes.string),
-  waveHeights: PropTypes.arrayOf(PropTypes.number),
 };

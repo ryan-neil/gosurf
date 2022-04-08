@@ -9,6 +9,11 @@ export const StyledErrorBoundary = styled.div`
   margin-top: 3rem;
   padding: 0 1rem;
 
+  // override Logo component font color
+  h1 {
+    color: #1b2635;
+  }
+
   .error-message {
     color: #fa3945;
     background-color: rgba(250, 57, 69, 0.1);

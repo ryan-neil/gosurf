@@ -1,11 +1,10 @@
 // convert time to human
-// { hour: 'numeric' } // 6 AM
-// { timeStyle: 'short' } // 6:00 AM
 export const convertTimeString = (time, options) => {
-  // convert date to be compliant with IETF RFC 2822 / ISO8601
-
-  // console.log(time);
-  // const unixTimestamp = Math.floor(date.getTime() / 1000);
+  /**
+   * need convert date to be compliant with IETF RFC 2822 / ISO8601
+   * { hour: 'numeric' } (6 AM)
+   * { hour: 'short' } (6:00 AM)
+   */
 
   const date = new Date(time);
   return date.toLocaleString('en-US', options); // 6 AM
