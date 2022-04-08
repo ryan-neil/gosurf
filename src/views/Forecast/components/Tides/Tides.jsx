@@ -21,9 +21,12 @@ export const Tides = ({ spot }) => {
   // const error = false;
 
   // DEBUGGING
+  // if (response) console.log(response);
+
   // const xAxisTest = response.hourly
   //   .map((hour) => convertTimeString(hour.t, { hour: 'numeric' }))
   //   .slice(5, 21);
+  // console.log(xAxisTest);
 
   return (
     <StyledGridItem>

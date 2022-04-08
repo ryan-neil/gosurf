@@ -21,6 +21,8 @@ export const Wind = ({ spot }) => {
   // const error = false;
 
   // DEBUGGING:
+  // if (response) console.log(response);
+
   // const windTimesTest = response.hourly.map((hour) =>
   //   convertTimeString(hour.t, { hour: 'numeric' })
   // );

@@ -2,8 +2,8 @@
 export const convertTimeString = (time, options) => {
   /**
    * need convert date to be compliant with IETF RFC 2822 / ISO8601
-   * { hour: 'numeric' } (6 AM)
-   * { hour: 'short' } (6:00 AM)
+   * options type: { hour: 'numeric' } (6 AM)
+   * options type: { hour: 'short' } (6:00 AM)
    */
 
   const date = new Date(time);

@@ -39,10 +39,10 @@ const LightTheme = {
     // charts
     chartBar: 'rgba(25, 160, 246, 0.6)',
     chartBarBorder: 'rgba(25, 160, 246, 1)',
-    chartTicks: 'rgba(0, 0, 0, 0.6)',
-    chartGrid: 'rgba(0, 0, 0, 0.2)',
     chartPrimSwellLine: 'rgba(63, 185, 80, 1)',
     chartSecSwellLine: 'rgba(255, 173, 66, 1)',
+    chartTicks: 'rgba(0, 0, 0, 0.6)',
+    chartGrid: 'rgba(0, 0, 0, 0.2)',
   },
   styles: {
     textXxs: '6px',
@@ -105,10 +105,10 @@ const DarkTheme = {
     // charts
     chartBar: 'rgba(25, 160, 246, 0.6)',
     chartBarBorder: 'rgba(25, 160, 246, 1)',
-    chartTicks: 'rgba(255, 255, 255, 0.6)',
-    chartGrid: 'rgba(255, 255, 255, 0.2)',
     chartPrimSwellLine: '#45fa39',
     chartSecSwellLine: 'rgba(255, 173, 66, 1)',
+    chartTicks: 'rgba(255, 255, 255, 0.6)',
+    chartGrid: 'rgba(255, 255, 255, 0.2)',
   },
   styles: {
     textXxs: '9px',
