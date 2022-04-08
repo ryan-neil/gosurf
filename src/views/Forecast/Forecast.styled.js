@@ -6,6 +6,13 @@ export const StyledForecast = styled.main`
   padding-bottom: 3rem;
 `;
 
+export const StyledForecastLoading = styled.div`
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const StyledHeaderBackground = styled.div`
   position: absolute;
   top: 0px;

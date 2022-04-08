@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
-// Helpers
+// helpers
 // import mockData from '../../../../mocks/bannerMockData.json';
 import { useFetch } from '../../../../hooks/useFetch';
 import { calcSunTimes } from '../../../../helpers/calculations.helpers';
-// Components
+// components
 import { Loading } from '../../../../components/Loading';
 import { FetchError } from '../../../../components/FetchError';
-// Styles
+// styles
 import { StyledBanner, StyledBannerItem, StyledWaterIcon, StyledAirIcon } from './Banner.styled';
 import { Flex } from '../../../../styles/Utils.styled';
 

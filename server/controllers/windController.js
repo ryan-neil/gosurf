@@ -23,6 +23,8 @@ const getWindData = async (req, res) => {
       ),
     ]);
 
+    console.log(hourly);
+
     // create our data object
     const dataObject = {
       current: current.data[0],

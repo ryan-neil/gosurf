@@ -20,6 +20,9 @@ export const Wind = ({ spot }) => {
   // const loading = false;
   // const error = false;
 
+  // const test = response.hourly.map((hour) => convertTimeString(hour.t, { hour: 'numeric' }));
+  // console.log(test);
+
   // const currentWindDataData = response.current;
   // const windSpeeds = response.hourly.map((hour) => convertRoundNumber(hour.s));
   // const windTimes = response.hourly.map((hour) => convertTimeString(hour.t, { hour: 'numeric' }));

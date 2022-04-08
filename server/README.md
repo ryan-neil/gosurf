@@ -38,6 +38,7 @@ This repository contains the GoSurf backend source code. This repo is a work in 
 - [x] `SearchBar`/`Search`: Fix debounce timeout time
 - [x] `API`: Create development session with all mock data
 - [ ] `API`: Secure API endpoint (Express rate limiting, Enforce IP address filtering)
+- [ ] `Forecast`: Fix initial loading message
 - [ ] `Charts`: Fix invalid date for `Tides` and `Wind` components for mobile
 - [ ] `Charts`: Fix LineChart hover points
 - [ ] `SearchBar`: Combine `SearchBar`s to be reusable

@@ -4,6 +4,9 @@
 export const convertTimeString = (time, options) => {
   // convert date to be compliant with IETF RFC 2822 / ISO8601
 
+  // console.log(time);
+  // const unixTimestamp = Math.floor(date.getTime() / 1000);
+
   const date = new Date(time);
   return date.toLocaleString('en-US', options); // 6 AM
 };

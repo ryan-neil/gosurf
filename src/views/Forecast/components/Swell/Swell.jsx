@@ -25,6 +25,12 @@ export const Swell = ({ spot }) => {
   // const loading = false;
   // const error = false;
 
+  // const test = response.times
+  //   .map((hour) => convertTimeString(hour.slice(0, 19), { hour: 'numeric' }))
+  //   .slice(5, 21);
+
+  // console.log(test);
+
   return (
     <StyledGridItem>
       {loading && <Loading />}

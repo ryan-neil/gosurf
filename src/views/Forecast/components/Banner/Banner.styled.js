@@ -2,9 +2,7 @@ import styled from 'styled-components';
 import { Droplet, Sun } from '@styled-icons/feather';
 
 export const StyledBanner = styled.section`
-  width: 100%;
   min-height: 100px;
-  height: auto;
   margin-top: 1rem;
   padding: 1rem;
   background-color: ${({ theme }) => theme.colors.secondaryBG};
@@ -13,14 +11,13 @@ export const StyledBanner = styled.section`
   overflow-x: auto;
 
   display: flex;
+  align-items: flex-start;
   justify-content: space-between;
-  align-items: flex-start; /* flex items take contents width */
   gap: 2rem;
 `;
 
 export const StyledBannerItem = styled.div`
   flex-grow: 1;
-  height: auto;
   width: max-content;
   white-space: nowrap;
   h3 {
