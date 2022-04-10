@@ -37,7 +37,7 @@ export const Wind = ({ spot }) => {
           <WindBody currentWindData={response.current} />
           <BarChart
             heading="Wind"
-            xAxis={response.hourly.map((hour) => convertTimeString(hour.t, { hour: 'numeric' }))}
+            xAxis={response.hourly.map((hour) => convertTimeString(hour.t, { hour: 'numeric' }))} // this is where the bug is occurring (TypeError: can't access property "map", r.hourly is undefined)
             yAxis={response.hourly.map((hour) => convertRoundNumber(hour.s))}
           />
         </>

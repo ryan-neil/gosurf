@@ -33,7 +33,7 @@ const getWindData = async (req, res) => {
     return res.json(dataObject);
   } catch (err) {
     console.error({
-      message: 'Error fetching tides data',
+      message: 'Error fetching wind data',
       error: err,
     });
 
