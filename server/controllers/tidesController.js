@@ -23,13 +23,26 @@ const getTidesData = async (req, res) => {
       ),
     ]);
 
-    // convert time to ISO here before our frontend receives it
-    // console.log(hourly);
+    console.log(current.predictions);
+
+    // update current response time key value to be only the military time for frontend to read
+    const formatCurrentResponse = current.predictions.map((time) => ({
+      ...time,
+      t: time.t.slice(11, 18),
+    }));
+
+    console.log(formatCurrentResponse);
+
+    // update hourly response time key value to be only the military time for frontend to read
+    const formatHourlyResponse = hourly.predictions.map((time) => ({
+      ...time,
+      t: time.t.slice(11, 18),
+    }));
 
     // create our data object
     const dataObject = {
-      current: current.predictions,
-      hourly: hourly.predictions,
+      current: formatCurrentResponse,
+      hourly: formatHourlyResponse,
     };
 
     // send data object back to client

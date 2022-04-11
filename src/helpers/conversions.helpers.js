@@ -1,3 +1,5 @@
+import { DateTime } from 'luxon';
+
 // convert time to human
 export const convertTimeString = (time, options) => {
   /**
@@ -8,6 +10,17 @@ export const convertTimeString = (time, options) => {
 
   const date = new Date(time);
   return date.toLocaleString('en-US', options); // 6 AM
+};
+
+// convert military time to regular
+export const convertMilitaryToReg = (time) => {
+  // need to add a short (chart x-axis) function and long (current tides)
+  return DateTime.fromFormat(time, 'HH:mm').toFormat('h a');
+
+  // return {
+  //   short: DateTime.fromFormat(time, 'HH:mm').toFormat('h a'),
+  //   long: DateTime.fromFormat(time, 'HH:mm').toFormat('h:mm a'),
+  // };
 };
 
 // round numbers with a precision point

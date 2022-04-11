@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 // helpers
 // import mockData from '../../../../mocks/tidesMockData.json';
 import { useFetch } from '../../../../hooks/useFetch';
-import { convertRoundNumber, convertTimeString } from '../../../../helpers/conversions.helpers';
+import { convertRoundNumber, convertMilitaryToReg } from '../../../../helpers/conversions.helpers';
 // components
 import { LineChart } from '../LineChart';
 import { Loading } from '../../../../components/Loading';
@@ -20,13 +20,7 @@ export const Tides = ({ spot }) => {
   // const loading = false;
   // const error = false;
 
-  // DEBUGGING
-  // if (response) console.log(response);
-
-  // const xAxisTest = response.hourly
-  //   .map((hour) => convertTimeString(hour.t, { hour: 'numeric' }))
-  //   .slice(5, 21);
-  // console.log(xAxisTest);
+  // if (!response) return null;
 
   return (
     <StyledGridItem>
@@ -38,9 +32,7 @@ export const Tides = ({ spot }) => {
           <TidesBody todaysTides={response.current} />
           <LineChart
             heading="Tides"
-            xAxis={response.hourly
-              .map((hour) => convertTimeString(hour.t, { hour: 'numeric' }))
-              .slice(5, 21)}
+            xAxis={response.hourly.map((hour) => convertMilitaryToReg(hour.t)).slice(5, 21)}
             yAxis={response.hourly.map((hour) => convertRoundNumber(hour.v, 2)).slice(5, 21)}
           />
         </>
@@ -61,12 +53,14 @@ const TidesHeader = () => {
 
 // tides body render component
 const TidesBody = ({ todaysTides }) => {
+  console.log(todaysTides);
+
   return (
     <StyledGridItemBody tide>
       {todaysTides.map((tide, idx) => (
         <Flex gapMd spaceBetween key={idx}>
           {tide.type === 'H' ? <p>High:</p> : <p>Low:</p>}
-          <p>{convertTimeString(tide.t, { timeStyle: 'short' })}</p>
+          <p>{convertMilitaryToReg(tide.t)}</p>
           <p>{convertRoundNumber(tide.v, 2)} ft</p>
         </Flex>
       ))}
