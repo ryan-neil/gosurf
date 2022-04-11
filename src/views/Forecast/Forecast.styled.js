@@ -18,6 +18,7 @@ export const StyledHeaderBackground = styled.div`
   top: 0px;
   background-color: ${({ theme }) => theme.colors.headerBG};
   width: 100%;
+  height: 188px;
   z-index: -1;
 `;
 

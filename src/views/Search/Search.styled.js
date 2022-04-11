@@ -8,9 +8,9 @@ export const StyledSearch = styled.main`
 export const StyledHeaderBackground = styled.div`
   position: absolute;
   top: 0px;
-  background-color: ${({ theme }) => theme.colors.headerBG};
   width: 100%;
   height: 130px;
+  background-color: ${({ theme }) => theme.colors.headerBG};
   z-index: -1;
 `;
 

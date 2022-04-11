@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-// mock api
-// import mockData from '../../mocks/spotsMockData.json';
 // helpers
 import useDebounce from '../../hooks/useDebounce';
 // styles
@@ -80,9 +78,7 @@ export const Search = () => {
     <StyledSearch>
       <StyledHeaderBackground />
       <Container>
-        {/* Header */}
         <StyledSearchHeader>
-          {/* Input */}
           <StyledInput>
             <SearchBarIcon />
             <input
@@ -91,12 +87,10 @@ export const Search = () => {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </StyledInput>
-          {/* Button */}
           <StyledButton type="submit" onClick={() => navigate(-1)}>
             Cancel
           </StyledButton>
         </StyledSearchHeader>
-        {/* Body */}
         <StyledSearchBody>{handleResults}</StyledSearchBody>
       </Container>
     </StyledSearch>

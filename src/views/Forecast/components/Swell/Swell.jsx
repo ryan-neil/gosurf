@@ -4,7 +4,6 @@ import { LineChart } from '../LineChart';
 import { Loading } from '../../../../components/Loading';
 import { FetchError } from '../../../../components/FetchError';
 // helpers
-// import mockData from '../../../../mocks/swellMockData.json';
 import { useFetch } from '../../../../hooks/useFetch';
 import {
   convertRoundNumber,
@@ -16,6 +15,8 @@ import {
 import { StyledGridItem, StyledGridItemBody, StyledSwellTag } from '../../Forecast.styled';
 import { Flex, FlexCol } from '../../../../styles/Utils.styled';
 import swellIcon from '../../../../assets/swell.svg';
+// mock api data
+// import mockData from '../../../../mocks/swellMockData.json';
 
 export const Swell = ({ spot }) => {
   // fetch wave data
@@ -24,12 +25,6 @@ export const Swell = ({ spot }) => {
   // const response = mockData;
   // const loading = false;
   // const error = false;
-
-  // const test = response.times
-  //   .map((hour) => convertTimeString(hour.slice(0, 19), { hour: 'numeric' }))
-  //   .slice(5, 21);
-
-  // console.log(test);
 
   return (
     <StyledGridItem>

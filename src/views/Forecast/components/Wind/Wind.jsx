@@ -4,13 +4,14 @@ import { BarChart } from '../BarChart';
 import { Loading } from '../../../../components/Loading';
 import { FetchError } from '../../../../components/FetchError';
 // helpers
-// import mockData from '../../../../mocks/windMockData.json';
 import { useFetch } from '../../../../hooks/useFetch';
 import { convertRoundNumber, convertMilitaryToReg } from '../../../../helpers/conversions.helpers';
 // styles
 import { StyledGridItem, StyledGridItemBody } from '../../Forecast.styled';
 import { Flex } from '../../../../styles/Utils.styled';
 import windIcon from '../../../../assets/wind.svg';
+// mock api data
+// import mockData from '../../../../mocks/windMockData.json';
 
 export const Wind = ({ spot }) => {
   // fetch weather data

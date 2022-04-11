@@ -1,7 +1,6 @@
 import { useParams } from 'react-router-dom';
 // helpers
-import mockData from '../../mocks/spotsMockData.json';
-// import { useFetch } from '../../hooks/useFetch';
+import { useFetch } from '../../hooks/useFetch';
 // Components
 import { Heading } from './components/Heading';
 import { Banner } from './components/Banner';
@@ -23,14 +22,8 @@ import {
 import { Container } from '../../styles/Utils.styled';
 
 export const Forecast = () => {
-  // get param value
-  const { slug } = useParams();
-  // fetch spots api
-  // const { response, loading, error } = useFetch('/api/spots');
-  // mock data
-  const response = mockData;
-  const loading = false;
-  const error = false;
+  const { slug } = useParams(); // get param value
+  const { response, loading, error } = useFetch('/api/spots'); // get all spots
 
   /**
    * Show loading state for entire page
@@ -46,6 +39,9 @@ export const Forecast = () => {
         </Container>
       </>
     );
+  /**
+   * Show error state for entire page
+   */
   if (error)
     return (
       <>
@@ -61,7 +57,7 @@ export const Forecast = () => {
   // filter for param spot
   const spot = response.filter((item) => item.slug === slug);
 
-  // check if parameter spot is valid
+  // check if parameter spot is a valid location
   if (spot.length === 0) return <SpotError />;
 
   return (

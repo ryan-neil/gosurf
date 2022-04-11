@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 // helpers
-// import mockData from '../../../../mocks/bannerMockData.json';
 import { useFetch } from '../../../../hooks/useFetch';
 import { calcSunTimes } from '../../../../helpers/calculations.helpers';
 // components
@@ -9,6 +8,8 @@ import { FetchError } from '../../../../components/FetchError';
 // styles
 import { StyledBanner, StyledBannerItem, StyledWaterIcon, StyledAirIcon } from './Banner.styled';
 import { Flex } from '../../../../styles/Utils.styled';
+// mock api data
+// import mockData from '../../../../mocks/bannerMockData.json';
 
 export const Banner = ({ spot }) => {
   // get sunrise and sunset

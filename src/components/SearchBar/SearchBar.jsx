@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// mock api
-// import mockData from '../../mocks/spotsMockData.json';
 // helpers
 import useDebounce from '../../hooks/useDebounce';
 // styles

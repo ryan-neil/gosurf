@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 // helpers
-// import mockData from '../../../../mocks/tidesMockData.json';
 import { useFetch } from '../../../../hooks/useFetch';
 import { convertRoundNumber, convertMilitaryToReg } from '../../../../helpers/conversions.helpers';
 // components
@@ -11,6 +10,8 @@ import { FetchError } from '../../../../components/FetchError';
 import { StyledGridItem, StyledGridItemBody } from '../../Forecast.styled';
 import { Flex } from '../../../../styles/Utils.styled';
 import tidesIcon from '../../../../assets/tides.svg';
+// mock api data
+// import mockData from '../../../../mocks/tidesMockData.json';
 
 export const Tides = ({ spot }) => {
   // fetch tides data

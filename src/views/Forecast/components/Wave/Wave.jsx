@@ -4,7 +4,6 @@ import { Loading } from '../../../../components/Loading';
 import { FetchError } from '../../../../components/FetchError';
 import { BarChart } from '../BarChart';
 // helpers
-// import mockData from '../../../../mocks/waveMockData.json';
 import { useFetch } from '../../../../hooks/useFetch';
 import {
   convertRoundNumber,
@@ -16,6 +15,8 @@ import { calcBodySize } from '../../../../helpers/calculations.helpers';
 import { StyledGridItem, StyledGridItemBody } from '../../Forecast.styled';
 import { Flex } from '../../../../styles/Utils.styled';
 import waveIcon from '../../../../assets/wave.svg';
+// mock api data
+// import mockData from '../../../../mocks/waveMockData.json';
 
 export const Wave = ({ spot }) => {
   // fetch wave data
@@ -24,11 +25,6 @@ export const Wave = ({ spot }) => {
   // const response = mockData;
   // const loading = false;
   // const error = false;
-
-  // const waveTimes = response.times.map((wave) => convertTimeString(wave.slice(0, 19), { hour: 'numeric' }));
-  // const waveHeights = response.waveHeight.hourly.map((wave) => convertRoundNumber(convertMetersToFeet(wave)));
-  // const minWaveHeight = convertRoundNumber(convertMetersToFeet(response.waveHeight.min));
-  // const maxWaveHeight = convertRoundNumber(convertMetersToFeet(response.waveHeight.max));
 
   return (
     <StyledGridItem>
