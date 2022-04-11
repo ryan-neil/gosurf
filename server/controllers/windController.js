@@ -23,10 +23,16 @@ const getWindData = async (req, res) => {
       ),
     ]);
 
+    // update hourly response time key value to be only the military time for frontend to read
+    const formatHourlyResponse = hourly.data.map((time) => ({
+      ...time,
+      t: time.t.slice(11, 18),
+    }));
+
     // create our data object
     const dataObject = {
       current: current.data[0],
-      hourly: hourly.data,
+      hourly: formatHourlyResponse,
     };
 
     // send data object back to client

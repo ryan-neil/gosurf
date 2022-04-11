@@ -6,7 +6,7 @@ import { FetchError } from '../../../../components/FetchError';
 // helpers
 // import mockData from '../../../../mocks/windMockData.json';
 import { useFetch } from '../../../../hooks/useFetch';
-import { convertTimeString, convertRoundNumber } from '../../../../helpers/conversions.helpers';
+import { convertRoundNumber, convertMilitaryToReg } from '../../../../helpers/conversions.helpers';
 // styles
 import { StyledGridItem, StyledGridItemBody } from '../../Forecast.styled';
 import { Flex } from '../../../../styles/Utils.styled';
@@ -20,13 +20,6 @@ export const Wind = ({ spot }) => {
   // const loading = false;
   // const error = false;
 
-  // DEBUGGING:
-  // if (response) console.log(response);
-
-  // const windTimesTest = response.hourly.map((hour) =>
-  //   convertTimeString(hour.t, { hour: 'numeric' })
-  // );
-
   return (
     <StyledGridItem>
       {loading && <Loading />}
@@ -37,7 +30,7 @@ export const Wind = ({ spot }) => {
           <WindBody currentWindData={response.current} />
           <BarChart
             heading="Wind"
-            xAxis={response.hourly.map((hour) => convertTimeString(hour.t, { hour: 'numeric' }))} // this is where the bug is occurring (TypeError: can't access property "map", r.hourly is undefined)
+            xAxis={response.hourly.map((hour) => convertMilitaryToReg(hour.t).short)} // this is where the bug is occurring (TypeError: can't access property "map", r.hourly is undefined)
             yAxis={response.hourly.map((hour) => convertRoundNumber(hour.s))}
           />
         </>

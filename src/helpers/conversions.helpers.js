@@ -15,12 +15,12 @@ export const convertTimeString = (time, options) => {
 // convert military time to regular
 export const convertMilitaryToReg = (time) => {
   // need to add a short (chart x-axis) function and long (current tides)
-  return DateTime.fromFormat(time, 'HH:mm').toFormat('h a');
+  // return DateTime.fromFormat(time, 'HH:mm').toFormat('h a');
 
-  // return {
-  //   short: DateTime.fromFormat(time, 'HH:mm').toFormat('h a'),
-  //   long: DateTime.fromFormat(time, 'HH:mm').toFormat('h:mm a'),
-  // };
+  return {
+    short: DateTime.fromFormat(time, 'HH:mm').toFormat('h a'),
+    long: DateTime.fromFormat(time, 'HH:mm').toFormat('h:mm a'),
+  };
 };
 
 // round numbers with a precision point

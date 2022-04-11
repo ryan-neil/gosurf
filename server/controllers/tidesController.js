@@ -23,15 +23,11 @@ const getTidesData = async (req, res) => {
       ),
     ]);
 
-    console.log(current.predictions);
-
     // update current response time key value to be only the military time for frontend to read
     const formatCurrentResponse = current.predictions.map((time) => ({
       ...time,
       t: time.t.slice(11, 18),
     }));
-
-    console.log(formatCurrentResponse);
 
     // update hourly response time key value to be only the military time for frontend to read
     const formatHourlyResponse = hourly.predictions.map((time) => ({

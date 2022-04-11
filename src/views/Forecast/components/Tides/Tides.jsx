@@ -20,8 +20,6 @@ export const Tides = ({ spot }) => {
   // const loading = false;
   // const error = false;
 
-  // if (!response) return null;
-
   return (
     <StyledGridItem>
       {loading && <Loading />}
@@ -32,7 +30,7 @@ export const Tides = ({ spot }) => {
           <TidesBody todaysTides={response.current} />
           <LineChart
             heading="Tides"
-            xAxis={response.hourly.map((hour) => convertMilitaryToReg(hour.t)).slice(5, 21)}
+            xAxis={response.hourly.map((hour) => convertMilitaryToReg(hour.t).short).slice(5, 21)}
             yAxis={response.hourly.map((hour) => convertRoundNumber(hour.v, 2)).slice(5, 21)}
           />
         </>
@@ -53,14 +51,12 @@ const TidesHeader = () => {
 
 // tides body render component
 const TidesBody = ({ todaysTides }) => {
-  console.log(todaysTides);
-
   return (
     <StyledGridItemBody tide>
       {todaysTides.map((tide, idx) => (
         <Flex gapMd spaceBetween key={idx}>
           {tide.type === 'H' ? <p>High:</p> : <p>Low:</p>}
-          <p>{convertMilitaryToReg(tide.t)}</p>
+          <p>{convertMilitaryToReg(tide.t).long}</p>
           <p>{convertRoundNumber(tide.v, 2)} ft</p>
         </Flex>
       ))}
