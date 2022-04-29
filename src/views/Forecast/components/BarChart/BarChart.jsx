@@ -6,7 +6,7 @@ import ChartDataLabels from 'chartjs-plugin-datalabels'; // Chart.js datalabels 
 // Styles
 import { StyledChartContainer, StyledChartHeading, StyledChart } from './BarChart.styled';
 
-export const BarChart = ({ heading, xAxis, yAxis }) => {
+const BarChart = ({ heading, xAxis, yAxis }) => {
   // global chart styles for chart styling
   const style = getComputedStyle(document.body);
   const chartBar = style.getPropertyValue('--chartBar');
@@ -89,3 +89,5 @@ BarChart.propTypes = {
   xAxis: PropTypes.arrayOf(PropTypes.string).isRequired,
   yAxis: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
+
+export default BarChart;

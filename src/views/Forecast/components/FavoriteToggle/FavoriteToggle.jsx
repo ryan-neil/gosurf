@@ -2,7 +2,7 @@ import { useState } from 'react';
 // Styles
 import { StarBorderIcon, StarIcon } from './FavoriteToggle.styled';
 
-export const FavoriteToggle = () => {
+const FavoriteToggle = () => {
   const [favorite, setFavorite] = useState(false);
 
   const toggleFavorite = () => {
@@ -19,3 +19,5 @@ export const FavoriteToggle = () => {
 
   return <span>{favoriteIcon}</span>;
 };
+
+export default FavoriteToggle;

@@ -5,7 +5,7 @@ import { Chart as ChartJS } from 'chart.js/auto'; // eslint-disable-line no-unus
 // Styles
 import { StyledChartContainer, StyledChartHeading, StyledChart } from './LineChart.styled';
 
-export const LineChart = ({ heading, xAxis, yAxis, yAxisSec }) => {
+const LineChart = ({ heading, xAxis, yAxis, yAxisSec }) => {
   // get chart global styles for chart styling
   const style = getComputedStyle(document.body);
   const primaryBG = style.getPropertyValue('--primaryBG');
@@ -111,3 +111,5 @@ LineChart.propTypes = {
   yAxis: PropTypes.arrayOf(PropTypes.number).isRequired,
   yAxisSec: PropTypes.arrayOf(PropTypes.number),
 };
+
+export default LineChart;

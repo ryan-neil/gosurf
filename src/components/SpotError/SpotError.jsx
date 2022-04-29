@@ -4,7 +4,7 @@ import { StyledError, ErrorIcon } from './SpotError.styled';
 
 // Sorry, error fetching {name} data...{error}
 
-export const SpotError = () => {
+const SpotError = () => {
   const navigate = useNavigate();
 
   // navigate to home page after 2 seconds
@@ -21,3 +21,5 @@ export const SpotError = () => {
     </StyledError>
   );
 };
+
+export default SpotError;

@@ -6,14 +6,14 @@ import { themeMode } from './styles/Theme.styled';
 import GlobalsStyled from './styles/Globals.styled';
 import { StyledApp } from './styles/App.styled';
 // components
-import { Header } from './components/Header';
-import { Footer } from './components/Footer';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 // views
-import { Home } from './views/Home';
-import { Forecast } from './views/Forecast';
-import { Search } from './views/Search';
-import { Missing } from './views/Missing';
+import Home from './views/Home';
+import Forecast from './views/Forecast';
+import Search from './views/Search';
+import Missing from './views/Missing';
 
 const App = () => {
   const [theme, setTheme] = useLocalStorage('theme', 'light');

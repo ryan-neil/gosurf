@@ -9,3 +9,5 @@ export const SearchWidget = () => {
     </Link>
   );
 };
+
+export default SearchWidget;

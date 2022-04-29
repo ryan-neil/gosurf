@@ -20,14 +20,14 @@ This repository contains the GoSurf backend source code. This repo is a work in 
 - [x] Deploy: Add `Footer` component
 - [x] Deploy: Deploy to Netlify
 - [x] Feat: Add mobile `Search` component (WeBull example)
-- [ ] Feat: Add `express-rate-limit` to backend server ([npm](https://www.npmjs.com/package/express-rate-limit), [Link](https://www.youtube.com/watch?v=mZ0O7gcS7Yk))
-- [ ] Feat: Integrate React Query for all API logic and management
-- [ ] Feat: Integrate [Highcharts](https://www.highcharts.com/products/highcharts/) instead of chartsjs
-- [ ] Feat: Add `node-cache` to backend server ([npm](https://www.npmjs.com/package/node-cache), [Link](https://www.youtube.com/watch?v=xZ_Rnh1UHTs))
+- [x] Feat: Add `express-rate-limit` to backend server ([npm](https://www.npmjs.com/package/express-rate-limit), [Link](https://www.youtube.com/watch?v=mZ0O7gcS7Yk))
+- [x] Feat: Add caching to backend server
+- [ ] Feat: Integrate React Query for all frontend requests
+- [ ] Feat: Add "Coverage" modal button
 - [ ] Feat: "Favorites" feature (`Favorites`/`Dashboard` page)
+- [ ] Feat: Replace Chartjs with [Highcharts](https://www.highcharts.com/products/highcharts/)
 - [ ] Feat: Skeleton loaders for loading states
 - [ ] Feat: Create account feature (authentication)
-- [ ] Feat: Send `spot` object from `SearchBar` to Forecast page
 
 [Back to Top](#table-of-contents)
 
@@ -37,71 +37,15 @@ This repository contains the GoSurf backend source code. This repo is a work in 
 
 - [x] `SearchBar`/`Search`: Fix debounce timeout time
 - [x] `API`: Create development session with all mock data
-- [ ] `API`: Secure API endpoint (Express rate limiting, Enforce IP address filtering)
-- [ ] `Forecast`: Fix initial loading message
-- [ ] `Charts`: Fix invalid date for `Tides` and `Wind` components for mobile
-- [ ] `Charts`: Fix LineChart hover points
+- [x] `API`: Secure API endpoint (Express rate limiting, Enforce IP address filtering)
+- [x] `Forecast`: Fix initial loading message
+- [x] `Charts`: Fix invalid date for `Tides` and `Wind` components for mobile
+- [x] `Charts`: Fix LineChart hover points
 - [ ] `SearchBar`: Combine `SearchBar`s to be reusable
 - [ ] `Charts`: Colors not updating when theme is toggled
 - [ ] `Home`: When navigating back to Home page hero image doesn't show up until page refresh
 - [ ] `Wind`: Speed data is up to the hour, not 24 hour predictions
 - [ ] `Banner`/`Wave`/`Tides`/`Wind`/`Swell`: Chartjs breaks unit tests ([StackOverflow issue](https://stackoverflow.com/questions/68146899/failing-test-in-react-by-using-chart-js))
-
-[Back to Top](#table-of-contents)
-
-<br>
-
-# ⚡️ Get Started
-
-(_outdated_)
-
-To get a local version of the application up and running follow these steps:
-
-### Installation
-
-#### 1. Clone the repo:
-
-```bash
-git clone https://github.com/ryan-neil/gosurf.git
-```
-
-#### 2. Get API keys:
-
-Get _free_ [StormGlass](https://stormglass.io/) API key.
-
-#### 3. Install all required npm packages:
-
-Inside the root directory:
-
-```bash
-npm install
-```
-
-#### 4. Store API keys:
-
-Input API keys into `.env` file:
-
-```bash
-REACT_APP_SG_KEY='ENTER STORMGLASS KEY'
-```
-
-#### 5. Run the application:
-
-Start the server:
-
-```bash
-npm run server
-```
-
-Start the app:
-
-```bash
-npm run start
-```
-
-## Run builds locally
-
-You can run builds in Netlify CLI to mimic the behavior of running a build on Netlify.
 
 [Back to Top](#table-of-contents)
 
@@ -129,6 +73,7 @@ A quick look at the files and directories you'll see in the repo.
 ├── assets
 │  └── github repo images
 ├── public
+│  └── frontend assets (images)
 ├── server
 │  └── backend logic
 ├── src
@@ -139,19 +84,20 @@ A quick look at the files and directories you'll see in the repo.
 │  │  ├── FetchError
 │  │  ├── Footer
 │  │  ├── Header
-│  │  ├── Loading
+│  │  ├── FetchLoading
 │  │  ├── Logo
 │  │  ├── SearchBar
-│  │  └── Spot Error
-│  ├── context
-│  │  └── SpotsContext.js
+│  │  └── SpotError
 │  ├── helpers
 │  │  └── app helper functions
 │  ├── hooks
 │  │  └── app hooks
+│  ├── styles
+│  │  └── app global styles
 │  ├── views
 │  │  ├── Home
 │  │  ├── Forecast
+│  │  ├── Search
 │  │  └── 404
 │  ├── App.js
 │  └── index.js
@@ -164,7 +110,7 @@ A quick look at the files and directories you'll see in the repo.
 
 # 🌊 Forecasting
 
-Weather forecasting is all probabilistic statistics.
+Weather forecasting is a very challenging subject because it's all probabilistic statistics. Believe it or not trying to predict mother nature doesn't always work out so well...Anyway I've put together some resources that help us understand how we can better make these predictions with a little more accuracy.
 
 Resources:
 
@@ -248,7 +194,13 @@ The NOAA does provide the predictions for significant hourly tide heights over a
 
 ## Wind
 
-Something...
+### Current Wind Calculations
+
+The NOAA provides the predictions for significant tide heights (i.e. lowest and highest values) it does not provide a means to determine the "current" tide (that I know of).
+
+### Hourly Wind Calculations
+
+The NOAA does provide the predictions for significant hourly tide heights over a chosen period of time.
 
 ## Swell
 

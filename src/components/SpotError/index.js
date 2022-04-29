@@ -1,1 +1,1 @@
-export { SpotError } from './SpotError';
+export { default } from './SpotError';

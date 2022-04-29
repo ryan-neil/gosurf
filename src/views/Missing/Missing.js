@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Container, StyledButton } from '../../styles/Utils.styled';
 import { MissingStyled } from './Missing.styled';
 
-export const Missing = () => (
+const Missing = () => (
   <MissingStyled>
     <Container>
       <p>Hmm. We cannot find the page you are looking for.</p>
@@ -13,3 +13,5 @@ export const Missing = () => (
     </Container>
   </MissingStyled>
 );
+
+export default Missing;

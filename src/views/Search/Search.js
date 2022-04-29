@@ -12,7 +12,7 @@ import {
 } from './Search.styled';
 import { Container, StyledButton, StyledInput, SearchBarIcon } from '../../styles/Utils.styled';
 
-export const Search = () => {
+const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [results, setResults] = useState([]);
   const debouncedSearchTerm = useDebounce(searchTerm, 1000);
@@ -96,3 +96,5 @@ export const Search = () => {
     </StyledSearch>
   );
 };
+
+export default Search;

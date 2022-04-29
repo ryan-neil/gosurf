@@ -9,7 +9,7 @@ import { themeMode } from '../../../../styles/Theme.styled';
 // mock data
 import bannerMockData from '../../../../mocks/bannerMockData.json';
 // component
-import { Banner } from './Banner';
+import Banner from './Banner';
 
 // mock fetch API
 const server = setupServer(

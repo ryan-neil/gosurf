@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 // Styled
 import { StyledLogo } from './Logo.styled';
 
-export const Logo = ({ header, footer }) => {
+const Logo = ({ header, footer }) => {
   return (
     <StyledLogo header={header} footer={footer}>
       <Link to="/">
@@ -20,3 +20,5 @@ Logo.propTypes = {
   header: PropTypes.bool,
   footer: PropTypes.bool,
 };
+
+export default Logo;

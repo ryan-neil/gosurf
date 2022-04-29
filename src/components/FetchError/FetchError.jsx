@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { StyledError, ErrorIcon } from './FetchError.styled';
 
-export const FetchError = ({ name }) => {
+const FetchError = ({ name }) => {
   return (
     <StyledError>
       <p>
@@ -15,3 +15,5 @@ export const FetchError = ({ name }) => {
 FetchError.propTypes = {
   name: PropTypes.string.isRequired,
 };
+
+export default FetchError;

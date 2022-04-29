@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 // components
-import { Loading } from '../../../../components/Loading';
-import { FetchError } from '../../../../components/FetchError';
-import { BarChart } from '../BarChart';
+import FetchLoading from '../../../../components/FetchLoading';
+import FetchError from '../../../../components/FetchError';
+import BarChart from '../BarChart';
 // helpers
 import { useFetch } from '../../../../hooks/useFetch';
 import {
@@ -18,7 +18,7 @@ import waveIcon from '../../../../assets/wave.svg';
 // mock api data
 // import mockData from '../../../../mocks/waveMockData.json';
 
-export const Wave = ({ spot }) => {
+const Wave = ({ spot }) => {
   // fetch wave data
   const { response, loading, error } = useFetch(`/api/wave?lat=${spot.lat}&lon=${spot.lon}`);
   // mock data
@@ -28,7 +28,7 @@ export const Wave = ({ spot }) => {
 
   return (
     <StyledGridItem>
-      {loading && <Loading />}
+      {loading && <FetchLoading />}
       {error && <FetchError name="Wave" error={error} />}
       {response && (
         <>
@@ -94,3 +94,5 @@ WaveBody.propTypes = {
   minWaveHeight: PropTypes.number.isRequired,
   maxWaveHeight: PropTypes.number.isRequired,
 };
+
+export default Wave;

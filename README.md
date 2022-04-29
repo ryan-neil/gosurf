@@ -6,7 +6,7 @@
 
 <h1 align="center">Simplify checking the surf forecast</h1>
 
-GoSurf is a fullstack web application that aims to simplify checking the surf forecast for your local surf spot in a clean but simplistic UI/UX.
+GoSurf is a fullstack web application that aims to simplify checking the surf forecast for your local surf spot in a clean but simplistic UI/UX. Currently, we only have data for the Hawaiian Islands but we will be expanding to the west coast of North America very soon!
 
 The concept for GoSurf is based on the fact that modern day surf tracking sites and applications are extremely noisy, and difficult to understand.
 

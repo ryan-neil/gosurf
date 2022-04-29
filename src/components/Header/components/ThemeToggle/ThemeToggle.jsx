@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 // Styles
 import { StyledSunIcon, StyledMoonIcon } from './ThemeToggle.styled';
 
-export const ThemeToggle = ({ theme, setTheme }) => {
+const ThemeToggle = ({ theme, setTheme }) => {
   // toggle theme status
   const handleClick = () => {
     // window.location.reload(); // fixes homepage image but and chart colors bug (bad: causes more api calls)
@@ -34,3 +34,5 @@ ThemeToggle.propTypes = {
   theme: PropTypes.string.isRequired,
   setTheme: PropTypes.func.isRequired,
 };
+
+export default ThemeToggle;

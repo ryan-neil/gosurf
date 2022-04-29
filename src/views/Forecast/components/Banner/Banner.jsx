@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import { useFetch } from '../../../../hooks/useFetch';
 import { calcSunTimes } from '../../../../helpers/calculations.helpers';
 // components
-import { Loading } from '../../../../components/Loading';
-import { FetchError } from '../../../../components/FetchError';
+import FetchLoading from '../../../../components/FetchLoading';
+import FetchError from '../../../../components/FetchError';
 // styles
 import { StyledBanner, StyledBannerItem, StyledWaterIcon, StyledAirIcon } from './Banner.styled';
 import { Flex } from '../../../../styles/Utils.styled';
 // mock api data
 // import mockData from '../../../../mocks/bannerMockData.json';
 
-export const Banner = ({ spot }) => {
+const Banner = ({ spot }) => {
   // get sunrise and sunset
   const { sunrise, sunset } = calcSunTimes(spot.lat, spot.lon);
 
@@ -24,7 +24,7 @@ export const Banner = ({ spot }) => {
 
   return (
     <StyledBanner>
-      {loading && <Loading />}
+      {loading && <FetchLoading />}
       {error && <FetchError name="Weather" error={error} />}
       {response && (
         <>
@@ -93,3 +93,5 @@ Banner.propTypes = {
     ])
   ).isRequired,
 };
+
+export default Banner;

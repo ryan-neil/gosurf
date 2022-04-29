@@ -1,2 +1,1 @@
-// Header barrel file
-export { Home } from './Home';
+export { default } from './Home';

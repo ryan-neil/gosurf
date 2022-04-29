@@ -1,1 +1,1 @@
-export { FetchError } from './FetchError';
+export { default } from './FetchError';

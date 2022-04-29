@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Component } from 'react';
 // components
-import { Logo } from '../Logo';
+import Logo from '../Logo';
 // Styles
 import { StyledErrorBoundary } from './ErrorBoundary.styled';
 

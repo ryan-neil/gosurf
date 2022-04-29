@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 // components
-import { LineChart } from '../LineChart';
-import { Loading } from '../../../../components/Loading';
-import { FetchError } from '../../../../components/FetchError';
+import LineChart from '../LineChart';
+import FetchLoading from '../../../../components/FetchLoading';
+import FetchError from '../../../../components/FetchError';
 // helpers
 import { useFetch } from '../../../../hooks/useFetch';
 import {
@@ -18,7 +18,7 @@ import swellIcon from '../../../../assets/swell.svg';
 // mock api data
 // import mockData from '../../../../mocks/swellMockData.json';
 
-export const Swell = ({ spot }) => {
+const Swell = ({ spot }) => {
   // fetch wave data
   const { response, loading, error } = useFetch(`/api/swell?lat=${spot.lat}&lon=${spot.lon}`);
   // mock fetch
@@ -28,7 +28,7 @@ export const Swell = ({ spot }) => {
 
   return (
     <StyledGridItem>
-      {loading && <Loading />}
+      {loading && <FetchLoading />}
       {error && <FetchError name="Swell" error={error} />}
       {response && (
         <>
@@ -132,3 +132,5 @@ SwellBody.propTypes = {
   currentSecSwellDirection: PropTypes.number.isRequired,
   currentSecSwellPeriod: PropTypes.number.isRequired,
 };
+
+export default Swell;

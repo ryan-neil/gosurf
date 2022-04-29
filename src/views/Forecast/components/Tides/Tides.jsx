@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { useFetch } from '../../../../hooks/useFetch';
 import { convertRoundNumber, convertMilitaryToReg } from '../../../../helpers/conversions.helpers';
 // components
-import { LineChart } from '../LineChart';
-import { Loading } from '../../../../components/Loading';
-import { FetchError } from '../../../../components/FetchError';
+import LineChart from '../LineChart';
+import FetchLoading from '../../../../components/FetchLoading';
+import FetchError from '../../../../components/FetchError';
 // styles
 import { StyledGridItem, StyledGridItemBody } from '../../Forecast.styled';
 import { Flex } from '../../../../styles/Utils.styled';
@@ -13,7 +13,7 @@ import tidesIcon from '../../../../assets/tides.svg';
 // mock api data
 // import mockData from '../../../../mocks/tidesMockData.json';
 
-export const Tides = ({ spot }) => {
+const Tides = ({ spot }) => {
   // fetch tides data
   const { response, loading, error } = useFetch(`/api/tides?stationId=${spot.station_id}`);
   // mock fetch
@@ -23,7 +23,7 @@ export const Tides = ({ spot }) => {
 
   return (
     <StyledGridItem>
-      {loading && <Loading />}
+      {loading && <FetchLoading />}
       {error && <FetchError name="Tides" error={error} />}
       {response && (
         <>
@@ -79,3 +79,5 @@ Tides.propTypes = {
 TidesBody.propTypes = {
   todaysTides: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)).isRequired,
 };
+
+export default Tides;

@@ -1,1 +1,1 @@
-export { Swell } from './Swell';
+export { default } from './Swell';

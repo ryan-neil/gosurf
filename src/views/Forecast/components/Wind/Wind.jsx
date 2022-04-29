@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 // components
-import { BarChart } from '../BarChart';
-import { Loading } from '../../../../components/Loading';
-import { FetchError } from '../../../../components/FetchError';
+import BarChart from '../BarChart';
+import FetchLoading from '../../../../components/FetchLoading';
+import FetchError from '../../../../components/FetchError';
 // helpers
 import { useFetch } from '../../../../hooks/useFetch';
 import { convertRoundNumber, convertMilitaryToReg } from '../../../../helpers/conversions.helpers';
@@ -13,7 +13,7 @@ import windIcon from '../../../../assets/wind.svg';
 // mock api data
 // import mockData from '../../../../mocks/windMockData.json';
 
-export const Wind = ({ spot }) => {
+const Wind = ({ spot }) => {
   // fetch weather data
   const { response, loading, error } = useFetch(`/api/wind?stationId=${spot.station_id}`);
   // mock data
@@ -23,7 +23,7 @@ export const Wind = ({ spot }) => {
 
   return (
     <StyledGridItem>
-      {loading && <Loading />}
+      {loading && <FetchLoading />}
       {error && <FetchError name="Wind" error={error} />}
       {response && (
         <>
@@ -70,3 +70,5 @@ Wind.propTypes = {
 WindBody.propTypes = {
   currentWindData: PropTypes.objectOf(PropTypes.string).isRequired,
 };
+
+export default Wind;

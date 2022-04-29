@@ -2,16 +2,15 @@ import { useParams } from 'react-router-dom';
 // helpers
 import { useFetch } from '../../hooks/useFetch';
 // Components
-import { Heading } from './components/Heading';
-import { Banner } from './components/Banner';
-import { Wave } from './components/Wave/Wave';
-import { Tides } from './components/Tides/Tides';
-import { Wind } from './components/Wind/Wind';
-import { Swell } from './components/Swell/Swell';
-// import { ForecastLoading } from './components/ForecastLoading';
-import { Loading } from '../../components/Loading';
-import { FetchError } from '../../components/FetchError';
-import { SpotError } from '../../components/SpotError';
+import Heading from './components/Heading';
+import Banner from './components/Banner';
+import Wave from './components/Wave/Wave';
+import Tides from './components/Tides/Tides';
+import Wind from './components/Wind/Wind';
+import Swell from './components/Swell/Swell';
+import FetchLoading from '../../components/FetchLoading';
+import FetchError from '../../components/FetchError';
+import SpotError from '../../components/SpotError';
 // Styles
 import {
   StyledForecast,
@@ -21,7 +20,7 @@ import {
 } from './Forecast.styled';
 import { Container } from '../../styles/Utils.styled';
 
-export const Forecast = () => {
+const Forecast = () => {
   const { slug } = useParams(); // get param value
   const { response, loading, error } = useFetch('/api/spots'); // get all spots
 
@@ -34,7 +33,7 @@ export const Forecast = () => {
         <StyledHeaderBackground />
         <Container>
           <StyledForecastLoading>
-            <Loading />
+            <FetchLoading />
           </StyledForecastLoading>
         </Container>
       </>
@@ -76,3 +75,5 @@ export const Forecast = () => {
     </StyledForecast>
   );
 };
+
+export default Forecast;

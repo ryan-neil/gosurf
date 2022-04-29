@@ -1,1 +1,1 @@
-export { SearchWidget } from './SearchWidget';
+export { default } from './SearchWidget';

@@ -1,10 +1,10 @@
 // Components
-import { Logo } from '../Logo';
+import Logo from '../Logo';
 // Styles
 import { StyledFooter, StyledGithubIcon } from './Footer.styled';
 import { Container, Flex, FlexCol } from '../../styles/Utils.styled';
 
-export const Footer = () => {
+const Footer = () => {
   return (
     <StyledFooter>
       <Container>
@@ -21,3 +21,5 @@ export const Footer = () => {
     </StyledFooter>
   );
 };
+
+export default Footer;

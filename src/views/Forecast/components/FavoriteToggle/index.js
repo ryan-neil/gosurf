@@ -1,2 +1,2 @@
 // barrel file
-export { FavoriteToggle } from './FavoriteToggle';
+export { default } from './FavoriteToggle';

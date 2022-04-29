@@ -11,7 +11,7 @@ import { themeMode } from '../../styles/Theme.styled';
 // mock data
 import spotsMockData from '../../mocks/spotsMockData.json';
 // component
-import { SearchBar } from './SearchBar';
+import SearchBar from './SearchBar';
 
 // mock fetch API
 const server = setupServer(

@@ -1,1 +1,1 @@
-export { ProfileWidget } from './ProfileWidget';
+export { default } from './ProfileWidget';

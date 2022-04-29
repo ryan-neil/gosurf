@@ -5,8 +5,7 @@ import carIcon from '../../../../assets/car.svg';
 import calendarIcon from '../../../../assets/calendar.svg';
 import campingIcon from '../../../../assets/camping.svg';
 
-// About component
-export const About = () => {
+const About = () => {
   // about section content
   const content = [
     {
@@ -60,3 +59,5 @@ AboutCard.propTypes = {
     PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.symbol])
   ).isRequired,
 };
+
+export default About;

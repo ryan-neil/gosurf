@@ -6,7 +6,7 @@ import useDebounce from '../../hooks/useDebounce';
 import { StyledSearchBar, StyledInputResults } from './SearchBar.styled';
 import { SearchBarIcon, StyledInput } from '../../styles/Utils.styled';
 
-export const SearchBar = () => {
+const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [results, setResults] = useState([]);
   const debouncedSearchTerm = useDebounce(searchTerm, 500);
@@ -79,3 +79,5 @@ export const SearchBar = () => {
     </StyledSearchBar>
   );
 };
+
+export default SearchBar;

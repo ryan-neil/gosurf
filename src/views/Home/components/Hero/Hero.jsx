@@ -1,9 +1,9 @@
 // Components
-import { SearchBar } from '../../../../components/SearchBar';
+import SearchBar from '../../../../components/SearchBar';
 // Styles
 import { HeroStyled, HeroContentStyled } from './Hero.styled';
 
-export const Hero = () => {
+const Hero = () => {
   return (
     <HeroStyled>
       <HeroContentStyled>
@@ -18,3 +18,5 @@ export const Hero = () => {
     </HeroStyled>
   );
 };
+
+export default Hero;

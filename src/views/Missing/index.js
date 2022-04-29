@@ -1,2 +1,1 @@
-// Header barrel file
-export { Missing } from './Missing';
+export { default } from './Missing';
