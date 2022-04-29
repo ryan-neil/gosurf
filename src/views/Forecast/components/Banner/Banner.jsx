@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
+import { useQuery } from 'react-query';
 // helpers
-import { useFetch } from '../../../../hooks/useFetch';
 import { calcSunTimes } from '../../../../helpers/calculations.helpers';
 // components
 import FetchLoading from '../../../../components/FetchLoading';
@@ -14,32 +14,33 @@ import { Flex } from '../../../../styles/Utils.styled';
 const Banner = ({ spot }) => {
   // get sunrise and sunset
   const { sunrise, sunset } = calcSunTimes(spot.lat, spot.lon);
-
-  // fetch weather data
-  const { response, loading, error } = useFetch(`/api/weather?stationId=${spot.station_id}`);
+  // fetch weather API from react query
+  const { isLoading, error, data } = useQuery('spots', () =>
+    fetch(`/api/weather?stationId=${spot.station_id}`).then((res) => res.json())
+  );
   // mock fetch
-  // const response = mockData;
-  // const loading = false;
+  // const data = mockData;
+  // const isLoading = false;
   // const error = false;
 
   return (
     <StyledBanner>
-      {loading && <FetchLoading />}
+      {isLoading && <FetchLoading />}
       {error && <FetchError name="Weather" error={error} />}
-      {response && (
+      {data && (
         <>
           <StyledBannerItem>
             <h3>Water Temperature</h3>
             <Flex gapSm center>
               <StyledWaterIcon />
-              <h4>{`${response.waterTemp}°F`}</h4>
+              <h4>{`${data.waterTemp}°F`}</h4>
             </Flex>
           </StyledBannerItem>
           <StyledBannerItem>
             <h3>Air Temperature</h3>
             <Flex gapSm center>
               <StyledAirIcon />
-              <h4>{`${response.airTemp}°F`}</h4>
+              <h4>{`${data.airTemp}°F`}</h4>
             </Flex>
           </StyledBannerItem>
           <StyledBannerItem>

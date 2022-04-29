@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
+import { useQuery } from 'react-query';
 // components
 import BarChart from '../BarChart';
 import FetchLoading from '../../../../components/FetchLoading';
 import FetchError from '../../../../components/FetchError';
 // helpers
-import { useFetch } from '../../../../hooks/useFetch';
 import { convertRoundNumber, convertMilitaryToReg } from '../../../../helpers/conversions.helpers';
 // styles
 import { StyledGridItem, StyledGridItemBody } from '../../Forecast.styled';

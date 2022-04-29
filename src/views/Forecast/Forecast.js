@@ -1,7 +1,6 @@
 import { useParams } from 'react-router-dom';
-// helpers
-import { useFetch } from '../../hooks/useFetch';
-// Components
+import { useQuery } from 'react-query';
+// components
 import Heading from './components/Heading';
 import Banner from './components/Banner';
 import Wave from './components/Wave/Wave';
@@ -11,7 +10,7 @@ import Swell from './components/Swell/Swell';
 import FetchLoading from '../../components/FetchLoading';
 import FetchError from '../../components/FetchError';
 import SpotError from '../../components/SpotError';
-// Styles
+// styles
 import {
   StyledForecast,
   StyledForecastLoading,
@@ -22,12 +21,15 @@ import { Container } from '../../styles/Utils.styled';
 
 const Forecast = () => {
   const { slug } = useParams(); // get param value
-  const { response, loading, error } = useFetch('/api/spots'); // get all spots
+  // fetch spots API from react query
+  const { isLoading, error, data } = useQuery('spots', () =>
+    fetch('/api/spots').then((res) => res.json())
+  );
 
   /**
    * Show loading state for entire page
    */
-  if (loading)
+  if (isLoading)
     return (
       <>
         <StyledHeaderBackground />
@@ -54,7 +56,7 @@ const Forecast = () => {
     );
 
   // filter for param spot
-  const spot = response.filter((item) => item.slug === slug);
+  const spot = data.filter((item) => item.slug === slug);
 
   // check if parameter spot is a valid location
   if (spot.length === 0) return <SpotError />;

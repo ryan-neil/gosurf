@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
+import { useQuery } from 'react-query';
 // components
 import LineChart from '../LineChart';
 import FetchLoading from '../../../../components/FetchLoading';
 import FetchError from '../../../../components/FetchError';
 // helpers
-import { useFetch } from '../../../../hooks/useFetch';
 import {
   convertRoundNumber,
   convertMetersToFeet,
@@ -19,43 +19,39 @@ import swellIcon from '../../../../assets/swell.svg';
 // import mockData from '../../../../mocks/swellMockData.json';
 
 const Swell = ({ spot }) => {
-  // fetch wave data
-  const { response, loading, error } = useFetch(`/api/swell?lat=${spot.lat}&lon=${spot.lon}`);
+  // fetch weather API from react query
+  const { isLoading, error, data } = useQuery('spots', () =>
+    fetch(`/api/swell?lat=${spot.lat}&lon=${spot.lon}`).then((res) => res.json())
+  );
   // mock fetch
-  // const response = mockData;
-  // const loading = false;
+  // const data = mockData;
+  // const isLoading = false;
   // const error = false;
 
   return (
     <StyledGridItem>
-      {loading && <FetchLoading />}
+      {isLoading && <FetchLoading />}
       {error && <FetchError name="Swell" error={error} />}
-      {response && (
+      {data && (
         <>
           <SwellHeader />
           <SwellBody
-            currentPrimSwellHeight={convertRoundNumber(response.primarySwellHeight.current, 1)}
-            currentPrimSwellDirection={convertRoundNumber(
-              response.primarySwellDirection.current,
-              0
-            )}
-            currentPrimSwellPeriod={convertRoundNumber(response.primarySwellPeriod.current, 0)}
-            currentSecSwellHeight={convertRoundNumber(response.secondarySwellHeight.current, 1)}
-            currentSecSwellDirection={convertRoundNumber(
-              response.secondarySwellDirection.current,
-              0
-            )}
-            currentSecSwellPeriod={convertRoundNumber(response.secondarySwellPeriod.current, 0)}
+            currentPrimSwellHeight={convertRoundNumber(data.primarySwellHeight.current, 1)}
+            currentPrimSwellDirection={convertRoundNumber(data.primarySwellDirection.current, 0)}
+            currentPrimSwellPeriod={convertRoundNumber(data.primarySwellPeriod.current, 0)}
+            currentSecSwellHeight={convertRoundNumber(data.secondarySwellHeight.current, 1)}
+            currentSecSwellDirection={convertRoundNumber(data.secondarySwellDirection.current, 0)}
+            currentSecSwellPeriod={convertRoundNumber(data.secondarySwellPeriod.current, 0)}
           />
           <LineChart
             heading="Swell"
-            xAxis={response.times
+            xAxis={data.times
               .map((hour) => convertTimeString(hour.slice(0, 19), { hour: 'numeric' }))
               .slice(5, 21)}
-            yAxis={response.primarySwellHeight.hourly
+            yAxis={data.primarySwellHeight.hourly
               .map((hour) => convertMetersToFeet(hour))
               .slice(5, 21)}
-            yAxisSec={response.secondarySwellHeight.hourly
+            yAxisSec={data.secondarySwellHeight.hourly
               .map((hour) => convertMetersToFeet(hour))
               .slice(5, 21)}
           />

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
+import { useQuery } from 'react-query';
 // helpers
-import { useFetch } from '../../../../hooks/useFetch';
 import { convertRoundNumber, convertMilitaryToReg } from '../../../../helpers/conversions.helpers';
 // components
 import LineChart from '../LineChart';

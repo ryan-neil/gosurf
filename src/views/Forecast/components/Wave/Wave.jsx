@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
+import { useQuery } from 'react-query';
 // components
 import FetchLoading from '../../../../components/FetchLoading';
 import FetchError from '../../../../components/FetchError';
 import BarChart from '../BarChart';
 // helpers
-import { useFetch } from '../../../../hooks/useFetch';
 import {
   convertRoundNumber,
   convertMetersToFeet,
