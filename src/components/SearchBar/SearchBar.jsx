@@ -9,12 +9,11 @@ import { StyledSearchBar, StyledInputResults } from './SearchBar.styled';
 import { SearchBarIcon, StyledInput } from '../../styles/Utils.styled';
 
 const SearchBar = () => {
-  // set states
   const [inputValue, setInputValue] = useState('');
   const [searchText, setSearchText] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   // fetch spots API from react query
-  const { isLoading, error, data } = useQuery('spots', () =>
+  const { isLoading, error, data } = useQuery('spotsData', () =>
     fetch('/api/spots').then((res) => res.json())
   );
 

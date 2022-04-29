@@ -11,7 +11,7 @@ import {
   convertTimeString,
 } from '../../../../helpers/conversions.helpers';
 import { calcBodySize } from '../../../../helpers/calculations.helpers';
-// Styles
+// styles
 import { StyledGridItem, StyledGridItemBody } from '../../Forecast.styled';
 import { Flex } from '../../../../styles/Utils.styled';
 import waveIcon from '../../../../assets/wave.svg';
@@ -19,30 +19,32 @@ import waveIcon from '../../../../assets/wave.svg';
 // import mockData from '../../../../mocks/waveMockData.json';
 
 const Wave = ({ spot }) => {
-  // fetch wave data
-  const { response, loading, error } = useFetch(`/api/wave?lat=${spot.lat}&lon=${spot.lon}`);
-  // mock data
-  // const response = mockData;
-  // const loading = false;
+  // fetch wave API from react query
+  const { isLoading, error, data } = useQuery('waveData', () =>
+    fetch(`/api/wave?lat=${spot.lat}&lon=${spot.lon}`).then((res) => res.json())
+  );
+  // mock fetch
+  // const data = mockData;
+  // const isLoading = false;
   // const error = false;
 
   return (
     <StyledGridItem>
-      {loading && <FetchLoading />}
+      {isLoading && <FetchLoading />}
       {error && <FetchError name="Wave" error={error} />}
-      {response && (
+      {data && (
         <>
           <WaveHeader />
           <WaveBody
-            minWaveHeight={convertRoundNumber(convertMetersToFeet(response.waveHeight.min))}
-            maxWaveHeight={convertRoundNumber(convertMetersToFeet(response.waveHeight.max))}
+            minWaveHeight={convertRoundNumber(convertMetersToFeet(data.waveHeight.min))}
+            maxWaveHeight={convertRoundNumber(convertMetersToFeet(data.waveHeight.max))}
           />
           <BarChart
             heading="Wave Height"
-            xAxis={response.times
+            xAxis={data.times
               .map((hour) => convertTimeString(hour.slice(0, 19), { hour: 'numeric' }))
               .slice(5, 21)}
-            yAxis={response.waveHeight.hourly
+            yAxis={data.waveHeight.hourly
               .map((hour) => convertRoundNumber(convertMetersToFeet(hour)))
               .slice(5, 21)}
           />

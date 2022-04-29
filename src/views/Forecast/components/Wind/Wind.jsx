@@ -14,25 +14,27 @@ import windIcon from '../../../../assets/wind.svg';
 // import mockData from '../../../../mocks/windMockData.json';
 
 const Wind = ({ spot }) => {
-  // fetch weather data
-  const { response, loading, error } = useFetch(`/api/wind?stationId=${spot.station_id}`);
-  // mock data
-  // const response = mockData;
-  // const loading = false;
+  // fetch wind API from react query
+  const { isLoading, error, data } = useQuery('windData', () =>
+    fetch(`/api/wind?stationId=${spot.station_id}`).then((res) => res.json())
+  );
+  // mock fetch
+  // const data = mockData;
+  // const isLoading = false;
   // const error = false;
 
   return (
     <StyledGridItem>
-      {loading && <FetchLoading />}
+      {isLoading && <FetchLoading />}
       {error && <FetchError name="Wind" error={error} />}
-      {response && (
+      {data && (
         <>
           <WindHeader />
-          <WindBody currentWindData={response.current} />
+          <WindBody currentWindData={data.current} />
           <BarChart
             heading="Wind"
-            xAxis={response.hourly.map((hour) => convertMilitaryToReg(hour.t).short)} // this is where the bug is occurring (TypeError: can't access property "map", r.hourly is undefined)
-            yAxis={response.hourly.map((hour) => convertRoundNumber(hour.s))}
+            xAxis={data.hourly.map((hour) => convertMilitaryToReg(hour.t).short)} // this is where the bug is occurring (TypeError: can't access property "map", r.hourly is undefined)
+            yAxis={data.hourly.map((hour) => convertRoundNumber(hour.s))}
           />
         </>
       )}

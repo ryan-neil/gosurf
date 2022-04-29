@@ -22,7 +22,7 @@ import { Container } from '../../styles/Utils.styled';
 const Forecast = () => {
   const { slug } = useParams(); // get param value
   // fetch spots API from react query
-  const { isLoading, error, data } = useQuery('spots', () =>
+  const { isLoading, error, data } = useQuery('spotsData', () =>
     fetch('/api/spots').then((res) => res.json())
   );
 

@@ -14,8 +14,8 @@ import { Flex } from '../../../../styles/Utils.styled';
 const Banner = ({ spot }) => {
   // get sunrise and sunset
   const { sunrise, sunset } = calcSunTimes(spot.lat, spot.lon);
-  // fetch weather API from react query
-  const { isLoading, error, data } = useQuery('spots', () =>
+  // fetch banner API from react query
+  const { isLoading, error, data } = useQuery('bannerData', () =>
     fetch(`/api/weather?stationId=${spot.station_id}`).then((res) => res.json())
   );
   // mock fetch

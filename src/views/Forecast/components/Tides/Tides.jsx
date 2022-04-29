@@ -14,25 +14,27 @@ import tidesIcon from '../../../../assets/tides.svg';
 // import mockData from '../../../../mocks/tidesMockData.json';
 
 const Tides = ({ spot }) => {
-  // fetch tides data
-  const { response, loading, error } = useFetch(`/api/tides?stationId=${spot.station_id}`);
+  // fetch tides API from react query
+  const { isLoading, error, data } = useQuery('tidesData', () =>
+    fetch(`/api/tides?stationId=${spot.station_id}`).then((res) => res.json())
+  );
   // mock fetch
-  // const response = mockData;
-  // const loading = false;
+  // const data = mockData;
+  // const isLoading = false;
   // const error = false;
 
   return (
     <StyledGridItem>
-      {loading && <FetchLoading />}
+      {isLoading && <FetchLoading />}
       {error && <FetchError name="Tides" error={error} />}
-      {response && (
+      {data && (
         <>
           <TidesHeader />
-          <TidesBody todaysTides={response.current} />
+          <TidesBody todaysTides={data.current} />
           <LineChart
             heading="Tides"
-            xAxis={response.hourly.map((hour) => convertMilitaryToReg(hour.t).short).slice(5, 21)}
-            yAxis={response.hourly.map((hour) => convertRoundNumber(hour.v, 2)).slice(5, 21)}
+            xAxis={data.hourly.map((hour) => convertMilitaryToReg(hour.t).short).slice(5, 21)}
+            yAxis={data.hourly.map((hour) => convertRoundNumber(hour.v, 2)).slice(5, 21)}
           />
         </>
       )}

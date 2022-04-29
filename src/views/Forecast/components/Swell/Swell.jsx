@@ -19,8 +19,8 @@ import swellIcon from '../../../../assets/swell.svg';
 // import mockData from '../../../../mocks/swellMockData.json';
 
 const Swell = ({ spot }) => {
-  // fetch weather API from react query
-  const { isLoading, error, data } = useQuery('spots', () =>
+  // fetch swell API from react query
+  const { isLoading, error, data } = useQuery('swellData', () =>
     fetch(`/api/swell?lat=${spot.lat}&lon=${spot.lon}`).then((res) => res.json())
   );
   // mock fetch
