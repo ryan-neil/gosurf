@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useQuery } from 'react-query';
 // api
@@ -17,6 +17,7 @@ import {
 import { Container, StyledButton, StyledInput, SearchBarIcon } from '../../styles/Utils.styled';
 
 const Search = () => {
+  const inputRef = useRef();
   const [inputValue, setInputValue] = useState('');
   const [searchText, setSearchText] = useState('');
   const [searchResults, setSearchResults] = useState([]);
@@ -30,10 +31,12 @@ const Search = () => {
   if (isLoading) return <FetchLoading />;
   if (error) return <FetchError />;
 
-  /**
-   * Handle user search
-   *
-   */
+  // Setting the focus for when the component mounts
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
+  // Handle user search
   const handleSearch = (e) => {
     // set the input value to users input
     setInputValue(e.target.value);
@@ -47,10 +50,7 @@ const Search = () => {
     searchText === '' ? setSearchResults([]) : setSearchResults(filteredResults);
   };
 
-  /**
-   * Handle user selection
-   *
-   */
+  // Handle user selection
   const handleClick = (result) => {
     // set input value to clicked result
     setInputValue(`${result.name}, ${result.location.state}`);
@@ -86,6 +86,7 @@ const Search = () => {
             <input
               type="text"
               placeholder="Search spot..."
+              ref={inputRef}
               value={inputValue}
               onChange={handleSearch}
             />

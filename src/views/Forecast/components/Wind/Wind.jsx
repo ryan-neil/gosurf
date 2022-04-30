@@ -17,9 +17,7 @@ import windIcon from '../../../../assets/wind.svg';
 
 const Wind = ({ spot }) => {
   // fetch wind API from react query
-  const { isLoading, error, data } = useQuery(['windData', spot], () =>
-    api.getWindData(spot.station_id)
-  );
+  const { isLoading, error, data } = useQuery('windData', () => api.getWindData(spot.station_id));
 
   // * mock fetch
   // const data = mockData;

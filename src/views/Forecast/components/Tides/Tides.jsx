@@ -17,9 +17,7 @@ import tidesIcon from '../../../../assets/tides.svg';
 
 const Tides = ({ spot }) => {
   // fetch tides API from react query
-  const { isLoading, error, data } = useQuery(['tidesData', spot], () =>
-    api.getTidesData(spot.station_id)
-  );
+  const { isLoading, error, data } = useQuery('tidesData', () => api.getTidesData(spot.station_id));
 
   // * mock fetch
   // const data = mockData;

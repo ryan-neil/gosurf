@@ -22,7 +22,7 @@ import waveIcon from '../../../../assets/wave.svg';
 
 const Wave = ({ spot }) => {
   // fetch wave API from react query
-  const { isLoading, error, data } = useQuery(['waveData', spot], () =>
+  const { isLoading, error, data } = useQuery('waveData', () =>
     api.getWaveData(spot.lat, spot.lon)
   );
 

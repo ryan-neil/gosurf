@@ -1,3 +1,5 @@
+// ** Currently not in use **
+
 import { useEffect, useState } from 'react';
 
 export const useFetch = (url, options) => {

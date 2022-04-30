@@ -22,7 +22,7 @@ import swellIcon from '../../../../assets/swell.svg';
 
 const Swell = ({ spot }) => {
   // fetch swell API from react query
-  const { isLoading, error, data } = useQuery(['swellData', spot], () =>
+  const { isLoading, error, data } = useQuery('swellData', () =>
     api.getSwellData(spot.lat, spot.lon)
   );
 

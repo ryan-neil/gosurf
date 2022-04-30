@@ -17,7 +17,7 @@ const Banner = ({ spot }) => {
   // get sunrise and sunset
   const { sunrise, sunset } = calcSunTimes(spot.lat, spot.lon);
   // fetch banner API from react query
-  const { isLoading, error, data } = useQuery(['bannerData', spot], () =>
+  const { isLoading, error, data } = useQuery('bannerData', () =>
     api.getBannerData(spot.station_id)
   );
 

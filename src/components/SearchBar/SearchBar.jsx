@@ -17,8 +17,6 @@ const SearchBar = () => {
   // fetch spots API from react query
   const { isLoading, error, data } = useQuery('spotsData', api.getSpots);
 
-  console.log(data);
-
   // mounted data checks
   if (isLoading) return <FetchLoading />;
   if (error) return <FetchError />;
