@@ -1,5 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
+// api
+import * as api from '../../services/api';
 // components
 import Heading from './components/Heading';
 import Banner from './components/Banner';
@@ -22,9 +24,7 @@ import { Container } from '../../styles/Utils.styled';
 const Forecast = () => {
   const { slug } = useParams(); // get param value
   // fetch spots API from react query
-  const { isLoading, error, data } = useQuery('spotsData', () =>
-    fetch('/api/spots').then((res) => res.json())
-  );
+  const { isLoading, error, data } = useQuery('spotsData', api.getSpots);
 
   /**
    * Show loading state for entire page

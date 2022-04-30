@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import { useQuery } from 'react-query';
+// api
+import * as api from '../../../../services/api';
 // components
 import BarChart from '../BarChart';
 import FetchLoading from '../../../../components/FetchLoading';
@@ -15,10 +17,11 @@ import windIcon from '../../../../assets/wind.svg';
 
 const Wind = ({ spot }) => {
   // fetch wind API from react query
-  const { isLoading, error, data } = useQuery('windData', () =>
-    fetch(`/api/wind?stationId=${spot.station_id}`).then((res) => res.json())
+  const { isLoading, error, data } = useQuery(['windData', spot], () =>
+    api.getWindData(spot.station_id)
   );
-  // mock fetch
+
+  // * mock fetch
   // const data = mockData;
   // const isLoading = false;
   // const error = false;

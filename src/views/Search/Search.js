@@ -1,6 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useQuery } from 'react-query';
+// api
+import * as api from '../../services/api';
 // components
 import FetchLoading from '../../components/FetchLoading';
 import FetchError from '../../components/FetchError';
@@ -22,9 +24,7 @@ const Search = () => {
   const navigate = useNavigate();
 
   // fetch spots API from react query
-  const { isLoading, error, data } = useQuery('spotsData', () =>
-    fetch('/api/spots').then((res) => res.json())
-  );
+  const { isLoading, error, data } = useQuery('spotsData', api.getSpots);
 
   // mounted data checks
   if (isLoading) return <FetchLoading />;

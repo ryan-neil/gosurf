@@ -24,6 +24,7 @@ const getWindData = async (req, res) => {
     ]);
 
     // update hourly response time key value to be only the military time for frontend to read
+    // BUG!!! ("Cannot read property 'map' of undefined")
     const formatHourlyResponse = hourly.data.map((time) => ({
       ...time,
       t: time.t.slice(11, 18),

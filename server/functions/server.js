@@ -7,8 +7,8 @@ const connectDB = require('../db/connectDB');
 const corConfig = require('../config/corsConfig');
 const envConfig = require('../config/envConfig');
 // middleware
-const rateLimit = require('../middleware/rateLimit');
-const apiCache = require('../middleware/apiCache');
+// const rateLimit = require('../middleware/rateLimit');
+// const apiCache = require('../middleware/apiCache');
 const errorHandler = require('../middleware/errorHandler');
 
 const app = express();
@@ -16,9 +16,9 @@ const app = express();
 // middleware
 app.use(cors(corConfig)); // allow request from frontend
 app.use(express.json()); // parsing json
-app.use(rateLimit); // rate limiting
-app.set('trust proxy', 1); // for netlify (rate limiting)
-app.use(apiCache('15 minutes')); // api caching
+// app.use(rateLimit); // rate limiting
+// app.set('trust proxy', 1); // for netlify (rate limiting)
+// app.use(apiCache('15 minutes')); // api caching
 
 // DJ, spin that sh*t...
 connectDB(envConfig.DATABASE_URI);

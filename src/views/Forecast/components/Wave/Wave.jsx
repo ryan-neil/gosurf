@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import { useQuery } from 'react-query';
+// api
+import * as api from '../../../../services/api';
 // components
 import FetchLoading from '../../../../components/FetchLoading';
 import FetchError from '../../../../components/FetchError';
@@ -20,10 +22,11 @@ import waveIcon from '../../../../assets/wave.svg';
 
 const Wave = ({ spot }) => {
   // fetch wave API from react query
-  const { isLoading, error, data } = useQuery('waveData', () =>
-    fetch(`/api/wave?lat=${spot.lat}&lon=${spot.lon}`).then((res) => res.json())
+  const { isLoading, error, data } = useQuery(['waveData', spot], () =>
+    api.getWaveData(spot.lat, spot.lon)
   );
-  // mock fetch
+
+  // * mock fetch
   // const data = mockData;
   // const isLoading = false;
   // const error = false;

@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from 'react-query';
+// api
+import * as api from '../../services/api';
 // components
 import FetchLoading from '../FetchLoading';
 import FetchError from '../FetchError';
@@ -13,9 +15,9 @@ const SearchBar = () => {
   const [searchText, setSearchText] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   // fetch spots API from react query
-  const { isLoading, error, data } = useQuery('spotsData', () =>
-    fetch('/api/spots').then((res) => res.json())
-  );
+  const { isLoading, error, data } = useQuery('spotsData', api.getSpots);
+
+  console.log(data);
 
   // mounted data checks
   if (isLoading) return <FetchLoading />;
@@ -23,7 +25,6 @@ const SearchBar = () => {
 
   /**
    * Handle user search
-   *
    */
   const handleSearch = (e) => {
     // set the input value to users input
@@ -40,7 +41,6 @@ const SearchBar = () => {
 
   /**
    * Handle user selection
-   *
    */
   const handleClick = (result) => {
     // set input value to clicked result

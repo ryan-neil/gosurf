@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import { useQuery } from 'react-query';
+// api
+import * as api from '../../../../services/api';
 // helpers
 import { convertRoundNumber, convertMilitaryToReg } from '../../../../helpers/conversions.helpers';
 // components
@@ -15,10 +17,11 @@ import tidesIcon from '../../../../assets/tides.svg';
 
 const Tides = ({ spot }) => {
   // fetch tides API from react query
-  const { isLoading, error, data } = useQuery('tidesData', () =>
-    fetch(`/api/tides?stationId=${spot.station_id}`).then((res) => res.json())
+  const { isLoading, error, data } = useQuery(['tidesData', spot], () =>
+    api.getTidesData(spot.station_id)
   );
-  // mock fetch
+
+  // * mock fetch
   // const data = mockData;
   // const isLoading = false;
   // const error = false;

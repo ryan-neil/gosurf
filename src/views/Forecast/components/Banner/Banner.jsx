@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import { useQuery } from 'react-query';
+// api
+import * as api from '../../../../services/api';
 // helpers
 import { calcSunTimes } from '../../../../helpers/calculations.helpers';
 // components
@@ -15,10 +17,11 @@ const Banner = ({ spot }) => {
   // get sunrise and sunset
   const { sunrise, sunset } = calcSunTimes(spot.lat, spot.lon);
   // fetch banner API from react query
-  const { isLoading, error, data } = useQuery('bannerData', () =>
-    fetch(`/api/weather?stationId=${spot.station_id}`).then((res) => res.json())
+  const { isLoading, error, data } = useQuery(['bannerData', spot], () =>
+    api.getBannerData(spot.station_id)
   );
-  // mock fetch
+
+  // * mock fetch
   // const data = mockData;
   // const isLoading = false;
   // const error = false;

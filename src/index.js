@@ -2,6 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 import App from './App';
 
 // invoke react query
@@ -13,6 +14,7 @@ root.render(
   <Router>
     <QueryClientProvider client={queryClient}>
       <App tab="home" />
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   </Router>
 );

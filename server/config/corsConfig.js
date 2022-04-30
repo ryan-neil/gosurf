@@ -5,6 +5,7 @@ const envConfig = require('./envConfig');
 // *REMOVE* development urls for prod
 const whitelist = [
   'https://www.gosurf.io', // production domain
+  'http://localhost:8888', // development domain
 ];
 
 // define the Cross Origin Resource Sharing options
