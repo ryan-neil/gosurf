@@ -28,11 +28,11 @@ const LineChart = ({ heading, xAxis, yAxis, yAxisSec }) => {
         data: yAxis,
         // styles
         fill: heading === 'Tides' || false,
-        tension: heading === 'Tides' ? 0.2 : 0,
-        borderWidth: 1,
+        tension: heading === 'Tides' ? 0.4 : 0,
+        borderWidth: 2,
         borderRadius: 2,
         pointBorderWidth: 1.25,
-        pointRadius: 3, // 3.5 (chartPointRadius)
+        pointRadius: heading === 'Tides' ? 3 : 3, // 3.5 (chartPointRadius)
         // colors
         backgroundColor: chartBar,
         borderColor: heading === 'Tides' ? chartBarBorder : chartPrimSwellLine,
@@ -45,7 +45,7 @@ const LineChart = ({ heading, xAxis, yAxis, yAxisSec }) => {
         data: yAxisSec,
         // styles
         tension: 0,
-        borderWidth: 1,
+        borderWidth: 2,
         borderRadius: 2,
         pointBorderWidth: 1.25,
         pointRadius: 3, // 3.5 (chartPointRadius)

@@ -5,7 +5,7 @@ const getTodaysDate = require('../helpers/getTodaysDate');
 const getWindData = async (req, res) => {
   const { stationId } = req.query;
   const { today } = getTodaysDate();
-  const options = { methof: 'GET' };
+  const options = { method: 'GET' };
 
   try {
     // fetch helper function
@@ -39,13 +39,10 @@ const getWindData = async (req, res) => {
     // send data object back to client
     return res.json(dataObject);
   } catch (err) {
-    console.error({
+    res.status(500).json({
       message: 'Error fetching wind data',
       error: err,
     });
-
-    res.json(err.message);
-    res.sendStatus(500);
   }
 };
 

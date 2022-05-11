@@ -21,15 +21,10 @@ const Search = () => {
   const [inputValue, setInputValue] = useState('');
   const [searchText, setSearchText] = useState('');
   const [searchResults, setSearchResults] = useState([]);
-
   const navigate = useNavigate();
 
   // fetch spots API from react query
   const { isLoading, error, data } = useQuery('spotsData', api.getSpots);
-
-  // mounted data checks
-  if (isLoading) return <FetchLoading />;
-  if (error) return <FetchError />;
 
   // Setting the focus for when the component mounts
   useEffect(() => {
@@ -81,6 +76,8 @@ const Search = () => {
       <StyledHeaderBackground />
       <Container>
         <StyledSearchHeader>
+          {isLoading && <FetchLoading />}
+          {error && <FetchError />}
           <StyledInput>
             <SearchBarIcon />
             <input
