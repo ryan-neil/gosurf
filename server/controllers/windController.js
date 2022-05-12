@@ -30,6 +30,8 @@ const getWindData = async (req, res) => {
       t: time.t.slice(11, 18),
     }));
 
+    console.log(formatHourlyResponse);
+
     // create our data object
     const dataObject = {
       current: current.data[0],
