@@ -7,10 +7,9 @@ import { setupServer } from 'msw/node';
 import { ThemeProvider } from 'styled-components';
 import { themeMode } from '../../../../styles/Theme.styled';
 // mock data
-import spotMockData from '../../../../mocks/spotMockData.json';
-import swellMockData from '../../../../mocks/swellMockData.json';
+import swellMockData from '../../../../../mocks/swellMockData.json';
 // component
-import { Swell } from './Swell';
+import Swell from './Swell';
 
 // mock fetch API
 const server = setupServer(

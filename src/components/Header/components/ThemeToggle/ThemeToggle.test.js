@@ -6,7 +6,7 @@ import { render, screen } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 import { themeMode } from '../../../../styles/Theme.styled';
 // component
-import { ThemeToggle } from './ThemeToggle';
+import ThemeToggle from './ThemeToggle';
 
 describe('ThemeToggle', () => {
   it('Should show moon icon', async () => {

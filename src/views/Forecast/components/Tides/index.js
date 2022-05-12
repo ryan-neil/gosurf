@@ -1,1 +1,1 @@
-export { Tides } from './Tides';
+export { default } from './Tides';

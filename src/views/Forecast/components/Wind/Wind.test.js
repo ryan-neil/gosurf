@@ -7,10 +7,9 @@ import { setupServer } from 'msw/node';
 import { ThemeProvider } from 'styled-components';
 import { themeMode } from '../../../../styles/Theme.styled';
 // mock data
-import spotMockData from '../../../../mocks/spotMockData.json';
-import windMockData from '../../../../mocks/windMockData.json';
+import windMockData from '../../../../../mocks/windMockData.json';
 // component
-import { Wind } from './Wind';
+import Wind from './Wind';
 
 // mock fetch API
 const server = setupServer(

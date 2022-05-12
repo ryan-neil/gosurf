@@ -1,5 +1,4 @@
 // Configure our CORS object
-const envConfig = require('./envConfig');
 
 // define domains allowed to access API
 // *REMOVE* development urls for prod

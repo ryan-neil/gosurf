@@ -8,7 +8,7 @@ import { ThemeProvider } from 'styled-components';
 import { themeMode } from '../../../../styles/Theme.styled';
 // mock data
 // import spotMockData from '../../../../mocks/spotMockData.json';
-import tidesMockData from '../../../../mocks/tidesMockData.json';
+import tidesMockData from '../../../../../mocks/tidesMockData.json';
 // component
 import Tides from './Tides';
 

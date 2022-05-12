@@ -9,7 +9,7 @@ import { ThemeProvider } from 'styled-components';
 import { themeMode } from '../../styles/Theme.styled';
 
 // mock data
-import spotsMockData from '../../mocks/spotsMockData.json';
+import spotsMockData from '../../../mocks/spotsMockData.json';
 // component
 import SearchBar from './SearchBar';
 

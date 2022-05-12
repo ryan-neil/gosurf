@@ -10,7 +10,7 @@ import { ThemeProvider } from 'styled-components';
 import { themeMode } from '../../../../styles/Theme.styled';
 // mock data
 // import spotMockData from '../../../../mocks/spotMockData.json';
-import waveMockData from '../../../../mocks/waveMockData.json';
+import waveMockData from '../../../../../mocks/waveMockData.json';
 // component
 import Wave from './Wave';
 

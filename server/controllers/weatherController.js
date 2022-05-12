@@ -30,13 +30,10 @@ const getWeatherData = async (req, res) => {
     // send data object back to client
     return res.json(dataObject);
   } catch (err) {
-    console.error({
+    res.status(500).json({
       message: 'Error fetching weather data',
       error: err,
     });
-
-    res.json(err.message);
-    res.sendStatus(500);
   }
 };
 

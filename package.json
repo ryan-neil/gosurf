@@ -10,7 +10,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint .",
-    "lint-fix": "eslint --fix",
+    "lint-fix": "eslint . --fix",
     "server": "nodemon server/server-local",
     "start:dev": "netlify dev",
     "build:dev": "netlify build",

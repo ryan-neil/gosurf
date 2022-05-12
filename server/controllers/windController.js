@@ -1,6 +1,5 @@
 const fetch = require('node-fetch');
 const getTodaysDate = require('../helpers/getTodaysDate');
-const mockData = require('../../mocks/windMockData.json');
 
 // get wind data from noaa
 const getWindData = async (req, res) => {
