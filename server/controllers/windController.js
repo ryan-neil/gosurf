@@ -1,5 +1,6 @@
 const fetch = require('node-fetch');
 const getTodaysDate = require('../helpers/getTodaysDate');
+const mockData = require('../../mocks/windMockData.json');
 
 // get wind data from noaa
 const getWindData = async (req, res) => {
@@ -29,8 +30,6 @@ const getWindData = async (req, res) => {
       ...time,
       t: time.t.slice(11, 18),
     }));
-
-    console.log(formatHourlyResponse);
 
     // create our data object
     const dataObject = {
