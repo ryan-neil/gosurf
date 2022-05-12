@@ -16,7 +16,7 @@ export const getSpot = (data, slug) => {
     }
     return spot;
   } catch (err) {
-    console.error(err);
+    throw new Error(`Something went wrong: ${err}`);
   }
 };
 
