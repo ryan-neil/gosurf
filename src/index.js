@@ -6,7 +6,13 @@ import { ReactQueryDevtools } from 'react-query/devtools';
 import App from './App';
 
 // invoke react query
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 const container = document.getElementById('root');
 const root = createRoot(container);
