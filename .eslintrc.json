@@ -20,6 +20,7 @@
     "no-console": "warn",
     "no-underscore-dangle": 0,
     "no-restricted-exports": "off",
+    "no-plusplus": "off",
     "consistent-return": 0,
     "func-names": "off",
     "object-shorthand": "off",

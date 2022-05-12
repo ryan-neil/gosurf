@@ -55,23 +55,22 @@ const Forecast = () => {
       </>
     );
 
-  // filter for param spot
-  const spot = data.filter((item) => item.slug === slug);
-
-  // check if parameter spot is a valid location
-  if (spot.length === 0) return <SpotError />;
+  // get spot passed into the parameters
+  const foundSpot = api.getSpot(data, slug);
+  // check if spot is a valid location
+  if (!foundSpot) return <SpotError />;
 
   return (
     <StyledForecast>
       <StyledHeaderBackground />
       <Container>
-        <Heading spot={spot[0]} />
-        <Banner spot={spot[0]} />
+        <Heading spot={foundSpot} />
+        <Banner spot={foundSpot} />
         <StyledGridContainer>
-          <Wave spot={spot[0]} />
-          <Tides spot={spot[0]} />
-          <Wind spot={spot[0]} />
-          <Swell spot={spot[0]} />
+          <Wave spot={foundSpot} />
+          <Tides spot={foundSpot} />
+          <Wind spot={foundSpot} />
+          <Swell spot={foundSpot} />
         </StyledGridContainer>
       </Container>
     </StyledForecast>

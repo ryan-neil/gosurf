@@ -7,9 +7,9 @@ import { StyledError, ErrorIcon } from './SpotError.styled';
 const SpotError = () => {
   const navigate = useNavigate();
 
-  // navigate to home page after 2 seconds
+  // navigate to home page after 4 seconds
   useEffect(() => {
-    setTimeout(() => navigate('/'), 2000);
+    setTimeout(() => navigate('/'), 4000);
   }, []);
 
   return (

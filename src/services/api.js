@@ -5,6 +5,21 @@ export const getSpots = async () => {
   return res.json();
 };
 
+export const getSpot = (data, slug) => {
+  let spot;
+  try {
+    for (let i = 0; i <= data.length; i++) {
+      if (data[i].slug === slug) {
+        spot = data[i];
+        break;
+      }
+    }
+    return spot;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 // get banner data with the station ID
 export const getBannerData = async (stationId) => {
   const res = await fetch(`/api/weather?stationId=${stationId}`);
