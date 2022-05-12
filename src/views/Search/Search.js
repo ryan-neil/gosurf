@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useQuery } from 'react-query';
 // api
-import * as api from '../../services/spotApi';
+import * as api from '../../services/spotsApi';
 // components
 import FetchLoading from '../../components/FetchLoading';
 import FetchError from '../../components/FetchError';

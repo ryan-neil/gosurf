@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useQuery } from 'react-query';
 // api
-import * as api from '../../../../services/spotApi';
+import * as api from '../../../../services/spotsApi';
 // components
 import LineChart from '../LineChart';
 import FetchLoading from '../../../../components/FetchLoading';
