@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
 // api
-import * as api from '../../services/api';
+import * as api from '../../services/spotApi';
 // components
 import Heading from './components/Heading';
 import Banner from './components/Banner';
@@ -24,7 +24,7 @@ import { Container } from '../../styles/Utils.styled';
 const Forecast = () => {
   const { slug } = useParams(); // get param value
   // fetch spots API from react query
-  const { isLoading, error, data } = useQuery('spotsData', api.getSpots);
+  const { isLoading, error, data: spot } = useQuery('spotsData', () => api.getSpot(slug));
 
   /**
    * Show loading state for entire page
@@ -40,6 +40,7 @@ const Forecast = () => {
         </Container>
       </>
     );
+
   /**
    * Show error state for entire page
    */
@@ -56,21 +57,21 @@ const Forecast = () => {
     );
 
   // get spot passed into the parameters
-  const foundSpot = api.getSpot(data, slug);
+  // const foundSpot = api.getSpot(slug);
   // check if spot is a valid location
-  if (!foundSpot) return <SpotError />;
+  if (!spot) return <SpotError />;
 
   return (
     <StyledForecast>
       <StyledHeaderBackground />
       <Container>
-        <Heading spot={foundSpot} />
-        <Banner spot={foundSpot} />
+        <Heading spot={spot} />
+        <Banner spot={spot} />
         <StyledGridContainer>
-          <Wave spot={foundSpot} />
-          <Tides spot={foundSpot} />
-          <Wind spot={foundSpot} />
-          <Swell spot={foundSpot} />
+          <Wave spot={spot} />
+          <Tides spot={spot} />
+          <Wind spot={spot} />
+          <Swell spot={spot} />
         </StyledGridContainer>
       </Container>
     </StyledForecast>

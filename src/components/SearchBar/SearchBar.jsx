@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from 'react-query';
 // api
-import * as api from '../../services/api';
+import * as api from '../../services/spotApi';
 // components
 import FetchLoading from '../FetchLoading';
 import FetchError from '../FetchError';

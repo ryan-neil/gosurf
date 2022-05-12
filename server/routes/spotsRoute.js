@@ -11,7 +11,7 @@ const {
 const router = express.Router();
 
 router.get('/', getAllSpots);
-router.get('/:id', getSpot);
+router.get('/:slug', getSpot);
 router.post('/addAllSpots', addAllSpots);
 router.post('/addSpot', addSpot);
 router.delete('/deleteAllSpots', deleteAllSpots);

@@ -15,9 +15,9 @@ const getAllSpots = (req, res) => {
 
 // get a single spot from database
 const getSpot = (req, res) => {
-  const spotId = req.params.id;
+  const { slug } = req.params;
 
-  SpotModel.findById(spotId, (err, result) => {
+  SpotModel.findOne({ slug: slug }, (err, result) => {
     if (err) {
       res.json(err);
     } else {

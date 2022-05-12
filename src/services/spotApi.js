@@ -5,19 +5,11 @@ export const getSpots = async () => {
   return res.json();
 };
 
-export const getSpot = (data, slug) => {
-  let spot;
-  try {
-    for (let i = 0; i <= data.length; i++) {
-      if (data[i].slug === slug) {
-        spot = data[i];
-        break;
-      }
-    }
-    return spot;
-  } catch (err) {
-    throw new Error(`Something went wrong: ${err}`);
-  }
+// get single spot
+export const getSpot = async (slug) => {
+  const res = await fetch(`/api/spots/${slug}`);
+  if (!res.ok) throw new Error(`Error fetching Spot data: ${res.status}`);
+  return res.json();
 };
 
 // get banner data with the station ID

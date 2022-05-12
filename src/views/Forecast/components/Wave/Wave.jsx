@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useQuery } from 'react-query';
 // api
-import * as api from '../../../../services/api';
+import * as api from '../../../../services/spotApi';
 // components
 import FetchLoading from '../../../../components/FetchLoading';
 import FetchError from '../../../../components/FetchError';
