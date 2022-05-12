@@ -7,7 +7,6 @@ import BarChart from '../BarChart';
 import FetchLoading from '../../../../components/FetchLoading';
 import FetchError from '../../../../components/FetchError';
 // helpers
-// import { useFetch } from '../../../../hooks/useFetch';
 import { convertRoundNumber, convertMilitaryToReg } from '../../../../helpers/conversions.helpers';
 // styles
 import { StyledGridItem, StyledGridItemBody } from '../../Forecast.styled';
@@ -19,7 +18,6 @@ import windIcon from '../../../../assets/wind.svg';
 const Wind = ({ spot }) => {
   // fetch wind API from react query
   const { isLoading, error, data } = useQuery('windData', () => api.getWindData(spot.station_id));
-  // const { isLoading, error, data } = useFetch(`/api/wind?stationId=${spot.station_id}`);
 
   // * mock fetch
   // const data = mockData;
