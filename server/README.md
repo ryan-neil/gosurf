@@ -255,6 +255,31 @@ Here's the tricky part, because of course with weather forecasting there are som
 
 - _node-wget_: A download tool, now supporting http/https resource and http/https proxy ([Github](https://github.com/wuchengwei/node-wget), [npm](https://www.npmjs.com/package/wget)) (used to grab buoy data)
 
+Pacioos:
+
+- [Wave Forecast: Global](https://www.pacioos.hawaii.edu/waves/model-global/#about)
+- [Wave Forecast: Global Access](https://www.pacioos.hawaii.edu/waves/model-global/#access)
+- [Wave Observations : Hilo](https://www.pacioos.hawaii.edu/waves/buoy-hilo/)
+
+Possible Endpoints:
+
+```js
+// Hilo Buoy: CDIP188
+
+// Significant Wave Height
+const SWH_URL =
+  'https://www.pacioos.hawaii.edu/ssi/stations/data/CDIP188.significant_wave_height.csv?nocache=1652902199905';
+// Peak Wave From Direction
+const PWD_URL =
+  'https://www.pacioos.hawaii.edu/ssi/stations/data/CDIP188.peak_wave_from_direction.csv?nocache=1652902199909';
+// Peak Wave Period
+const PWP_URL =
+  '	https://www.pacioos.hawaii.edu/ssi/stations/data/CDIP188.peak_wave_period.csv?nocache=1652902199910';
+// Water Temperature
+const WTR_TEMP_URL =
+  'https://www.pacioos.hawaii.edu/ssi/stations/data/CDIP188.sea_surface_temperature.csv?nocache=1652902665177';
+```
+
 NOAA:
 
 - NOAA CO-OPS API for Data Retrieval - ([NOAA Tides API Docs](https://api.tidesandcurrents.noaa.gov/api/prod/))
